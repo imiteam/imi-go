@@ -1,0 +1,12 @@
+overwrite: true
+schema: ./schema.graphql
+
+generates:
+  generated/index.ts:
+    documents:
+      - "src/**/*.{ts,tsx}"
+      - "!src/**/*.generated.{ts,tsx}"
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request

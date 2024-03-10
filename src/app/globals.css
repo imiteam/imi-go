@@ -2,32 +2,925 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: "TTNormsBold";
+    src: url("/fonts/TTNormsBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "TTNormsMedium";
+    src: url("/fonts/TTNormsMedium.woff") format("woff");
+    src: url("/fonts/TTNormsMedium.eot");
+    src: url("/fonts/TTNormsMedium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: "TTNormsRegular";
+    src: url("/fonts/TTNormsRegular.woff") format("woff");
+    src: url("/fonts/TTNormsRegular.eot");
+    src: url("/fonts/TTNormsRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "NeueMachinaBold";
+    src: url("/fonts/NeueMachinaBold.ttf") format("truetype");
+    /* src : url("../fonts/NeueMachinaBold.woff") format("woff");
+    src : url("../fonts/NeueMachinaBold.eot"); */
+    font-style: bold;
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "NeueMachinaMedium";
+    src: url("/fonts/NeueMachinaMedium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: "InterMedium";
+    src: url("/fonts/Inter-Medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: "InterRegular";
+    src: url("/fonts/Inter-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "InterBold";
+    src: url("/fonts/Inter-Bold.ttf") format("truetype");
+    font-style: bold;
+    font-weight: 800;
+  }
+}
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* bg кнопки block-tools */
+  --ce-toolbar_btn_color: #edf2f6;
+  /* stroke свойсвто элементов path для кнопки block-tools*/
+  --ce-toolbar_btn_svg_color: #667085;
+  /* bg всплывашки block-tools */
+  --ce-toolbar_bg_color: #dae3e9;
+  /* элемент списка всплывашки block-tools при active */
+  --ce-toolbar_active_item_color: #155eef;
+  /* цвет элемента с иконкой списка всплывашки block-tools */
+  --ce-toolbar_popover_svg: #155eef;
+  /*  */
+  --ce-toolbar_popover_item_text_color: #000000;
+  /* цвет активного элемента block-tools */
+  --ce-toolbar_active_item_bg_color: #ffffff;
+  /* bg поля поиска block-tools */
+  --ce-toolbar_popover_search_bg_color: #ffffff;
+  /* цвет текста элементов block-tools */
+  --ce-toolbar_item_title_color: #101828;
+  /* цвет скролл бара block-tools */
+  --ce-toolbar_popover_scrollbar_color: #ffffff;
+  /* делитель inline tools */
+  --ce-toolbar-inline-tools-separator: #ffffff;
+  /* цвет плюса */
+  --ce-toolbar-inline-tools-plus: #000000;
+  --table-icon-hovered-color: #2d384b;
+  --table-icon-color: "#98A2B3";
+  --table-head-row-bg-color: "#EDF2F6";
+  --aiMessageIconHoverColor: #101828;
+  --aiMessageIconTooltipMenu: #10182810;
+}
+#navBtn:hover path {
+  stroke: #ffffff;
+}
+#navBtn:hover span {
+  color: #ffffff;
+}
+/* горизонатальный скролл шаблонов на странице шаблонов */
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+/* горизонатальный скролл шаблонов на странице шаблонов */
+#appelement::-webkit-scrollbar {
+  display: none;
+}
+/* скролл для ролей на главной странице */
+#scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+/* скролл для ролей на главной странице */
+
+/* решаем проблему общего лаяута в чате */
+
+#chatSection {
+  height: calc(100vh - 89px);
+}
+@media screen and (max-width: 1280px) {
+  #chatSection {
+    height: calc(100vh - 81px);
+  }
+}
+@media screen and (max-width: 980px) {
+  #chatSection {
+    height: calc(100vh - 71px);
+  }
+}
+@media screen and (max-width: 680px) {
+  #chatSection {
+    height: calc(100vh - 67px);
+  }
+}
+/* скрол для окна чата */
+#chatWindowLight::-webkit-scrollbar {
+  width: 6px;
+}
+#chatWindowLight::-webkit-scrollbar-thumb {
+  background-color: #edf2f6;
+  border-radius: 10px;
+}
+#chatWindowLight::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0);
+  width: 10px;
+  padding: 0 5px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+#chatWindowDark::-webkit-scrollbar {
+  width: 6px;
+}
+#chatWindowDark::-webkit-scrollbar-thumb {
+  background-color: #17181c;
+  border-radius: 10px;
+}
+#chatWindowDark::-webkit-scrollbar-track {
+  background-color: rgba(23, 24, 28, 0);
+  width: 10px;
+  padding: 0 5px;
+}
+
+/* скрол для окна чата */
+
+/* скролл для окна ролей в сайдбаре страницы чата */
+
+.RolesWindowLight::-webkit-scrollbar {
+  width: 6px;
+}
+.RolesWindowLight::-webkit-scrollbar-thumb {
+  background-color: #dae3e9;
+  border-radius: 10px;
+}
+.RolesWindowLight::-webkit-scrollbar-track {
+  background-color: rgba(#edf2f6, 0);
+  width: 8px;
+  padding: 0 5px;
+}
+
+.RolesWindowDark::-webkit-scrollbar {
+  width: 6px;
+}
+.RolesWindowDark::-webkit-scrollbar-thumb {
+  background-color: #21242c;
+  border-radius: 10px;
+}
+.RolesWindowDark::-webkit-scrollbar-track {
+  background-color: rgba(23, 24, 28, 0);
+  width: 10px;
+  padding: 0 5px;
+}
+
+/* скролл для окна ролей в сайдбаре страницы чата */
+
+/* скрол для окна историй в сайдбаре страницы чата */
+#historyWindowLight::-webkit-scrollbar {
+  width: 6px;
+}
+#historyWindowLight::-webkit-scrollbar-thumb {
+  background-color: #dae3e9;
+  border-radius: 10px;
+}
+#historyWindowLight::-webkit-scrollbar-track {
+  background-color: rgba(#edf2f6, 0);
+  width: 8px;
+  padding-left: 5px;
+}
+
+#historyWindowDark::-webkit-scrollbar {
+  width: 6px;
+}
+#historyWindowDark::-webkit-scrollbar-thumb {
+  background-color: #21242c;
+  border-radius: 10px;
+}
+#historyWindowDark::-webkit-scrollbar-track {
+  background-color: rgba(23, 24, 28, 0);
+  width: 10px;
+  padding-left: 5px;
+}
+/* скрол для окна историй в сайдбаре страницы чата */
+
+/* #historyBtn::before {
+  content: url("../assets/historyItemDots.svg");
+  position: absolute;
+  top: 53%;
+  right: 13px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+} */
+#chatHistoryIcon {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+#historyBtn:hover #chatHistoryIcon {
+  opacity: 1;
+}
+#AiMessageMenu {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+#AiMessageId:hover #AiMessageMenu {
+  opacity: 1;
+}
+#aiMessageIcon:hover path {
+  stroke: var(--aiMessageIconHoverColor);
+}
+#aiMessageIcon path {
+  transition: stroke 0.5s ease;
+}
+#aiMessageTooltipButton:hover path {
+  stroke: var(--aiMessageIconHoverColor);
+}
+#tooltipMenu {
+  -webkit-box-shadow: 0px 0px 10px 2px var(--aiMessageIconTooltipMenu);
+  -moz-box-shadow: 0px 0px 10px 2px var(--aiMessageIconTooltipMenu);
+  box-shadow: 0px 0px 10px 2px var(--aiMessageIconTooltipMenu);
+}
+/* .fadeOutEffect {
+  position: relative;
+  bottom: 80px;
+  width: 100%;
+  height: 80px;
+  background-image: linear-gradient(to bottom, transparent, #21242C);
+} */
+/* #fadeOutEffect{
+  -webkit-box-shadow: 0px -45px 7px -2px rgba(255, 255, 255, 0.822) inset;
+  -moz-box-shadow: 0px -45px 7px -2px rgba(255, 255, 255, 0.822) inset;
+  box-shadow: 0px -45px 7px -2px rgba(255, 255, 255, 0.822)  inset;
+} */
+
+@media screen and (max-width: 1280px) {
+  .RolesWindowLight::-webkit-scrollbar,
+  .RolesWindowDark::-webkit-scrollbar,
+  #chatWindowLight::-webkit-scrollbar,
+  #chatWindowDark::-webkit-scrollbar,
+  #historyWindowLight::-webkit-scrollbar,
+  #historyWindowDark::-webkit-scrollbar {
+    width: 4px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* анимированное появление кнопки скролла в чате */
+
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes outAnimation {
+  0% {
+    opacity: 1;
   }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* анимированное появление кнопки скролла в чате */
+
+@keyframes bouncing-dots {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* анимация ответа в чате */
+
+.bouncing-dots {
+  display: flex;
+  width: 35px;
+  text-align: center;
+}
+
+.bouncing-dots svg {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin: 0 2px;
+  border-radius: 100%;
+  animation: bouncing-dots 0.9s ease-in-out infinite;
+}
+
+.bouncing-dots svg:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.bouncing-dots svg:nth-child(3) {
+  animation-delay: 0.6s;
+}
+/* анимация ответа в чате */
+
+/* горизонатальный скролл шаблонов на странице шаблонов */
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+/* горизонатальный скролл шаблонов на странице шаблонов */
+
+/* скролл для ролей на главной странице */
+#scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+/* скролл для ролей на главной странице */
+
+/* скрол для сайдбара на странице шаблонов */
+#sideBarScrollContainerLight::-webkit-scrollbar {
+  width: 6px;
+}
+#sideBarScrollContainerLight::-webkit-scrollbar-thumb {
+  background-color: #dae3e9;
+  border-radius: 10px;
+}
+#sideBarScrollContainerLight::-webkit-scrollbar-track {
+  /* background-color: rgba(0, 0, 0); */
+  width: 5px;
+}
+
+#sideBarScrollContainerDark::-webkit-scrollbar {
+  width: 6px;
+}
+#sideBarScrollContainerDark::-webkit-scrollbar-thumb {
+  background-color: #21242c;
+  border-radius: 10px;
+}
+#sideBarScrollContainerDark::-webkit-scrollbar-track {
+  background-color: rgba(23, 24, 28, 0);
+  width: 5px;
+}
+
+/* скрол для сайдбара на странице шаблонов */
+
+/* удержание полтергейста для высоты страницы шаблонов))) */
+#templatesPage {
+  height: calc(100vh - 89px);
+}
+
+@media screen and (min-width: 980px) {
+  #templatesPage {
+    height: calc(100vh - 89px);
+  }
+}
+/* удержание полтергейста для высоты страницы шаблонов))) */
+
+/* инпут настройки шаблонов в сайдбаре */
+
+#tempVariantsInput::-webkit-inner-spin-button,
+#tempVariantsInput::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* инпут настройки шаблонов в сайдбаре */
+
+/* Стилизация notion editor */
+
+/* Заголовок  */
+.editor-header {
+  font-family: "TTNormsRegular", sans-serif;
+  /* font-size: 14px; 
+  color: #333;  */
+}
+h1 {
+  font-size: 18px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 36px;
+}
+h5 {
+  font-size: 42px;
+}
+h6 {
+  font-size: 48px;
+}
+/* Заголовок  */
+
+/* block-tools (это кнопка слева от блока) */
+
+/* bg кнопки block-tools */
+.ce-toolbar__settings-btn {
+  background-color: var(--ce-toolbar_btn_color);
+}
+/* bg кнопки block-tools при hover */
+.ce-toolbar__settings-btn:hover {
+  background-color: var(--ce-toolbar_btn_color);
+}
+/* stroke свойсвто элементов path для кнопки block-tools*/
+.ce-toolbar__settings-btn svg {
+  color: var(--ce-toolbar_btn_svg_color);
+}
+/* bg всплывашки block-tools */
+.ce-popover--opened {
+  background-color: var(--ce-toolbar_bg_color);
+}
+/* элемент списка всплывашки block-tools  */
+.ce-popover-item {
+  margin-right: 3px;
+}
+/* элемент списка всплывашки block-tools при hover */
+.ce-popover-item:hover {
+  background-color: var(--ce-toolbar_popover_search_bg_color) !important;
+}
+/* элемент списка всплывашки block-tools при active */
+.ce-popover-item--active {
+  background-color: var(--ce-toolbar_active_item_color);
+  color: var(--ce-toolbar_popover_item_text_color);
+}
+/* фон и цвет элемента с иконкой списка всплывашки block-tools */
+.ce-popover-item__icon {
+  color: var(--ce-toolbar_popover_svg);
+  background-color: var(--ce-toolbar_active_item_bg_color);
+}
+/* поле поиска тулзов всплывашки block-tools */
+.cdx-search-field {
+  background-color: var(--ce-toolbar_popover_search_bg_color);
+}
+/* текст элемента списка всплывашки block-tools  */
+.ce-popover-item__title {
+  color: var(--ce-toolbar_item_title_color);
+}
+
+/* Настройка скролл бара всплывашки block-tools */
+.ce-popover__items::-webkit-scrollbar {
+  width: 4px;
+  margin-left: 3px;
+}
+.ce-popover__items::-webkit-scrollbar-thumb {
+  background-color: var(--ce-toolbar_popover_scrollbar_color);
+  border-radius: 10px;
+}
+.ce-popover__items::-webkit-scrollbar-track {
+  background-color: rgba(#edf2f6, 0);
+  width: 4px;
+  padding-left: 4px;
+}
+
+/* Настройка заголовка и параграфа */
+
+.ce-toolbar__actions {
+  top: -3px;
+  right: 622px;
+}
+.ce-block {
+  margin: 10px 0 0 0;
+  padding: 0 0 5px 32px;
+}
+.ce-block .ce-block--focused {
+  border: none !important;
+}
+.ce-header {
+  border-bottom: 2px solid #0b3bec;
+  padding: 0.6em 0 8px;
+}
+/* авто выделение текста при клике по block-tools */
+.ce-block--selected .ce-block__content {
+  background: #0b3bec !important;
+  color: white;
+}
+.ce-paragraph {
+  padding: 0.9em 0 3px;
+  line-height: 1.3em !important;
+}
+.ce-paragraph .cdx-block {
+  line-height: 1.25em;
+}
+
+/* плюсик */
+.ce-toolbar__plus {
+  color: var(--ce-toolbar_btn_svg_color);
+  background-color: var(--ce-toolbar_btn_color);
+}
+.ce-toolbar__plus:hover {
+  background-color: var(--ce-toolbar_btn_color);
+}
+/* настройка inline-tools  (появляется при выделении текста)*/
+/* bg inline-tools */
+.ce-inline-toolbar {
+  background-color: var(--ce-toolbar_bg_color) !important;
+  border: none;
+}
+/* bg и цвет текста при выделении */
+.ce-header::selection,
+.ce-paragraph::selection {
+  background-color: #0b3bec !important;
+  color: #ffffff;
+}
+/* скидываем встроенный эффект hover на наш цвет для иконки "convet to" */
+.ce-inline-toolbar__dropdown:hover {
+  background-color: var(--ce-toolbar_bg_color) !important;
+  border-radius: 6px 0 0 6px;
+}
+/* скидываем встроенный эффект hover на наш цвет для иконки "bold/italic/link" */
+.ce-inline-tool--bold:hover,
+.ce-inline-tool--italic:hover,
+.ce-inline-tool--link:hover,
+.ce-inline-tool:hover {
+  background-color: var(--ce-toolbar_bg_color) !important;
+}
+/* .ce-inline-tool--bold,
+.ce-inline-tool--italic,
+.ce-inline-tool--link {
+  /* margin-left: 7px; */
+/* }  */
+.ce-inline-tool--link {
+  border-left: 1px solid var(--ce-toolbar-inline-tools-separator);
+  padding-left: 7px;
+}
+.ce-inline-tool {
+  margin: 4px 3.5px 4px 7px;
+}
+/* bg и border доп выпадашки inline-tools */
+.ce-conversion-toolbar {
+  background-color: var(--ce-toolbar_bg_color) !important;
+  border: none !important;
+}
+/* bg элемента доп выпадашки inline-tools */
+.ce-conversion-tool--focused {
+  background: none !important;
+}
+
+/* фон и цвет элемента с иконкой доп выпадашки inline-tools */
+.ce-conversion-tool__icon {
+  background: none !important;
+  color: var(--ce-toolbar_popover_svg);
+}
+
+.cdx-marker {
+  background: rgba(245, 235, 111, 0.29);
+  padding: 3px 0;
+}
+
+/* AIinlineTools стили */
+
+.AIinlineTools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 57px;
+  padding: 0 6px;
+  margin-right: 4px;
+}
+.AIinlineTools svg {
+  color: #0b3bec;
+}
+
+.AIinlineTools span {
+  color: #0b3bec;
+  font-family: "NeueMachinaBold";
+  font-size: 14px;
+  line-height: 13px;
+}
+
+/* стили дефолтного блока конвертации блока */
+.ce-inline-toolbar__dropdown {
+  order: 2;
+  border-right: none;
+  border-left: 1px solid var(--ce-toolbar-inline-tools-separator);
+  padding: 0;
+  padding-left: 7px;
+  border-radius: 0;
+  margin: 4px 0;
+}
+.ce-inline-toolbar__dropdown:hover {
+  border-radius: 0;
+}
+
+/* text align inline tools */
+.ce-inline-tool--align-text {
+  background-color: var(--ce-toolbar_bg_color) !important;
+  width: 46px !important;
+  border-right: 1px solid var(--ce-toolbar-inline-tools-separator);
+  border-left: 1px solid var(--ce-toolbar-inline-tools-separator);
+  margin: 4px 0 4px 0;
+  padding: 2px 0 2px 0;
+}
+.ce-inline-tool--align-text svg {
+  width: 16px;
+}
+
+.cdx-underline::selection,
+.ce-header b::selection,
+.ce-header i::selection,
+.cdx-strikethrough::selection,
+.inline-code::selection,
+.ce-paragraph b::selection,
+.ce-paragraph i::selection {
+  background-color: #0b3bec !important;
+}
+
+/* фиксим иногда появляющийся скролл бар при передаче вопроса AI в ноушене */
+#notionTextArea::-webkit-scrollbar {
+  width: 2px;
+}
+#notionTextArea::-webkit-scrollbar-thumb {
+  background-color: var(--ce-toolbar-inline-tools-plus);
+  border-radius: 5px;
+}
+#notionTextArea::-webkit-scrollbar-track {
+  background-color: var(--ce-toolbar-inline-tools-separator);
+  width: 2px;
+  padding: 0 5px;
+}
+
+/* кастомный блок для ввода запроса AI из editor */
+.walkthrough-timeline {
+  height: auto;
+}
+.ce-block__content {
+  height: auto;
+}
+.ce-block {
+  height: auto;
+}
+
+/* кнопка отправки сообщения из notion к AI */
+#sendBtnNotion {
+  color: #ffffff;
+}
+
+.DialogOverlay {
+  background-color: var(--black-a9);
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow:
+    hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 450px;
+  max-height: 85vh;
+  padding: 25px;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.DialogContent:focus {
+  outline: none;
+}
+
+.DialogTitle {
+  margin: 0;
+  font-weight: 500;
+  color: var(--mauve-12);
+  font-size: 17px;
+}
+
+.DialogDescription {
+  margin: 10px 0 20px;
+  color: var(--mauve-11);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* скролл у выпадашки при запроса у AI в editor */
+
+#answerDropdownScrollLight::-webkit-scrollbar {
+  width: 6px;
+  margin-right: 10px;
+}
+#answerDropdownScrollLight::-webkit-scrollbar-thumb {
+  background-color: #0072be;
+  border-radius: 10px;
+}
+#answerDropdownScrollLight::-webkit-scrollbar-track {
+  /* background-color: rgb(237 242 246 / var(--tw-bg-opacity)); */
+  width: 5px;
+}
+
+#answerDropdownScrollDark::-webkit-scrollbar {
+  width: 6px;
+  margin-right: 10px;
+}
+#answerDropdownScrollDark::-webkit-scrollbar-thumb {
+  background-color: #21242c;
+  border-radius: 10px;
+}
+#answerDropdownScrollDark::-webkit-scrollbar-track {
+  background-color: rgba(23, 24, 28, 0);
+  width: 5px;
+}
+.modal-class-overlay {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(102, 51, 153, 0.29);
+}
+
+/* задний фон всех модалок из shadcn (100% относится к модалке настройки чата) id = radix-:Rb6tttt6kq:*/
+#radix- {
+  background-color: red;
+}
+
+#profileNavBar::-webkit-scrollbar {
+  display: none;
+}
+
+#plansContainer > :first-child,
+#plansContainer > :last-child {
+  margin: 0;
+}
+
+#questionBlock > :last-child {
+  border-bottom: none;
+}
+
+#main::-webkit-scrollbar {
+  display: none;
+}
+/* table tbody {
+  background-color: white;
+} */
+tbody > :last-child {
+  border-bottom: none;
+}
+table tbody td {
+  display: table-cell;
+}
+
+table tbody tr:first-child td:first-child {
+  border-top-left-radius: 20px;
+}
+
+table tbody tr:first-child td:last-child {
+  border-top-right-radius: 20px;
+}
+
+table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 20px;
+}
+
+table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 20px;
+}
+@media screen and (max-width: 979px) {
+  table tbody:nth-child(2) {
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+}
+#tableShowIcon:hover,
+#tableDownloadIcon:hover,
+#tableMessageIcon:hover,
+#tableMenu:hover {
+  stroke: var(--table-icon-hovered-color);
+}
+
+#tableShowIcon,
+#tableDownloadIcon,
+#tableMessageIcon,
+#tableMenu {
+  stroke: var(--table-icon-color);
+}
+
+table thead tr:hover {
+  background-color: var(--table-head-row-bg-color) !important;
+}
+
+/* меняем последнюю строку в таблице на странице история так как там есть строка для пагинации */
+#historiesPageTable tbody tr:last-child td:first-child,
+#historiesPageTable tbody tr:last-child td:last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#historiesPageTableFooter {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#textHistoryTableRow:hover #hoveredTextHistoryTableEventIcon path {
+  stroke: var(--table-icon-hovered-color);
+}
+#textHistoryTableRow:hover #tableShowIcon path {
+  stroke: #0b3bec;
+}
+#signMethodButtton {
+  -webkit-box-shadow: 0px 7px 8px 0px #0e5eff0c;
+  -moz-box-shadow: 0px 7px 8px 0px #0e5eff0c;
+  box-shadow: 0px 7px 8px 0px #0e5eff0c;
+}
+
+#templateSelect {
+  overflow-x: hidden;
+}
+/*  */
+/* @media screen and (max-width : 549px) {
+  #planCategories {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+} */
+
+/* #historyBtn:hover{
+    background-color: aqua;
+  } */
+
+/* @media (max-width: 679px) {
+  .sm\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+  .sm\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+  .sm\:col-span-3 {
+    grid-column: span 3 / span 3 !important;
+  }
+  .sm\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+  .sm\:col-span-5 {
+    grid-column: span 5 / span 5;
+  }
+  .sm-col-span-6 {
+    grid-column: span 6 / span 6 !important;
+  }
+  .sm\:col-span-5 {
+    grid-column: span 7 / span 7;
+  }
+  .sm\:col-span-5 {
+    grid-column: span 8 / span 8;
+  }
+  .sm\:col-span-5 {
+    grid-column: span 9 / span 9;
+  }
+  .sm\:col-span-5 {
+    grid-column: span 10 / span 10;
+  }
+  .sm\:col-span-5 {
+    grid-column: span 11 / span 11;
+  }
+  .sm\:col-span-5 {
+    grid-column: span 12 / span 12;
+  }
+} */
+
+.input-modal-card-sections::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.input-modal-card-sections {
+  scrollbar-width: none;
 }
