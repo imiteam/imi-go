@@ -19,10 +19,7 @@ type NavButtonPropsType = {
 export const HeaderNavButton = memo(function HeaderNavButton(
   props: NavButtonPropsType,
 ) {
-  let cursor =
-    props.title === "Обучение" 
-      ? "not-allowed"
-      : "pointer";
+  let cursor = props.title === "Обучение" ? "not-allowed" : "pointer";
 
   let isActive = props.buttonName === props.activeButtonName;
 
