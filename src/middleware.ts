@@ -4,8 +4,10 @@ import { NextResponse } from "next/server";
 const publicPaths = ["/auth/sign-in", "/auth/sign-up"];
 
 export function middleware(request: NextRequest) {
-  const session = request.cookies.get("next-auth.session-token");
-
+  //use by local
+  // const session = request.cookies.get("next-auth.session-token");
+  //use by vercel
+  const session = request.cookies.get("__Secure-next-auth.session-token");
   const url = request.nextUrl.clone();
   const isPublicPath = publicPaths.some((path) =>
     url.pathname.startsWith(path),
