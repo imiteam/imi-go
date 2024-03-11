@@ -4,8 +4,7 @@ import { NextResponse } from "next/server";
 const publicPaths = ["/auth/sign-in", "/auth/sign-up"];
 
 export function middleware(request: NextRequest) {
-  // const session = request.cookies.get(NEXT_AUTH_SESSION);
-  const session = request.cookies.get("__Secure-next-auth.session-token");
+  const session = request.cookies.get("next-auth.session-token");
 
   const url = request.nextUrl.clone();
   const isPublicPath = publicPaths.some((path) =>
