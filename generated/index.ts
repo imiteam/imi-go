@@ -13116,6 +13116,73 @@ export type Wallets_Variance_Fields = {
   tokens?: Maybe<Scalars["Float"]["output"]>;
 };
 
+export type GetAiCategoriesQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetAiCategoriesQuery = {
+  __typename?: "query_root";
+  ai_categories: Array<{
+    __typename?: "ai_categories";
+    id: number;
+    title: string;
+    icon?: string | null;
+  }>;
+};
+
+export type GetRolesQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetRolesQuery = {
+  __typename?: "query_root";
+  roles: Array<{
+    __typename?: "roles";
+    id: any;
+    image?: any | null;
+    image_min?: any | null;
+    name?: string | null;
+    promt?: string | null;
+    title: string;
+    type?: string | null;
+  }>;
+};
+
+export type GetTemplateCategoriesQueryVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type GetTemplateCategoriesQuery = {
+  __typename?: "query_root";
+  template_categories: Array<{
+    __typename?: "template_categories";
+    id: number;
+    name?: string | null;
+    titile?: string | null;
+    ui_lg_c?: number | null;
+    ui_lg_w?: number | null;
+    ui_sm_c?: string | null;
+    ui_sm_w?: number | null;
+    ui_table_c?: number | null;
+    ui_table_w?: number | null;
+    templates: Array<{
+      __typename?: "templates";
+      id: any;
+      name?: string | null;
+      title?: string | null;
+      icon?: any | null;
+    }>;
+  }>;
+};
+
+export type GetTemplateTagsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetTemplateTagsQuery = {
+  __typename?: "query_root";
+  template_tags: Array<{
+    __typename?: "template_tags";
+    id: number;
+    name?: string | null;
+    title?: string | null;
+  }>;
+};
+
 export type GetPlanUserQueryVariables = Exact<{
   id: Scalars["uuid"]["input"];
 }>;
@@ -13143,6 +13210,58 @@ export type UserWalletSubscription = {
   }>;
 };
 
+export const GetAiCategoriesDocument = gql`
+  query GetAiCategories {
+    ai_categories {
+      id
+      title
+      icon
+    }
+  }
+`;
+export const GetRolesDocument = gql`
+  query GetRoles @cached(ttl: 1) {
+    roles {
+      id
+      image
+      image_min
+      name
+      promt
+      title
+      type
+    }
+  }
+`;
+export const GetTemplateCategoriesDocument = gql`
+  query GetTemplateCategories @cached(ttl: 1) {
+    template_categories(order_by: { id: asc }) {
+      id
+      name
+      titile
+      templates {
+        id
+        name
+        title
+        icon
+      }
+      ui_lg_c
+      ui_lg_w
+      ui_sm_c
+      ui_sm_w
+      ui_table_c
+      ui_table_w
+    }
+  }
+`;
+export const GetTemplateTagsDocument = gql`
+  query GetTemplateTags @cached(ttl: 1) {
+    template_tags {
+      id
+      name
+      title
+    }
+  }
+`;
 export const GetPlanUserDocument = gql`
   query GetPlanUser($id: uuid!) {
     users_by_pk(id: $id) {
@@ -13180,6 +13299,69 @@ export function getSdk(
   withWrapper: SdkFunctionWrapper = defaultWrapper,
 ) {
   return {
+    GetAiCategories(
+      variables?: GetAiCategoriesQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetAiCategoriesQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetAiCategoriesQuery>(
+            GetAiCategoriesDocument,
+            variables,
+            { ...requestHeaders, ...wrappedRequestHeaders },
+          ),
+        "GetAiCategories",
+        "query",
+        variables,
+      );
+    },
+    GetRoles(
+      variables?: GetRolesQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetRolesQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetRolesQuery>(GetRolesDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        "GetRoles",
+        "query",
+        variables,
+      );
+    },
+    GetTemplateCategories(
+      variables?: GetTemplateCategoriesQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetTemplateCategoriesQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetTemplateCategoriesQuery>(
+            GetTemplateCategoriesDocument,
+            variables,
+            { ...requestHeaders, ...wrappedRequestHeaders },
+          ),
+        "GetTemplateCategories",
+        "query",
+        variables,
+      );
+    },
+    GetTemplateTags(
+      variables?: GetTemplateTagsQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetTemplateTagsQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetTemplateTagsQuery>(
+            GetTemplateTagsDocument,
+            variables,
+            { ...requestHeaders, ...wrappedRequestHeaders },
+          ),
+        "GetTemplateTags",
+        "query",
+        variables,
+      );
+    },
     GetPlanUser(
       variables: GetPlanUserQueryVariables,
       requestHeaders?: GraphQLClientRequestHeaders,
