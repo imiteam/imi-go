@@ -34,7 +34,7 @@ export default function ProfileDropDown({
       userId: userId,
     },
   });
-
+  console.log(userWalletData)
   const { data } = useQuery(GetPlanUserDocument, {
     variables: { id: userId },
   });
