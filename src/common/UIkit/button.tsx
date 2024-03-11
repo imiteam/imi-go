@@ -151,7 +151,7 @@ const buttonVariants = cva(
           " rounded-[10px]  bg-[#FFFFFF] dark:bg-[#21242C] text-[#2D384B] dark:text-[#94969C] font-TTNormsMedium text-[14px] leading-[20px] whitespace-nowrap py-[7px] px-[12px] vsm:text-[12px] vsm:px-[6px]",
         activeInsructionsToggleButton:
           "rounded-full bg-[#FFFFFF] dark:bg-[#000000] ",
-        closeMobileMenuBtn: "md:sm:rounded-[10px] flex justify-end items-start",
+        closeMobileMenuBtn: "md:sm:rounded-[10px] flex justify-end items-start border-none",
 
         // activeTempBtnGrowed : "rounded-[12px] border-none bg-[#FFFFFF] font-TTNormsMedium text-[14px] text-active-btn-white font-[400] w-max px-[12px] py-[6px] flex-grow mr-[4px]",
       },

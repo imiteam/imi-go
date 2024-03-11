@@ -1,7 +1,1 @@
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col">
-      тут будет чоткий экран !!!
-    </main>
-  );
-}
+export {Home as default} from 'Home'

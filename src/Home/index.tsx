@@ -1,0 +1,29 @@
+import { getServerSession } from "next-auth";
+import {
+  getAiCategories,
+  getAllRoles,
+  getAllTemplateCategories,
+  getAllTemplateTags,
+} from "./graphql/actions/query";
+import { authOptions } from "app/api/auth/[...nextauth]/route";
+import { TemplateTags } from "./TemplateTags";
+
+export const Home = async function Home() {
+  const tags = await getAllTemplateTags();
+
+  const aiCategories = await getAiCategories();
+
+  const roles = await getAllRoles();
+
+  const templateCategories = await getAllTemplateCategories();
+
+  const session = await getServerSession(authOptions);
+
+  return (
+    <main className="flex size-full flex-col items-center bg-bg-lite pb-[80px] dark:bg-bg-dark">
+      <div className="flex grow flex-col items-center md:w-full md:items-baseline lg:max-w-936 xl:max-w-1216">
+        <TemplateTags isHomePage tags={tags["template_tags"]} />
+      </div>
+    </main>
+  );
+};
