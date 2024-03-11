@@ -7,6 +7,7 @@ import {
 } from "./graphql/actions/query";
 import { authOptions } from "app/api/auth/[...nextauth]/route";
 import { TemplateTags } from "./TemplateTags";
+import { AiCategories } from "./AiCategories";
 
 export const Home = async function Home() {
   const tags = await getAllTemplateTags();
@@ -22,6 +23,7 @@ export const Home = async function Home() {
   return (
     <main className="flex size-full flex-col items-center bg-bg-lite pb-[80px] dark:bg-bg-dark">
       <div className="flex grow flex-col items-center md:w-full md:items-baseline lg:max-w-936 xl:max-w-1216">
+        <AiCategories aiCategories={aiCategories} />
         <TemplateTags isHomePage tags={tags["template_tags"]} />
       </div>
     </main>
