@@ -41,7 +41,7 @@ export default function ProfileDropDown({
   const planName = useCallback(
     (data: any | undefined) => {
       if (data) {
-        switch (data.users_by_pk.plan_id) {
+        switch (data.users_by_pk?.plan_id) {
           case "8d035581-2209-4212-a4f2-6938bd0bf32a":
             return "Бесплатный";
           default:
