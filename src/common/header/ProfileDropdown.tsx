@@ -34,10 +34,11 @@ export default function ProfileDropDown({
       userId: userId,
     },
   });
-  console.log(userWalletData)
+
   const { data } = useQuery(GetPlanUserDocument, {
     variables: { id: userId },
   });
+
   const planName = useCallback(
     (data: any | undefined) => {
       if (data) {
@@ -51,6 +52,7 @@ export default function ProfileDropDown({
     },
     [data],
   );
+
   const progress = useMemo(
     () => (userWalletData?.wallets[0]?.tokens! * 3) / 4,
     [userWalletData?.wallets],

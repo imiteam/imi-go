@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { ApolloWrapper } from "../apollo-client";
 import { SessionWrapper } from "../session-provider-wrapper";
 import Header from "common/header";
+import MobileMenu from "common/mobileMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
             themes={["light", "dark"]}
           >
             <body id="appelement" className="flex min-h-screen w-full flex-col">
+              <MobileMenu />
               <Header />
               {children}
             </body>

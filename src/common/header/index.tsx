@@ -18,7 +18,7 @@ export default function Header() {
   const pathName = usePathname();
 
   const { data: session } = useSession();
-  
+
   let currentPath = pathName.split("/")[1] ? pathName.split("/")[1] : "/";
 
   const [activeButton, setActiveButton] = useState<string>(currentPath!);
@@ -30,7 +30,6 @@ export default function Header() {
   const handleClickMenu = () => {
     setShowMobileMenu(true);
   };
-
   useEffect(() => {
     setActiveButton(currentPath!);
   }, [currentPath]);
@@ -60,15 +59,15 @@ export default function Header() {
                 title="Шаблоны"
               />
             </Link>
-            {session?.user &&
-            <Link href={`/chat?userId=${session?.user.id}`}>
-              <HeaderNavButton
-                activeButtonName={activeButton}
-                buttonName="chat"
-                title="IMI чат"
-              />
-            </Link>
-            }
+            {session?.user && (
+              <Link href={`/chat?userId=${session?.user.id}`}>
+                <HeaderNavButton
+                  activeButtonName={activeButton}
+                  buttonName="chat"
+                  title="IMI чат"
+                />
+              </Link>
+            )}
             <HeaderNavButton
               activeButtonName={activeButton}
               buttonName="learning"
@@ -83,12 +82,12 @@ export default function Header() {
             </Link>
           </div>
           <div className="flex w-auto">
-          {session?.user &&
-            <ProfileDropDown
-              icon={session?.user?.image ? session.user.image : DefaultIcon}
-              userId={session?.user.id}
-            />
-          }
+            {session?.user && (
+              <ProfileDropDown
+                icon={session?.user?.image ? session.user.image : DefaultIcon}
+                userId={session?.user.id}
+              />
+            )}
             <div className="flex w-[148px] items-center justify-between md:w-[103px] md:justify-end lg:ml-[20px] xl:ml-[28px]">
               <ThemeIcon />
               <SettingsIcon />
