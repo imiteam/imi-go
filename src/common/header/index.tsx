@@ -18,7 +18,7 @@ export default function Header() {
   const pathName = usePathname();
 
   const { data: session } = useSession();
-
+  
   let currentPath = pathName.split("/")[1] ? pathName.split("/")[1] : "/";
 
   const [activeButton, setActiveButton] = useState<string>(currentPath!);

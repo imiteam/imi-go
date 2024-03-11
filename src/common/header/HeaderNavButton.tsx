@@ -20,7 +20,7 @@ export const HeaderNavButton = memo(function HeaderNavButton(
   props: NavButtonPropsType,
 ) {
   let cursor =
-    props.title === "Обучение" || props.title === "Шаблоны"
+    props.title === "Обучение" 
       ? "not-allowed"
       : "pointer";
 
