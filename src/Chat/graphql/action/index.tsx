@@ -5,9 +5,14 @@ import {
   CreateChatDocument,
   CreateChatMutation,
   CreateChatMutationVariables,
+  GetMyChatsDocument,
+  GetMyChatsQuery,
+  GetMyChatsQueryVariables,
 } from "generated";
 import { redirect } from "next/navigation";
 
+
+// MUTATIONS
 export const createChatAction = async (props: {
   model: string;
   title: string;
@@ -31,3 +36,13 @@ export const createChatAction = async (props: {
     `/chat/${mutatuion.data?.insert_chats_one?.id}?userId=${props.userId}`,
   );
 };
+
+// QUERIES
+export async function getMyChats(props: {userId: string; value: string}) {
+  const {data} = await getClient().query<GetMyChatsQuery, GetMyChatsQueryVariables>({
+    query: GetMyChatsDocument,
+    variables: {userId: props.userId, value: props.value},
+  })
+
+  return data
+}

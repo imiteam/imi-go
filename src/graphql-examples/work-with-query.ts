@@ -32,4 +32,39 @@
 
 // В серверных :
 
-// пока не знаю
+// const {data: getChat} = await getClient().query({
+//     query: GetChatByIdDocument,
+//     variables: {chatId: props.params.id, userId: props.searchParams.userId},
+//     fetchPolicy: 'no-cache',
+//     context: {
+//       fetchOptions: {
+//         next: {revalidate: 0},
+//       },
+//     },
+//   })
+
+// либо передавая туда еще и типы и переменные - <GetRolesWithTitleFilterQuery, GetRolesWithTitleFilterQueryVariables>, это все также генерит команда gql-to-ts ы том же файле generated
+// const {data} = await getClient().query<GetRolesWithTitleFilterQuery, GetRolesWithTitleFilterQueryVariables>({
+//     query: GetRolesWithTitleFilterDocument,
+//     variables: {title: props.searchParams.role_search ? String(props.searchParams.role_search) : ''},
+//     fetchPolicy: 'no-cache',
+//     context: {
+//       fetchOptions: {
+//         next: {revalidate: 0},
+//       },
+//     },
+//   })
+// Либо создав экшн :
+// export async function getMyChats(props: {userId: string; value: string}) {
+//     const {data} = await getClient().query<GetMyChatsQuery, GetMyChatsQueryVariables>({
+//       query: GetMyChatsDocument,
+//       variables: {userId: props.userId, value: props.value},
+//     })
+  
+//     return data
+//   }
+// и заюзать его вот так :
+// const historyData = await getMyChats({
+//     userId: props.searchParams.userId as string,
+//     value: props.searchParams.history_search ? String(props.searchParams.history_search) : '',
+//   })

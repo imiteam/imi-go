@@ -1,164 +1,151 @@
-import { GraphQLClient, RequestOptions } from "graphql-request";
-import gql from "graphql-tag";
+import { GraphQLClient, RequestOptions } from 'graphql-request';
+import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
-export type MakeEmpty<
-  T extends { [key: string]: unknown },
-  K extends keyof T,
-> = { [_ in K]?: never };
-export type Incremental<T> =
-  | T
-  | {
-      [P in keyof T]?: P extends " $fragmentName" | "__typename" ? T[P] : never;
-    };
-type GraphQLClientRequestHeaders = RequestOptions["requestHeaders"];
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+type GraphQLClientRequestHeaders = RequestOptions['requestHeaders'];
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string };
-  String: { input: string; output: string };
-  Boolean: { input: boolean; output: boolean };
-  Int: { input: number; output: number };
-  Float: { input: number; output: number };
+  ID: { input: string; output: string; }
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
   /** Boolean or Boolean[] */
-  BooleanAggregateObjectsChatsWeaviate: { input: any; output: any };
+  BooleanAggregateObjectsChatsWeaviate: { input: any; output: any; }
   /** Boolean or Boolean[] */
-  BooleanAggregateObjectsDocumentsWeaviates: { input: any; output: any };
+  BooleanAggregateObjectsDocumentsWeaviates: { input: any; output: any; }
   /** Boolean or Boolean[] */
-  BooleanAggregateObjectsMessagesWeaviate: { input: any; output: any };
+  BooleanAggregateObjectsMessagesWeaviate: { input: any; output: any; }
   /** Boolean or Boolean[] */
-  BooleanAggregateObjectsRolesWeaviate: { input: any; output: any };
+  BooleanAggregateObjectsRolesWeaviate: { input: any; output: any; }
   /** Boolean or Boolean[] */
-  BooleanAggregateObjectsTemplatesWeaviates: { input: any; output: any };
+  BooleanAggregateObjectsTemplatesWeaviates: { input: any; output: any; }
   /** Boolean or Boolean[] */
-  BooleanGetObjectsChatsWeaviate: { input: any; output: any };
+  BooleanGetObjectsChatsWeaviate: { input: any; output: any; }
   /** Boolean or Boolean[] */
-  BooleanGetObjectsDocumentsWeaviates: { input: any; output: any };
+  BooleanGetObjectsDocumentsWeaviates: { input: any; output: any; }
   /** Boolean or Boolean[] */
-  BooleanGetObjectsMessagesWeaviate: { input: any; output: any };
+  BooleanGetObjectsMessagesWeaviate: { input: any; output: any; }
   /** Boolean or Boolean[] */
-  BooleanGetObjectsRolesWeaviate: { input: any; output: any };
+  BooleanGetObjectsRolesWeaviate: { input: any; output: any; }
   /** Boolean or Boolean[] */
-  BooleanGetObjectsTemplatesWeaviates: { input: any; output: any };
+  BooleanGetObjectsTemplatesWeaviates: { input: any; output: any; }
   /** Float or Float[] */
-  FloatAggregateObjectsChatsWeaviate: { input: any; output: any };
+  FloatAggregateObjectsChatsWeaviate: { input: any; output: any; }
   /** Float or Float[] */
-  FloatAggregateObjectsDocumentsWeaviates: { input: any; output: any };
+  FloatAggregateObjectsDocumentsWeaviates: { input: any; output: any; }
   /** Float or Float[] */
-  FloatAggregateObjectsMessagesWeaviate: { input: any; output: any };
+  FloatAggregateObjectsMessagesWeaviate: { input: any; output: any; }
   /** Float or Float[] */
-  FloatAggregateObjectsRolesWeaviate: { input: any; output: any };
+  FloatAggregateObjectsRolesWeaviate: { input: any; output: any; }
   /** Float or Float[] */
-  FloatAggregateObjectsTemplatesWeaviates: { input: any; output: any };
+  FloatAggregateObjectsTemplatesWeaviates: { input: any; output: any; }
   /** Float or Float[] */
-  FloatGetObjectsChatsWeaviate: { input: any; output: any };
+  FloatGetObjectsChatsWeaviate: { input: any; output: any; }
   /** Float or Float[] */
-  FloatGetObjectsDocumentsWeaviates: { input: any; output: any };
+  FloatGetObjectsDocumentsWeaviates: { input: any; output: any; }
   /** Float or Float[] */
-  FloatGetObjectsMessagesWeaviate: { input: any; output: any };
+  FloatGetObjectsMessagesWeaviate: { input: any; output: any; }
   /** Float or Float[] */
-  FloatGetObjectsRolesWeaviate: { input: any; output: any };
+  FloatGetObjectsRolesWeaviate: { input: any; output: any; }
   /** Float or Float[] */
-  FloatGetObjectsTemplatesWeaviates: { input: any; output: any };
+  FloatGetObjectsTemplatesWeaviates: { input: any; output: any; }
   /** Int or Int[] */
-  IntAggregateObjectsChatsWeaviate: { input: any; output: any };
+  IntAggregateObjectsChatsWeaviate: { input: any; output: any; }
   /** Int or Int[] */
-  IntAggregateObjectsDocumentsWeaviates: { input: any; output: any };
+  IntAggregateObjectsDocumentsWeaviates: { input: any; output: any; }
   /** Int or Int[] */
-  IntAggregateObjectsMessagesWeaviate: { input: any; output: any };
+  IntAggregateObjectsMessagesWeaviate: { input: any; output: any; }
   /** Int or Int[] */
-  IntAggregateObjectsRolesWeaviate: { input: any; output: any };
+  IntAggregateObjectsRolesWeaviate: { input: any; output: any; }
   /** Int or Int[] */
-  IntAggregateObjectsTemplatesWeaviates: { input: any; output: any };
+  IntAggregateObjectsTemplatesWeaviates: { input: any; output: any; }
   /** Int or Int[] */
-  IntGetObjectsChatsWeaviate: { input: any; output: any };
+  IntGetObjectsChatsWeaviate: { input: any; output: any; }
   /** Int or Int[] */
-  IntGetObjectsDocumentsWeaviates: { input: any; output: any };
+  IntGetObjectsDocumentsWeaviates: { input: any; output: any; }
   /** Int or Int[] */
-  IntGetObjectsMessagesWeaviate: { input: any; output: any };
+  IntGetObjectsMessagesWeaviate: { input: any; output: any; }
   /** Int or Int[] */
-  IntGetObjectsRolesWeaviate: { input: any; output: any };
+  IntGetObjectsRolesWeaviate: { input: any; output: any; }
   /** Int or Int[] */
-  IntGetObjectsTemplatesWeaviates: { input: any; output: any };
+  IntGetObjectsTemplatesWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextAggregateObjectsChatsWeaviate: { input: any; output: any };
+  TextAggregateObjectsChatsWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextAggregateObjectsDocumentsWeaviates: { input: any; output: any };
+  TextAggregateObjectsDocumentsWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextAggregateObjectsMessagesWeaviate: { input: any; output: any };
+  TextAggregateObjectsMessagesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextAggregateObjectsRolesWeaviate: { input: any; output: any };
+  TextAggregateObjectsRolesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextAggregateObjectsTemplatesWeaviates: { input: any; output: any };
+  TextAggregateObjectsTemplatesWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextDateAggregateObjectsChatsWeaviate: { input: any; output: any };
+  TextDateAggregateObjectsChatsWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextDateAggregateObjectsDocumentsWeaviates: { input: any; output: any };
+  TextDateAggregateObjectsDocumentsWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextDateAggregateObjectsMessagesWeaviate: { input: any; output: any };
+  TextDateAggregateObjectsMessagesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextDateAggregateObjectsRolesWeaviate: { input: any; output: any };
+  TextDateAggregateObjectsRolesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextDateAggregateObjectsTemplatesWeaviates: { input: any; output: any };
+  TextDateAggregateObjectsTemplatesWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextDateGetObjectsChatsWeaviate: { input: any; output: any };
+  TextDateGetObjectsChatsWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextDateGetObjectsDocumentsWeaviates: { input: any; output: any };
+  TextDateGetObjectsDocumentsWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextDateGetObjectsMessagesWeaviate: { input: any; output: any };
+  TextDateGetObjectsMessagesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextDateGetObjectsRolesWeaviate: { input: any; output: any };
+  TextDateGetObjectsRolesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextDateGetObjectsTemplatesWeaviates: { input: any; output: any };
+  TextDateGetObjectsTemplatesWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextGetObjectsChatsWeaviate: { input: any; output: any };
+  TextGetObjectsChatsWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextGetObjectsDocumentsWeaviates: { input: any; output: any };
+  TextGetObjectsDocumentsWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextGetObjectsMessagesWeaviate: { input: any; output: any };
+  TextGetObjectsMessagesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextGetObjectsRolesWeaviate: { input: any; output: any };
+  TextGetObjectsRolesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextGetObjectsTemplatesWeaviates: { input: any; output: any };
+  TextGetObjectsTemplatesWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextStringAggregateObjectsChatsWeaviate: { input: any; output: any };
+  TextStringAggregateObjectsChatsWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextStringAggregateObjectsDocumentsWeaviates: { input: any; output: any };
+  TextStringAggregateObjectsDocumentsWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextStringAggregateObjectsMessagesWeaviate: { input: any; output: any };
+  TextStringAggregateObjectsMessagesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextStringAggregateObjectsRolesWeaviate: { input: any; output: any };
+  TextStringAggregateObjectsRolesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextStringAggregateObjectsTemplatesWeaviates: { input: any; output: any };
+  TextStringAggregateObjectsTemplatesWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextStringGetObjectsChatsWeaviate: { input: any; output: any };
+  TextStringGetObjectsChatsWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextStringGetObjectsDocumentsWeaviates: { input: any; output: any };
+  TextStringGetObjectsDocumentsWeaviates: { input: any; output: any; }
   /** String or String[] */
-  TextStringGetObjectsMessagesWeaviate: { input: any; output: any };
+  TextStringGetObjectsMessagesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextStringGetObjectsRolesWeaviate: { input: any; output: any };
+  TextStringGetObjectsRolesWeaviate: { input: any; output: any; }
   /** String or String[] */
-  TextStringGetObjectsTemplatesWeaviates: { input: any; output: any };
-  bigint: { input: any; output: any };
-  bpchar: { input: any; output: any };
-  json: { input: any; output: any };
-  jsonb: { input: any; output: any };
-  timestamp: { input: any; output: any };
-  timestamptz: { input: any; output: any };
-  uuid: { input: any; output: any };
+  TextStringGetObjectsTemplatesWeaviates: { input: any; output: any; }
+  bigint: { input: any; output: any; }
+  bpchar: { input: any; output: any; }
+  json: { input: any; output: any; }
+  jsonb: { input: any; output: any; }
+  timestamp: { input: any; output: any; }
+  timestamptz: { input: any; output: any; }
+  uuid: { input: any; output: any; }
 };
 
 export type AggregateChatsWeaviate = {
-  __typename?: "AggregateChatsWeaviate";
+  __typename?: 'AggregateChatsWeaviate';
   /** Aggregate this property"createdAt" */
   createdAt?: Maybe<AggregateChatsWeaviatecreatedAtObj>;
   /** Indicates the group of returned data */
@@ -173,60 +160,56 @@ export type AggregateChatsWeaviate = {
 
 /** An object containing the path and value of the grouped property */
 export type AggregateChatsWeaviateGroupedByObj = {
-  __typename?: "AggregateChatsWeaviateGroupedByObj";
+  __typename?: 'AggregateChatsWeaviateGroupedByObj';
   /** The path of the grouped property */
-  path?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
+  path?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   /** The value of the grouped property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type AggregateChatsWeaviateMetaObject = {
-  __typename?: "AggregateChatsWeaviateMetaObject";
-  count?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'AggregateChatsWeaviateMetaObject';
+  count?: Maybe<Scalars['Int']['output']>;
 };
 
 export type AggregateChatsWeaviateMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<AggregateChatsWeaviateMoveAwayFromMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<AggregateChatsWeaviateMoveAwayFromMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type AggregateChatsWeaviateMoveAwayFromMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AggregateChatsWeaviateMoveTo = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<AggregateChatsWeaviateMoveToMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<AggregateChatsWeaviateMoveToMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type AggregateChatsWeaviateMoveToMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -235,10 +218,10 @@ export type AggregateChatsWeaviateNearTextInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
-  concepts: Array<InputMaybe<Scalars["String"]["input"]>>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
+  concepts: Array<InputMaybe<Scalars['String']['input']>>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Move your search term closer to or further away from another vector described by keywords */
   moveAwayFrom?: InputMaybe<AggregateChatsWeaviateMoveAwayFrom>;
   /** Move your search term closer to or further away from another vector described by keywords */
@@ -247,87 +230,84 @@ export type AggregateChatsWeaviateNearTextInpObj = {
 
 /** An object containing Aggregation information about this property */
 export type AggregateChatsWeaviatecreatedAtObj = {
-  __typename?: "AggregateChatsWeaviatecreatedAtObj";
+  __typename?: 'AggregateChatsWeaviatecreatedAtObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateChatsWeaviatecreatedAtTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateChatsWeaviatecreatedAtTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateChatsWeaviatecreatedAtObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateChatsWeaviatecreatedAtTopOccurrencesObj = {
-  __typename?: "AggregateChatsWeaviatecreatedAtTopOccurrencesObj";
+  __typename?: 'AggregateChatsWeaviatecreatedAtTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** An object containing Aggregation information about this property */
 export type AggregateChatsWeaviatetitleObj = {
-  __typename?: "AggregateChatsWeaviatetitleObj";
+  __typename?: 'AggregateChatsWeaviatetitleObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateChatsWeaviatetitleTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateChatsWeaviatetitleTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateChatsWeaviatetitleObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateChatsWeaviatetitleTopOccurrencesObj = {
-  __typename?: "AggregateChatsWeaviatetitleTopOccurrencesObj";
+  __typename?: 'AggregateChatsWeaviatetitleTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** An object containing Aggregation information about this property */
 export type AggregateChatsWeaviateuserIdObj = {
-  __typename?: "AggregateChatsWeaviateuserIdObj";
+  __typename?: 'AggregateChatsWeaviateuserIdObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateChatsWeaviateuserIdTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateChatsWeaviateuserIdTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateChatsWeaviateuserIdObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateChatsWeaviateuserIdTopOccurrencesObj = {
-  __typename?: "AggregateChatsWeaviateuserIdTopOccurrencesObj";
+  __typename?: 'AggregateChatsWeaviateuserIdTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type AggregateDocumentsWeaviates = {
-  __typename?: "AggregateDocumentsWeaviates";
+  __typename?: 'AggregateDocumentsWeaviates';
   /** Indicates the group of returned data */
   groupedBy?: Maybe<AggregateDocumentsWeaviatesGroupedByObj>;
   /** An object used to Get Meta information about Objects on a local Weaviate */
@@ -340,62 +320,56 @@ export type AggregateDocumentsWeaviates = {
 
 /** An object containing the path and value of the grouped property */
 export type AggregateDocumentsWeaviatesGroupedByObj = {
-  __typename?: "AggregateDocumentsWeaviatesGroupedByObj";
+  __typename?: 'AggregateDocumentsWeaviatesGroupedByObj';
   /** The path of the grouped property */
-  path?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
+  path?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   /** The value of the grouped property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type AggregateDocumentsWeaviatesMetaObject = {
-  __typename?: "AggregateDocumentsWeaviatesMetaObject";
-  count?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'AggregateDocumentsWeaviatesMetaObject';
+  count?: Maybe<Scalars['Int']['output']>;
 };
 
 export type AggregateDocumentsWeaviatesMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<
-      InputMaybe<AggregateDocumentsWeaviatesMoveAwayFromMovementObjectsInpObj>
-    >
-  >;
+  objects?: InputMaybe<Array<InputMaybe<AggregateDocumentsWeaviatesMoveAwayFromMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type AggregateDocumentsWeaviatesMoveAwayFromMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AggregateDocumentsWeaviatesMoveTo = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<AggregateDocumentsWeaviatesMoveToMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<AggregateDocumentsWeaviatesMoveToMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type AggregateDocumentsWeaviatesMoveToMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -404,10 +378,10 @@ export type AggregateDocumentsWeaviatesNearTextInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
-  concepts: Array<InputMaybe<Scalars["String"]["input"]>>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
+  concepts: Array<InputMaybe<Scalars['String']['input']>>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Move your search term closer to or further away from another vector described by keywords */
   moveAwayFrom?: InputMaybe<AggregateDocumentsWeaviatesMoveAwayFrom>;
   /** Move your search term closer to or further away from another vector described by keywords */
@@ -416,60 +390,58 @@ export type AggregateDocumentsWeaviatesNearTextInpObj = {
 
 /** An object containing Aggregation information about this property */
 export type AggregateDocumentsWeaviatesnameObj = {
-  __typename?: "AggregateDocumentsWeaviatesnameObj";
+  __typename?: 'AggregateDocumentsWeaviatesnameObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateDocumentsWeaviatesnameTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateDocumentsWeaviatesnameTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateDocumentsWeaviatesnameObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateDocumentsWeaviatesnameTopOccurrencesObj = {
-  __typename?: "AggregateDocumentsWeaviatesnameTopOccurrencesObj";
+  __typename?: 'AggregateDocumentsWeaviatesnameTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** An object containing Aggregation information about this property */
 export type AggregateDocumentsWeaviatesuserIdObj = {
-  __typename?: "AggregateDocumentsWeaviatesuserIdObj";
+  __typename?: 'AggregateDocumentsWeaviatesuserIdObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateDocumentsWeaviatesuserIdTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateDocumentsWeaviatesuserIdTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateDocumentsWeaviatesuserIdObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateDocumentsWeaviatesuserIdTopOccurrencesObj = {
-  __typename?: "AggregateDocumentsWeaviatesuserIdTopOccurrencesObj";
+  __typename?: 'AggregateDocumentsWeaviatesuserIdTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type AggregateMessagesWeaviate = {
-  __typename?: "AggregateMessagesWeaviate";
+  __typename?: 'AggregateMessagesWeaviate';
   /** Aggregate this property"chatId" */
   chatId?: Maybe<AggregateMessagesWeaviatechatIdObj>;
   /** Aggregate this property"content" */
@@ -482,62 +454,56 @@ export type AggregateMessagesWeaviate = {
 
 /** An object containing the path and value of the grouped property */
 export type AggregateMessagesWeaviateGroupedByObj = {
-  __typename?: "AggregateMessagesWeaviateGroupedByObj";
+  __typename?: 'AggregateMessagesWeaviateGroupedByObj';
   /** The path of the grouped property */
-  path?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
+  path?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   /** The value of the grouped property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type AggregateMessagesWeaviateMetaObject = {
-  __typename?: "AggregateMessagesWeaviateMetaObject";
-  count?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'AggregateMessagesWeaviateMetaObject';
+  count?: Maybe<Scalars['Int']['output']>;
 };
 
 export type AggregateMessagesWeaviateMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<
-      InputMaybe<AggregateMessagesWeaviateMoveAwayFromMovementObjectsInpObj>
-    >
-  >;
+  objects?: InputMaybe<Array<InputMaybe<AggregateMessagesWeaviateMoveAwayFromMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type AggregateMessagesWeaviateMoveAwayFromMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AggregateMessagesWeaviateMoveTo = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<AggregateMessagesWeaviateMoveToMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<AggregateMessagesWeaviateMoveToMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type AggregateMessagesWeaviateMoveToMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -546,10 +512,10 @@ export type AggregateMessagesWeaviateNearTextInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
-  concepts: Array<InputMaybe<Scalars["String"]["input"]>>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
+  concepts: Array<InputMaybe<Scalars['String']['input']>>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Move your search term closer to or further away from another vector described by keywords */
   moveAwayFrom?: InputMaybe<AggregateMessagesWeaviateMoveAwayFrom>;
   /** Move your search term closer to or further away from another vector described by keywords */
@@ -558,80 +524,78 @@ export type AggregateMessagesWeaviateNearTextInpObj = {
 
 /** An object containing Aggregation information about this property */
 export type AggregateMessagesWeaviatechatIdObj = {
-  __typename?: "AggregateMessagesWeaviatechatIdObj";
+  __typename?: 'AggregateMessagesWeaviatechatIdObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateMessagesWeaviatechatIdTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateMessagesWeaviatechatIdTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateMessagesWeaviatechatIdObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateMessagesWeaviatechatIdTopOccurrencesObj = {
-  __typename?: "AggregateMessagesWeaviatechatIdTopOccurrencesObj";
+  __typename?: 'AggregateMessagesWeaviatechatIdTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** An object containing Aggregation information about this property */
 export type AggregateMessagesWeaviatecontentObj = {
-  __typename?: "AggregateMessagesWeaviatecontentObj";
+  __typename?: 'AggregateMessagesWeaviatecontentObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateMessagesWeaviatecontentTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateMessagesWeaviatecontentTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateMessagesWeaviatecontentObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateMessagesWeaviatecontentTopOccurrencesObj = {
-  __typename?: "AggregateMessagesWeaviatecontentTopOccurrencesObj";
+  __typename?: 'AggregateMessagesWeaviatecontentTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** Hybrid search */
 export type AggregateObjectsChatsWeaviateHybridInpObj = {
   /** Search weight */
-  alpha?: InputMaybe<Scalars["Float"]["input"]>;
+  alpha?: InputMaybe<Scalars['Float']['input']>;
   /** Query string */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
   /** Vector search */
-  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+  vector?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type AggregateObjectsChatsWeaviateNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /**
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Concept identifier in the uuid format */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AggregateObjectsChatsWeaviateNearVectorInpObj = {
@@ -639,23 +603,23 @@ export type AggregateObjectsChatsWeaviateNearVectorInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Target vector to be used in kNN search */
-  vector: Array<InputMaybe<Scalars["Float"]["input"]>>;
+  vector: Array<InputMaybe<Scalars['Float']['input']>>;
 };
 
 export type AggregateObjectsChatsWeaviateWhereGeoRangeDistanceInpObj = {
   /** The maximum distance from the point specified geoCoordinates. */
-  max: Scalars["Float"]["input"];
+  max: Scalars['Float']['input'];
 };
 
 export type AggregateObjectsChatsWeaviateWhereGeoRangeGeoCoordinatesInpObj = {
   /** The latitude (in decimal format) of the geoCoordinates to search around. */
-  latitude: Scalars["Float"]["input"];
+  latitude: Scalars['Float']['input'];
   /** The longitude (in decimal format) of the geoCoordinates to search around. */
-  longitude: Scalars["Float"]["input"];
+  longitude: Scalars['Float']['input'];
 };
 
 export type AggregateObjectsChatsWeaviateWhereGeoRangeInpObj = {
@@ -668,24 +632,18 @@ export type AggregateObjectsChatsWeaviateWhereGeoRangeInpObj = {
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type AggregateObjectsChatsWeaviateWhereInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<AggregateObjectsChatsWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<AggregateObjectsChatsWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<AggregateObjectsChatsWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanAggregateObjectsChatsWeaviate"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanAggregateObjectsChatsWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateAggregateObjectsChatsWeaviate"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateAggregateObjectsChatsWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -694,40 +652,30 @@ export type AggregateObjectsChatsWeaviateWhereInpObj = {
    */
   valueGeoRange?: InputMaybe<AggregateObjectsChatsWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntAggregateObjectsChatsWeaviate"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntAggregateObjectsChatsWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatAggregateObjectsChatsWeaviate"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatAggregateObjectsChatsWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringAggregateObjectsChatsWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringAggregateObjectsChatsWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextAggregateObjectsChatsWeaviate"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextAggregateObjectsChatsWeaviate']['input']>;
 };
 
 /** An object containing the Operands that can be applied to a 'where' filter */
 export type AggregateObjectsChatsWeaviateWhereOperandsInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<AggregateObjectsChatsWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<AggregateObjectsChatsWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<AggregateObjectsChatsWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanAggregateObjectsChatsWeaviate"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanAggregateObjectsChatsWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateAggregateObjectsChatsWeaviate"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateAggregateObjectsChatsWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -736,59 +684,55 @@ export type AggregateObjectsChatsWeaviateWhereOperandsInpObj = {
    */
   valueGeoRange?: InputMaybe<AggregateObjectsChatsWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntAggregateObjectsChatsWeaviate"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntAggregateObjectsChatsWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatAggregateObjectsChatsWeaviate"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatAggregateObjectsChatsWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringAggregateObjectsChatsWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringAggregateObjectsChatsWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextAggregateObjectsChatsWeaviate"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextAggregateObjectsChatsWeaviate']['input']>;
 };
 
 /** An object containing the Operators that can be applied to a 'where' filter */
 export enum AggregateObjectsChatsWeaviateWhereOperatorEnum {
-  And = "And",
-  ContainsAll = "ContainsAll",
-  ContainsAny = "ContainsAny",
-  Equal = "Equal",
-  GreaterThan = "GreaterThan",
-  GreaterThanEqual = "GreaterThanEqual",
-  IsNull = "IsNull",
-  LessThan = "LessThan",
-  LessThanEqual = "LessThanEqual",
-  Like = "Like",
-  Not = "Not",
-  NotEqual = "NotEqual",
-  Or = "Or",
-  WithinGeoRange = "WithinGeoRange",
+  And = 'And',
+  ContainsAll = 'ContainsAll',
+  ContainsAny = 'ContainsAny',
+  Equal = 'Equal',
+  GreaterThan = 'GreaterThan',
+  GreaterThanEqual = 'GreaterThanEqual',
+  IsNull = 'IsNull',
+  LessThan = 'LessThan',
+  LessThanEqual = 'LessThanEqual',
+  Like = 'Like',
+  Not = 'Not',
+  NotEqual = 'NotEqual',
+  Or = 'Or',
+  WithinGeoRange = 'WithinGeoRange'
 }
 
 /** Hybrid search */
 export type AggregateObjectsDocumentsWeaviatesHybridInpObj = {
   /** Search weight */
-  alpha?: InputMaybe<Scalars["Float"]["input"]>;
+  alpha?: InputMaybe<Scalars['Float']['input']>;
   /** Query string */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
   /** Vector search */
-  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+  vector?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type AggregateObjectsDocumentsWeaviatesNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /**
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Concept identifier in the uuid format */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AggregateObjectsDocumentsWeaviatesNearVectorInpObj = {
@@ -796,25 +740,24 @@ export type AggregateObjectsDocumentsWeaviatesNearVectorInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Target vector to be used in kNN search */
-  vector: Array<InputMaybe<Scalars["Float"]["input"]>>;
+  vector: Array<InputMaybe<Scalars['Float']['input']>>;
 };
 
 export type AggregateObjectsDocumentsWeaviatesWhereGeoRangeDistanceInpObj = {
   /** The maximum distance from the point specified geoCoordinates. */
-  max: Scalars["Float"]["input"];
+  max: Scalars['Float']['input'];
 };
 
-export type AggregateObjectsDocumentsWeaviatesWhereGeoRangeGeoCoordinatesInpObj =
-  {
-    /** The latitude (in decimal format) of the geoCoordinates to search around. */
-    latitude: Scalars["Float"]["input"];
-    /** The longitude (in decimal format) of the geoCoordinates to search around. */
-    longitude: Scalars["Float"]["input"];
-  };
+export type AggregateObjectsDocumentsWeaviatesWhereGeoRangeGeoCoordinatesInpObj = {
+  /** The latitude (in decimal format) of the geoCoordinates to search around. */
+  latitude: Scalars['Float']['input'];
+  /** The longitude (in decimal format) of the geoCoordinates to search around. */
+  longitude: Scalars['Float']['input'];
+};
 
 export type AggregateObjectsDocumentsWeaviatesWhereGeoRangeInpObj = {
   /** The distance from the point specified via geoCoordinates. */
@@ -826,24 +769,18 @@ export type AggregateObjectsDocumentsWeaviatesWhereGeoRangeInpObj = {
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type AggregateObjectsDocumentsWeaviatesWhereInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<AggregateObjectsDocumentsWeaviatesWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<AggregateObjectsDocumentsWeaviatesWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<AggregateObjectsDocumentsWeaviatesWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanAggregateObjectsDocumentsWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateAggregateObjectsDocumentsWeaviates']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -852,44 +789,30 @@ export type AggregateObjectsDocumentsWeaviatesWhereInpObj = {
    */
   valueGeoRange?: InputMaybe<AggregateObjectsDocumentsWeaviatesWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<
-    Scalars["IntAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueInt?: InputMaybe<Scalars['IntAggregateObjectsDocumentsWeaviates']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatAggregateObjectsDocumentsWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringAggregateObjectsDocumentsWeaviates']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<
-    Scalars["TextAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueText?: InputMaybe<Scalars['TextAggregateObjectsDocumentsWeaviates']['input']>;
 };
 
 /** An object containing the Operands that can be applied to a 'where' filter */
 export type AggregateObjectsDocumentsWeaviatesWhereOperandsInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<AggregateObjectsDocumentsWeaviatesWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<AggregateObjectsDocumentsWeaviatesWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<AggregateObjectsDocumentsWeaviatesWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanAggregateObjectsDocumentsWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateAggregateObjectsDocumentsWeaviates']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -898,63 +821,55 @@ export type AggregateObjectsDocumentsWeaviatesWhereOperandsInpObj = {
    */
   valueGeoRange?: InputMaybe<AggregateObjectsDocumentsWeaviatesWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<
-    Scalars["IntAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueInt?: InputMaybe<Scalars['IntAggregateObjectsDocumentsWeaviates']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatAggregateObjectsDocumentsWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringAggregateObjectsDocumentsWeaviates']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<
-    Scalars["TextAggregateObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueText?: InputMaybe<Scalars['TextAggregateObjectsDocumentsWeaviates']['input']>;
 };
 
 /** An object containing the Operators that can be applied to a 'where' filter */
 export enum AggregateObjectsDocumentsWeaviatesWhereOperatorEnum {
-  And = "And",
-  ContainsAll = "ContainsAll",
-  ContainsAny = "ContainsAny",
-  Equal = "Equal",
-  GreaterThan = "GreaterThan",
-  GreaterThanEqual = "GreaterThanEqual",
-  IsNull = "IsNull",
-  LessThan = "LessThan",
-  LessThanEqual = "LessThanEqual",
-  Like = "Like",
-  Not = "Not",
-  NotEqual = "NotEqual",
-  Or = "Or",
-  WithinGeoRange = "WithinGeoRange",
+  And = 'And',
+  ContainsAll = 'ContainsAll',
+  ContainsAny = 'ContainsAny',
+  Equal = 'Equal',
+  GreaterThan = 'GreaterThan',
+  GreaterThanEqual = 'GreaterThanEqual',
+  IsNull = 'IsNull',
+  LessThan = 'LessThan',
+  LessThanEqual = 'LessThanEqual',
+  Like = 'Like',
+  Not = 'Not',
+  NotEqual = 'NotEqual',
+  Or = 'Or',
+  WithinGeoRange = 'WithinGeoRange'
 }
 
 /** Hybrid search */
 export type AggregateObjectsMessagesWeaviateHybridInpObj = {
   /** Search weight */
-  alpha?: InputMaybe<Scalars["Float"]["input"]>;
+  alpha?: InputMaybe<Scalars['Float']['input']>;
   /** Query string */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
   /** Vector search */
-  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+  vector?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type AggregateObjectsMessagesWeaviateNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /**
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Concept identifier in the uuid format */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AggregateObjectsMessagesWeaviateNearVectorInpObj = {
@@ -962,25 +877,24 @@ export type AggregateObjectsMessagesWeaviateNearVectorInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Target vector to be used in kNN search */
-  vector: Array<InputMaybe<Scalars["Float"]["input"]>>;
+  vector: Array<InputMaybe<Scalars['Float']['input']>>;
 };
 
 export type AggregateObjectsMessagesWeaviateWhereGeoRangeDistanceInpObj = {
   /** The maximum distance from the point specified geoCoordinates. */
-  max: Scalars["Float"]["input"];
+  max: Scalars['Float']['input'];
 };
 
-export type AggregateObjectsMessagesWeaviateWhereGeoRangeGeoCoordinatesInpObj =
-  {
-    /** The latitude (in decimal format) of the geoCoordinates to search around. */
-    latitude: Scalars["Float"]["input"];
-    /** The longitude (in decimal format) of the geoCoordinates to search around. */
-    longitude: Scalars["Float"]["input"];
-  };
+export type AggregateObjectsMessagesWeaviateWhereGeoRangeGeoCoordinatesInpObj = {
+  /** The latitude (in decimal format) of the geoCoordinates to search around. */
+  latitude: Scalars['Float']['input'];
+  /** The longitude (in decimal format) of the geoCoordinates to search around. */
+  longitude: Scalars['Float']['input'];
+};
 
 export type AggregateObjectsMessagesWeaviateWhereGeoRangeInpObj = {
   /** The distance from the point specified via geoCoordinates. */
@@ -992,24 +906,18 @@ export type AggregateObjectsMessagesWeaviateWhereGeoRangeInpObj = {
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type AggregateObjectsMessagesWeaviateWhereInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<AggregateObjectsMessagesWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<AggregateObjectsMessagesWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<AggregateObjectsMessagesWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanAggregateObjectsMessagesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateAggregateObjectsMessagesWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -1018,44 +926,30 @@ export type AggregateObjectsMessagesWeaviateWhereInpObj = {
    */
   valueGeoRange?: InputMaybe<AggregateObjectsMessagesWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<
-    Scalars["IntAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueInt?: InputMaybe<Scalars['IntAggregateObjectsMessagesWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatAggregateObjectsMessagesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringAggregateObjectsMessagesWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<
-    Scalars["TextAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueText?: InputMaybe<Scalars['TextAggregateObjectsMessagesWeaviate']['input']>;
 };
 
 /** An object containing the Operands that can be applied to a 'where' filter */
 export type AggregateObjectsMessagesWeaviateWhereOperandsInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<AggregateObjectsMessagesWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<AggregateObjectsMessagesWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<AggregateObjectsMessagesWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanAggregateObjectsMessagesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateAggregateObjectsMessagesWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -1064,44 +958,36 @@ export type AggregateObjectsMessagesWeaviateWhereOperandsInpObj = {
    */
   valueGeoRange?: InputMaybe<AggregateObjectsMessagesWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<
-    Scalars["IntAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueInt?: InputMaybe<Scalars['IntAggregateObjectsMessagesWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatAggregateObjectsMessagesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringAggregateObjectsMessagesWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<
-    Scalars["TextAggregateObjectsMessagesWeaviate"]["input"]
-  >;
+  valueText?: InputMaybe<Scalars['TextAggregateObjectsMessagesWeaviate']['input']>;
 };
 
 /** An object containing the Operators that can be applied to a 'where' filter */
 export enum AggregateObjectsMessagesWeaviateWhereOperatorEnum {
-  And = "And",
-  ContainsAll = "ContainsAll",
-  ContainsAny = "ContainsAny",
-  Equal = "Equal",
-  GreaterThan = "GreaterThan",
-  GreaterThanEqual = "GreaterThanEqual",
-  IsNull = "IsNull",
-  LessThan = "LessThan",
-  LessThanEqual = "LessThanEqual",
-  Like = "Like",
-  Not = "Not",
-  NotEqual = "NotEqual",
-  Or = "Or",
-  WithinGeoRange = "WithinGeoRange",
+  And = 'And',
+  ContainsAll = 'ContainsAll',
+  ContainsAny = 'ContainsAny',
+  Equal = 'Equal',
+  GreaterThan = 'GreaterThan',
+  GreaterThanEqual = 'GreaterThanEqual',
+  IsNull = 'IsNull',
+  LessThan = 'LessThan',
+  LessThanEqual = 'LessThanEqual',
+  Like = 'Like',
+  Not = 'Not',
+  NotEqual = 'NotEqual',
+  Or = 'Or',
+  WithinGeoRange = 'WithinGeoRange'
 }
 
 /** An object allowing Aggregation of %ss on a local Weaviate */
 export type AggregateObjectsObj = {
-  __typename?: "AggregateObjectsObj";
+  __typename?: 'AggregateObjectsObj';
   ChatsWeaviate?: Maybe<Array<Maybe<AggregateChatsWeaviate>>>;
   DocumentsWeaviates?: Maybe<Array<Maybe<AggregateDocumentsWeaviates>>>;
   MessagesWeaviate?: Maybe<Array<Maybe<AggregateMessagesWeaviate>>>;
@@ -1109,93 +995,98 @@ export type AggregateObjectsObj = {
   TemplatesWeaviates?: Maybe<Array<Maybe<AggregateTemplatesWeaviates>>>;
 };
 
+
 /** An object allowing Aggregation of %ss on a local Weaviate */
 export type AggregateObjectsObjChatsWeaviateArgs = {
   ask?: InputMaybe<QnATransformersAggregateChatsWeaviateAskInpObj>;
-  groupBy?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   hybrid?: InputMaybe<AggregateObjectsChatsWeaviateHybridInpObj>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   nearObject?: InputMaybe<AggregateObjectsChatsWeaviateNearObjectInpObj>;
   nearText?: InputMaybe<AggregateChatsWeaviateNearTextInpObj>;
   nearVector?: InputMaybe<AggregateObjectsChatsWeaviateNearVectorInpObj>;
-  objectLimit?: InputMaybe<Scalars["Int"]["input"]>;
+  objectLimit?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AggregateObjectsChatsWeaviateWhereInpObj>;
 };
+
 
 /** An object allowing Aggregation of %ss on a local Weaviate */
 export type AggregateObjectsObjDocumentsWeaviatesArgs = {
   ask?: InputMaybe<QnATransformersAggregateDocumentsWeaviatesAskInpObj>;
-  groupBy?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   hybrid?: InputMaybe<AggregateObjectsDocumentsWeaviatesHybridInpObj>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   nearObject?: InputMaybe<AggregateObjectsDocumentsWeaviatesNearObjectInpObj>;
   nearText?: InputMaybe<AggregateDocumentsWeaviatesNearTextInpObj>;
   nearVector?: InputMaybe<AggregateObjectsDocumentsWeaviatesNearVectorInpObj>;
-  objectLimit?: InputMaybe<Scalars["Int"]["input"]>;
+  objectLimit?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AggregateObjectsDocumentsWeaviatesWhereInpObj>;
 };
+
 
 /** An object allowing Aggregation of %ss on a local Weaviate */
 export type AggregateObjectsObjMessagesWeaviateArgs = {
   ask?: InputMaybe<QnATransformersAggregateMessagesWeaviateAskInpObj>;
-  groupBy?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   hybrid?: InputMaybe<AggregateObjectsMessagesWeaviateHybridInpObj>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   nearObject?: InputMaybe<AggregateObjectsMessagesWeaviateNearObjectInpObj>;
   nearText?: InputMaybe<AggregateMessagesWeaviateNearTextInpObj>;
   nearVector?: InputMaybe<AggregateObjectsMessagesWeaviateNearVectorInpObj>;
-  objectLimit?: InputMaybe<Scalars["Int"]["input"]>;
+  objectLimit?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AggregateObjectsMessagesWeaviateWhereInpObj>;
 };
+
 
 /** An object allowing Aggregation of %ss on a local Weaviate */
 export type AggregateObjectsObjRolesWeaviateArgs = {
   ask?: InputMaybe<QnATransformersAggregateRolesWeaviateAskInpObj>;
-  groupBy?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   hybrid?: InputMaybe<AggregateObjectsRolesWeaviateHybridInpObj>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   nearObject?: InputMaybe<AggregateObjectsRolesWeaviateNearObjectInpObj>;
   nearText?: InputMaybe<AggregateRolesWeaviateNearTextInpObj>;
   nearVector?: InputMaybe<AggregateObjectsRolesWeaviateNearVectorInpObj>;
-  objectLimit?: InputMaybe<Scalars["Int"]["input"]>;
+  objectLimit?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AggregateObjectsRolesWeaviateWhereInpObj>;
 };
+
 
 /** An object allowing Aggregation of %ss on a local Weaviate */
 export type AggregateObjectsObjTemplatesWeaviatesArgs = {
   ask?: InputMaybe<QnATransformersAggregateTemplatesWeaviatesAskInpObj>;
-  groupBy?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   hybrid?: InputMaybe<AggregateObjectsTemplatesWeaviatesHybridInpObj>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   nearObject?: InputMaybe<AggregateObjectsTemplatesWeaviatesNearObjectInpObj>;
   nearText?: InputMaybe<AggregateTemplatesWeaviatesNearTextInpObj>;
   nearVector?: InputMaybe<AggregateObjectsTemplatesWeaviatesNearVectorInpObj>;
-  objectLimit?: InputMaybe<Scalars["Int"]["input"]>;
+  objectLimit?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AggregateObjectsTemplatesWeaviatesWhereInpObj>;
 };
 
 /** Hybrid search */
 export type AggregateObjectsRolesWeaviateHybridInpObj = {
   /** Search weight */
-  alpha?: InputMaybe<Scalars["Float"]["input"]>;
+  alpha?: InputMaybe<Scalars['Float']['input']>;
   /** Query string */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
   /** Vector search */
-  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+  vector?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type AggregateObjectsRolesWeaviateNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /**
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Concept identifier in the uuid format */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AggregateObjectsRolesWeaviateNearVectorInpObj = {
@@ -1203,23 +1094,23 @@ export type AggregateObjectsRolesWeaviateNearVectorInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Target vector to be used in kNN search */
-  vector: Array<InputMaybe<Scalars["Float"]["input"]>>;
+  vector: Array<InputMaybe<Scalars['Float']['input']>>;
 };
 
 export type AggregateObjectsRolesWeaviateWhereGeoRangeDistanceInpObj = {
   /** The maximum distance from the point specified geoCoordinates. */
-  max: Scalars["Float"]["input"];
+  max: Scalars['Float']['input'];
 };
 
 export type AggregateObjectsRolesWeaviateWhereGeoRangeGeoCoordinatesInpObj = {
   /** The latitude (in decimal format) of the geoCoordinates to search around. */
-  latitude: Scalars["Float"]["input"];
+  latitude: Scalars['Float']['input'];
   /** The longitude (in decimal format) of the geoCoordinates to search around. */
-  longitude: Scalars["Float"]["input"];
+  longitude: Scalars['Float']['input'];
 };
 
 export type AggregateObjectsRolesWeaviateWhereGeoRangeInpObj = {
@@ -1232,24 +1123,18 @@ export type AggregateObjectsRolesWeaviateWhereGeoRangeInpObj = {
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type AggregateObjectsRolesWeaviateWhereInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<AggregateObjectsRolesWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<AggregateObjectsRolesWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<AggregateObjectsRolesWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanAggregateObjectsRolesWeaviate"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanAggregateObjectsRolesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateAggregateObjectsRolesWeaviate"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateAggregateObjectsRolesWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -1258,40 +1143,30 @@ export type AggregateObjectsRolesWeaviateWhereInpObj = {
    */
   valueGeoRange?: InputMaybe<AggregateObjectsRolesWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntAggregateObjectsRolesWeaviate"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntAggregateObjectsRolesWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatAggregateObjectsRolesWeaviate"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatAggregateObjectsRolesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringAggregateObjectsRolesWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringAggregateObjectsRolesWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextAggregateObjectsRolesWeaviate"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextAggregateObjectsRolesWeaviate']['input']>;
 };
 
 /** An object containing the Operands that can be applied to a 'where' filter */
 export type AggregateObjectsRolesWeaviateWhereOperandsInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<AggregateObjectsRolesWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<AggregateObjectsRolesWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<AggregateObjectsRolesWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanAggregateObjectsRolesWeaviate"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanAggregateObjectsRolesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateAggregateObjectsRolesWeaviate"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateAggregateObjectsRolesWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -1300,59 +1175,55 @@ export type AggregateObjectsRolesWeaviateWhereOperandsInpObj = {
    */
   valueGeoRange?: InputMaybe<AggregateObjectsRolesWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntAggregateObjectsRolesWeaviate"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntAggregateObjectsRolesWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatAggregateObjectsRolesWeaviate"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatAggregateObjectsRolesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringAggregateObjectsRolesWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringAggregateObjectsRolesWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextAggregateObjectsRolesWeaviate"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextAggregateObjectsRolesWeaviate']['input']>;
 };
 
 /** An object containing the Operators that can be applied to a 'where' filter */
 export enum AggregateObjectsRolesWeaviateWhereOperatorEnum {
-  And = "And",
-  ContainsAll = "ContainsAll",
-  ContainsAny = "ContainsAny",
-  Equal = "Equal",
-  GreaterThan = "GreaterThan",
-  GreaterThanEqual = "GreaterThanEqual",
-  IsNull = "IsNull",
-  LessThan = "LessThan",
-  LessThanEqual = "LessThanEqual",
-  Like = "Like",
-  Not = "Not",
-  NotEqual = "NotEqual",
-  Or = "Or",
-  WithinGeoRange = "WithinGeoRange",
+  And = 'And',
+  ContainsAll = 'ContainsAll',
+  ContainsAny = 'ContainsAny',
+  Equal = 'Equal',
+  GreaterThan = 'GreaterThan',
+  GreaterThanEqual = 'GreaterThanEqual',
+  IsNull = 'IsNull',
+  LessThan = 'LessThan',
+  LessThanEqual = 'LessThanEqual',
+  Like = 'Like',
+  Not = 'Not',
+  NotEqual = 'NotEqual',
+  Or = 'Or',
+  WithinGeoRange = 'WithinGeoRange'
 }
 
 /** Hybrid search */
 export type AggregateObjectsTemplatesWeaviatesHybridInpObj = {
   /** Search weight */
-  alpha?: InputMaybe<Scalars["Float"]["input"]>;
+  alpha?: InputMaybe<Scalars['Float']['input']>;
   /** Query string */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
   /** Vector search */
-  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+  vector?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type AggregateObjectsTemplatesWeaviatesNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /**
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Concept identifier in the uuid format */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AggregateObjectsTemplatesWeaviatesNearVectorInpObj = {
@@ -1360,25 +1231,24 @@ export type AggregateObjectsTemplatesWeaviatesNearVectorInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Target vector to be used in kNN search */
-  vector: Array<InputMaybe<Scalars["Float"]["input"]>>;
+  vector: Array<InputMaybe<Scalars['Float']['input']>>;
 };
 
 export type AggregateObjectsTemplatesWeaviatesWhereGeoRangeDistanceInpObj = {
   /** The maximum distance from the point specified geoCoordinates. */
-  max: Scalars["Float"]["input"];
+  max: Scalars['Float']['input'];
 };
 
-export type AggregateObjectsTemplatesWeaviatesWhereGeoRangeGeoCoordinatesInpObj =
-  {
-    /** The latitude (in decimal format) of the geoCoordinates to search around. */
-    latitude: Scalars["Float"]["input"];
-    /** The longitude (in decimal format) of the geoCoordinates to search around. */
-    longitude: Scalars["Float"]["input"];
-  };
+export type AggregateObjectsTemplatesWeaviatesWhereGeoRangeGeoCoordinatesInpObj = {
+  /** The latitude (in decimal format) of the geoCoordinates to search around. */
+  latitude: Scalars['Float']['input'];
+  /** The longitude (in decimal format) of the geoCoordinates to search around. */
+  longitude: Scalars['Float']['input'];
+};
 
 export type AggregateObjectsTemplatesWeaviatesWhereGeoRangeInpObj = {
   /** The distance from the point specified via geoCoordinates. */
@@ -1390,24 +1260,18 @@ export type AggregateObjectsTemplatesWeaviatesWhereGeoRangeInpObj = {
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type AggregateObjectsTemplatesWeaviatesWhereInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<AggregateObjectsTemplatesWeaviatesWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<AggregateObjectsTemplatesWeaviatesWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<AggregateObjectsTemplatesWeaviatesWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanAggregateObjectsTemplatesWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateAggregateObjectsTemplatesWeaviates']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -1416,44 +1280,30 @@ export type AggregateObjectsTemplatesWeaviatesWhereInpObj = {
    */
   valueGeoRange?: InputMaybe<AggregateObjectsTemplatesWeaviatesWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<
-    Scalars["IntAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueInt?: InputMaybe<Scalars['IntAggregateObjectsTemplatesWeaviates']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatAggregateObjectsTemplatesWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringAggregateObjectsTemplatesWeaviates']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<
-    Scalars["TextAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueText?: InputMaybe<Scalars['TextAggregateObjectsTemplatesWeaviates']['input']>;
 };
 
 /** An object containing the Operands that can be applied to a 'where' filter */
 export type AggregateObjectsTemplatesWeaviatesWhereOperandsInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<AggregateObjectsTemplatesWeaviatesWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<AggregateObjectsTemplatesWeaviatesWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<AggregateObjectsTemplatesWeaviatesWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanAggregateObjectsTemplatesWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateAggregateObjectsTemplatesWeaviates']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -1462,43 +1312,35 @@ export type AggregateObjectsTemplatesWeaviatesWhereOperandsInpObj = {
    */
   valueGeoRange?: InputMaybe<AggregateObjectsTemplatesWeaviatesWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<
-    Scalars["IntAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueInt?: InputMaybe<Scalars['IntAggregateObjectsTemplatesWeaviates']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatAggregateObjectsTemplatesWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringAggregateObjectsTemplatesWeaviates']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<
-    Scalars["TextAggregateObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueText?: InputMaybe<Scalars['TextAggregateObjectsTemplatesWeaviates']['input']>;
 };
 
 /** An object containing the Operators that can be applied to a 'where' filter */
 export enum AggregateObjectsTemplatesWeaviatesWhereOperatorEnum {
-  And = "And",
-  ContainsAll = "ContainsAll",
-  ContainsAny = "ContainsAny",
-  Equal = "Equal",
-  GreaterThan = "GreaterThan",
-  GreaterThanEqual = "GreaterThanEqual",
-  IsNull = "IsNull",
-  LessThan = "LessThan",
-  LessThanEqual = "LessThanEqual",
-  Like = "Like",
-  Not = "Not",
-  NotEqual = "NotEqual",
-  Or = "Or",
-  WithinGeoRange = "WithinGeoRange",
+  And = 'And',
+  ContainsAll = 'ContainsAll',
+  ContainsAny = 'ContainsAny',
+  Equal = 'Equal',
+  GreaterThan = 'GreaterThan',
+  GreaterThanEqual = 'GreaterThanEqual',
+  IsNull = 'IsNull',
+  LessThan = 'LessThan',
+  LessThanEqual = 'LessThanEqual',
+  Like = 'Like',
+  Not = 'Not',
+  NotEqual = 'NotEqual',
+  Or = 'Or',
+  WithinGeoRange = 'WithinGeoRange'
 }
 
 export type AggregateRolesWeaviate = {
-  __typename?: "AggregateRolesWeaviate";
+  __typename?: 'AggregateRolesWeaviate';
   /** Indicates the group of returned data */
   groupedBy?: Maybe<AggregateRolesWeaviateGroupedByObj>;
   /** An object used to Get Meta information about Objects on a local Weaviate */
@@ -1511,60 +1353,56 @@ export type AggregateRolesWeaviate = {
 
 /** An object containing the path and value of the grouped property */
 export type AggregateRolesWeaviateGroupedByObj = {
-  __typename?: "AggregateRolesWeaviateGroupedByObj";
+  __typename?: 'AggregateRolesWeaviateGroupedByObj';
   /** The path of the grouped property */
-  path?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
+  path?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   /** The value of the grouped property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type AggregateRolesWeaviateMetaObject = {
-  __typename?: "AggregateRolesWeaviateMetaObject";
-  count?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'AggregateRolesWeaviateMetaObject';
+  count?: Maybe<Scalars['Int']['output']>;
 };
 
 export type AggregateRolesWeaviateMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<AggregateRolesWeaviateMoveAwayFromMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<AggregateRolesWeaviateMoveAwayFromMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type AggregateRolesWeaviateMoveAwayFromMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AggregateRolesWeaviateMoveTo = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<AggregateRolesWeaviateMoveToMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<AggregateRolesWeaviateMoveToMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type AggregateRolesWeaviateMoveToMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -1573,10 +1411,10 @@ export type AggregateRolesWeaviateNearTextInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
-  concepts: Array<InputMaybe<Scalars["String"]["input"]>>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
+  concepts: Array<InputMaybe<Scalars['String']['input']>>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Move your search term closer to or further away from another vector described by keywords */
   moveAwayFrom?: InputMaybe<AggregateRolesWeaviateMoveAwayFrom>;
   /** Move your search term closer to or further away from another vector described by keywords */
@@ -1585,60 +1423,58 @@ export type AggregateRolesWeaviateNearTextInpObj = {
 
 /** An object containing Aggregation information about this property */
 export type AggregateRolesWeaviatenameObj = {
-  __typename?: "AggregateRolesWeaviatenameObj";
+  __typename?: 'AggregateRolesWeaviatenameObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateRolesWeaviatenameTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateRolesWeaviatenameTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateRolesWeaviatenameObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateRolesWeaviatenameTopOccurrencesObj = {
-  __typename?: "AggregateRolesWeaviatenameTopOccurrencesObj";
+  __typename?: 'AggregateRolesWeaviatenameTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** An object containing Aggregation information about this property */
 export type AggregateRolesWeaviatetitleObj = {
-  __typename?: "AggregateRolesWeaviatetitleObj";
+  __typename?: 'AggregateRolesWeaviatetitleObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateRolesWeaviatetitleTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateRolesWeaviatetitleTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateRolesWeaviatetitleObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateRolesWeaviatetitleTopOccurrencesObj = {
-  __typename?: "AggregateRolesWeaviatetitleTopOccurrencesObj";
+  __typename?: 'AggregateRolesWeaviatetitleTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type AggregateTemplatesWeaviates = {
-  __typename?: "AggregateTemplatesWeaviates";
+  __typename?: 'AggregateTemplatesWeaviates';
   /** Aggregate this property"description" */
   description?: Maybe<AggregateTemplatesWeaviatesdescriptionObj>;
   /** Indicates the group of returned data */
@@ -1653,62 +1489,56 @@ export type AggregateTemplatesWeaviates = {
 
 /** An object containing the path and value of the grouped property */
 export type AggregateTemplatesWeaviatesGroupedByObj = {
-  __typename?: "AggregateTemplatesWeaviatesGroupedByObj";
+  __typename?: 'AggregateTemplatesWeaviatesGroupedByObj';
   /** The path of the grouped property */
-  path?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
+  path?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   /** The value of the grouped property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type AggregateTemplatesWeaviatesMetaObject = {
-  __typename?: "AggregateTemplatesWeaviatesMetaObject";
-  count?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'AggregateTemplatesWeaviatesMetaObject';
+  count?: Maybe<Scalars['Int']['output']>;
 };
 
 export type AggregateTemplatesWeaviatesMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<
-      InputMaybe<AggregateTemplatesWeaviatesMoveAwayFromMovementObjectsInpObj>
-    >
-  >;
+  objects?: InputMaybe<Array<InputMaybe<AggregateTemplatesWeaviatesMoveAwayFromMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type AggregateTemplatesWeaviatesMoveAwayFromMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AggregateTemplatesWeaviatesMoveTo = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<AggregateTemplatesWeaviatesMoveToMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<AggregateTemplatesWeaviatesMoveToMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type AggregateTemplatesWeaviatesMoveToMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -1717,10 +1547,10 @@ export type AggregateTemplatesWeaviatesNearTextInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
-  concepts: Array<InputMaybe<Scalars["String"]["input"]>>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
+  concepts: Array<InputMaybe<Scalars['String']['input']>>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Move your search term closer to or further away from another vector described by keywords */
   moveAwayFrom?: InputMaybe<AggregateTemplatesWeaviatesMoveAwayFrom>;
   /** Move your search term closer to or further away from another vector described by keywords */
@@ -1729,308 +1559,309 @@ export type AggregateTemplatesWeaviatesNearTextInpObj = {
 
 /** An object containing Aggregation information about this property */
 export type AggregateTemplatesWeaviatesdescriptionObj = {
-  __typename?: "AggregateTemplatesWeaviatesdescriptionObj";
+  __typename?: 'AggregateTemplatesWeaviatesdescriptionObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateTemplatesWeaviatesdescriptionTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateTemplatesWeaviatesdescriptionTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateTemplatesWeaviatesdescriptionObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateTemplatesWeaviatesdescriptionTopOccurrencesObj = {
-  __typename?: "AggregateTemplatesWeaviatesdescriptionTopOccurrencesObj";
+  __typename?: 'AggregateTemplatesWeaviatesdescriptionTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** An object containing Aggregation information about this property */
 export type AggregateTemplatesWeaviatesnameObj = {
-  __typename?: "AggregateTemplatesWeaviatesnameObj";
+  __typename?: 'AggregateTemplatesWeaviatesnameObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateTemplatesWeaviatesnameTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateTemplatesWeaviatesnameTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateTemplatesWeaviatesnameObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateTemplatesWeaviatesnameTopOccurrencesObj = {
-  __typename?: "AggregateTemplatesWeaviatesnameTopOccurrencesObj";
+  __typename?: 'AggregateTemplatesWeaviatesnameTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** An object containing Aggregation information about this property */
 export type AggregateTemplatesWeaviatestitleObj = {
-  __typename?: "AggregateTemplatesWeaviatestitleObj";
+  __typename?: 'AggregateTemplatesWeaviatestitleObj';
   /** The total amount of found instances for this property */
-  count?: Maybe<Scalars["Int"]["output"]>;
+  count?: Maybe<Scalars['Int']['output']>;
   /** An object containing data about the most frequently occurring values for this property */
-  topOccurrences?: Maybe<
-    Array<Maybe<AggregateTemplatesWeaviatestitleTopOccurrencesObj>>
-  >;
+  topOccurrences?: Maybe<Array<Maybe<AggregateTemplatesWeaviatestitleTopOccurrencesObj>>>;
   /** Aggregate on the total amount of found property values */
-  type?: Maybe<Scalars["String"]["output"]>;
+  type?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** An object containing Aggregation information about this property */
 export type AggregateTemplatesWeaviatestitleObjTopOccurrencesArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An object containing data about the most frequently occurring values for this property */
 export type AggregateTemplatesWeaviatestitleTopOccurrencesObj = {
-  __typename?: "AggregateTemplatesWeaviatestitleTopOccurrencesObj";
+  __typename?: 'AggregateTemplatesWeaviatestitleTopOccurrencesObj';
   /** How often the most frequently occurring value for this property occurs */
-  occurs?: Maybe<Scalars["Int"]["output"]>;
+  occurs?: Maybe<Scalars['Int']['output']>;
   /** The most frequently occurring value for this property */
-  value?: Maybe<Scalars["String"]["output"]>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
 export type Boolean_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _gt?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _gte?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _in?: InputMaybe<Array<Scalars["Boolean"]["input"]>>;
-  _is_null?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _lt?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _lte?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _neq?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _nin?: InputMaybe<Array<Scalars["Boolean"]["input"]>>;
+  _eq?: InputMaybe<Scalars['Boolean']['input']>;
+  _gt?: InputMaybe<Scalars['Boolean']['input']>;
+  _gte?: InputMaybe<Scalars['Boolean']['input']>;
+  _in?: InputMaybe<Array<Scalars['Boolean']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['Boolean']['input']>;
+  _lte?: InputMaybe<Scalars['Boolean']['input']>;
+  _neq?: InputMaybe<Scalars['Boolean']['input']>;
+  _nin?: InputMaybe<Array<Scalars['Boolean']['input']>>;
 };
 
 export type ChatsWeaviate = {
-  __typename?: "ChatsWeaviate";
+  __typename?: 'ChatsWeaviate';
   _additional?: Maybe<ChatsWeaviateAdditional>;
-  createdAt?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  userId?: Maybe<Scalars["String"]["output"]>;
+  createdAt?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['String']['output']>;
 };
 
 export type ChatsWeaviateAdditional = {
-  __typename?: "ChatsWeaviateAdditional";
+  __typename?: 'ChatsWeaviateAdditional';
   answer?: Maybe<ChatsWeaviateAdditionalAnswer>;
-  certainty?: Maybe<Scalars["Float"]["output"]>;
+  certainty?: Maybe<Scalars['Float']['output']>;
   classification?: Maybe<ChatsWeaviateAdditionalClassification>;
-  creationTimeUnix?: Maybe<Scalars["String"]["output"]>;
-  distance?: Maybe<Scalars["Float"]["output"]>;
-  explainScore?: Maybe<Scalars["String"]["output"]>;
+  creationTimeUnix?: Maybe<Scalars['String']['output']>;
+  distance?: Maybe<Scalars['Float']['output']>;
+  explainScore?: Maybe<Scalars['String']['output']>;
   featureProjection?: Maybe<ChatsWeaviateAdditionalFeatureProjection>;
   group?: Maybe<ChatsWeaviateAdditionalGroup>;
   /** The UUID of a Object, assigned by its local Weaviate */
-  id?: Maybe<Scalars["String"]["output"]>;
-  lastUpdateTimeUnix?: Maybe<Scalars["String"]["output"]>;
+  id?: Maybe<Scalars['String']['output']>;
+  lastUpdateTimeUnix?: Maybe<Scalars['String']['output']>;
   rerank?: Maybe<Array<Maybe<ChatsWeaviateAdditionalReranker>>>;
-  score?: Maybe<Scalars["String"]["output"]>;
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  score?: Maybe<Scalars['String']['output']>;
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
+
 
 export type ChatsWeaviateAdditionalFeatureProjectionArgs = {
-  algorithm?: InputMaybe<Scalars["String"]["input"]>;
-  dimensions?: InputMaybe<Scalars["Int"]["input"]>;
-  iterations?: InputMaybe<Scalars["Int"]["input"]>;
-  learningRate?: InputMaybe<Scalars["Int"]["input"]>;
-  perplexity?: InputMaybe<Scalars["Int"]["input"]>;
+  algorithm?: InputMaybe<Scalars['String']['input']>;
+  dimensions?: InputMaybe<Scalars['Int']['input']>;
+  iterations?: InputMaybe<Scalars['Int']['input']>;
+  learningRate?: InputMaybe<Scalars['Int']['input']>;
+  perplexity?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 export type ChatsWeaviateAdditionalRerankArgs = {
-  property?: InputMaybe<Scalars["String"]["input"]>;
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  property?: InputMaybe<Scalars['String']['input']>;
+  query?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ChatsWeaviateAdditionalAnswer = {
-  __typename?: "ChatsWeaviateAdditionalAnswer";
-  endPosition?: Maybe<Scalars["Int"]["output"]>;
-  hasAnswer?: Maybe<Scalars["Boolean"]["output"]>;
-  property?: Maybe<Scalars["String"]["output"]>;
-  result?: Maybe<Scalars["String"]["output"]>;
-  startPosition?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'ChatsWeaviateAdditionalAnswer';
+  endPosition?: Maybe<Scalars['Int']['output']>;
+  hasAnswer?: Maybe<Scalars['Boolean']['output']>;
+  property?: Maybe<Scalars['String']['output']>;
+  result?: Maybe<Scalars['String']['output']>;
+  startPosition?: Maybe<Scalars['Int']['output']>;
 };
 
 export type ChatsWeaviateAdditionalClassification = {
-  __typename?: "ChatsWeaviateAdditionalClassification";
-  basedOn?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  classifiedFields?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  completed?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["String"]["output"]>;
-  scope?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
+  __typename?: 'ChatsWeaviateAdditionalClassification';
+  basedOn?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  classifiedFields?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  completed?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  scope?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type ChatsWeaviateAdditionalFeatureProjection = {
-  __typename?: "ChatsWeaviateAdditionalFeatureProjection";
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  __typename?: 'ChatsWeaviateAdditionalFeatureProjection';
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type ChatsWeaviateAdditionalGroup = {
-  __typename?: "ChatsWeaviateAdditionalGroup";
-  count?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'ChatsWeaviateAdditionalGroup';
+  count?: Maybe<Scalars['Int']['output']>;
   groupedBy?: Maybe<ChatsWeaviateAdditionalGroupGroupedBy>;
   hits?: Maybe<Array<Maybe<ChatsWeaviateAdditionalGroupHits>>>;
-  id?: Maybe<Scalars["Int"]["output"]>;
-  maxDistance?: Maybe<Scalars["Float"]["output"]>;
-  minDistance?: Maybe<Scalars["Float"]["output"]>;
+  id?: Maybe<Scalars['Int']['output']>;
+  maxDistance?: Maybe<Scalars['Float']['output']>;
+  minDistance?: Maybe<Scalars['Float']['output']>;
 };
 
 export type ChatsWeaviateAdditionalGroupGroupedBy = {
-  __typename?: "ChatsWeaviateAdditionalGroupGroupedBy";
-  path?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  value?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'ChatsWeaviateAdditionalGroupGroupedBy';
+  path?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type ChatsWeaviateAdditionalGroupHits = {
-  __typename?: "ChatsWeaviateAdditionalGroupHits";
+  __typename?: 'ChatsWeaviateAdditionalGroupHits';
   _additional?: Maybe<ChatsWeaviateAdditionalGroupHitsAdditional>;
-  createdAt?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  userId?: Maybe<Scalars["String"]["output"]>;
+  createdAt?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['String']['output']>;
 };
 
 export type ChatsWeaviateAdditionalGroupHitsAdditional = {
-  __typename?: "ChatsWeaviateAdditionalGroupHitsAdditional";
-  distance?: Maybe<Scalars["Float"]["output"]>;
-  id?: Maybe<Scalars["String"]["output"]>;
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  __typename?: 'ChatsWeaviateAdditionalGroupHitsAdditional';
+  distance?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type ChatsWeaviateAdditionalReranker = {
-  __typename?: "ChatsWeaviateAdditionalReranker";
-  score?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ChatsWeaviateAdditionalReranker';
+  score?: Maybe<Scalars['Float']['output']>;
 };
 
 export type DocumentsWeaviates = {
-  __typename?: "DocumentsWeaviates";
+  __typename?: 'DocumentsWeaviates';
   _additional?: Maybe<DocumentsWeaviatesAdditional>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  userId?: Maybe<Scalars["String"]["output"]>;
+  name?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['String']['output']>;
 };
 
 export type DocumentsWeaviatesAdditional = {
-  __typename?: "DocumentsWeaviatesAdditional";
+  __typename?: 'DocumentsWeaviatesAdditional';
   answer?: Maybe<DocumentsWeaviatesAdditionalAnswer>;
-  certainty?: Maybe<Scalars["Float"]["output"]>;
+  certainty?: Maybe<Scalars['Float']['output']>;
   classification?: Maybe<DocumentsWeaviatesAdditionalClassification>;
-  creationTimeUnix?: Maybe<Scalars["String"]["output"]>;
-  distance?: Maybe<Scalars["Float"]["output"]>;
-  explainScore?: Maybe<Scalars["String"]["output"]>;
+  creationTimeUnix?: Maybe<Scalars['String']['output']>;
+  distance?: Maybe<Scalars['Float']['output']>;
+  explainScore?: Maybe<Scalars['String']['output']>;
   featureProjection?: Maybe<DocumentsWeaviatesAdditionalFeatureProjection>;
   group?: Maybe<DocumentsWeaviatesAdditionalGroup>;
   /** The UUID of a Object, assigned by its local Weaviate */
-  id?: Maybe<Scalars["String"]["output"]>;
-  lastUpdateTimeUnix?: Maybe<Scalars["String"]["output"]>;
+  id?: Maybe<Scalars['String']['output']>;
+  lastUpdateTimeUnix?: Maybe<Scalars['String']['output']>;
   rerank?: Maybe<Array<Maybe<DocumentsWeaviatesAdditionalReranker>>>;
-  score?: Maybe<Scalars["String"]["output"]>;
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  score?: Maybe<Scalars['String']['output']>;
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
+
 
 export type DocumentsWeaviatesAdditionalFeatureProjectionArgs = {
-  algorithm?: InputMaybe<Scalars["String"]["input"]>;
-  dimensions?: InputMaybe<Scalars["Int"]["input"]>;
-  iterations?: InputMaybe<Scalars["Int"]["input"]>;
-  learningRate?: InputMaybe<Scalars["Int"]["input"]>;
-  perplexity?: InputMaybe<Scalars["Int"]["input"]>;
+  algorithm?: InputMaybe<Scalars['String']['input']>;
+  dimensions?: InputMaybe<Scalars['Int']['input']>;
+  iterations?: InputMaybe<Scalars['Int']['input']>;
+  learningRate?: InputMaybe<Scalars['Int']['input']>;
+  perplexity?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 export type DocumentsWeaviatesAdditionalRerankArgs = {
-  property?: InputMaybe<Scalars["String"]["input"]>;
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  property?: InputMaybe<Scalars['String']['input']>;
+  query?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentsWeaviatesAdditionalAnswer = {
-  __typename?: "DocumentsWeaviatesAdditionalAnswer";
-  endPosition?: Maybe<Scalars["Int"]["output"]>;
-  hasAnswer?: Maybe<Scalars["Boolean"]["output"]>;
-  property?: Maybe<Scalars["String"]["output"]>;
-  result?: Maybe<Scalars["String"]["output"]>;
-  startPosition?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'DocumentsWeaviatesAdditionalAnswer';
+  endPosition?: Maybe<Scalars['Int']['output']>;
+  hasAnswer?: Maybe<Scalars['Boolean']['output']>;
+  property?: Maybe<Scalars['String']['output']>;
+  result?: Maybe<Scalars['String']['output']>;
+  startPosition?: Maybe<Scalars['Int']['output']>;
 };
 
 export type DocumentsWeaviatesAdditionalClassification = {
-  __typename?: "DocumentsWeaviatesAdditionalClassification";
-  basedOn?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  classifiedFields?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  completed?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["String"]["output"]>;
-  scope?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
+  __typename?: 'DocumentsWeaviatesAdditionalClassification';
+  basedOn?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  classifiedFields?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  completed?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  scope?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type DocumentsWeaviatesAdditionalFeatureProjection = {
-  __typename?: "DocumentsWeaviatesAdditionalFeatureProjection";
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  __typename?: 'DocumentsWeaviatesAdditionalFeatureProjection';
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type DocumentsWeaviatesAdditionalGroup = {
-  __typename?: "DocumentsWeaviatesAdditionalGroup";
-  count?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'DocumentsWeaviatesAdditionalGroup';
+  count?: Maybe<Scalars['Int']['output']>;
   groupedBy?: Maybe<DocumentsWeaviatesAdditionalGroupGroupedBy>;
   hits?: Maybe<Array<Maybe<DocumentsWeaviatesAdditionalGroupHits>>>;
-  id?: Maybe<Scalars["Int"]["output"]>;
-  maxDistance?: Maybe<Scalars["Float"]["output"]>;
-  minDistance?: Maybe<Scalars["Float"]["output"]>;
+  id?: Maybe<Scalars['Int']['output']>;
+  maxDistance?: Maybe<Scalars['Float']['output']>;
+  minDistance?: Maybe<Scalars['Float']['output']>;
 };
 
 export type DocumentsWeaviatesAdditionalGroupGroupedBy = {
-  __typename?: "DocumentsWeaviatesAdditionalGroupGroupedBy";
-  path?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  value?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'DocumentsWeaviatesAdditionalGroupGroupedBy';
+  path?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type DocumentsWeaviatesAdditionalGroupHits = {
-  __typename?: "DocumentsWeaviatesAdditionalGroupHits";
+  __typename?: 'DocumentsWeaviatesAdditionalGroupHits';
   _additional?: Maybe<DocumentsWeaviatesAdditionalGroupHitsAdditional>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  userId?: Maybe<Scalars["String"]["output"]>;
+  name?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['String']['output']>;
 };
 
 export type DocumentsWeaviatesAdditionalGroupHitsAdditional = {
-  __typename?: "DocumentsWeaviatesAdditionalGroupHitsAdditional";
-  distance?: Maybe<Scalars["Float"]["output"]>;
-  id?: Maybe<Scalars["String"]["output"]>;
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  __typename?: 'DocumentsWeaviatesAdditionalGroupHitsAdditional';
+  distance?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type DocumentsWeaviatesAdditionalReranker = {
-  __typename?: "DocumentsWeaviatesAdditionalReranker";
-  score?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'DocumentsWeaviatesAdditionalReranker';
+  score?: Maybe<Scalars['Float']['output']>;
 };
 
 export enum FusionEnum {
-  RankedFusion = "rankedFusion",
-  RelativeScoreFusion = "relativeScoreFusion",
+  RankedFusion = 'rankedFusion',
+  RelativeScoreFusion = 'relativeScoreFusion'
 }
 
 /** Specify the property of the class to group by */
 export type GetObjectsChatsWeaviateGroupByInpObj = {
   /** Specify the number of groups to be created */
-  groups: Scalars["Int"]["input"];
+  groups: Scalars['Int']['input'];
   /** Specify the number of max objects in group */
-  objectsPerGroup: Scalars["Int"]["input"];
+  objectsPerGroup: Scalars['Int']['input'];
   /**
    * Specify the path from the objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path: Array<InputMaybe<Scalars["String"]["input"]>>;
+  path: Array<InputMaybe<Scalars['String']['input']>>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -2039,92 +1870,88 @@ export type GetObjectsChatsWeaviateGroupInpObj = {
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   type?: InputMaybe<GetObjectsChatsWeaviateGroupInpObjTypeEnum>;
 };
 
 export enum GetObjectsChatsWeaviateGroupInpObjTypeEnum {
-  Closest = "closest",
-  Merge = "merge",
+  Closest = 'closest',
+  Merge = 'merge'
 }
 
 export type GetObjectsChatsWeaviateHybridGetBm25InpObj = {
   /** The properties to search in */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** The query to search for */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Hybrid search */
 export type GetObjectsChatsWeaviateHybridInpObj = {
   /** Search weight */
-  alpha?: InputMaybe<Scalars["Float"]["input"]>;
+  alpha?: InputMaybe<Scalars['Float']['input']>;
   /** Algorithm used for fusing results from vector and keyword search */
   fusionType?: InputMaybe<FusionEnum>;
   /** Which properties should be included in the sparse search */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Query string */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
   /** Vector search */
-  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+  vector?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type GetObjectsChatsWeaviateMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<GetObjectsChatsWeaviateMoveAwayFromMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<GetObjectsChatsWeaviateMoveAwayFromMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type GetObjectsChatsWeaviateMoveAwayFromMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetObjectsChatsWeaviateMoveTo = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<GetObjectsChatsWeaviateMoveToMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<GetObjectsChatsWeaviateMoveToMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type GetObjectsChatsWeaviateMoveToMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetObjectsChatsWeaviateNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /**
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Concept identifier in the uuid format */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -2133,10 +1960,10 @@ export type GetObjectsChatsWeaviateNearTextInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
-  concepts: Array<InputMaybe<Scalars["String"]["input"]>>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
+  concepts: Array<InputMaybe<Scalars['String']['input']>>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Move your search term closer to or further away from another vector described by keywords */
   moveAwayFrom?: InputMaybe<GetObjectsChatsWeaviateMoveAwayFrom>;
   /** Move your search term closer to or further away from another vector described by keywords */
@@ -2148,11 +1975,11 @@ export type GetObjectsChatsWeaviateNearVectorInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Target vector to be used in kNN search */
-  vector: Array<InputMaybe<Scalars["Float"]["input"]>>;
+  vector: Array<InputMaybe<Scalars['Float']['input']>>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -2163,24 +1990,24 @@ export type GetObjectsChatsWeaviateSortInpObj = {
    * Specify the path from the Objects fields to the property name (e.g. ['Get',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export enum GetObjectsChatsWeaviateSortInpObjTypeEnum {
-  Asc = "asc",
-  Desc = "desc",
+  Asc = 'asc',
+  Desc = 'desc'
 }
 
 export type GetObjectsChatsWeaviateWhereGeoRangeDistanceInpObj = {
   /** The maximum distance from the point specified geoCoordinates. */
-  max: Scalars["Float"]["input"];
+  max: Scalars['Float']['input'];
 };
 
 export type GetObjectsChatsWeaviateWhereGeoRangeGeoCoordinatesInpObj = {
   /** The latitude (in decimal format) of the geoCoordinates to search around. */
-  latitude: Scalars["Float"]["input"];
+  latitude: Scalars['Float']['input'];
   /** The longitude (in decimal format) of the geoCoordinates to search around. */
-  longitude: Scalars["Float"]["input"];
+  longitude: Scalars['Float']['input'];
 };
 
 export type GetObjectsChatsWeaviateWhereGeoRangeInpObj = {
@@ -2193,20 +2020,18 @@ export type GetObjectsChatsWeaviateWhereGeoRangeInpObj = {
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type GetObjectsChatsWeaviateWhereInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<GetObjectsChatsWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<GetObjectsChatsWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<GetObjectsChatsWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<Scalars["BooleanGetObjectsChatsWeaviate"]["input"]>;
+  valueBoolean?: InputMaybe<Scalars['BooleanGetObjectsChatsWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<Scalars["TextDateGetObjectsChatsWeaviate"]["input"]>;
+  valueDate?: InputMaybe<Scalars['TextDateGetObjectsChatsWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -2215,34 +2040,30 @@ export type GetObjectsChatsWeaviateWhereInpObj = {
    */
   valueGeoRange?: InputMaybe<GetObjectsChatsWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntGetObjectsChatsWeaviate"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntGetObjectsChatsWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<Scalars["FloatGetObjectsChatsWeaviate"]["input"]>;
+  valueNumber?: InputMaybe<Scalars['FloatGetObjectsChatsWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringGetObjectsChatsWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringGetObjectsChatsWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextGetObjectsChatsWeaviate"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextGetObjectsChatsWeaviate']['input']>;
 };
 
 /** An object containing the Operands that can be applied to a 'where' filter */
 export type GetObjectsChatsWeaviateWhereOperandsInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<GetObjectsChatsWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<GetObjectsChatsWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<GetObjectsChatsWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<Scalars["BooleanGetObjectsChatsWeaviate"]["input"]>;
+  valueBoolean?: InputMaybe<Scalars['BooleanGetObjectsChatsWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<Scalars["TextDateGetObjectsChatsWeaviate"]["input"]>;
+  valueDate?: InputMaybe<Scalars['TextDateGetObjectsChatsWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -2251,46 +2072,44 @@ export type GetObjectsChatsWeaviateWhereOperandsInpObj = {
    */
   valueGeoRange?: InputMaybe<GetObjectsChatsWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntGetObjectsChatsWeaviate"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntGetObjectsChatsWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<Scalars["FloatGetObjectsChatsWeaviate"]["input"]>;
+  valueNumber?: InputMaybe<Scalars['FloatGetObjectsChatsWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringGetObjectsChatsWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringGetObjectsChatsWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextGetObjectsChatsWeaviate"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextGetObjectsChatsWeaviate']['input']>;
 };
 
 /** An object containing the Operators that can be applied to a 'where' filter */
 export enum GetObjectsChatsWeaviateWhereOperatorEnum {
-  And = "And",
-  ContainsAll = "ContainsAll",
-  ContainsAny = "ContainsAny",
-  Equal = "Equal",
-  GreaterThan = "GreaterThan",
-  GreaterThanEqual = "GreaterThanEqual",
-  IsNull = "IsNull",
-  LessThan = "LessThan",
-  LessThanEqual = "LessThanEqual",
-  Like = "Like",
-  Not = "Not",
-  NotEqual = "NotEqual",
-  Or = "Or",
-  WithinGeoRange = "WithinGeoRange",
+  And = 'And',
+  ContainsAll = 'ContainsAll',
+  ContainsAny = 'ContainsAny',
+  Equal = 'Equal',
+  GreaterThan = 'GreaterThan',
+  GreaterThanEqual = 'GreaterThanEqual',
+  IsNull = 'IsNull',
+  LessThan = 'LessThan',
+  LessThanEqual = 'LessThanEqual',
+  Like = 'Like',
+  Not = 'Not',
+  NotEqual = 'NotEqual',
+  Or = 'Or',
+  WithinGeoRange = 'WithinGeoRange'
 }
 
 /** Specify the property of the class to group by */
 export type GetObjectsDocumentsWeaviatesGroupByInpObj = {
   /** Specify the number of groups to be created */
-  groups: Scalars["Int"]["input"];
+  groups: Scalars['Int']['input'];
   /** Specify the number of max objects in group */
-  objectsPerGroup: Scalars["Int"]["input"];
+  objectsPerGroup: Scalars['Int']['input'];
   /**
    * Specify the path from the objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path: Array<InputMaybe<Scalars["String"]["input"]>>;
+  path: Array<InputMaybe<Scalars['String']['input']>>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -2299,94 +2118,88 @@ export type GetObjectsDocumentsWeaviatesGroupInpObj = {
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   type?: InputMaybe<GetObjectsDocumentsWeaviatesGroupInpObjTypeEnum>;
 };
 
 export enum GetObjectsDocumentsWeaviatesGroupInpObjTypeEnum {
-  Closest = "closest",
-  Merge = "merge",
+  Closest = 'closest',
+  Merge = 'merge'
 }
 
 export type GetObjectsDocumentsWeaviatesHybridGetBm25InpObj = {
   /** The properties to search in */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** The query to search for */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Hybrid search */
 export type GetObjectsDocumentsWeaviatesHybridInpObj = {
   /** Search weight */
-  alpha?: InputMaybe<Scalars["Float"]["input"]>;
+  alpha?: InputMaybe<Scalars['Float']['input']>;
   /** Algorithm used for fusing results from vector and keyword search */
   fusionType?: InputMaybe<FusionEnum>;
   /** Which properties should be included in the sparse search */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Query string */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
   /** Vector search */
-  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+  vector?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type GetObjectsDocumentsWeaviatesMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<
-      InputMaybe<GetObjectsDocumentsWeaviatesMoveAwayFromMovementObjectsInpObj>
-    >
-  >;
+  objects?: InputMaybe<Array<InputMaybe<GetObjectsDocumentsWeaviatesMoveAwayFromMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type GetObjectsDocumentsWeaviatesMoveAwayFromMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetObjectsDocumentsWeaviatesMoveTo = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<GetObjectsDocumentsWeaviatesMoveToMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<GetObjectsDocumentsWeaviatesMoveToMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type GetObjectsDocumentsWeaviatesMoveToMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetObjectsDocumentsWeaviatesNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /**
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Concept identifier in the uuid format */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -2395,10 +2208,10 @@ export type GetObjectsDocumentsWeaviatesNearTextInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
-  concepts: Array<InputMaybe<Scalars["String"]["input"]>>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
+  concepts: Array<InputMaybe<Scalars['String']['input']>>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Move your search term closer to or further away from another vector described by keywords */
   moveAwayFrom?: InputMaybe<GetObjectsDocumentsWeaviatesMoveAwayFrom>;
   /** Move your search term closer to or further away from another vector described by keywords */
@@ -2410,11 +2223,11 @@ export type GetObjectsDocumentsWeaviatesNearVectorInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Target vector to be used in kNN search */
-  vector: Array<InputMaybe<Scalars["Float"]["input"]>>;
+  vector: Array<InputMaybe<Scalars['Float']['input']>>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -2425,24 +2238,24 @@ export type GetObjectsDocumentsWeaviatesSortInpObj = {
    * Specify the path from the Objects fields to the property name (e.g. ['Get',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export enum GetObjectsDocumentsWeaviatesSortInpObjTypeEnum {
-  Asc = "asc",
-  Desc = "desc",
+  Asc = 'asc',
+  Desc = 'desc'
 }
 
 export type GetObjectsDocumentsWeaviatesWhereGeoRangeDistanceInpObj = {
   /** The maximum distance from the point specified geoCoordinates. */
-  max: Scalars["Float"]["input"];
+  max: Scalars['Float']['input'];
 };
 
 export type GetObjectsDocumentsWeaviatesWhereGeoRangeGeoCoordinatesInpObj = {
   /** The latitude (in decimal format) of the geoCoordinates to search around. */
-  latitude: Scalars["Float"]["input"];
+  latitude: Scalars['Float']['input'];
   /** The longitude (in decimal format) of the geoCoordinates to search around. */
-  longitude: Scalars["Float"]["input"];
+  longitude: Scalars['Float']['input'];
 };
 
 export type GetObjectsDocumentsWeaviatesWhereGeoRangeInpObj = {
@@ -2455,24 +2268,18 @@ export type GetObjectsDocumentsWeaviatesWhereGeoRangeInpObj = {
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type GetObjectsDocumentsWeaviatesWhereInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<GetObjectsDocumentsWeaviatesWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<GetObjectsDocumentsWeaviatesWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<GetObjectsDocumentsWeaviatesWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanGetObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanGetObjectsDocumentsWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateGetObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateGetObjectsDocumentsWeaviates']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -2481,40 +2288,30 @@ export type GetObjectsDocumentsWeaviatesWhereInpObj = {
    */
   valueGeoRange?: InputMaybe<GetObjectsDocumentsWeaviatesWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntGetObjectsDocumentsWeaviates"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntGetObjectsDocumentsWeaviates']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatGetObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatGetObjectsDocumentsWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringGetObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringGetObjectsDocumentsWeaviates']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextGetObjectsDocumentsWeaviates"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextGetObjectsDocumentsWeaviates']['input']>;
 };
 
 /** An object containing the Operands that can be applied to a 'where' filter */
 export type GetObjectsDocumentsWeaviatesWhereOperandsInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<GetObjectsDocumentsWeaviatesWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<GetObjectsDocumentsWeaviatesWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<GetObjectsDocumentsWeaviatesWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanGetObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanGetObjectsDocumentsWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateGetObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateGetObjectsDocumentsWeaviates']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -2523,48 +2320,44 @@ export type GetObjectsDocumentsWeaviatesWhereOperandsInpObj = {
    */
   valueGeoRange?: InputMaybe<GetObjectsDocumentsWeaviatesWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntGetObjectsDocumentsWeaviates"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntGetObjectsDocumentsWeaviates']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatGetObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatGetObjectsDocumentsWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringGetObjectsDocumentsWeaviates"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringGetObjectsDocumentsWeaviates']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextGetObjectsDocumentsWeaviates"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextGetObjectsDocumentsWeaviates']['input']>;
 };
 
 /** An object containing the Operators that can be applied to a 'where' filter */
 export enum GetObjectsDocumentsWeaviatesWhereOperatorEnum {
-  And = "And",
-  ContainsAll = "ContainsAll",
-  ContainsAny = "ContainsAny",
-  Equal = "Equal",
-  GreaterThan = "GreaterThan",
-  GreaterThanEqual = "GreaterThanEqual",
-  IsNull = "IsNull",
-  LessThan = "LessThan",
-  LessThanEqual = "LessThanEqual",
-  Like = "Like",
-  Not = "Not",
-  NotEqual = "NotEqual",
-  Or = "Or",
-  WithinGeoRange = "WithinGeoRange",
+  And = 'And',
+  ContainsAll = 'ContainsAll',
+  ContainsAny = 'ContainsAny',
+  Equal = 'Equal',
+  GreaterThan = 'GreaterThan',
+  GreaterThanEqual = 'GreaterThanEqual',
+  IsNull = 'IsNull',
+  LessThan = 'LessThan',
+  LessThanEqual = 'LessThanEqual',
+  Like = 'Like',
+  Not = 'Not',
+  NotEqual = 'NotEqual',
+  Or = 'Or',
+  WithinGeoRange = 'WithinGeoRange'
 }
 
 /** Specify the property of the class to group by */
 export type GetObjectsMessagesWeaviateGroupByInpObj = {
   /** Specify the number of groups to be created */
-  groups: Scalars["Int"]["input"];
+  groups: Scalars['Int']['input'];
   /** Specify the number of max objects in group */
-  objectsPerGroup: Scalars["Int"]["input"];
+  objectsPerGroup: Scalars['Int']['input'];
   /**
    * Specify the path from the objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path: Array<InputMaybe<Scalars["String"]["input"]>>;
+  path: Array<InputMaybe<Scalars['String']['input']>>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -2573,94 +2366,88 @@ export type GetObjectsMessagesWeaviateGroupInpObj = {
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   type?: InputMaybe<GetObjectsMessagesWeaviateGroupInpObjTypeEnum>;
 };
 
 export enum GetObjectsMessagesWeaviateGroupInpObjTypeEnum {
-  Closest = "closest",
-  Merge = "merge",
+  Closest = 'closest',
+  Merge = 'merge'
 }
 
 export type GetObjectsMessagesWeaviateHybridGetBm25InpObj = {
   /** The properties to search in */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** The query to search for */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Hybrid search */
 export type GetObjectsMessagesWeaviateHybridInpObj = {
   /** Search weight */
-  alpha?: InputMaybe<Scalars["Float"]["input"]>;
+  alpha?: InputMaybe<Scalars['Float']['input']>;
   /** Algorithm used for fusing results from vector and keyword search */
   fusionType?: InputMaybe<FusionEnum>;
   /** Which properties should be included in the sparse search */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Query string */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
   /** Vector search */
-  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+  vector?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type GetObjectsMessagesWeaviateMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<
-      InputMaybe<GetObjectsMessagesWeaviateMoveAwayFromMovementObjectsInpObj>
-    >
-  >;
+  objects?: InputMaybe<Array<InputMaybe<GetObjectsMessagesWeaviateMoveAwayFromMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type GetObjectsMessagesWeaviateMoveAwayFromMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetObjectsMessagesWeaviateMoveTo = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<GetObjectsMessagesWeaviateMoveToMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<GetObjectsMessagesWeaviateMoveToMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type GetObjectsMessagesWeaviateMoveToMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetObjectsMessagesWeaviateNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /**
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Concept identifier in the uuid format */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -2669,10 +2456,10 @@ export type GetObjectsMessagesWeaviateNearTextInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
-  concepts: Array<InputMaybe<Scalars["String"]["input"]>>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
+  concepts: Array<InputMaybe<Scalars['String']['input']>>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Move your search term closer to or further away from another vector described by keywords */
   moveAwayFrom?: InputMaybe<GetObjectsMessagesWeaviateMoveAwayFrom>;
   /** Move your search term closer to or further away from another vector described by keywords */
@@ -2684,11 +2471,11 @@ export type GetObjectsMessagesWeaviateNearVectorInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Target vector to be used in kNN search */
-  vector: Array<InputMaybe<Scalars["Float"]["input"]>>;
+  vector: Array<InputMaybe<Scalars['Float']['input']>>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -2699,24 +2486,24 @@ export type GetObjectsMessagesWeaviateSortInpObj = {
    * Specify the path from the Objects fields to the property name (e.g. ['Get',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export enum GetObjectsMessagesWeaviateSortInpObjTypeEnum {
-  Asc = "asc",
-  Desc = "desc",
+  Asc = 'asc',
+  Desc = 'desc'
 }
 
 export type GetObjectsMessagesWeaviateWhereGeoRangeDistanceInpObj = {
   /** The maximum distance from the point specified geoCoordinates. */
-  max: Scalars["Float"]["input"];
+  max: Scalars['Float']['input'];
 };
 
 export type GetObjectsMessagesWeaviateWhereGeoRangeGeoCoordinatesInpObj = {
   /** The latitude (in decimal format) of the geoCoordinates to search around. */
-  latitude: Scalars["Float"]["input"];
+  latitude: Scalars['Float']['input'];
   /** The longitude (in decimal format) of the geoCoordinates to search around. */
-  longitude: Scalars["Float"]["input"];
+  longitude: Scalars['Float']['input'];
 };
 
 export type GetObjectsMessagesWeaviateWhereGeoRangeInpObj = {
@@ -2729,24 +2516,18 @@ export type GetObjectsMessagesWeaviateWhereGeoRangeInpObj = {
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type GetObjectsMessagesWeaviateWhereInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<GetObjectsMessagesWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<GetObjectsMessagesWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<GetObjectsMessagesWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanGetObjectsMessagesWeaviate"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanGetObjectsMessagesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateGetObjectsMessagesWeaviate"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateGetObjectsMessagesWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -2755,38 +2536,30 @@ export type GetObjectsMessagesWeaviateWhereInpObj = {
    */
   valueGeoRange?: InputMaybe<GetObjectsMessagesWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntGetObjectsMessagesWeaviate"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntGetObjectsMessagesWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<Scalars["FloatGetObjectsMessagesWeaviate"]["input"]>;
+  valueNumber?: InputMaybe<Scalars['FloatGetObjectsMessagesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringGetObjectsMessagesWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringGetObjectsMessagesWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextGetObjectsMessagesWeaviate"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextGetObjectsMessagesWeaviate']['input']>;
 };
 
 /** An object containing the Operands that can be applied to a 'where' filter */
 export type GetObjectsMessagesWeaviateWhereOperandsInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<GetObjectsMessagesWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<GetObjectsMessagesWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<GetObjectsMessagesWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanGetObjectsMessagesWeaviate"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanGetObjectsMessagesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateGetObjectsMessagesWeaviate"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateGetObjectsMessagesWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -2795,38 +2568,36 @@ export type GetObjectsMessagesWeaviateWhereOperandsInpObj = {
    */
   valueGeoRange?: InputMaybe<GetObjectsMessagesWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntGetObjectsMessagesWeaviate"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntGetObjectsMessagesWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<Scalars["FloatGetObjectsMessagesWeaviate"]["input"]>;
+  valueNumber?: InputMaybe<Scalars['FloatGetObjectsMessagesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringGetObjectsMessagesWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringGetObjectsMessagesWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextGetObjectsMessagesWeaviate"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextGetObjectsMessagesWeaviate']['input']>;
 };
 
 /** An object containing the Operators that can be applied to a 'where' filter */
 export enum GetObjectsMessagesWeaviateWhereOperatorEnum {
-  And = "And",
-  ContainsAll = "ContainsAll",
-  ContainsAny = "ContainsAny",
-  Equal = "Equal",
-  GreaterThan = "GreaterThan",
-  GreaterThanEqual = "GreaterThanEqual",
-  IsNull = "IsNull",
-  LessThan = "LessThan",
-  LessThanEqual = "LessThanEqual",
-  Like = "Like",
-  Not = "Not",
-  NotEqual = "NotEqual",
-  Or = "Or",
-  WithinGeoRange = "WithinGeoRange",
+  And = 'And',
+  ContainsAll = 'ContainsAll',
+  ContainsAny = 'ContainsAny',
+  Equal = 'Equal',
+  GreaterThan = 'GreaterThan',
+  GreaterThanEqual = 'GreaterThanEqual',
+  IsNull = 'IsNull',
+  LessThan = 'LessThan',
+  LessThanEqual = 'LessThanEqual',
+  Like = 'Like',
+  Not = 'Not',
+  NotEqual = 'NotEqual',
+  Or = 'Or',
+  WithinGeoRange = 'WithinGeoRange'
 }
 
 /** An object used to get %ss on a local Weaviate */
 export type GetObjectsObj = {
-  __typename?: "GetObjectsObj";
+  __typename?: 'GetObjectsObj';
   ChatsWeaviate?: Maybe<Array<Maybe<ChatsWeaviate>>>;
   DocumentsWeaviates?: Maybe<Array<Maybe<DocumentsWeaviates>>>;
   MessagesWeaviate?: Maybe<Array<Maybe<MessagesWeaviate>>>;
@@ -2834,92 +2605,97 @@ export type GetObjectsObj = {
   TemplatesWeaviates?: Maybe<Array<Maybe<TemplatesWeaviates>>>;
 };
 
+
 /** An object used to get %ss on a local Weaviate */
 export type GetObjectsObjChatsWeaviateArgs = {
-  after?: InputMaybe<Scalars["String"]["input"]>;
+  after?: InputMaybe<Scalars['String']['input']>;
   ask?: InputMaybe<QnATransformersGetObjectsChatsWeaviateAskInpObj>;
-  autocut?: InputMaybe<Scalars["Int"]["input"]>;
+  autocut?: InputMaybe<Scalars['Int']['input']>;
   bm25?: InputMaybe<GetObjectsChatsWeaviateHybridGetBm25InpObj>;
   group?: InputMaybe<GetObjectsChatsWeaviateGroupInpObj>;
   groupBy?: InputMaybe<GetObjectsChatsWeaviateGroupByInpObj>;
   hybrid?: InputMaybe<GetObjectsChatsWeaviateHybridInpObj>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   nearObject?: InputMaybe<GetObjectsChatsWeaviateNearObjectInpObj>;
   nearText?: InputMaybe<GetObjectsChatsWeaviateNearTextInpObj>;
   nearVector?: InputMaybe<GetObjectsChatsWeaviateNearVectorInpObj>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<GetObjectsChatsWeaviateSortInpObj>>>;
   where?: InputMaybe<GetObjectsChatsWeaviateWhereInpObj>;
 };
 
+
 /** An object used to get %ss on a local Weaviate */
 export type GetObjectsObjDocumentsWeaviatesArgs = {
-  after?: InputMaybe<Scalars["String"]["input"]>;
+  after?: InputMaybe<Scalars['String']['input']>;
   ask?: InputMaybe<QnATransformersGetObjectsDocumentsWeaviatesAskInpObj>;
-  autocut?: InputMaybe<Scalars["Int"]["input"]>;
+  autocut?: InputMaybe<Scalars['Int']['input']>;
   bm25?: InputMaybe<GetObjectsDocumentsWeaviatesHybridGetBm25InpObj>;
   group?: InputMaybe<GetObjectsDocumentsWeaviatesGroupInpObj>;
   groupBy?: InputMaybe<GetObjectsDocumentsWeaviatesGroupByInpObj>;
   hybrid?: InputMaybe<GetObjectsDocumentsWeaviatesHybridInpObj>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   nearObject?: InputMaybe<GetObjectsDocumentsWeaviatesNearObjectInpObj>;
   nearText?: InputMaybe<GetObjectsDocumentsWeaviatesNearTextInpObj>;
   nearVector?: InputMaybe<GetObjectsDocumentsWeaviatesNearVectorInpObj>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<GetObjectsDocumentsWeaviatesSortInpObj>>>;
   where?: InputMaybe<GetObjectsDocumentsWeaviatesWhereInpObj>;
 };
 
+
 /** An object used to get %ss on a local Weaviate */
 export type GetObjectsObjMessagesWeaviateArgs = {
-  after?: InputMaybe<Scalars["String"]["input"]>;
+  after?: InputMaybe<Scalars['String']['input']>;
   ask?: InputMaybe<QnATransformersGetObjectsMessagesWeaviateAskInpObj>;
-  autocut?: InputMaybe<Scalars["Int"]["input"]>;
+  autocut?: InputMaybe<Scalars['Int']['input']>;
   bm25?: InputMaybe<GetObjectsMessagesWeaviateHybridGetBm25InpObj>;
   group?: InputMaybe<GetObjectsMessagesWeaviateGroupInpObj>;
   groupBy?: InputMaybe<GetObjectsMessagesWeaviateGroupByInpObj>;
   hybrid?: InputMaybe<GetObjectsMessagesWeaviateHybridInpObj>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   nearObject?: InputMaybe<GetObjectsMessagesWeaviateNearObjectInpObj>;
   nearText?: InputMaybe<GetObjectsMessagesWeaviateNearTextInpObj>;
   nearVector?: InputMaybe<GetObjectsMessagesWeaviateNearVectorInpObj>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<GetObjectsMessagesWeaviateSortInpObj>>>;
   where?: InputMaybe<GetObjectsMessagesWeaviateWhereInpObj>;
 };
 
+
 /** An object used to get %ss on a local Weaviate */
 export type GetObjectsObjRolesWeaviateArgs = {
-  after?: InputMaybe<Scalars["String"]["input"]>;
+  after?: InputMaybe<Scalars['String']['input']>;
   ask?: InputMaybe<QnATransformersGetObjectsRolesWeaviateAskInpObj>;
-  autocut?: InputMaybe<Scalars["Int"]["input"]>;
+  autocut?: InputMaybe<Scalars['Int']['input']>;
   bm25?: InputMaybe<GetObjectsRolesWeaviateHybridGetBm25InpObj>;
   group?: InputMaybe<GetObjectsRolesWeaviateGroupInpObj>;
   groupBy?: InputMaybe<GetObjectsRolesWeaviateGroupByInpObj>;
   hybrid?: InputMaybe<GetObjectsRolesWeaviateHybridInpObj>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   nearObject?: InputMaybe<GetObjectsRolesWeaviateNearObjectInpObj>;
   nearText?: InputMaybe<GetObjectsRolesWeaviateNearTextInpObj>;
   nearVector?: InputMaybe<GetObjectsRolesWeaviateNearVectorInpObj>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<GetObjectsRolesWeaviateSortInpObj>>>;
   where?: InputMaybe<GetObjectsRolesWeaviateWhereInpObj>;
 };
 
+
 /** An object used to get %ss on a local Weaviate */
 export type GetObjectsObjTemplatesWeaviatesArgs = {
-  after?: InputMaybe<Scalars["String"]["input"]>;
+  after?: InputMaybe<Scalars['String']['input']>;
   ask?: InputMaybe<QnATransformersGetObjectsTemplatesWeaviatesAskInpObj>;
-  autocut?: InputMaybe<Scalars["Int"]["input"]>;
+  autocut?: InputMaybe<Scalars['Int']['input']>;
   bm25?: InputMaybe<GetObjectsTemplatesWeaviatesHybridGetBm25InpObj>;
   group?: InputMaybe<GetObjectsTemplatesWeaviatesGroupInpObj>;
   groupBy?: InputMaybe<GetObjectsTemplatesWeaviatesGroupByInpObj>;
   hybrid?: InputMaybe<GetObjectsTemplatesWeaviatesHybridInpObj>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   nearObject?: InputMaybe<GetObjectsTemplatesWeaviatesNearObjectInpObj>;
   nearText?: InputMaybe<GetObjectsTemplatesWeaviatesNearTextInpObj>;
   nearVector?: InputMaybe<GetObjectsTemplatesWeaviatesNearVectorInpObj>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<GetObjectsTemplatesWeaviatesSortInpObj>>>;
   where?: InputMaybe<GetObjectsTemplatesWeaviatesWhereInpObj>;
 };
@@ -2927,14 +2703,14 @@ export type GetObjectsObjTemplatesWeaviatesArgs = {
 /** Specify the property of the class to group by */
 export type GetObjectsRolesWeaviateGroupByInpObj = {
   /** Specify the number of groups to be created */
-  groups: Scalars["Int"]["input"];
+  groups: Scalars['Int']['input'];
   /** Specify the number of max objects in group */
-  objectsPerGroup: Scalars["Int"]["input"];
+  objectsPerGroup: Scalars['Int']['input'];
   /**
    * Specify the path from the objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path: Array<InputMaybe<Scalars["String"]["input"]>>;
+  path: Array<InputMaybe<Scalars['String']['input']>>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -2943,92 +2719,88 @@ export type GetObjectsRolesWeaviateGroupInpObj = {
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   type?: InputMaybe<GetObjectsRolesWeaviateGroupInpObjTypeEnum>;
 };
 
 export enum GetObjectsRolesWeaviateGroupInpObjTypeEnum {
-  Closest = "closest",
-  Merge = "merge",
+  Closest = 'closest',
+  Merge = 'merge'
 }
 
 export type GetObjectsRolesWeaviateHybridGetBm25InpObj = {
   /** The properties to search in */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** The query to search for */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Hybrid search */
 export type GetObjectsRolesWeaviateHybridInpObj = {
   /** Search weight */
-  alpha?: InputMaybe<Scalars["Float"]["input"]>;
+  alpha?: InputMaybe<Scalars['Float']['input']>;
   /** Algorithm used for fusing results from vector and keyword search */
   fusionType?: InputMaybe<FusionEnum>;
   /** Which properties should be included in the sparse search */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Query string */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
   /** Vector search */
-  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+  vector?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type GetObjectsRolesWeaviateMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<GetObjectsRolesWeaviateMoveAwayFromMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<GetObjectsRolesWeaviateMoveAwayFromMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type GetObjectsRolesWeaviateMoveAwayFromMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetObjectsRolesWeaviateMoveTo = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<GetObjectsRolesWeaviateMoveToMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<GetObjectsRolesWeaviateMoveToMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type GetObjectsRolesWeaviateMoveToMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetObjectsRolesWeaviateNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /**
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Concept identifier in the uuid format */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -3037,10 +2809,10 @@ export type GetObjectsRolesWeaviateNearTextInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
-  concepts: Array<InputMaybe<Scalars["String"]["input"]>>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
+  concepts: Array<InputMaybe<Scalars['String']['input']>>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Move your search term closer to or further away from another vector described by keywords */
   moveAwayFrom?: InputMaybe<GetObjectsRolesWeaviateMoveAwayFrom>;
   /** Move your search term closer to or further away from another vector described by keywords */
@@ -3052,11 +2824,11 @@ export type GetObjectsRolesWeaviateNearVectorInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Target vector to be used in kNN search */
-  vector: Array<InputMaybe<Scalars["Float"]["input"]>>;
+  vector: Array<InputMaybe<Scalars['Float']['input']>>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -3067,24 +2839,24 @@ export type GetObjectsRolesWeaviateSortInpObj = {
    * Specify the path from the Objects fields to the property name (e.g. ['Get',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export enum GetObjectsRolesWeaviateSortInpObjTypeEnum {
-  Asc = "asc",
-  Desc = "desc",
+  Asc = 'asc',
+  Desc = 'desc'
 }
 
 export type GetObjectsRolesWeaviateWhereGeoRangeDistanceInpObj = {
   /** The maximum distance from the point specified geoCoordinates. */
-  max: Scalars["Float"]["input"];
+  max: Scalars['Float']['input'];
 };
 
 export type GetObjectsRolesWeaviateWhereGeoRangeGeoCoordinatesInpObj = {
   /** The latitude (in decimal format) of the geoCoordinates to search around. */
-  latitude: Scalars["Float"]["input"];
+  latitude: Scalars['Float']['input'];
   /** The longitude (in decimal format) of the geoCoordinates to search around. */
-  longitude: Scalars["Float"]["input"];
+  longitude: Scalars['Float']['input'];
 };
 
 export type GetObjectsRolesWeaviateWhereGeoRangeInpObj = {
@@ -3097,20 +2869,18 @@ export type GetObjectsRolesWeaviateWhereGeoRangeInpObj = {
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type GetObjectsRolesWeaviateWhereInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<GetObjectsRolesWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<GetObjectsRolesWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<GetObjectsRolesWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<Scalars["BooleanGetObjectsRolesWeaviate"]["input"]>;
+  valueBoolean?: InputMaybe<Scalars['BooleanGetObjectsRolesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<Scalars["TextDateGetObjectsRolesWeaviate"]["input"]>;
+  valueDate?: InputMaybe<Scalars['TextDateGetObjectsRolesWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -3119,34 +2889,30 @@ export type GetObjectsRolesWeaviateWhereInpObj = {
    */
   valueGeoRange?: InputMaybe<GetObjectsRolesWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntGetObjectsRolesWeaviate"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntGetObjectsRolesWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<Scalars["FloatGetObjectsRolesWeaviate"]["input"]>;
+  valueNumber?: InputMaybe<Scalars['FloatGetObjectsRolesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringGetObjectsRolesWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringGetObjectsRolesWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextGetObjectsRolesWeaviate"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextGetObjectsRolesWeaviate']['input']>;
 };
 
 /** An object containing the Operands that can be applied to a 'where' filter */
 export type GetObjectsRolesWeaviateWhereOperandsInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<GetObjectsRolesWeaviateWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<GetObjectsRolesWeaviateWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<GetObjectsRolesWeaviateWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<Scalars["BooleanGetObjectsRolesWeaviate"]["input"]>;
+  valueBoolean?: InputMaybe<Scalars['BooleanGetObjectsRolesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<Scalars["TextDateGetObjectsRolesWeaviate"]["input"]>;
+  valueDate?: InputMaybe<Scalars['TextDateGetObjectsRolesWeaviate']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -3155,46 +2921,44 @@ export type GetObjectsRolesWeaviateWhereOperandsInpObj = {
    */
   valueGeoRange?: InputMaybe<GetObjectsRolesWeaviateWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntGetObjectsRolesWeaviate"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntGetObjectsRolesWeaviate']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<Scalars["FloatGetObjectsRolesWeaviate"]["input"]>;
+  valueNumber?: InputMaybe<Scalars['FloatGetObjectsRolesWeaviate']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringGetObjectsRolesWeaviate"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringGetObjectsRolesWeaviate']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextGetObjectsRolesWeaviate"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextGetObjectsRolesWeaviate']['input']>;
 };
 
 /** An object containing the Operators that can be applied to a 'where' filter */
 export enum GetObjectsRolesWeaviateWhereOperatorEnum {
-  And = "And",
-  ContainsAll = "ContainsAll",
-  ContainsAny = "ContainsAny",
-  Equal = "Equal",
-  GreaterThan = "GreaterThan",
-  GreaterThanEqual = "GreaterThanEqual",
-  IsNull = "IsNull",
-  LessThan = "LessThan",
-  LessThanEqual = "LessThanEqual",
-  Like = "Like",
-  Not = "Not",
-  NotEqual = "NotEqual",
-  Or = "Or",
-  WithinGeoRange = "WithinGeoRange",
+  And = 'And',
+  ContainsAll = 'ContainsAll',
+  ContainsAny = 'ContainsAny',
+  Equal = 'Equal',
+  GreaterThan = 'GreaterThan',
+  GreaterThanEqual = 'GreaterThanEqual',
+  IsNull = 'IsNull',
+  LessThan = 'LessThan',
+  LessThanEqual = 'LessThanEqual',
+  Like = 'Like',
+  Not = 'Not',
+  NotEqual = 'NotEqual',
+  Or = 'Or',
+  WithinGeoRange = 'WithinGeoRange'
 }
 
 /** Specify the property of the class to group by */
 export type GetObjectsTemplatesWeaviatesGroupByInpObj = {
   /** Specify the number of groups to be created */
-  groups: Scalars["Int"]["input"];
+  groups: Scalars['Int']['input'];
   /** Specify the number of max objects in group */
-  objectsPerGroup: Scalars["Int"]["input"];
+  objectsPerGroup: Scalars['Int']['input'];
   /**
    * Specify the path from the objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path: Array<InputMaybe<Scalars["String"]["input"]>>;
+  path: Array<InputMaybe<Scalars['String']['input']>>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -3203,94 +2967,88 @@ export type GetObjectsTemplatesWeaviatesGroupInpObj = {
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   type?: InputMaybe<GetObjectsTemplatesWeaviatesGroupInpObjTypeEnum>;
 };
 
 export enum GetObjectsTemplatesWeaviatesGroupInpObjTypeEnum {
-  Closest = "closest",
-  Merge = "merge",
+  Closest = 'closest',
+  Merge = 'merge'
 }
 
 export type GetObjectsTemplatesWeaviatesHybridGetBm25InpObj = {
   /** The properties to search in */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** The query to search for */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Hybrid search */
 export type GetObjectsTemplatesWeaviatesHybridInpObj = {
   /** Search weight */
-  alpha?: InputMaybe<Scalars["Float"]["input"]>;
+  alpha?: InputMaybe<Scalars['Float']['input']>;
   /** Algorithm used for fusing results from vector and keyword search */
   fusionType?: InputMaybe<FusionEnum>;
   /** Which properties should be included in the sparse search */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Query string */
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  query?: InputMaybe<Scalars['String']['input']>;
   /** Vector search */
-  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+  vector?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type GetObjectsTemplatesWeaviatesMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<
-      InputMaybe<GetObjectsTemplatesWeaviatesMoveAwayFromMovementObjectsInpObj>
-    >
-  >;
+  objects?: InputMaybe<Array<InputMaybe<GetObjectsTemplatesWeaviatesMoveAwayFromMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type GetObjectsTemplatesWeaviatesMoveAwayFromMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetObjectsTemplatesWeaviatesMoveTo = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  concepts?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /**
    * The force to apply for a particular movements. Must be between 0 and 1 where 0
    * is equivalent to no movement and 1 is equivalent to largest movement possible
    */
-  force: Scalars["Float"]["input"];
+  force: Scalars['Float']['input'];
   /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<GetObjectsTemplatesWeaviatesMoveToMovementObjectsInpObj>>
-  >;
+  objects?: InputMaybe<Array<InputMaybe<GetObjectsTemplatesWeaviatesMoveToMovementObjectsInpObj>>>;
 };
 
 /** Movement Object */
 export type GetObjectsTemplatesWeaviatesMoveToMovementObjectsInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /** id of an object */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetObjectsTemplatesWeaviatesNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]["input"]>;
+  beacon?: InputMaybe<Scalars['String']['input']>;
   /**
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Concept identifier in the uuid format */
-  id?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -3299,10 +3057,10 @@ export type GetObjectsTemplatesWeaviatesNearTextInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
-  concepts: Array<InputMaybe<Scalars["String"]["input"]>>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
+  concepts: Array<InputMaybe<Scalars['String']['input']>>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Move your search term closer to or further away from another vector described by keywords */
   moveAwayFrom?: InputMaybe<GetObjectsTemplatesWeaviatesMoveAwayFrom>;
   /** Move your search term closer to or further away from another vector described by keywords */
@@ -3314,11 +3072,11 @@ export type GetObjectsTemplatesWeaviatesNearVectorInpObj = {
    * Normalized Distance between the result item and the search vector. Normalized
    * to be between 0 (identical vectors) and 1 (perfect opposite).
    */
-  certainty?: InputMaybe<Scalars["Float"]["input"]>;
+  certainty?: InputMaybe<Scalars['Float']['input']>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]["input"]>;
+  distance?: InputMaybe<Scalars['Float']['input']>;
   /** Target vector to be used in kNN search */
-  vector: Array<InputMaybe<Scalars["Float"]["input"]>>;
+  vector: Array<InputMaybe<Scalars['Float']['input']>>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -3329,24 +3087,24 @@ export type GetObjectsTemplatesWeaviatesSortInpObj = {
    * Specify the path from the Objects fields to the property name (e.g. ['Get',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export enum GetObjectsTemplatesWeaviatesSortInpObjTypeEnum {
-  Asc = "asc",
-  Desc = "desc",
+  Asc = 'asc',
+  Desc = 'desc'
 }
 
 export type GetObjectsTemplatesWeaviatesWhereGeoRangeDistanceInpObj = {
   /** The maximum distance from the point specified geoCoordinates. */
-  max: Scalars["Float"]["input"];
+  max: Scalars['Float']['input'];
 };
 
 export type GetObjectsTemplatesWeaviatesWhereGeoRangeGeoCoordinatesInpObj = {
   /** The latitude (in decimal format) of the geoCoordinates to search around. */
-  latitude: Scalars["Float"]["input"];
+  latitude: Scalars['Float']['input'];
   /** The longitude (in decimal format) of the geoCoordinates to search around. */
-  longitude: Scalars["Float"]["input"];
+  longitude: Scalars['Float']['input'];
 };
 
 export type GetObjectsTemplatesWeaviatesWhereGeoRangeInpObj = {
@@ -3359,24 +3117,18 @@ export type GetObjectsTemplatesWeaviatesWhereGeoRangeInpObj = {
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type GetObjectsTemplatesWeaviatesWhereInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<GetObjectsTemplatesWeaviatesWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<GetObjectsTemplatesWeaviatesWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<GetObjectsTemplatesWeaviatesWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanGetObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanGetObjectsTemplatesWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateGetObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateGetObjectsTemplatesWeaviates']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -3385,40 +3137,30 @@ export type GetObjectsTemplatesWeaviatesWhereInpObj = {
    */
   valueGeoRange?: InputMaybe<GetObjectsTemplatesWeaviatesWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntGetObjectsTemplatesWeaviates"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntGetObjectsTemplatesWeaviates']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatGetObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatGetObjectsTemplatesWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringGetObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringGetObjectsTemplatesWeaviates']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextGetObjectsTemplatesWeaviates"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextGetObjectsTemplatesWeaviates']['input']>;
 };
 
 /** An object containing the Operands that can be applied to a 'where' filter */
 export type GetObjectsTemplatesWeaviatesWhereOperandsInpObj = {
   /** Contains the Operands that can be applied to a 'where' filter */
-  operands?: InputMaybe<
-    Array<InputMaybe<GetObjectsTemplatesWeaviatesWhereOperandsInpObj>>
-  >;
+  operands?: InputMaybe<Array<InputMaybe<GetObjectsTemplatesWeaviatesWhereOperandsInpObj>>>;
   /** Contains the Operators that can be applied to a 'where' filter */
   operator?: InputMaybe<GetObjectsTemplatesWeaviatesWhereOperatorEnum>;
   /**
    * Specify the path from the Objects fields to the property name (e.g. ['Things',
    * 'City', 'population'] leads to the 'population' property of a 'City' object)
    */
-  path?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  path?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Specify a Boolean value that the target property will be compared to */
-  valueBoolean?: InputMaybe<
-    Scalars["BooleanGetObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueBoolean?: InputMaybe<Scalars['BooleanGetObjectsTemplatesWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueDate?: InputMaybe<
-    Scalars["TextDateGetObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueDate?: InputMaybe<Scalars['TextDateGetObjectsTemplatesWeaviates']['input']>;
   /**
    * Specify both geo-coordinates (latitude and longitude as decimals) and a
    * maximum distance from the described coordinates. The search will return any
@@ -3427,496 +3169,498 @@ export type GetObjectsTemplatesWeaviatesWhereOperandsInpObj = {
    */
   valueGeoRange?: InputMaybe<GetObjectsTemplatesWeaviatesWhereGeoRangeInpObj>;
   /** Specify an Integer value that the target property will be compared to */
-  valueInt?: InputMaybe<Scalars["IntGetObjectsTemplatesWeaviates"]["input"]>;
+  valueInt?: InputMaybe<Scalars['IntGetObjectsTemplatesWeaviates']['input']>;
   /** Specify a Float value that the target property will be compared to */
-  valueNumber?: InputMaybe<
-    Scalars["FloatGetObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueNumber?: InputMaybe<Scalars['FloatGetObjectsTemplatesWeaviates']['input']>;
   /** Specify a String value that the target property will be compared to */
-  valueString?: InputMaybe<
-    Scalars["TextStringGetObjectsTemplatesWeaviates"]["input"]
-  >;
+  valueString?: InputMaybe<Scalars['TextStringGetObjectsTemplatesWeaviates']['input']>;
   /** Specify a Text value that the target property will be compared to */
-  valueText?: InputMaybe<Scalars["TextGetObjectsTemplatesWeaviates"]["input"]>;
+  valueText?: InputMaybe<Scalars['TextGetObjectsTemplatesWeaviates']['input']>;
 };
 
 /** An object containing the Operators that can be applied to a 'where' filter */
 export enum GetObjectsTemplatesWeaviatesWhereOperatorEnum {
-  And = "And",
-  ContainsAll = "ContainsAll",
-  ContainsAny = "ContainsAny",
-  Equal = "Equal",
-  GreaterThan = "GreaterThan",
-  GreaterThanEqual = "GreaterThanEqual",
-  IsNull = "IsNull",
-  LessThan = "LessThan",
-  LessThanEqual = "LessThanEqual",
-  Like = "Like",
-  Not = "Not",
-  NotEqual = "NotEqual",
-  Or = "Or",
-  WithinGeoRange = "WithinGeoRange",
+  And = 'And',
+  ContainsAll = 'ContainsAll',
+  ContainsAny = 'ContainsAny',
+  Equal = 'Equal',
+  GreaterThan = 'GreaterThan',
+  GreaterThanEqual = 'GreaterThanEqual',
+  IsNull = 'IsNull',
+  LessThan = 'LessThan',
+  LessThanEqual = 'LessThanEqual',
+  Like = 'Like',
+  Not = 'Not',
+  NotEqual = 'NotEqual',
+  Or = 'Or',
+  WithinGeoRange = 'WithinGeoRange'
 }
 
 export type GetVectorDataInput = {
-  chat_id: Scalars["String"]["input"];
-  content: Scalars["String"]["input"];
+  chat_id: Scalars['String']['input'];
+  content: Scalars['String']['input'];
 };
 
 export type GetVectorDataOutput = {
-  __typename?: "GetVectorDataOutput";
-  content: Scalars["String"]["output"];
+  __typename?: 'GetVectorDataOutput';
+  content: Scalars['String']['output'];
 };
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
 export type Int_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars["Int"]["input"]>;
-  _gt?: InputMaybe<Scalars["Int"]["input"]>;
-  _gte?: InputMaybe<Scalars["Int"]["input"]>;
-  _in?: InputMaybe<Array<Scalars["Int"]["input"]>>;
-  _is_null?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _lt?: InputMaybe<Scalars["Int"]["input"]>;
-  _lte?: InputMaybe<Scalars["Int"]["input"]>;
-  _neq?: InputMaybe<Scalars["Int"]["input"]>;
-  _nin?: InputMaybe<Array<Scalars["Int"]["input"]>>;
+  _eq?: InputMaybe<Scalars['Int']['input']>;
+  _gt?: InputMaybe<Scalars['Int']['input']>;
+  _gte?: InputMaybe<Scalars['Int']['input']>;
+  _in?: InputMaybe<Array<Scalars['Int']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['Int']['input']>;
+  _lte?: InputMaybe<Scalars['Int']['input']>;
+  _neq?: InputMaybe<Scalars['Int']['input']>;
+  _nin?: InputMaybe<Array<Scalars['Int']['input']>>;
 };
 
 export type MakeBetterPromtInput = {
-  content: Scalars["String"]["input"];
+  content: Scalars['String']['input'];
 };
 
 export type MakeBetterPromtOutput = {
-  __typename?: "MakeBetterPromtOutput";
-  content: Scalars["String"]["output"];
+  __typename?: 'MakeBetterPromtOutput';
+  content: Scalars['String']['output'];
 };
 
 export type MessagesWeaviate = {
-  __typename?: "MessagesWeaviate";
+  __typename?: 'MessagesWeaviate';
   _additional?: Maybe<MessagesWeaviateAdditional>;
-  chatId?: Maybe<Scalars["String"]["output"]>;
-  content?: Maybe<Scalars["String"]["output"]>;
+  chatId?: Maybe<Scalars['String']['output']>;
+  content?: Maybe<Scalars['String']['output']>;
 };
 
 export type MessagesWeaviateAdditional = {
-  __typename?: "MessagesWeaviateAdditional";
+  __typename?: 'MessagesWeaviateAdditional';
   answer?: Maybe<MessagesWeaviateAdditionalAnswer>;
-  certainty?: Maybe<Scalars["Float"]["output"]>;
+  certainty?: Maybe<Scalars['Float']['output']>;
   classification?: Maybe<MessagesWeaviateAdditionalClassification>;
-  creationTimeUnix?: Maybe<Scalars["String"]["output"]>;
-  distance?: Maybe<Scalars["Float"]["output"]>;
-  explainScore?: Maybe<Scalars["String"]["output"]>;
+  creationTimeUnix?: Maybe<Scalars['String']['output']>;
+  distance?: Maybe<Scalars['Float']['output']>;
+  explainScore?: Maybe<Scalars['String']['output']>;
   featureProjection?: Maybe<MessagesWeaviateAdditionalFeatureProjection>;
   group?: Maybe<MessagesWeaviateAdditionalGroup>;
   /** The UUID of a Object, assigned by its local Weaviate */
-  id?: Maybe<Scalars["String"]["output"]>;
-  lastUpdateTimeUnix?: Maybe<Scalars["String"]["output"]>;
+  id?: Maybe<Scalars['String']['output']>;
+  lastUpdateTimeUnix?: Maybe<Scalars['String']['output']>;
   rerank?: Maybe<Array<Maybe<MessagesWeaviateAdditionalReranker>>>;
-  score?: Maybe<Scalars["String"]["output"]>;
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  score?: Maybe<Scalars['String']['output']>;
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
+
 
 export type MessagesWeaviateAdditionalFeatureProjectionArgs = {
-  algorithm?: InputMaybe<Scalars["String"]["input"]>;
-  dimensions?: InputMaybe<Scalars["Int"]["input"]>;
-  iterations?: InputMaybe<Scalars["Int"]["input"]>;
-  learningRate?: InputMaybe<Scalars["Int"]["input"]>;
-  perplexity?: InputMaybe<Scalars["Int"]["input"]>;
+  algorithm?: InputMaybe<Scalars['String']['input']>;
+  dimensions?: InputMaybe<Scalars['Int']['input']>;
+  iterations?: InputMaybe<Scalars['Int']['input']>;
+  learningRate?: InputMaybe<Scalars['Int']['input']>;
+  perplexity?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 export type MessagesWeaviateAdditionalRerankArgs = {
-  property?: InputMaybe<Scalars["String"]["input"]>;
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  property?: InputMaybe<Scalars['String']['input']>;
+  query?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type MessagesWeaviateAdditionalAnswer = {
-  __typename?: "MessagesWeaviateAdditionalAnswer";
-  endPosition?: Maybe<Scalars["Int"]["output"]>;
-  hasAnswer?: Maybe<Scalars["Boolean"]["output"]>;
-  property?: Maybe<Scalars["String"]["output"]>;
-  result?: Maybe<Scalars["String"]["output"]>;
-  startPosition?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'MessagesWeaviateAdditionalAnswer';
+  endPosition?: Maybe<Scalars['Int']['output']>;
+  hasAnswer?: Maybe<Scalars['Boolean']['output']>;
+  property?: Maybe<Scalars['String']['output']>;
+  result?: Maybe<Scalars['String']['output']>;
+  startPosition?: Maybe<Scalars['Int']['output']>;
 };
 
 export type MessagesWeaviateAdditionalClassification = {
-  __typename?: "MessagesWeaviateAdditionalClassification";
-  basedOn?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  classifiedFields?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  completed?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["String"]["output"]>;
-  scope?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
+  __typename?: 'MessagesWeaviateAdditionalClassification';
+  basedOn?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  classifiedFields?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  completed?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  scope?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type MessagesWeaviateAdditionalFeatureProjection = {
-  __typename?: "MessagesWeaviateAdditionalFeatureProjection";
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  __typename?: 'MessagesWeaviateAdditionalFeatureProjection';
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type MessagesWeaviateAdditionalGroup = {
-  __typename?: "MessagesWeaviateAdditionalGroup";
-  count?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'MessagesWeaviateAdditionalGroup';
+  count?: Maybe<Scalars['Int']['output']>;
   groupedBy?: Maybe<MessagesWeaviateAdditionalGroupGroupedBy>;
   hits?: Maybe<Array<Maybe<MessagesWeaviateAdditionalGroupHits>>>;
-  id?: Maybe<Scalars["Int"]["output"]>;
-  maxDistance?: Maybe<Scalars["Float"]["output"]>;
-  minDistance?: Maybe<Scalars["Float"]["output"]>;
+  id?: Maybe<Scalars['Int']['output']>;
+  maxDistance?: Maybe<Scalars['Float']['output']>;
+  minDistance?: Maybe<Scalars['Float']['output']>;
 };
 
 export type MessagesWeaviateAdditionalGroupGroupedBy = {
-  __typename?: "MessagesWeaviateAdditionalGroupGroupedBy";
-  path?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  value?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'MessagesWeaviateAdditionalGroupGroupedBy';
+  path?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type MessagesWeaviateAdditionalGroupHits = {
-  __typename?: "MessagesWeaviateAdditionalGroupHits";
+  __typename?: 'MessagesWeaviateAdditionalGroupHits';
   _additional?: Maybe<MessagesWeaviateAdditionalGroupHitsAdditional>;
-  chatId?: Maybe<Scalars["String"]["output"]>;
-  content?: Maybe<Scalars["String"]["output"]>;
+  chatId?: Maybe<Scalars['String']['output']>;
+  content?: Maybe<Scalars['String']['output']>;
 };
 
 export type MessagesWeaviateAdditionalGroupHitsAdditional = {
-  __typename?: "MessagesWeaviateAdditionalGroupHitsAdditional";
-  distance?: Maybe<Scalars["Float"]["output"]>;
-  id?: Maybe<Scalars["String"]["output"]>;
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  __typename?: 'MessagesWeaviateAdditionalGroupHitsAdditional';
+  distance?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type MessagesWeaviateAdditionalReranker = {
-  __typename?: "MessagesWeaviateAdditionalReranker";
-  score?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'MessagesWeaviateAdditionalReranker';
+  score?: Maybe<Scalars['Float']['output']>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersAggregateChatsWeaviateAskInpObj = {
   /** Properties which contains text */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Question to be answered */
-  question: Scalars["String"]["input"];
+  question: Scalars['String']['input'];
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersAggregateDocumentsWeaviatesAskInpObj = {
   /** Properties which contains text */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Question to be answered */
-  question: Scalars["String"]["input"];
+  question: Scalars['String']['input'];
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersAggregateMessagesWeaviateAskInpObj = {
   /** Properties which contains text */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Question to be answered */
-  question: Scalars["String"]["input"];
+  question: Scalars['String']['input'];
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersAggregateRolesWeaviateAskInpObj = {
   /** Properties which contains text */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Question to be answered */
-  question: Scalars["String"]["input"];
+  question: Scalars['String']['input'];
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersAggregateTemplatesWeaviatesAskInpObj = {
   /** Properties which contains text */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Question to be answered */
-  question: Scalars["String"]["input"];
+  question: Scalars['String']['input'];
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersGetObjectsChatsWeaviateAskInpObj = {
   /** Properties which contains text */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Question to be answered */
-  question: Scalars["String"]["input"];
+  question: Scalars['String']['input'];
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersGetObjectsDocumentsWeaviatesAskInpObj = {
   /** Properties which contains text */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Question to be answered */
-  question: Scalars["String"]["input"];
+  question: Scalars['String']['input'];
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersGetObjectsMessagesWeaviateAskInpObj = {
   /** Properties which contains text */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Question to be answered */
-  question: Scalars["String"]["input"];
+  question: Scalars['String']['input'];
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersGetObjectsRolesWeaviateAskInpObj = {
   /** Properties which contains text */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Question to be answered */
-  question: Scalars["String"]["input"];
+  question: Scalars['String']['input'];
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersGetObjectsTemplatesWeaviatesAskInpObj = {
   /** Properties which contains text */
-  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Question to be answered */
-  question: Scalars["String"]["input"];
+  question: Scalars['String']['input'];
 };
 
 export type RolesWeaviate = {
-  __typename?: "RolesWeaviate";
+  __typename?: 'RolesWeaviate';
   _additional?: Maybe<RolesWeaviateAdditional>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 export type RolesWeaviateAdditional = {
-  __typename?: "RolesWeaviateAdditional";
+  __typename?: 'RolesWeaviateAdditional';
   answer?: Maybe<RolesWeaviateAdditionalAnswer>;
-  certainty?: Maybe<Scalars["Float"]["output"]>;
+  certainty?: Maybe<Scalars['Float']['output']>;
   classification?: Maybe<RolesWeaviateAdditionalClassification>;
-  creationTimeUnix?: Maybe<Scalars["String"]["output"]>;
-  distance?: Maybe<Scalars["Float"]["output"]>;
-  explainScore?: Maybe<Scalars["String"]["output"]>;
+  creationTimeUnix?: Maybe<Scalars['String']['output']>;
+  distance?: Maybe<Scalars['Float']['output']>;
+  explainScore?: Maybe<Scalars['String']['output']>;
   featureProjection?: Maybe<RolesWeaviateAdditionalFeatureProjection>;
   group?: Maybe<RolesWeaviateAdditionalGroup>;
   /** The UUID of a Object, assigned by its local Weaviate */
-  id?: Maybe<Scalars["String"]["output"]>;
-  lastUpdateTimeUnix?: Maybe<Scalars["String"]["output"]>;
+  id?: Maybe<Scalars['String']['output']>;
+  lastUpdateTimeUnix?: Maybe<Scalars['String']['output']>;
   rerank?: Maybe<Array<Maybe<RolesWeaviateAdditionalReranker>>>;
-  score?: Maybe<Scalars["String"]["output"]>;
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  score?: Maybe<Scalars['String']['output']>;
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
+
 
 export type RolesWeaviateAdditionalFeatureProjectionArgs = {
-  algorithm?: InputMaybe<Scalars["String"]["input"]>;
-  dimensions?: InputMaybe<Scalars["Int"]["input"]>;
-  iterations?: InputMaybe<Scalars["Int"]["input"]>;
-  learningRate?: InputMaybe<Scalars["Int"]["input"]>;
-  perplexity?: InputMaybe<Scalars["Int"]["input"]>;
+  algorithm?: InputMaybe<Scalars['String']['input']>;
+  dimensions?: InputMaybe<Scalars['Int']['input']>;
+  iterations?: InputMaybe<Scalars['Int']['input']>;
+  learningRate?: InputMaybe<Scalars['Int']['input']>;
+  perplexity?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 export type RolesWeaviateAdditionalRerankArgs = {
-  property?: InputMaybe<Scalars["String"]["input"]>;
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  property?: InputMaybe<Scalars['String']['input']>;
+  query?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type RolesWeaviateAdditionalAnswer = {
-  __typename?: "RolesWeaviateAdditionalAnswer";
-  endPosition?: Maybe<Scalars["Int"]["output"]>;
-  hasAnswer?: Maybe<Scalars["Boolean"]["output"]>;
-  property?: Maybe<Scalars["String"]["output"]>;
-  result?: Maybe<Scalars["String"]["output"]>;
-  startPosition?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'RolesWeaviateAdditionalAnswer';
+  endPosition?: Maybe<Scalars['Int']['output']>;
+  hasAnswer?: Maybe<Scalars['Boolean']['output']>;
+  property?: Maybe<Scalars['String']['output']>;
+  result?: Maybe<Scalars['String']['output']>;
+  startPosition?: Maybe<Scalars['Int']['output']>;
 };
 
 export type RolesWeaviateAdditionalClassification = {
-  __typename?: "RolesWeaviateAdditionalClassification";
-  basedOn?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  classifiedFields?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  completed?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["String"]["output"]>;
-  scope?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
+  __typename?: 'RolesWeaviateAdditionalClassification';
+  basedOn?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  classifiedFields?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  completed?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  scope?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type RolesWeaviateAdditionalFeatureProjection = {
-  __typename?: "RolesWeaviateAdditionalFeatureProjection";
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  __typename?: 'RolesWeaviateAdditionalFeatureProjection';
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type RolesWeaviateAdditionalGroup = {
-  __typename?: "RolesWeaviateAdditionalGroup";
-  count?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'RolesWeaviateAdditionalGroup';
+  count?: Maybe<Scalars['Int']['output']>;
   groupedBy?: Maybe<RolesWeaviateAdditionalGroupGroupedBy>;
   hits?: Maybe<Array<Maybe<RolesWeaviateAdditionalGroupHits>>>;
-  id?: Maybe<Scalars["Int"]["output"]>;
-  maxDistance?: Maybe<Scalars["Float"]["output"]>;
-  minDistance?: Maybe<Scalars["Float"]["output"]>;
+  id?: Maybe<Scalars['Int']['output']>;
+  maxDistance?: Maybe<Scalars['Float']['output']>;
+  minDistance?: Maybe<Scalars['Float']['output']>;
 };
 
 export type RolesWeaviateAdditionalGroupGroupedBy = {
-  __typename?: "RolesWeaviateAdditionalGroupGroupedBy";
-  path?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  value?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'RolesWeaviateAdditionalGroupGroupedBy';
+  path?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type RolesWeaviateAdditionalGroupHits = {
-  __typename?: "RolesWeaviateAdditionalGroupHits";
+  __typename?: 'RolesWeaviateAdditionalGroupHits';
   _additional?: Maybe<RolesWeaviateAdditionalGroupHitsAdditional>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 export type RolesWeaviateAdditionalGroupHitsAdditional = {
-  __typename?: "RolesWeaviateAdditionalGroupHitsAdditional";
-  distance?: Maybe<Scalars["Float"]["output"]>;
-  id?: Maybe<Scalars["String"]["output"]>;
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  __typename?: 'RolesWeaviateAdditionalGroupHitsAdditional';
+  distance?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type RolesWeaviateAdditionalReranker = {
-  __typename?: "RolesWeaviateAdditionalReranker";
-  score?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'RolesWeaviateAdditionalReranker';
+  score?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars["String"]["input"]>;
-  _gt?: InputMaybe<Scalars["String"]["input"]>;
-  _gte?: InputMaybe<Scalars["String"]["input"]>;
+  _eq?: InputMaybe<Scalars['String']['input']>;
+  _gt?: InputMaybe<Scalars['String']['input']>;
+  _gte?: InputMaybe<Scalars['String']['input']>;
   /** does the column match the given case-insensitive pattern */
-  _ilike?: InputMaybe<Scalars["String"]["input"]>;
-  _in?: InputMaybe<Array<Scalars["String"]["input"]>>;
+  _ilike?: InputMaybe<Scalars['String']['input']>;
+  _in?: InputMaybe<Array<Scalars['String']['input']>>;
   /** does the column match the given POSIX regular expression, case insensitive */
-  _iregex?: InputMaybe<Scalars["String"]["input"]>;
-  _is_null?: InputMaybe<Scalars["Boolean"]["input"]>;
+  _iregex?: InputMaybe<Scalars['String']['input']>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
   /** does the column match the given pattern */
-  _like?: InputMaybe<Scalars["String"]["input"]>;
-  _lt?: InputMaybe<Scalars["String"]["input"]>;
-  _lte?: InputMaybe<Scalars["String"]["input"]>;
-  _neq?: InputMaybe<Scalars["String"]["input"]>;
+  _like?: InputMaybe<Scalars['String']['input']>;
+  _lt?: InputMaybe<Scalars['String']['input']>;
+  _lte?: InputMaybe<Scalars['String']['input']>;
+  _neq?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given case-insensitive pattern */
-  _nilike?: InputMaybe<Scalars["String"]["input"]>;
-  _nin?: InputMaybe<Array<Scalars["String"]["input"]>>;
+  _nilike?: InputMaybe<Scalars['String']['input']>;
+  _nin?: InputMaybe<Array<Scalars['String']['input']>>;
   /** does the column NOT match the given POSIX regular expression, case insensitive */
-  _niregex?: InputMaybe<Scalars["String"]["input"]>;
+  _niregex?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given pattern */
-  _nlike?: InputMaybe<Scalars["String"]["input"]>;
+  _nlike?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given POSIX regular expression, case sensitive */
-  _nregex?: InputMaybe<Scalars["String"]["input"]>;
+  _nregex?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given SQL regular expression */
-  _nsimilar?: InputMaybe<Scalars["String"]["input"]>;
+  _nsimilar?: InputMaybe<Scalars['String']['input']>;
   /** does the column match the given POSIX regular expression, case sensitive */
-  _regex?: InputMaybe<Scalars["String"]["input"]>;
+  _regex?: InputMaybe<Scalars['String']['input']>;
   /** does the column match the given SQL regular expression */
-  _similar?: InputMaybe<Scalars["String"]["input"]>;
+  _similar?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type TemplatesWeaviates = {
-  __typename?: "TemplatesWeaviates";
+  __typename?: 'TemplatesWeaviates';
   _additional?: Maybe<TemplatesWeaviatesAdditional>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  description?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 export type TemplatesWeaviatesAdditional = {
-  __typename?: "TemplatesWeaviatesAdditional";
+  __typename?: 'TemplatesWeaviatesAdditional';
   answer?: Maybe<TemplatesWeaviatesAdditionalAnswer>;
-  certainty?: Maybe<Scalars["Float"]["output"]>;
+  certainty?: Maybe<Scalars['Float']['output']>;
   classification?: Maybe<TemplatesWeaviatesAdditionalClassification>;
-  creationTimeUnix?: Maybe<Scalars["String"]["output"]>;
-  distance?: Maybe<Scalars["Float"]["output"]>;
-  explainScore?: Maybe<Scalars["String"]["output"]>;
+  creationTimeUnix?: Maybe<Scalars['String']['output']>;
+  distance?: Maybe<Scalars['Float']['output']>;
+  explainScore?: Maybe<Scalars['String']['output']>;
   featureProjection?: Maybe<TemplatesWeaviatesAdditionalFeatureProjection>;
   group?: Maybe<TemplatesWeaviatesAdditionalGroup>;
   /** The UUID of a Object, assigned by its local Weaviate */
-  id?: Maybe<Scalars["String"]["output"]>;
-  lastUpdateTimeUnix?: Maybe<Scalars["String"]["output"]>;
+  id?: Maybe<Scalars['String']['output']>;
+  lastUpdateTimeUnix?: Maybe<Scalars['String']['output']>;
   rerank?: Maybe<Array<Maybe<TemplatesWeaviatesAdditionalReranker>>>;
-  score?: Maybe<Scalars["String"]["output"]>;
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  score?: Maybe<Scalars['String']['output']>;
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
+
 
 export type TemplatesWeaviatesAdditionalFeatureProjectionArgs = {
-  algorithm?: InputMaybe<Scalars["String"]["input"]>;
-  dimensions?: InputMaybe<Scalars["Int"]["input"]>;
-  iterations?: InputMaybe<Scalars["Int"]["input"]>;
-  learningRate?: InputMaybe<Scalars["Int"]["input"]>;
-  perplexity?: InputMaybe<Scalars["Int"]["input"]>;
+  algorithm?: InputMaybe<Scalars['String']['input']>;
+  dimensions?: InputMaybe<Scalars['Int']['input']>;
+  iterations?: InputMaybe<Scalars['Int']['input']>;
+  learningRate?: InputMaybe<Scalars['Int']['input']>;
+  perplexity?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 export type TemplatesWeaviatesAdditionalRerankArgs = {
-  property?: InputMaybe<Scalars["String"]["input"]>;
-  query?: InputMaybe<Scalars["String"]["input"]>;
+  property?: InputMaybe<Scalars['String']['input']>;
+  query?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type TemplatesWeaviatesAdditionalAnswer = {
-  __typename?: "TemplatesWeaviatesAdditionalAnswer";
-  endPosition?: Maybe<Scalars["Int"]["output"]>;
-  hasAnswer?: Maybe<Scalars["Boolean"]["output"]>;
-  property?: Maybe<Scalars["String"]["output"]>;
-  result?: Maybe<Scalars["String"]["output"]>;
-  startPosition?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'TemplatesWeaviatesAdditionalAnswer';
+  endPosition?: Maybe<Scalars['Int']['output']>;
+  hasAnswer?: Maybe<Scalars['Boolean']['output']>;
+  property?: Maybe<Scalars['String']['output']>;
+  result?: Maybe<Scalars['String']['output']>;
+  startPosition?: Maybe<Scalars['Int']['output']>;
 };
 
 export type TemplatesWeaviatesAdditionalClassification = {
-  __typename?: "TemplatesWeaviatesAdditionalClassification";
-  basedOn?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  classifiedFields?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  completed?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["String"]["output"]>;
-  scope?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
+  __typename?: 'TemplatesWeaviatesAdditionalClassification';
+  basedOn?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  classifiedFields?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  completed?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  scope?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type TemplatesWeaviatesAdditionalFeatureProjection = {
-  __typename?: "TemplatesWeaviatesAdditionalFeatureProjection";
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  __typename?: 'TemplatesWeaviatesAdditionalFeatureProjection';
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type TemplatesWeaviatesAdditionalGroup = {
-  __typename?: "TemplatesWeaviatesAdditionalGroup";
-  count?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'TemplatesWeaviatesAdditionalGroup';
+  count?: Maybe<Scalars['Int']['output']>;
   groupedBy?: Maybe<TemplatesWeaviatesAdditionalGroupGroupedBy>;
   hits?: Maybe<Array<Maybe<TemplatesWeaviatesAdditionalGroupHits>>>;
-  id?: Maybe<Scalars["Int"]["output"]>;
-  maxDistance?: Maybe<Scalars["Float"]["output"]>;
-  minDistance?: Maybe<Scalars["Float"]["output"]>;
+  id?: Maybe<Scalars['Int']['output']>;
+  maxDistance?: Maybe<Scalars['Float']['output']>;
+  minDistance?: Maybe<Scalars['Float']['output']>;
 };
 
 export type TemplatesWeaviatesAdditionalGroupGroupedBy = {
-  __typename?: "TemplatesWeaviatesAdditionalGroupGroupedBy";
-  path?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
-  value?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'TemplatesWeaviatesAdditionalGroupGroupedBy';
+  path?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 export type TemplatesWeaviatesAdditionalGroupHits = {
-  __typename?: "TemplatesWeaviatesAdditionalGroupHits";
+  __typename?: 'TemplatesWeaviatesAdditionalGroupHits';
   _additional?: Maybe<TemplatesWeaviatesAdditionalGroupHitsAdditional>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  description?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 export type TemplatesWeaviatesAdditionalGroupHitsAdditional = {
-  __typename?: "TemplatesWeaviatesAdditionalGroupHitsAdditional";
-  distance?: Maybe<Scalars["Float"]["output"]>;
-  id?: Maybe<Scalars["String"]["output"]>;
-  vector?: Maybe<Array<Maybe<Scalars["Float"]["output"]>>>;
+  __typename?: 'TemplatesWeaviatesAdditionalGroupHitsAdditional';
+  distance?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  vector?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type TemplatesWeaviatesAdditionalReranker = {
-  __typename?: "TemplatesWeaviatesAdditionalReranker";
-  score?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'TemplatesWeaviatesAdditionalReranker';
+  score?: Maybe<Scalars['Float']['output']>;
 };
 
 /** columns and relationships of "accounts" */
 export type Accounts = {
-  __typename?: "accounts";
-  access_token?: Maybe<Scalars["String"]["output"]>;
-  expires_at?: Maybe<Scalars["Int"]["output"]>;
-  id: Scalars["uuid"]["output"];
-  id_token?: Maybe<Scalars["String"]["output"]>;
-  provider: Scalars["String"]["output"];
-  providerAccountId: Scalars["String"]["output"];
+  __typename?: 'accounts';
+  access_token?: Maybe<Scalars['String']['output']>;
+  expires_at?: Maybe<Scalars['Int']['output']>;
+  id: Scalars['uuid']['output'];
+  id_token?: Maybe<Scalars['String']['output']>;
+  provider: Scalars['String']['output'];
+  providerAccountId: Scalars['String']['output'];
   /** An object relationship */
   provider_type: Provider_Type;
-  refresh_token?: Maybe<Scalars["String"]["output"]>;
-  scope?: Maybe<Scalars["String"]["output"]>;
-  session_state?: Maybe<Scalars["String"]["output"]>;
-  token_type?: Maybe<Scalars["String"]["output"]>;
-  type: Scalars["String"]["output"];
+  refresh_token?: Maybe<Scalars['String']['output']>;
+  scope?: Maybe<Scalars['String']['output']>;
+  session_state?: Maybe<Scalars['String']['output']>;
+  token_type?: Maybe<Scalars['String']['output']>;
+  type: Scalars['String']['output'];
   /** An object relationship */
   user: Users;
-  userId: Scalars["uuid"]["output"];
+  userId: Scalars['uuid']['output'];
 };
 
 /** aggregated selection of "accounts" */
 export type Accounts_Aggregate = {
-  __typename?: "accounts_aggregate";
+  __typename?: 'accounts_aggregate';
   aggregate?: Maybe<Accounts_Aggregate_Fields>;
   nodes: Array<Accounts>;
 };
@@ -3927,16 +3671,16 @@ export type Accounts_Aggregate_Bool_Exp = {
 
 export type Accounts_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<Accounts_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
   filter?: InputMaybe<Accounts_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "accounts" */
 export type Accounts_Aggregate_Fields = {
-  __typename?: "accounts_aggregate_fields";
+  __typename?: 'accounts_aggregate_fields';
   avg?: Maybe<Accounts_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Accounts_Max_Fields>;
   min?: Maybe<Accounts_Min_Fields>;
   stddev?: Maybe<Accounts_Stddev_Fields>;
@@ -3948,10 +3692,11 @@ export type Accounts_Aggregate_Fields = {
   variance?: Maybe<Accounts_Variance_Fields>;
 };
 
+
 /** aggregate fields of "accounts" */
 export type Accounts_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Accounts_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "accounts" */
@@ -3978,8 +3723,8 @@ export type Accounts_Arr_Rel_Insert_Input = {
 
 /** aggregate avg on columns */
 export type Accounts_Avg_Fields = {
-  __typename?: "accounts_avg_fields";
-  expires_at?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'accounts_avg_fields';
+  expires_at?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by avg() on columns of table "accounts" */
@@ -4011,47 +3756,47 @@ export type Accounts_Bool_Exp = {
 /** unique or primary key constraints on table "accounts" */
 export enum Accounts_Constraint {
   /** unique or primary key constraint on columns "id" */
-  AccountsPkey = "accounts_pkey",
+  AccountsPkey = 'accounts_pkey'
 }
 
 /** input type for incrementing numeric columns in table "accounts" */
 export type Accounts_Inc_Input = {
-  expires_at?: InputMaybe<Scalars["Int"]["input"]>;
+  expires_at?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "accounts" */
 export type Accounts_Insert_Input = {
-  access_token?: InputMaybe<Scalars["String"]["input"]>;
-  expires_at?: InputMaybe<Scalars["Int"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  id_token?: InputMaybe<Scalars["String"]["input"]>;
-  provider?: InputMaybe<Scalars["String"]["input"]>;
-  providerAccountId?: InputMaybe<Scalars["String"]["input"]>;
+  access_token?: InputMaybe<Scalars['String']['input']>;
+  expires_at?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  id_token?: InputMaybe<Scalars['String']['input']>;
+  provider?: InputMaybe<Scalars['String']['input']>;
+  providerAccountId?: InputMaybe<Scalars['String']['input']>;
   provider_type?: InputMaybe<Provider_Type_Obj_Rel_Insert_Input>;
-  refresh_token?: InputMaybe<Scalars["String"]["input"]>;
-  scope?: InputMaybe<Scalars["String"]["input"]>;
-  session_state?: InputMaybe<Scalars["String"]["input"]>;
-  token_type?: InputMaybe<Scalars["String"]["input"]>;
-  type?: InputMaybe<Scalars["String"]["input"]>;
+  refresh_token?: InputMaybe<Scalars['String']['input']>;
+  scope?: InputMaybe<Scalars['String']['input']>;
+  session_state?: InputMaybe<Scalars['String']['input']>;
+  token_type?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
   user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
 export type Accounts_Max_Fields = {
-  __typename?: "accounts_max_fields";
-  access_token?: Maybe<Scalars["String"]["output"]>;
-  expires_at?: Maybe<Scalars["Int"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  id_token?: Maybe<Scalars["String"]["output"]>;
-  provider?: Maybe<Scalars["String"]["output"]>;
-  providerAccountId?: Maybe<Scalars["String"]["output"]>;
-  refresh_token?: Maybe<Scalars["String"]["output"]>;
-  scope?: Maybe<Scalars["String"]["output"]>;
-  session_state?: Maybe<Scalars["String"]["output"]>;
-  token_type?: Maybe<Scalars["String"]["output"]>;
-  type?: Maybe<Scalars["String"]["output"]>;
-  userId?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'accounts_max_fields';
+  access_token?: Maybe<Scalars['String']['output']>;
+  expires_at?: Maybe<Scalars['Int']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  id_token?: Maybe<Scalars['String']['output']>;
+  provider?: Maybe<Scalars['String']['output']>;
+  providerAccountId?: Maybe<Scalars['String']['output']>;
+  refresh_token?: Maybe<Scalars['String']['output']>;
+  scope?: Maybe<Scalars['String']['output']>;
+  session_state?: Maybe<Scalars['String']['output']>;
+  token_type?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** order by max() on columns of table "accounts" */
@@ -4072,19 +3817,19 @@ export type Accounts_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Accounts_Min_Fields = {
-  __typename?: "accounts_min_fields";
-  access_token?: Maybe<Scalars["String"]["output"]>;
-  expires_at?: Maybe<Scalars["Int"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  id_token?: Maybe<Scalars["String"]["output"]>;
-  provider?: Maybe<Scalars["String"]["output"]>;
-  providerAccountId?: Maybe<Scalars["String"]["output"]>;
-  refresh_token?: Maybe<Scalars["String"]["output"]>;
-  scope?: Maybe<Scalars["String"]["output"]>;
-  session_state?: Maybe<Scalars["String"]["output"]>;
-  token_type?: Maybe<Scalars["String"]["output"]>;
-  type?: Maybe<Scalars["String"]["output"]>;
-  userId?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'accounts_min_fields';
+  access_token?: Maybe<Scalars['String']['output']>;
+  expires_at?: Maybe<Scalars['Int']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  id_token?: Maybe<Scalars['String']['output']>;
+  provider?: Maybe<Scalars['String']['output']>;
+  providerAccountId?: Maybe<Scalars['String']['output']>;
+  refresh_token?: Maybe<Scalars['String']['output']>;
+  scope?: Maybe<Scalars['String']['output']>;
+  session_state?: Maybe<Scalars['String']['output']>;
+  token_type?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** order by min() on columns of table "accounts" */
@@ -4105,9 +3850,9 @@ export type Accounts_Min_Order_By = {
 
 /** response of any mutation on the table "accounts" */
 export type Accounts_Mutation_Response = {
-  __typename?: "accounts_mutation_response";
+  __typename?: 'accounts_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Accounts>;
 };
@@ -4146,57 +3891,57 @@ export type Accounts_Order_By = {
 
 /** primary key columns input for table: accounts */
 export type Accounts_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "accounts" */
 export enum Accounts_Select_Column {
   /** column name */
-  AccessToken = "access_token",
+  AccessToken = 'access_token',
   /** column name */
-  ExpiresAt = "expires_at",
+  ExpiresAt = 'expires_at',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  IdToken = "id_token",
+  IdToken = 'id_token',
   /** column name */
-  Provider = "provider",
+  Provider = 'provider',
   /** column name */
-  ProviderAccountId = "providerAccountId",
+  ProviderAccountId = 'providerAccountId',
   /** column name */
-  RefreshToken = "refresh_token",
+  RefreshToken = 'refresh_token',
   /** column name */
-  Scope = "scope",
+  Scope = 'scope',
   /** column name */
-  SessionState = "session_state",
+  SessionState = 'session_state',
   /** column name */
-  TokenType = "token_type",
+  TokenType = 'token_type',
   /** column name */
-  Type = "type",
+  Type = 'type',
   /** column name */
-  UserId = "userId",
+  UserId = 'userId'
 }
 
 /** input type for updating data in table "accounts" */
 export type Accounts_Set_Input = {
-  access_token?: InputMaybe<Scalars["String"]["input"]>;
-  expires_at?: InputMaybe<Scalars["Int"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  id_token?: InputMaybe<Scalars["String"]["input"]>;
-  provider?: InputMaybe<Scalars["String"]["input"]>;
-  providerAccountId?: InputMaybe<Scalars["String"]["input"]>;
-  refresh_token?: InputMaybe<Scalars["String"]["input"]>;
-  scope?: InputMaybe<Scalars["String"]["input"]>;
-  session_state?: InputMaybe<Scalars["String"]["input"]>;
-  token_type?: InputMaybe<Scalars["String"]["input"]>;
-  type?: InputMaybe<Scalars["String"]["input"]>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  access_token?: InputMaybe<Scalars['String']['input']>;
+  expires_at?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  id_token?: InputMaybe<Scalars['String']['input']>;
+  provider?: InputMaybe<Scalars['String']['input']>;
+  providerAccountId?: InputMaybe<Scalars['String']['input']>;
+  refresh_token?: InputMaybe<Scalars['String']['input']>;
+  scope?: InputMaybe<Scalars['String']['input']>;
+  session_state?: InputMaybe<Scalars['String']['input']>;
+  token_type?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Accounts_Stddev_Fields = {
-  __typename?: "accounts_stddev_fields";
-  expires_at?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'accounts_stddev_fields';
+  expires_at?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev() on columns of table "accounts" */
@@ -4206,8 +3951,8 @@ export type Accounts_Stddev_Order_By = {
 
 /** aggregate stddev_pop on columns */
 export type Accounts_Stddev_Pop_Fields = {
-  __typename?: "accounts_stddev_pop_fields";
-  expires_at?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'accounts_stddev_pop_fields';
+  expires_at?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev_pop() on columns of table "accounts" */
@@ -4217,8 +3962,8 @@ export type Accounts_Stddev_Pop_Order_By = {
 
 /** aggregate stddev_samp on columns */
 export type Accounts_Stddev_Samp_Fields = {
-  __typename?: "accounts_stddev_samp_fields";
-  expires_at?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'accounts_stddev_samp_fields';
+  expires_at?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev_samp() on columns of table "accounts" */
@@ -4236,24 +3981,24 @@ export type Accounts_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Accounts_Stream_Cursor_Value_Input = {
-  access_token?: InputMaybe<Scalars["String"]["input"]>;
-  expires_at?: InputMaybe<Scalars["Int"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  id_token?: InputMaybe<Scalars["String"]["input"]>;
-  provider?: InputMaybe<Scalars["String"]["input"]>;
-  providerAccountId?: InputMaybe<Scalars["String"]["input"]>;
-  refresh_token?: InputMaybe<Scalars["String"]["input"]>;
-  scope?: InputMaybe<Scalars["String"]["input"]>;
-  session_state?: InputMaybe<Scalars["String"]["input"]>;
-  token_type?: InputMaybe<Scalars["String"]["input"]>;
-  type?: InputMaybe<Scalars["String"]["input"]>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  access_token?: InputMaybe<Scalars['String']['input']>;
+  expires_at?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  id_token?: InputMaybe<Scalars['String']['input']>;
+  provider?: InputMaybe<Scalars['String']['input']>;
+  providerAccountId?: InputMaybe<Scalars['String']['input']>;
+  refresh_token?: InputMaybe<Scalars['String']['input']>;
+  scope?: InputMaybe<Scalars['String']['input']>;
+  session_state?: InputMaybe<Scalars['String']['input']>;
+  token_type?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Accounts_Sum_Fields = {
-  __typename?: "accounts_sum_fields";
-  expires_at?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'accounts_sum_fields';
+  expires_at?: Maybe<Scalars['Int']['output']>;
 };
 
 /** order by sum() on columns of table "accounts" */
@@ -4264,29 +4009,29 @@ export type Accounts_Sum_Order_By = {
 /** update columns of table "accounts" */
 export enum Accounts_Update_Column {
   /** column name */
-  AccessToken = "access_token",
+  AccessToken = 'access_token',
   /** column name */
-  ExpiresAt = "expires_at",
+  ExpiresAt = 'expires_at',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  IdToken = "id_token",
+  IdToken = 'id_token',
   /** column name */
-  Provider = "provider",
+  Provider = 'provider',
   /** column name */
-  ProviderAccountId = "providerAccountId",
+  ProviderAccountId = 'providerAccountId',
   /** column name */
-  RefreshToken = "refresh_token",
+  RefreshToken = 'refresh_token',
   /** column name */
-  Scope = "scope",
+  Scope = 'scope',
   /** column name */
-  SessionState = "session_state",
+  SessionState = 'session_state',
   /** column name */
-  TokenType = "token_type",
+  TokenType = 'token_type',
   /** column name */
-  Type = "type",
+  Type = 'type',
   /** column name */
-  UserId = "userId",
+  UserId = 'userId'
 }
 
 export type Accounts_Updates = {
@@ -4300,8 +4045,8 @@ export type Accounts_Updates = {
 
 /** aggregate var_pop on columns */
 export type Accounts_Var_Pop_Fields = {
-  __typename?: "accounts_var_pop_fields";
-  expires_at?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'accounts_var_pop_fields';
+  expires_at?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by var_pop() on columns of table "accounts" */
@@ -4311,8 +4056,8 @@ export type Accounts_Var_Pop_Order_By = {
 
 /** aggregate var_samp on columns */
 export type Accounts_Var_Samp_Fields = {
-  __typename?: "accounts_var_samp_fields";
-  expires_at?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'accounts_var_samp_fields';
+  expires_at?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by var_samp() on columns of table "accounts" */
@@ -4322,8 +4067,8 @@ export type Accounts_Var_Samp_Order_By = {
 
 /** aggregate variance on columns */
 export type Accounts_Variance_Fields = {
-  __typename?: "accounts_variance_fields";
-  expires_at?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'accounts_variance_fields';
+  expires_at?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by variance() on columns of table "accounts" */
@@ -4333,25 +4078,25 @@ export type Accounts_Variance_Order_By = {
 
 /** columns and relationships of "ai_categories" */
 export type Ai_Categories = {
-  __typename?: "ai_categories";
-  icon?: Maybe<Scalars["String"]["output"]>;
-  id: Scalars["Int"]["output"];
-  name?: Maybe<Scalars["String"]["output"]>;
-  title: Scalars["String"]["output"];
+  __typename?: 'ai_categories';
+  icon?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  title: Scalars['String']['output'];
 };
 
 /** aggregated selection of "ai_categories" */
 export type Ai_Categories_Aggregate = {
-  __typename?: "ai_categories_aggregate";
+  __typename?: 'ai_categories_aggregate';
   aggregate?: Maybe<Ai_Categories_Aggregate_Fields>;
   nodes: Array<Ai_Categories>;
 };
 
 /** aggregate fields of "ai_categories" */
 export type Ai_Categories_Aggregate_Fields = {
-  __typename?: "ai_categories_aggregate_fields";
+  __typename?: 'ai_categories_aggregate_fields';
   avg?: Maybe<Ai_Categories_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Ai_Categories_Max_Fields>;
   min?: Maybe<Ai_Categories_Min_Fields>;
   stddev?: Maybe<Ai_Categories_Stddev_Fields>;
@@ -4363,16 +4108,17 @@ export type Ai_Categories_Aggregate_Fields = {
   variance?: Maybe<Ai_Categories_Variance_Fields>;
 };
 
+
 /** aggregate fields of "ai_categories" */
 export type Ai_Categories_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Ai_Categories_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Ai_Categories_Avg_Fields = {
-  __typename?: "ai_categories_avg_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_categories_avg_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "ai_categories". All fields are combined with a logical 'AND'. */
@@ -4389,45 +4135,45 @@ export type Ai_Categories_Bool_Exp = {
 /** unique or primary key constraints on table "ai_categories" */
 export enum Ai_Categories_Constraint {
   /** unique or primary key constraint on columns "id" */
-  AiCategoriesPkey = "ai_categories_pkey",
+  AiCategoriesPkey = 'ai_categories_pkey'
 }
 
 /** input type for incrementing numeric columns in table "ai_categories" */
 export type Ai_Categories_Inc_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "ai_categories" */
 export type Ai_Categories_Insert_Input = {
-  icon?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Ai_Categories_Max_Fields = {
-  __typename?: "ai_categories_max_fields";
-  icon?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'ai_categories_max_fields';
+  icon?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregate min on columns */
 export type Ai_Categories_Min_Fields = {
-  __typename?: "ai_categories_min_fields";
-  icon?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'ai_categories_min_fields';
+  icon?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** response of any mutation on the table "ai_categories" */
 export type Ai_Categories_Mutation_Response = {
-  __typename?: "ai_categories_mutation_response";
+  __typename?: 'ai_categories_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Ai_Categories>;
 };
@@ -4449,45 +4195,45 @@ export type Ai_Categories_Order_By = {
 
 /** primary key columns input for table: ai_categories */
 export type Ai_Categories_Pk_Columns_Input = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
 
 /** select columns of table "ai_categories" */
 export enum Ai_Categories_Select_Column {
   /** column name */
-  Icon = "icon",
+  Icon = 'icon',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Title = "title",
+  Title = 'title'
 }
 
 /** input type for updating data in table "ai_categories" */
 export type Ai_Categories_Set_Input = {
-  icon?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Ai_Categories_Stddev_Fields = {
-  __typename?: "ai_categories_stddev_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_categories_stddev_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Ai_Categories_Stddev_Pop_Fields = {
-  __typename?: "ai_categories_stddev_pop_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_categories_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Ai_Categories_Stddev_Samp_Fields = {
-  __typename?: "ai_categories_stddev_samp_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_categories_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "ai_categories" */
@@ -4500,28 +4246,28 @@ export type Ai_Categories_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Ai_Categories_Stream_Cursor_Value_Input = {
-  icon?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Ai_Categories_Sum_Fields = {
-  __typename?: "ai_categories_sum_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'ai_categories_sum_fields';
+  id?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "ai_categories" */
 export enum Ai_Categories_Update_Column {
   /** column name */
-  Icon = "icon",
+  Icon = 'icon',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Title = "title",
+  Title = 'title'
 }
 
 export type Ai_Categories_Updates = {
@@ -4535,42 +4281,42 @@ export type Ai_Categories_Updates = {
 
 /** aggregate var_pop on columns */
 export type Ai_Categories_Var_Pop_Fields = {
-  __typename?: "ai_categories_var_pop_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_categories_var_pop_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Ai_Categories_Var_Samp_Fields = {
-  __typename?: "ai_categories_var_samp_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_categories_var_samp_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Ai_Categories_Variance_Fields = {
-  __typename?: "ai_categories_variance_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_categories_variance_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** columns and relationships of "ai_models" */
 export type Ai_Models = {
-  __typename?: "ai_models";
-  id: Scalars["uuid"]["output"];
-  level?: Maybe<Scalars["Int"]["output"]>;
-  name: Scalars["String"]["output"];
+  __typename?: 'ai_models';
+  id: Scalars['uuid']['output'];
+  level?: Maybe<Scalars['Int']['output']>;
+  name: Scalars['String']['output'];
 };
 
 /** aggregated selection of "ai_models" */
 export type Ai_Models_Aggregate = {
-  __typename?: "ai_models_aggregate";
+  __typename?: 'ai_models_aggregate';
   aggregate?: Maybe<Ai_Models_Aggregate_Fields>;
   nodes: Array<Ai_Models>;
 };
 
 /** aggregate fields of "ai_models" */
 export type Ai_Models_Aggregate_Fields = {
-  __typename?: "ai_models_aggregate_fields";
+  __typename?: 'ai_models_aggregate_fields';
   avg?: Maybe<Ai_Models_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Ai_Models_Max_Fields>;
   min?: Maybe<Ai_Models_Min_Fields>;
   stddev?: Maybe<Ai_Models_Stddev_Fields>;
@@ -4582,16 +4328,17 @@ export type Ai_Models_Aggregate_Fields = {
   variance?: Maybe<Ai_Models_Variance_Fields>;
 };
 
+
 /** aggregate fields of "ai_models" */
 export type Ai_Models_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Ai_Models_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Ai_Models_Avg_Fields = {
-  __typename?: "ai_models_avg_fields";
-  level?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_models_avg_fields';
+  level?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "ai_models". All fields are combined with a logical 'AND'. */
@@ -4607,42 +4354,42 @@ export type Ai_Models_Bool_Exp = {
 /** unique or primary key constraints on table "ai_models" */
 export enum Ai_Models_Constraint {
   /** unique or primary key constraint on columns "id" */
-  AiModelsPkey = "ai_models_pkey",
+  AiModelsPkey = 'ai_models_pkey'
 }
 
 /** input type for incrementing numeric columns in table "ai_models" */
 export type Ai_Models_Inc_Input = {
-  level?: InputMaybe<Scalars["Int"]["input"]>;
+  level?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "ai_models" */
 export type Ai_Models_Insert_Input = {
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  level?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Ai_Models_Max_Fields = {
-  __typename?: "ai_models_max_fields";
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  level?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'ai_models_max_fields';
+  id?: Maybe<Scalars['uuid']['output']>;
+  level?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregate min on columns */
 export type Ai_Models_Min_Fields = {
-  __typename?: "ai_models_min_fields";
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  level?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'ai_models_min_fields';
+  id?: Maybe<Scalars['uuid']['output']>;
+  level?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
 };
 
 /** response of any mutation on the table "ai_models" */
 export type Ai_Models_Mutation_Response = {
-  __typename?: "ai_models_mutation_response";
+  __typename?: 'ai_models_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Ai_Models>;
 };
@@ -4663,42 +4410,42 @@ export type Ai_Models_Order_By = {
 
 /** primary key columns input for table: ai_models */
 export type Ai_Models_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "ai_models" */
 export enum Ai_Models_Select_Column {
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Level = "level",
+  Level = 'level',
   /** column name */
-  Name = "name",
+  Name = 'name'
 }
 
 /** input type for updating data in table "ai_models" */
 export type Ai_Models_Set_Input = {
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  level?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Ai_Models_Stddev_Fields = {
-  __typename?: "ai_models_stddev_fields";
-  level?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_models_stddev_fields';
+  level?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Ai_Models_Stddev_Pop_Fields = {
-  __typename?: "ai_models_stddev_pop_fields";
-  level?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_models_stddev_pop_fields';
+  level?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Ai_Models_Stddev_Samp_Fields = {
-  __typename?: "ai_models_stddev_samp_fields";
-  level?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_models_stddev_samp_fields';
+  level?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "ai_models" */
@@ -4711,25 +4458,25 @@ export type Ai_Models_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Ai_Models_Stream_Cursor_Value_Input = {
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  level?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Ai_Models_Sum_Fields = {
-  __typename?: "ai_models_sum_fields";
-  level?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'ai_models_sum_fields';
+  level?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "ai_models" */
 export enum Ai_Models_Update_Column {
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Level = "level",
+  Level = 'level',
   /** column name */
-  Name = "name",
+  Name = 'name'
 }
 
 export type Ai_Models_Updates = {
@@ -4743,108 +4490,110 @@ export type Ai_Models_Updates = {
 
 /** aggregate var_pop on columns */
 export type Ai_Models_Var_Pop_Fields = {
-  __typename?: "ai_models_var_pop_fields";
-  level?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_models_var_pop_fields';
+  level?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Ai_Models_Var_Samp_Fields = {
-  __typename?: "ai_models_var_samp_fields";
-  level?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_models_var_samp_fields';
+  level?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Ai_Models_Variance_Fields = {
-  __typename?: "ai_models_variance_fields";
-  level?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'ai_models_variance_fields';
+  level?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
 export type Bigint_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars["bigint"]["input"]>;
-  _gt?: InputMaybe<Scalars["bigint"]["input"]>;
-  _gte?: InputMaybe<Scalars["bigint"]["input"]>;
-  _in?: InputMaybe<Array<Scalars["bigint"]["input"]>>;
-  _is_null?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _lt?: InputMaybe<Scalars["bigint"]["input"]>;
-  _lte?: InputMaybe<Scalars["bigint"]["input"]>;
-  _neq?: InputMaybe<Scalars["bigint"]["input"]>;
-  _nin?: InputMaybe<Array<Scalars["bigint"]["input"]>>;
+  _eq?: InputMaybe<Scalars['bigint']['input']>;
+  _gt?: InputMaybe<Scalars['bigint']['input']>;
+  _gte?: InputMaybe<Scalars['bigint']['input']>;
+  _in?: InputMaybe<Array<Scalars['bigint']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['bigint']['input']>;
+  _lte?: InputMaybe<Scalars['bigint']['input']>;
+  _neq?: InputMaybe<Scalars['bigint']['input']>;
+  _nin?: InputMaybe<Array<Scalars['bigint']['input']>>;
 };
 
 /** Boolean expression to compare columns of type "bpchar". All fields are combined with logical 'AND'. */
 export type Bpchar_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars["bpchar"]["input"]>;
-  _gt?: InputMaybe<Scalars["bpchar"]["input"]>;
-  _gte?: InputMaybe<Scalars["bpchar"]["input"]>;
+  _eq?: InputMaybe<Scalars['bpchar']['input']>;
+  _gt?: InputMaybe<Scalars['bpchar']['input']>;
+  _gte?: InputMaybe<Scalars['bpchar']['input']>;
   /** does the column match the given case-insensitive pattern */
-  _ilike?: InputMaybe<Scalars["bpchar"]["input"]>;
-  _in?: InputMaybe<Array<Scalars["bpchar"]["input"]>>;
+  _ilike?: InputMaybe<Scalars['bpchar']['input']>;
+  _in?: InputMaybe<Array<Scalars['bpchar']['input']>>;
   /** does the column match the given POSIX regular expression, case insensitive */
-  _iregex?: InputMaybe<Scalars["bpchar"]["input"]>;
-  _is_null?: InputMaybe<Scalars["Boolean"]["input"]>;
+  _iregex?: InputMaybe<Scalars['bpchar']['input']>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
   /** does the column match the given pattern */
-  _like?: InputMaybe<Scalars["bpchar"]["input"]>;
-  _lt?: InputMaybe<Scalars["bpchar"]["input"]>;
-  _lte?: InputMaybe<Scalars["bpchar"]["input"]>;
-  _neq?: InputMaybe<Scalars["bpchar"]["input"]>;
+  _like?: InputMaybe<Scalars['bpchar']['input']>;
+  _lt?: InputMaybe<Scalars['bpchar']['input']>;
+  _lte?: InputMaybe<Scalars['bpchar']['input']>;
+  _neq?: InputMaybe<Scalars['bpchar']['input']>;
   /** does the column NOT match the given case-insensitive pattern */
-  _nilike?: InputMaybe<Scalars["bpchar"]["input"]>;
-  _nin?: InputMaybe<Array<Scalars["bpchar"]["input"]>>;
+  _nilike?: InputMaybe<Scalars['bpchar']['input']>;
+  _nin?: InputMaybe<Array<Scalars['bpchar']['input']>>;
   /** does the column NOT match the given POSIX regular expression, case insensitive */
-  _niregex?: InputMaybe<Scalars["bpchar"]["input"]>;
+  _niregex?: InputMaybe<Scalars['bpchar']['input']>;
   /** does the column NOT match the given pattern */
-  _nlike?: InputMaybe<Scalars["bpchar"]["input"]>;
+  _nlike?: InputMaybe<Scalars['bpchar']['input']>;
   /** does the column NOT match the given POSIX regular expression, case sensitive */
-  _nregex?: InputMaybe<Scalars["bpchar"]["input"]>;
+  _nregex?: InputMaybe<Scalars['bpchar']['input']>;
   /** does the column NOT match the given SQL regular expression */
-  _nsimilar?: InputMaybe<Scalars["bpchar"]["input"]>;
+  _nsimilar?: InputMaybe<Scalars['bpchar']['input']>;
   /** does the column match the given POSIX regular expression, case sensitive */
-  _regex?: InputMaybe<Scalars["bpchar"]["input"]>;
+  _regex?: InputMaybe<Scalars['bpchar']['input']>;
   /** does the column match the given SQL regular expression */
-  _similar?: InputMaybe<Scalars["bpchar"]["input"]>;
+  _similar?: InputMaybe<Scalars['bpchar']['input']>;
 };
 
 /** columns and relationships of "chats" */
 export type Chats = {
-  __typename?: "chats";
-  createdAt?: Maybe<Scalars["timestamp"]["output"]>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  icon?: Maybe<Scalars["uuid"]["output"]>;
-  id: Scalars["uuid"]["output"];
+  __typename?: 'chats';
+  createdAt?: Maybe<Scalars['timestamp']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  icon?: Maybe<Scalars['uuid']['output']>;
+  id: Scalars['uuid']['output'];
   /** An array relationship */
   messages: Array<Messages>;
   /** An aggregate relationship */
   messages_aggregate: Messages_Aggregate;
-  model?: Maybe<Scalars["String"]["output"]>;
-  system_promt?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  model?: Maybe<Scalars['String']['output']>;
+  system_promt?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
   /** An object relationship */
   user?: Maybe<Users>;
-  userId?: Maybe<Scalars["uuid"]["output"]>;
+  userId?: Maybe<Scalars['uuid']['output']>;
 };
+
 
 /** columns and relationships of "chats" */
 export type ChatsMessagesArgs = {
   distinct_on?: InputMaybe<Array<Messages_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Messages_Order_By>>;
   where?: InputMaybe<Messages_Bool_Exp>;
 };
 
+
 /** columns and relationships of "chats" */
 export type ChatsMessages_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Messages_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Messages_Order_By>>;
   where?: InputMaybe<Messages_Bool_Exp>;
 };
 
 /** aggregated selection of "chats" */
 export type Chats_Aggregate = {
-  __typename?: "chats_aggregate";
+  __typename?: 'chats_aggregate';
   aggregate?: Maybe<Chats_Aggregate_Fields>;
   nodes: Array<Chats>;
 };
@@ -4855,23 +4604,24 @@ export type Chats_Aggregate_Bool_Exp = {
 
 export type Chats_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<Chats_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
   filter?: InputMaybe<Chats_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "chats" */
 export type Chats_Aggregate_Fields = {
-  __typename?: "chats_aggregate_fields";
-  count: Scalars["Int"]["output"];
+  __typename?: 'chats_aggregate_fields';
+  count: Scalars['Int']['output'];
   max?: Maybe<Chats_Max_Fields>;
   min?: Maybe<Chats_Min_Fields>;
 };
 
+
 /** aggregate fields of "chats" */
 export type Chats_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Chats_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "chats" */
@@ -4909,36 +4659,36 @@ export type Chats_Bool_Exp = {
 /** unique or primary key constraints on table "chats" */
 export enum Chats_Constraint {
   /** unique or primary key constraint on columns "id" */
-  ChatsPkey = "chats_pkey",
+  ChatsPkey = 'chats_pkey',
   /** unique or primary key constraint on columns "id" */
-  ChatsUidKey = "chats_uid_key",
+  ChatsUidKey = 'chats_uid_key'
 }
 
 /** input type for inserting data into table "chats" */
 export type Chats_Insert_Input = {
-  createdAt?: InputMaybe<Scalars["timestamp"]["input"]>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  icon?: InputMaybe<Scalars["uuid"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
+  createdAt?: InputMaybe<Scalars['timestamp']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['uuid']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
   messages?: InputMaybe<Messages_Arr_Rel_Insert_Input>;
-  model?: InputMaybe<Scalars["String"]["input"]>;
-  system_promt?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  model?: InputMaybe<Scalars['String']['input']>;
+  system_promt?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
   user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
 export type Chats_Max_Fields = {
-  __typename?: "chats_max_fields";
-  createdAt?: Maybe<Scalars["timestamp"]["output"]>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  icon?: Maybe<Scalars["uuid"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  model?: Maybe<Scalars["String"]["output"]>;
-  system_promt?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  userId?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'chats_max_fields';
+  createdAt?: Maybe<Scalars['timestamp']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  icon?: Maybe<Scalars['uuid']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  model?: Maybe<Scalars['String']['output']>;
+  system_promt?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** order by max() on columns of table "chats" */
@@ -4955,15 +4705,15 @@ export type Chats_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Chats_Min_Fields = {
-  __typename?: "chats_min_fields";
-  createdAt?: Maybe<Scalars["timestamp"]["output"]>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  icon?: Maybe<Scalars["uuid"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  model?: Maybe<Scalars["String"]["output"]>;
-  system_promt?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  userId?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'chats_min_fields';
+  createdAt?: Maybe<Scalars['timestamp']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  icon?: Maybe<Scalars['uuid']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  model?: Maybe<Scalars['String']['output']>;
+  system_promt?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** order by min() on columns of table "chats" */
@@ -4980,9 +4730,9 @@ export type Chats_Min_Order_By = {
 
 /** response of any mutation on the table "chats" */
 export type Chats_Mutation_Response = {
-  __typename?: "chats_mutation_response";
+  __typename?: 'chats_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Chats>;
 };
@@ -5017,39 +4767,39 @@ export type Chats_Order_By = {
 
 /** primary key columns input for table: chats */
 export type Chats_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "chats" */
 export enum Chats_Select_Column {
   /** column name */
-  CreatedAt = "createdAt",
+  CreatedAt = 'createdAt',
   /** column name */
-  Description = "description",
+  Description = 'description',
   /** column name */
-  Icon = "icon",
+  Icon = 'icon',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Model = "model",
+  Model = 'model',
   /** column name */
-  SystemPromt = "system_promt",
+  SystemPromt = 'system_promt',
   /** column name */
-  Title = "title",
+  Title = 'title',
   /** column name */
-  UserId = "userId",
+  UserId = 'userId'
 }
 
 /** input type for updating data in table "chats" */
 export type Chats_Set_Input = {
-  createdAt?: InputMaybe<Scalars["timestamp"]["input"]>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  icon?: InputMaybe<Scalars["uuid"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  model?: InputMaybe<Scalars["String"]["input"]>;
-  system_promt?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  createdAt?: InputMaybe<Scalars['timestamp']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['uuid']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  model?: InputMaybe<Scalars['String']['input']>;
+  system_promt?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** Streaming cursor of the table "chats" */
@@ -5062,34 +4812,34 @@ export type Chats_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Chats_Stream_Cursor_Value_Input = {
-  createdAt?: InputMaybe<Scalars["timestamp"]["input"]>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  icon?: InputMaybe<Scalars["uuid"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  model?: InputMaybe<Scalars["String"]["input"]>;
-  system_promt?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  createdAt?: InputMaybe<Scalars['timestamp']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['uuid']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  model?: InputMaybe<Scalars['String']['input']>;
+  system_promt?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** update columns of table "chats" */
 export enum Chats_Update_Column {
   /** column name */
-  CreatedAt = "createdAt",
+  CreatedAt = 'createdAt',
   /** column name */
-  Description = "description",
+  Description = 'description',
   /** column name */
-  Icon = "icon",
+  Icon = 'icon',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Model = "model",
+  Model = 'model',
   /** column name */
-  SystemPromt = "system_promt",
+  SystemPromt = 'system_promt',
   /** column name */
-  Title = "title",
+  Title = 'title',
   /** column name */
-  UserId = "userId",
+  UserId = 'userId'
 }
 
 export type Chats_Updates = {
@@ -5102,98 +4852,103 @@ export type Chats_Updates = {
 /** ordering argument of a cursor */
 export enum Cursor_Ordering {
   /** ascending ordering of the cursor */
-  Asc = "ASC",
+  Asc = 'ASC',
   /** descending ordering of the cursor */
-  Desc = "DESC",
+  Desc = 'DESC'
 }
 
 /** columns and relationships of "directus_files" */
 export type Directus_Files = {
-  __typename?: "directus_files";
-  charset?: Maybe<Scalars["String"]["output"]>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  duration?: Maybe<Scalars["Int"]["output"]>;
-  embed?: Maybe<Scalars["String"]["output"]>;
-  filename_disk?: Maybe<Scalars["String"]["output"]>;
-  filename_download: Scalars["String"]["output"];
-  filesize?: Maybe<Scalars["bigint"]["output"]>;
-  folder?: Maybe<Scalars["uuid"]["output"]>;
-  height?: Maybe<Scalars["Int"]["output"]>;
-  id: Scalars["uuid"]["output"];
-  location?: Maybe<Scalars["String"]["output"]>;
-  metadata?: Maybe<Scalars["json"]["output"]>;
-  modified_by?: Maybe<Scalars["uuid"]["output"]>;
-  modified_on: Scalars["timestamptz"]["output"];
+  __typename?: 'directus_files';
+  charset?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  duration?: Maybe<Scalars['Int']['output']>;
+  embed?: Maybe<Scalars['String']['output']>;
+  filename_disk?: Maybe<Scalars['String']['output']>;
+  filename_download: Scalars['String']['output'];
+  filesize?: Maybe<Scalars['bigint']['output']>;
+  folder?: Maybe<Scalars['uuid']['output']>;
+  height?: Maybe<Scalars['Int']['output']>;
+  id: Scalars['uuid']['output'];
+  location?: Maybe<Scalars['String']['output']>;
+  metadata?: Maybe<Scalars['json']['output']>;
+  modified_by?: Maybe<Scalars['uuid']['output']>;
+  modified_on: Scalars['timestamptz']['output'];
   /** An array relationship */
   roles: Array<Roles>;
   /** An aggregate relationship */
   roles_aggregate: Roles_Aggregate;
-  storage: Scalars["String"]["output"];
-  tags?: Maybe<Scalars["String"]["output"]>;
+  storage: Scalars['String']['output'];
+  tags?: Maybe<Scalars['String']['output']>;
   /** An array relationship */
   templates: Array<Templates>;
   /** An aggregate relationship */
   templates_aggregate: Templates_Aggregate;
-  title?: Maybe<Scalars["String"]["output"]>;
-  type?: Maybe<Scalars["String"]["output"]>;
-  uploaded_by?: Maybe<Scalars["uuid"]["output"]>;
-  uploaded_on: Scalars["timestamptz"]["output"];
-  width?: Maybe<Scalars["Int"]["output"]>;
+  title?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  uploaded_by?: Maybe<Scalars['uuid']['output']>;
+  uploaded_on: Scalars['timestamptz']['output'];
+  width?: Maybe<Scalars['Int']['output']>;
 };
+
 
 /** columns and relationships of "directus_files" */
 export type Directus_FilesMetadataArgs = {
-  path?: InputMaybe<Scalars["String"]["input"]>;
+  path?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** columns and relationships of "directus_files" */
 export type Directus_FilesRolesArgs = {
   distinct_on?: InputMaybe<Array<Roles_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Roles_Order_By>>;
   where?: InputMaybe<Roles_Bool_Exp>;
 };
+
 
 /** columns and relationships of "directus_files" */
 export type Directus_FilesRoles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Roles_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Roles_Order_By>>;
   where?: InputMaybe<Roles_Bool_Exp>;
 };
 
+
 /** columns and relationships of "directus_files" */
 export type Directus_FilesTemplatesArgs = {
   distinct_on?: InputMaybe<Array<Templates_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Templates_Order_By>>;
   where?: InputMaybe<Templates_Bool_Exp>;
 };
 
+
 /** columns and relationships of "directus_files" */
 export type Directus_FilesTemplates_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Templates_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Templates_Order_By>>;
   where?: InputMaybe<Templates_Bool_Exp>;
 };
 
 /** aggregated selection of "directus_files" */
 export type Directus_Files_Aggregate = {
-  __typename?: "directus_files_aggregate";
+  __typename?: 'directus_files_aggregate';
   aggregate?: Maybe<Directus_Files_Aggregate_Fields>;
   nodes: Array<Directus_Files>;
 };
 
 /** aggregate fields of "directus_files" */
 export type Directus_Files_Aggregate_Fields = {
-  __typename?: "directus_files_aggregate_fields";
+  __typename?: 'directus_files_aggregate_fields';
   avg?: Maybe<Directus_Files_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Directus_Files_Max_Fields>;
   min?: Maybe<Directus_Files_Min_Fields>;
   stddev?: Maybe<Directus_Files_Stddev_Fields>;
@@ -5205,19 +4960,20 @@ export type Directus_Files_Aggregate_Fields = {
   variance?: Maybe<Directus_Files_Variance_Fields>;
 };
 
+
 /** aggregate fields of "directus_files" */
 export type Directus_Files_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Directus_Files_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Directus_Files_Avg_Fields = {
-  __typename?: "directus_files_avg_fields";
-  duration?: Maybe<Scalars["Float"]["output"]>;
-  filesize?: Maybe<Scalars["Float"]["output"]>;
-  height?: Maybe<Scalars["Float"]["output"]>;
-  width?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'directus_files_avg_fields';
+  duration?: Maybe<Scalars['Float']['output']>;
+  filesize?: Maybe<Scalars['Float']['output']>;
+  height?: Maybe<Scalars['Float']['output']>;
+  width?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "directus_files". All fields are combined with a logical 'AND'. */
@@ -5255,99 +5011,99 @@ export type Directus_Files_Bool_Exp = {
 /** unique or primary key constraints on table "directus_files" */
 export enum Directus_Files_Constraint {
   /** unique or primary key constraint on columns "id" */
-  DirectusFilesPkey = "directus_files_pkey",
+  DirectusFilesPkey = 'directus_files_pkey'
 }
 
 /** input type for incrementing numeric columns in table "directus_files" */
 export type Directus_Files_Inc_Input = {
-  duration?: InputMaybe<Scalars["Int"]["input"]>;
-  filesize?: InputMaybe<Scalars["bigint"]["input"]>;
-  height?: InputMaybe<Scalars["Int"]["input"]>;
-  width?: InputMaybe<Scalars["Int"]["input"]>;
+  duration?: InputMaybe<Scalars['Int']['input']>;
+  filesize?: InputMaybe<Scalars['bigint']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "directus_files" */
 export type Directus_Files_Insert_Input = {
-  charset?: InputMaybe<Scalars["String"]["input"]>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  duration?: InputMaybe<Scalars["Int"]["input"]>;
-  embed?: InputMaybe<Scalars["String"]["input"]>;
-  filename_disk?: InputMaybe<Scalars["String"]["input"]>;
-  filename_download?: InputMaybe<Scalars["String"]["input"]>;
-  filesize?: InputMaybe<Scalars["bigint"]["input"]>;
-  folder?: InputMaybe<Scalars["uuid"]["input"]>;
-  height?: InputMaybe<Scalars["Int"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  location?: InputMaybe<Scalars["String"]["input"]>;
-  metadata?: InputMaybe<Scalars["json"]["input"]>;
-  modified_by?: InputMaybe<Scalars["uuid"]["input"]>;
-  modified_on?: InputMaybe<Scalars["timestamptz"]["input"]>;
+  charset?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  duration?: InputMaybe<Scalars['Int']['input']>;
+  embed?: InputMaybe<Scalars['String']['input']>;
+  filename_disk?: InputMaybe<Scalars['String']['input']>;
+  filename_download?: InputMaybe<Scalars['String']['input']>;
+  filesize?: InputMaybe<Scalars['bigint']['input']>;
+  folder?: InputMaybe<Scalars['uuid']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  metadata?: InputMaybe<Scalars['json']['input']>;
+  modified_by?: InputMaybe<Scalars['uuid']['input']>;
+  modified_on?: InputMaybe<Scalars['timestamptz']['input']>;
   roles?: InputMaybe<Roles_Arr_Rel_Insert_Input>;
-  storage?: InputMaybe<Scalars["String"]["input"]>;
-  tags?: InputMaybe<Scalars["String"]["input"]>;
+  storage?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Scalars['String']['input']>;
   templates?: InputMaybe<Templates_Arr_Rel_Insert_Input>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  type?: InputMaybe<Scalars["String"]["input"]>;
-  uploaded_by?: InputMaybe<Scalars["uuid"]["input"]>;
-  uploaded_on?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  width?: InputMaybe<Scalars["Int"]["input"]>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  uploaded_by?: InputMaybe<Scalars['uuid']['input']>;
+  uploaded_on?: InputMaybe<Scalars['timestamptz']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** aggregate max on columns */
 export type Directus_Files_Max_Fields = {
-  __typename?: "directus_files_max_fields";
-  charset?: Maybe<Scalars["String"]["output"]>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  duration?: Maybe<Scalars["Int"]["output"]>;
-  embed?: Maybe<Scalars["String"]["output"]>;
-  filename_disk?: Maybe<Scalars["String"]["output"]>;
-  filename_download?: Maybe<Scalars["String"]["output"]>;
-  filesize?: Maybe<Scalars["bigint"]["output"]>;
-  folder?: Maybe<Scalars["uuid"]["output"]>;
-  height?: Maybe<Scalars["Int"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  location?: Maybe<Scalars["String"]["output"]>;
-  modified_by?: Maybe<Scalars["uuid"]["output"]>;
-  modified_on?: Maybe<Scalars["timestamptz"]["output"]>;
-  storage?: Maybe<Scalars["String"]["output"]>;
-  tags?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  type?: Maybe<Scalars["String"]["output"]>;
-  uploaded_by?: Maybe<Scalars["uuid"]["output"]>;
-  uploaded_on?: Maybe<Scalars["timestamptz"]["output"]>;
-  width?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'directus_files_max_fields';
+  charset?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  duration?: Maybe<Scalars['Int']['output']>;
+  embed?: Maybe<Scalars['String']['output']>;
+  filename_disk?: Maybe<Scalars['String']['output']>;
+  filename_download?: Maybe<Scalars['String']['output']>;
+  filesize?: Maybe<Scalars['bigint']['output']>;
+  folder?: Maybe<Scalars['uuid']['output']>;
+  height?: Maybe<Scalars['Int']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  location?: Maybe<Scalars['String']['output']>;
+  modified_by?: Maybe<Scalars['uuid']['output']>;
+  modified_on?: Maybe<Scalars['timestamptz']['output']>;
+  storage?: Maybe<Scalars['String']['output']>;
+  tags?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  uploaded_by?: Maybe<Scalars['uuid']['output']>;
+  uploaded_on?: Maybe<Scalars['timestamptz']['output']>;
+  width?: Maybe<Scalars['Int']['output']>;
 };
 
 /** aggregate min on columns */
 export type Directus_Files_Min_Fields = {
-  __typename?: "directus_files_min_fields";
-  charset?: Maybe<Scalars["String"]["output"]>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  duration?: Maybe<Scalars["Int"]["output"]>;
-  embed?: Maybe<Scalars["String"]["output"]>;
-  filename_disk?: Maybe<Scalars["String"]["output"]>;
-  filename_download?: Maybe<Scalars["String"]["output"]>;
-  filesize?: Maybe<Scalars["bigint"]["output"]>;
-  folder?: Maybe<Scalars["uuid"]["output"]>;
-  height?: Maybe<Scalars["Int"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  location?: Maybe<Scalars["String"]["output"]>;
-  modified_by?: Maybe<Scalars["uuid"]["output"]>;
-  modified_on?: Maybe<Scalars["timestamptz"]["output"]>;
-  storage?: Maybe<Scalars["String"]["output"]>;
-  tags?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  type?: Maybe<Scalars["String"]["output"]>;
-  uploaded_by?: Maybe<Scalars["uuid"]["output"]>;
-  uploaded_on?: Maybe<Scalars["timestamptz"]["output"]>;
-  width?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'directus_files_min_fields';
+  charset?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  duration?: Maybe<Scalars['Int']['output']>;
+  embed?: Maybe<Scalars['String']['output']>;
+  filename_disk?: Maybe<Scalars['String']['output']>;
+  filename_download?: Maybe<Scalars['String']['output']>;
+  filesize?: Maybe<Scalars['bigint']['output']>;
+  folder?: Maybe<Scalars['uuid']['output']>;
+  height?: Maybe<Scalars['Int']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  location?: Maybe<Scalars['String']['output']>;
+  modified_by?: Maybe<Scalars['uuid']['output']>;
+  modified_on?: Maybe<Scalars['timestamptz']['output']>;
+  storage?: Maybe<Scalars['String']['output']>;
+  tags?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  uploaded_by?: Maybe<Scalars['uuid']['output']>;
+  uploaded_on?: Maybe<Scalars['timestamptz']['output']>;
+  width?: Maybe<Scalars['Int']['output']>;
 };
 
 /** response of any mutation on the table "directus_files" */
 export type Directus_Files_Mutation_Response = {
-  __typename?: "directus_files_mutation_response";
+  __typename?: 'directus_files_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Directus_Files>;
 };
@@ -5395,105 +5151,105 @@ export type Directus_Files_Order_By = {
 
 /** primary key columns input for table: directus_files */
 export type Directus_Files_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "directus_files" */
 export enum Directus_Files_Select_Column {
   /** column name */
-  Charset = "charset",
+  Charset = 'charset',
   /** column name */
-  Description = "description",
+  Description = 'description',
   /** column name */
-  Duration = "duration",
+  Duration = 'duration',
   /** column name */
-  Embed = "embed",
+  Embed = 'embed',
   /** column name */
-  FilenameDisk = "filename_disk",
+  FilenameDisk = 'filename_disk',
   /** column name */
-  FilenameDownload = "filename_download",
+  FilenameDownload = 'filename_download',
   /** column name */
-  Filesize = "filesize",
+  Filesize = 'filesize',
   /** column name */
-  Folder = "folder",
+  Folder = 'folder',
   /** column name */
-  Height = "height",
+  Height = 'height',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Location = "location",
+  Location = 'location',
   /** column name */
-  Metadata = "metadata",
+  Metadata = 'metadata',
   /** column name */
-  ModifiedBy = "modified_by",
+  ModifiedBy = 'modified_by',
   /** column name */
-  ModifiedOn = "modified_on",
+  ModifiedOn = 'modified_on',
   /** column name */
-  Storage = "storage",
+  Storage = 'storage',
   /** column name */
-  Tags = "tags",
+  Tags = 'tags',
   /** column name */
-  Title = "title",
+  Title = 'title',
   /** column name */
-  Type = "type",
+  Type = 'type',
   /** column name */
-  UploadedBy = "uploaded_by",
+  UploadedBy = 'uploaded_by',
   /** column name */
-  UploadedOn = "uploaded_on",
+  UploadedOn = 'uploaded_on',
   /** column name */
-  Width = "width",
+  Width = 'width'
 }
 
 /** input type for updating data in table "directus_files" */
 export type Directus_Files_Set_Input = {
-  charset?: InputMaybe<Scalars["String"]["input"]>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  duration?: InputMaybe<Scalars["Int"]["input"]>;
-  embed?: InputMaybe<Scalars["String"]["input"]>;
-  filename_disk?: InputMaybe<Scalars["String"]["input"]>;
-  filename_download?: InputMaybe<Scalars["String"]["input"]>;
-  filesize?: InputMaybe<Scalars["bigint"]["input"]>;
-  folder?: InputMaybe<Scalars["uuid"]["input"]>;
-  height?: InputMaybe<Scalars["Int"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  location?: InputMaybe<Scalars["String"]["input"]>;
-  metadata?: InputMaybe<Scalars["json"]["input"]>;
-  modified_by?: InputMaybe<Scalars["uuid"]["input"]>;
-  modified_on?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  storage?: InputMaybe<Scalars["String"]["input"]>;
-  tags?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  type?: InputMaybe<Scalars["String"]["input"]>;
-  uploaded_by?: InputMaybe<Scalars["uuid"]["input"]>;
-  uploaded_on?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  width?: InputMaybe<Scalars["Int"]["input"]>;
+  charset?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  duration?: InputMaybe<Scalars['Int']['input']>;
+  embed?: InputMaybe<Scalars['String']['input']>;
+  filename_disk?: InputMaybe<Scalars['String']['input']>;
+  filename_download?: InputMaybe<Scalars['String']['input']>;
+  filesize?: InputMaybe<Scalars['bigint']['input']>;
+  folder?: InputMaybe<Scalars['uuid']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  metadata?: InputMaybe<Scalars['json']['input']>;
+  modified_by?: InputMaybe<Scalars['uuid']['input']>;
+  modified_on?: InputMaybe<Scalars['timestamptz']['input']>;
+  storage?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  uploaded_by?: InputMaybe<Scalars['uuid']['input']>;
+  uploaded_on?: InputMaybe<Scalars['timestamptz']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Directus_Files_Stddev_Fields = {
-  __typename?: "directus_files_stddev_fields";
-  duration?: Maybe<Scalars["Float"]["output"]>;
-  filesize?: Maybe<Scalars["Float"]["output"]>;
-  height?: Maybe<Scalars["Float"]["output"]>;
-  width?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'directus_files_stddev_fields';
+  duration?: Maybe<Scalars['Float']['output']>;
+  filesize?: Maybe<Scalars['Float']['output']>;
+  height?: Maybe<Scalars['Float']['output']>;
+  width?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Directus_Files_Stddev_Pop_Fields = {
-  __typename?: "directus_files_stddev_pop_fields";
-  duration?: Maybe<Scalars["Float"]["output"]>;
-  filesize?: Maybe<Scalars["Float"]["output"]>;
-  height?: Maybe<Scalars["Float"]["output"]>;
-  width?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'directus_files_stddev_pop_fields';
+  duration?: Maybe<Scalars['Float']['output']>;
+  filesize?: Maybe<Scalars['Float']['output']>;
+  height?: Maybe<Scalars['Float']['output']>;
+  width?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Directus_Files_Stddev_Samp_Fields = {
-  __typename?: "directus_files_stddev_samp_fields";
-  duration?: Maybe<Scalars["Float"]["output"]>;
-  filesize?: Maybe<Scalars["Float"]["output"]>;
-  height?: Maybe<Scalars["Float"]["output"]>;
-  width?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'directus_files_stddev_samp_fields';
+  duration?: Maybe<Scalars['Float']['output']>;
+  filesize?: Maybe<Scalars['Float']['output']>;
+  height?: Maybe<Scalars['Float']['output']>;
+  width?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "directus_files" */
@@ -5506,82 +5262,82 @@ export type Directus_Files_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Directus_Files_Stream_Cursor_Value_Input = {
-  charset?: InputMaybe<Scalars["String"]["input"]>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  duration?: InputMaybe<Scalars["Int"]["input"]>;
-  embed?: InputMaybe<Scalars["String"]["input"]>;
-  filename_disk?: InputMaybe<Scalars["String"]["input"]>;
-  filename_download?: InputMaybe<Scalars["String"]["input"]>;
-  filesize?: InputMaybe<Scalars["bigint"]["input"]>;
-  folder?: InputMaybe<Scalars["uuid"]["input"]>;
-  height?: InputMaybe<Scalars["Int"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  location?: InputMaybe<Scalars["String"]["input"]>;
-  metadata?: InputMaybe<Scalars["json"]["input"]>;
-  modified_by?: InputMaybe<Scalars["uuid"]["input"]>;
-  modified_on?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  storage?: InputMaybe<Scalars["String"]["input"]>;
-  tags?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  type?: InputMaybe<Scalars["String"]["input"]>;
-  uploaded_by?: InputMaybe<Scalars["uuid"]["input"]>;
-  uploaded_on?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  width?: InputMaybe<Scalars["Int"]["input"]>;
+  charset?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  duration?: InputMaybe<Scalars['Int']['input']>;
+  embed?: InputMaybe<Scalars['String']['input']>;
+  filename_disk?: InputMaybe<Scalars['String']['input']>;
+  filename_download?: InputMaybe<Scalars['String']['input']>;
+  filesize?: InputMaybe<Scalars['bigint']['input']>;
+  folder?: InputMaybe<Scalars['uuid']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  metadata?: InputMaybe<Scalars['json']['input']>;
+  modified_by?: InputMaybe<Scalars['uuid']['input']>;
+  modified_on?: InputMaybe<Scalars['timestamptz']['input']>;
+  storage?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  uploaded_by?: InputMaybe<Scalars['uuid']['input']>;
+  uploaded_on?: InputMaybe<Scalars['timestamptz']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Directus_Files_Sum_Fields = {
-  __typename?: "directus_files_sum_fields";
-  duration?: Maybe<Scalars["Int"]["output"]>;
-  filesize?: Maybe<Scalars["bigint"]["output"]>;
-  height?: Maybe<Scalars["Int"]["output"]>;
-  width?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'directus_files_sum_fields';
+  duration?: Maybe<Scalars['Int']['output']>;
+  filesize?: Maybe<Scalars['bigint']['output']>;
+  height?: Maybe<Scalars['Int']['output']>;
+  width?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "directus_files" */
 export enum Directus_Files_Update_Column {
   /** column name */
-  Charset = "charset",
+  Charset = 'charset',
   /** column name */
-  Description = "description",
+  Description = 'description',
   /** column name */
-  Duration = "duration",
+  Duration = 'duration',
   /** column name */
-  Embed = "embed",
+  Embed = 'embed',
   /** column name */
-  FilenameDisk = "filename_disk",
+  FilenameDisk = 'filename_disk',
   /** column name */
-  FilenameDownload = "filename_download",
+  FilenameDownload = 'filename_download',
   /** column name */
-  Filesize = "filesize",
+  Filesize = 'filesize',
   /** column name */
-  Folder = "folder",
+  Folder = 'folder',
   /** column name */
-  Height = "height",
+  Height = 'height',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Location = "location",
+  Location = 'location',
   /** column name */
-  Metadata = "metadata",
+  Metadata = 'metadata',
   /** column name */
-  ModifiedBy = "modified_by",
+  ModifiedBy = 'modified_by',
   /** column name */
-  ModifiedOn = "modified_on",
+  ModifiedOn = 'modified_on',
   /** column name */
-  Storage = "storage",
+  Storage = 'storage',
   /** column name */
-  Tags = "tags",
+  Tags = 'tags',
   /** column name */
-  Title = "title",
+  Title = 'title',
   /** column name */
-  Type = "type",
+  Type = 'type',
   /** column name */
-  UploadedBy = "uploaded_by",
+  UploadedBy = 'uploaded_by',
   /** column name */
-  UploadedOn = "uploaded_on",
+  UploadedOn = 'uploaded_on',
   /** column name */
-  Width = "width",
+  Width = 'width'
 }
 
 export type Directus_Files_Updates = {
@@ -5595,101 +5351,106 @@ export type Directus_Files_Updates = {
 
 /** aggregate var_pop on columns */
 export type Directus_Files_Var_Pop_Fields = {
-  __typename?: "directus_files_var_pop_fields";
-  duration?: Maybe<Scalars["Float"]["output"]>;
-  filesize?: Maybe<Scalars["Float"]["output"]>;
-  height?: Maybe<Scalars["Float"]["output"]>;
-  width?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'directus_files_var_pop_fields';
+  duration?: Maybe<Scalars['Float']['output']>;
+  filesize?: Maybe<Scalars['Float']['output']>;
+  height?: Maybe<Scalars['Float']['output']>;
+  width?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Directus_Files_Var_Samp_Fields = {
-  __typename?: "directus_files_var_samp_fields";
-  duration?: Maybe<Scalars["Float"]["output"]>;
-  filesize?: Maybe<Scalars["Float"]["output"]>;
-  height?: Maybe<Scalars["Float"]["output"]>;
-  width?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'directus_files_var_samp_fields';
+  duration?: Maybe<Scalars['Float']['output']>;
+  filesize?: Maybe<Scalars['Float']['output']>;
+  height?: Maybe<Scalars['Float']['output']>;
+  width?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Directus_Files_Variance_Fields = {
-  __typename?: "directus_files_variance_fields";
-  duration?: Maybe<Scalars["Float"]["output"]>;
-  filesize?: Maybe<Scalars["Float"]["output"]>;
-  height?: Maybe<Scalars["Float"]["output"]>;
-  width?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'directus_files_variance_fields';
+  duration?: Maybe<Scalars['Float']['output']>;
+  filesize?: Maybe<Scalars['Float']['output']>;
+  height?: Maybe<Scalars['Float']['output']>;
+  width?: Maybe<Scalars['Float']['output']>;
 };
 
 /** columns and relationships of "directus_users" */
 export type Directus_Users = {
-  __typename?: "directus_users";
-  appearance?: Maybe<Scalars["String"]["output"]>;
-  auth_data?: Maybe<Scalars["json"]["output"]>;
-  avatar?: Maybe<Scalars["uuid"]["output"]>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  email?: Maybe<Scalars["String"]["output"]>;
-  email_notifications?: Maybe<Scalars["Boolean"]["output"]>;
-  external_identifier?: Maybe<Scalars["String"]["output"]>;
-  first_name?: Maybe<Scalars["String"]["output"]>;
-  id: Scalars["uuid"]["output"];
-  language?: Maybe<Scalars["String"]["output"]>;
-  last_access?: Maybe<Scalars["timestamptz"]["output"]>;
-  last_name?: Maybe<Scalars["String"]["output"]>;
-  last_page?: Maybe<Scalars["String"]["output"]>;
-  location?: Maybe<Scalars["String"]["output"]>;
-  password?: Maybe<Scalars["String"]["output"]>;
-  provider: Scalars["String"]["output"];
-  role?: Maybe<Scalars["uuid"]["output"]>;
-  status: Scalars["String"]["output"];
-  tags?: Maybe<Scalars["json"]["output"]>;
-  tfa_secret?: Maybe<Scalars["String"]["output"]>;
-  theme_dark?: Maybe<Scalars["String"]["output"]>;
-  theme_dark_overrides?: Maybe<Scalars["json"]["output"]>;
-  theme_light?: Maybe<Scalars["String"]["output"]>;
-  theme_light_overrides?: Maybe<Scalars["json"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  token?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'directus_users';
+  appearance?: Maybe<Scalars['String']['output']>;
+  auth_data?: Maybe<Scalars['json']['output']>;
+  avatar?: Maybe<Scalars['uuid']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  email_notifications?: Maybe<Scalars['Boolean']['output']>;
+  external_identifier?: Maybe<Scalars['String']['output']>;
+  first_name?: Maybe<Scalars['String']['output']>;
+  id: Scalars['uuid']['output'];
+  language?: Maybe<Scalars['String']['output']>;
+  last_access?: Maybe<Scalars['timestamptz']['output']>;
+  last_name?: Maybe<Scalars['String']['output']>;
+  last_page?: Maybe<Scalars['String']['output']>;
+  location?: Maybe<Scalars['String']['output']>;
+  password?: Maybe<Scalars['String']['output']>;
+  provider: Scalars['String']['output'];
+  role?: Maybe<Scalars['uuid']['output']>;
+  status: Scalars['String']['output'];
+  tags?: Maybe<Scalars['json']['output']>;
+  tfa_secret?: Maybe<Scalars['String']['output']>;
+  theme_dark?: Maybe<Scalars['String']['output']>;
+  theme_dark_overrides?: Maybe<Scalars['json']['output']>;
+  theme_light?: Maybe<Scalars['String']['output']>;
+  theme_light_overrides?: Maybe<Scalars['json']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** columns and relationships of "directus_users" */
 export type Directus_UsersAuth_DataArgs = {
-  path?: InputMaybe<Scalars["String"]["input"]>;
+  path?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** columns and relationships of "directus_users" */
 export type Directus_UsersTagsArgs = {
-  path?: InputMaybe<Scalars["String"]["input"]>;
+  path?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** columns and relationships of "directus_users" */
 export type Directus_UsersTheme_Dark_OverridesArgs = {
-  path?: InputMaybe<Scalars["String"]["input"]>;
+  path?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** columns and relationships of "directus_users" */
 export type Directus_UsersTheme_Light_OverridesArgs = {
-  path?: InputMaybe<Scalars["String"]["input"]>;
+  path?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregated selection of "directus_users" */
 export type Directus_Users_Aggregate = {
-  __typename?: "directus_users_aggregate";
+  __typename?: 'directus_users_aggregate';
   aggregate?: Maybe<Directus_Users_Aggregate_Fields>;
   nodes: Array<Directus_Users>;
 };
 
 /** aggregate fields of "directus_users" */
 export type Directus_Users_Aggregate_Fields = {
-  __typename?: "directus_users_aggregate_fields";
-  count: Scalars["Int"]["output"];
+  __typename?: 'directus_users_aggregate_fields';
+  count: Scalars['Int']['output'];
   max?: Maybe<Directus_Users_Max_Fields>;
   min?: Maybe<Directus_Users_Min_Fields>;
 };
 
+
 /** aggregate fields of "directus_users" */
 export type Directus_Users_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Directus_Users_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Boolean expression to filter rows from the table "directus_users". All fields are combined with a logical 'AND'. */
@@ -5728,102 +5489,102 @@ export type Directus_Users_Bool_Exp = {
 /** unique or primary key constraints on table "directus_users" */
 export enum Directus_Users_Constraint {
   /** unique or primary key constraint on columns "email" */
-  DirectusUsersEmailUnique = "directus_users_email_unique",
+  DirectusUsersEmailUnique = 'directus_users_email_unique',
   /** unique or primary key constraint on columns "external_identifier" */
-  DirectusUsersExternalIdentifierUnique = "directus_users_external_identifier_unique",
+  DirectusUsersExternalIdentifierUnique = 'directus_users_external_identifier_unique',
   /** unique or primary key constraint on columns "id" */
-  DirectusUsersPkey = "directus_users_pkey",
+  DirectusUsersPkey = 'directus_users_pkey',
   /** unique or primary key constraint on columns "token" */
-  DirectusUsersTokenUnique = "directus_users_token_unique",
+  DirectusUsersTokenUnique = 'directus_users_token_unique'
 }
 
 /** input type for inserting data into table "directus_users" */
 export type Directus_Users_Insert_Input = {
-  appearance?: InputMaybe<Scalars["String"]["input"]>;
-  auth_data?: InputMaybe<Scalars["json"]["input"]>;
-  avatar?: InputMaybe<Scalars["uuid"]["input"]>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  email?: InputMaybe<Scalars["String"]["input"]>;
-  email_notifications?: InputMaybe<Scalars["Boolean"]["input"]>;
-  external_identifier?: InputMaybe<Scalars["String"]["input"]>;
-  first_name?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  language?: InputMaybe<Scalars["String"]["input"]>;
-  last_access?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  last_name?: InputMaybe<Scalars["String"]["input"]>;
-  last_page?: InputMaybe<Scalars["String"]["input"]>;
-  location?: InputMaybe<Scalars["String"]["input"]>;
-  password?: InputMaybe<Scalars["String"]["input"]>;
-  provider?: InputMaybe<Scalars["String"]["input"]>;
-  role?: InputMaybe<Scalars["uuid"]["input"]>;
-  status?: InputMaybe<Scalars["String"]["input"]>;
-  tags?: InputMaybe<Scalars["json"]["input"]>;
-  tfa_secret?: InputMaybe<Scalars["String"]["input"]>;
-  theme_dark?: InputMaybe<Scalars["String"]["input"]>;
-  theme_dark_overrides?: InputMaybe<Scalars["json"]["input"]>;
-  theme_light?: InputMaybe<Scalars["String"]["input"]>;
-  theme_light_overrides?: InputMaybe<Scalars["json"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  token?: InputMaybe<Scalars["String"]["input"]>;
+  appearance?: InputMaybe<Scalars['String']['input']>;
+  auth_data?: InputMaybe<Scalars['json']['input']>;
+  avatar?: InputMaybe<Scalars['uuid']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  email_notifications?: InputMaybe<Scalars['Boolean']['input']>;
+  external_identifier?: InputMaybe<Scalars['String']['input']>;
+  first_name?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  last_access?: InputMaybe<Scalars['timestamptz']['input']>;
+  last_name?: InputMaybe<Scalars['String']['input']>;
+  last_page?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  password?: InputMaybe<Scalars['String']['input']>;
+  provider?: InputMaybe<Scalars['String']['input']>;
+  role?: InputMaybe<Scalars['uuid']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Scalars['json']['input']>;
+  tfa_secret?: InputMaybe<Scalars['String']['input']>;
+  theme_dark?: InputMaybe<Scalars['String']['input']>;
+  theme_dark_overrides?: InputMaybe<Scalars['json']['input']>;
+  theme_light?: InputMaybe<Scalars['String']['input']>;
+  theme_light_overrides?: InputMaybe<Scalars['json']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  token?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Directus_Users_Max_Fields = {
-  __typename?: "directus_users_max_fields";
-  appearance?: Maybe<Scalars["String"]["output"]>;
-  avatar?: Maybe<Scalars["uuid"]["output"]>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  email?: Maybe<Scalars["String"]["output"]>;
-  external_identifier?: Maybe<Scalars["String"]["output"]>;
-  first_name?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  language?: Maybe<Scalars["String"]["output"]>;
-  last_access?: Maybe<Scalars["timestamptz"]["output"]>;
-  last_name?: Maybe<Scalars["String"]["output"]>;
-  last_page?: Maybe<Scalars["String"]["output"]>;
-  location?: Maybe<Scalars["String"]["output"]>;
-  password?: Maybe<Scalars["String"]["output"]>;
-  provider?: Maybe<Scalars["String"]["output"]>;
-  role?: Maybe<Scalars["uuid"]["output"]>;
-  status?: Maybe<Scalars["String"]["output"]>;
-  tfa_secret?: Maybe<Scalars["String"]["output"]>;
-  theme_dark?: Maybe<Scalars["String"]["output"]>;
-  theme_light?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  token?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'directus_users_max_fields';
+  appearance?: Maybe<Scalars['String']['output']>;
+  avatar?: Maybe<Scalars['uuid']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  external_identifier?: Maybe<Scalars['String']['output']>;
+  first_name?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  language?: Maybe<Scalars['String']['output']>;
+  last_access?: Maybe<Scalars['timestamptz']['output']>;
+  last_name?: Maybe<Scalars['String']['output']>;
+  last_page?: Maybe<Scalars['String']['output']>;
+  location?: Maybe<Scalars['String']['output']>;
+  password?: Maybe<Scalars['String']['output']>;
+  provider?: Maybe<Scalars['String']['output']>;
+  role?: Maybe<Scalars['uuid']['output']>;
+  status?: Maybe<Scalars['String']['output']>;
+  tfa_secret?: Maybe<Scalars['String']['output']>;
+  theme_dark?: Maybe<Scalars['String']['output']>;
+  theme_light?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregate min on columns */
 export type Directus_Users_Min_Fields = {
-  __typename?: "directus_users_min_fields";
-  appearance?: Maybe<Scalars["String"]["output"]>;
-  avatar?: Maybe<Scalars["uuid"]["output"]>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  email?: Maybe<Scalars["String"]["output"]>;
-  external_identifier?: Maybe<Scalars["String"]["output"]>;
-  first_name?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  language?: Maybe<Scalars["String"]["output"]>;
-  last_access?: Maybe<Scalars["timestamptz"]["output"]>;
-  last_name?: Maybe<Scalars["String"]["output"]>;
-  last_page?: Maybe<Scalars["String"]["output"]>;
-  location?: Maybe<Scalars["String"]["output"]>;
-  password?: Maybe<Scalars["String"]["output"]>;
-  provider?: Maybe<Scalars["String"]["output"]>;
-  role?: Maybe<Scalars["uuid"]["output"]>;
-  status?: Maybe<Scalars["String"]["output"]>;
-  tfa_secret?: Maybe<Scalars["String"]["output"]>;
-  theme_dark?: Maybe<Scalars["String"]["output"]>;
-  theme_light?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  token?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'directus_users_min_fields';
+  appearance?: Maybe<Scalars['String']['output']>;
+  avatar?: Maybe<Scalars['uuid']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  external_identifier?: Maybe<Scalars['String']['output']>;
+  first_name?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  language?: Maybe<Scalars['String']['output']>;
+  last_access?: Maybe<Scalars['timestamptz']['output']>;
+  last_name?: Maybe<Scalars['String']['output']>;
+  last_page?: Maybe<Scalars['String']['output']>;
+  location?: Maybe<Scalars['String']['output']>;
+  password?: Maybe<Scalars['String']['output']>;
+  provider?: Maybe<Scalars['String']['output']>;
+  role?: Maybe<Scalars['uuid']['output']>;
+  status?: Maybe<Scalars['String']['output']>;
+  tfa_secret?: Maybe<Scalars['String']['output']>;
+  theme_dark?: Maybe<Scalars['String']['output']>;
+  theme_light?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']['output']>;
 };
 
 /** response of any mutation on the table "directus_users" */
 export type Directus_Users_Mutation_Response = {
-  __typename?: "directus_users_mutation_response";
+  __typename?: 'directus_users_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Directus_Users>;
 };
@@ -5867,93 +5628,93 @@ export type Directus_Users_Order_By = {
 
 /** primary key columns input for table: directus_users */
 export type Directus_Users_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "directus_users" */
 export enum Directus_Users_Select_Column {
   /** column name */
-  Appearance = "appearance",
+  Appearance = 'appearance',
   /** column name */
-  AuthData = "auth_data",
+  AuthData = 'auth_data',
   /** column name */
-  Avatar = "avatar",
+  Avatar = 'avatar',
   /** column name */
-  Description = "description",
+  Description = 'description',
   /** column name */
-  Email = "email",
+  Email = 'email',
   /** column name */
-  EmailNotifications = "email_notifications",
+  EmailNotifications = 'email_notifications',
   /** column name */
-  ExternalIdentifier = "external_identifier",
+  ExternalIdentifier = 'external_identifier',
   /** column name */
-  FirstName = "first_name",
+  FirstName = 'first_name',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Language = "language",
+  Language = 'language',
   /** column name */
-  LastAccess = "last_access",
+  LastAccess = 'last_access',
   /** column name */
-  LastName = "last_name",
+  LastName = 'last_name',
   /** column name */
-  LastPage = "last_page",
+  LastPage = 'last_page',
   /** column name */
-  Location = "location",
+  Location = 'location',
   /** column name */
-  Password = "password",
+  Password = 'password',
   /** column name */
-  Provider = "provider",
+  Provider = 'provider',
   /** column name */
-  Role = "role",
+  Role = 'role',
   /** column name */
-  Status = "status",
+  Status = 'status',
   /** column name */
-  Tags = "tags",
+  Tags = 'tags',
   /** column name */
-  TfaSecret = "tfa_secret",
+  TfaSecret = 'tfa_secret',
   /** column name */
-  ThemeDark = "theme_dark",
+  ThemeDark = 'theme_dark',
   /** column name */
-  ThemeDarkOverrides = "theme_dark_overrides",
+  ThemeDarkOverrides = 'theme_dark_overrides',
   /** column name */
-  ThemeLight = "theme_light",
+  ThemeLight = 'theme_light',
   /** column name */
-  ThemeLightOverrides = "theme_light_overrides",
+  ThemeLightOverrides = 'theme_light_overrides',
   /** column name */
-  Title = "title",
+  Title = 'title',
   /** column name */
-  Token = "token",
+  Token = 'token'
 }
 
 /** input type for updating data in table "directus_users" */
 export type Directus_Users_Set_Input = {
-  appearance?: InputMaybe<Scalars["String"]["input"]>;
-  auth_data?: InputMaybe<Scalars["json"]["input"]>;
-  avatar?: InputMaybe<Scalars["uuid"]["input"]>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  email?: InputMaybe<Scalars["String"]["input"]>;
-  email_notifications?: InputMaybe<Scalars["Boolean"]["input"]>;
-  external_identifier?: InputMaybe<Scalars["String"]["input"]>;
-  first_name?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  language?: InputMaybe<Scalars["String"]["input"]>;
-  last_access?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  last_name?: InputMaybe<Scalars["String"]["input"]>;
-  last_page?: InputMaybe<Scalars["String"]["input"]>;
-  location?: InputMaybe<Scalars["String"]["input"]>;
-  password?: InputMaybe<Scalars["String"]["input"]>;
-  provider?: InputMaybe<Scalars["String"]["input"]>;
-  role?: InputMaybe<Scalars["uuid"]["input"]>;
-  status?: InputMaybe<Scalars["String"]["input"]>;
-  tags?: InputMaybe<Scalars["json"]["input"]>;
-  tfa_secret?: InputMaybe<Scalars["String"]["input"]>;
-  theme_dark?: InputMaybe<Scalars["String"]["input"]>;
-  theme_dark_overrides?: InputMaybe<Scalars["json"]["input"]>;
-  theme_light?: InputMaybe<Scalars["String"]["input"]>;
-  theme_light_overrides?: InputMaybe<Scalars["json"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  token?: InputMaybe<Scalars["String"]["input"]>;
+  appearance?: InputMaybe<Scalars['String']['input']>;
+  auth_data?: InputMaybe<Scalars['json']['input']>;
+  avatar?: InputMaybe<Scalars['uuid']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  email_notifications?: InputMaybe<Scalars['Boolean']['input']>;
+  external_identifier?: InputMaybe<Scalars['String']['input']>;
+  first_name?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  last_access?: InputMaybe<Scalars['timestamptz']['input']>;
+  last_name?: InputMaybe<Scalars['String']['input']>;
+  last_page?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  password?: InputMaybe<Scalars['String']['input']>;
+  provider?: InputMaybe<Scalars['String']['input']>;
+  role?: InputMaybe<Scalars['uuid']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Scalars['json']['input']>;
+  tfa_secret?: InputMaybe<Scalars['String']['input']>;
+  theme_dark?: InputMaybe<Scalars['String']['input']>;
+  theme_dark_overrides?: InputMaybe<Scalars['json']['input']>;
+  theme_light?: InputMaybe<Scalars['String']['input']>;
+  theme_light_overrides?: InputMaybe<Scalars['json']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  token?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Streaming cursor of the table "directus_users" */
@@ -5966,88 +5727,88 @@ export type Directus_Users_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Directus_Users_Stream_Cursor_Value_Input = {
-  appearance?: InputMaybe<Scalars["String"]["input"]>;
-  auth_data?: InputMaybe<Scalars["json"]["input"]>;
-  avatar?: InputMaybe<Scalars["uuid"]["input"]>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  email?: InputMaybe<Scalars["String"]["input"]>;
-  email_notifications?: InputMaybe<Scalars["Boolean"]["input"]>;
-  external_identifier?: InputMaybe<Scalars["String"]["input"]>;
-  first_name?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  language?: InputMaybe<Scalars["String"]["input"]>;
-  last_access?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  last_name?: InputMaybe<Scalars["String"]["input"]>;
-  last_page?: InputMaybe<Scalars["String"]["input"]>;
-  location?: InputMaybe<Scalars["String"]["input"]>;
-  password?: InputMaybe<Scalars["String"]["input"]>;
-  provider?: InputMaybe<Scalars["String"]["input"]>;
-  role?: InputMaybe<Scalars["uuid"]["input"]>;
-  status?: InputMaybe<Scalars["String"]["input"]>;
-  tags?: InputMaybe<Scalars["json"]["input"]>;
-  tfa_secret?: InputMaybe<Scalars["String"]["input"]>;
-  theme_dark?: InputMaybe<Scalars["String"]["input"]>;
-  theme_dark_overrides?: InputMaybe<Scalars["json"]["input"]>;
-  theme_light?: InputMaybe<Scalars["String"]["input"]>;
-  theme_light_overrides?: InputMaybe<Scalars["json"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  token?: InputMaybe<Scalars["String"]["input"]>;
+  appearance?: InputMaybe<Scalars['String']['input']>;
+  auth_data?: InputMaybe<Scalars['json']['input']>;
+  avatar?: InputMaybe<Scalars['uuid']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  email_notifications?: InputMaybe<Scalars['Boolean']['input']>;
+  external_identifier?: InputMaybe<Scalars['String']['input']>;
+  first_name?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  last_access?: InputMaybe<Scalars['timestamptz']['input']>;
+  last_name?: InputMaybe<Scalars['String']['input']>;
+  last_page?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  password?: InputMaybe<Scalars['String']['input']>;
+  provider?: InputMaybe<Scalars['String']['input']>;
+  role?: InputMaybe<Scalars['uuid']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Scalars['json']['input']>;
+  tfa_secret?: InputMaybe<Scalars['String']['input']>;
+  theme_dark?: InputMaybe<Scalars['String']['input']>;
+  theme_dark_overrides?: InputMaybe<Scalars['json']['input']>;
+  theme_light?: InputMaybe<Scalars['String']['input']>;
+  theme_light_overrides?: InputMaybe<Scalars['json']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  token?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** update columns of table "directus_users" */
 export enum Directus_Users_Update_Column {
   /** column name */
-  Appearance = "appearance",
+  Appearance = 'appearance',
   /** column name */
-  AuthData = "auth_data",
+  AuthData = 'auth_data',
   /** column name */
-  Avatar = "avatar",
+  Avatar = 'avatar',
   /** column name */
-  Description = "description",
+  Description = 'description',
   /** column name */
-  Email = "email",
+  Email = 'email',
   /** column name */
-  EmailNotifications = "email_notifications",
+  EmailNotifications = 'email_notifications',
   /** column name */
-  ExternalIdentifier = "external_identifier",
+  ExternalIdentifier = 'external_identifier',
   /** column name */
-  FirstName = "first_name",
+  FirstName = 'first_name',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Language = "language",
+  Language = 'language',
   /** column name */
-  LastAccess = "last_access",
+  LastAccess = 'last_access',
   /** column name */
-  LastName = "last_name",
+  LastName = 'last_name',
   /** column name */
-  LastPage = "last_page",
+  LastPage = 'last_page',
   /** column name */
-  Location = "location",
+  Location = 'location',
   /** column name */
-  Password = "password",
+  Password = 'password',
   /** column name */
-  Provider = "provider",
+  Provider = 'provider',
   /** column name */
-  Role = "role",
+  Role = 'role',
   /** column name */
-  Status = "status",
+  Status = 'status',
   /** column name */
-  Tags = "tags",
+  Tags = 'tags',
   /** column name */
-  TfaSecret = "tfa_secret",
+  TfaSecret = 'tfa_secret',
   /** column name */
-  ThemeDark = "theme_dark",
+  ThemeDark = 'theme_dark',
   /** column name */
-  ThemeDarkOverrides = "theme_dark_overrides",
+  ThemeDarkOverrides = 'theme_dark_overrides',
   /** column name */
-  ThemeLight = "theme_light",
+  ThemeLight = 'theme_light',
   /** column name */
-  ThemeLightOverrides = "theme_light_overrides",
+  ThemeLightOverrides = 'theme_light_overrides',
   /** column name */
-  Title = "title",
+  Title = 'title',
   /** column name */
-  Token = "token",
+  Token = 'token'
 }
 
 export type Directus_Users_Updates = {
@@ -6059,26 +5820,27 @@ export type Directus_Users_Updates = {
 
 /** columns and relationships of "documents" */
 export type Documents = {
-  __typename?: "documents";
-  blocks?: Maybe<Scalars["json"]["output"]>;
-  date_created?: Maybe<Scalars["timestamptz"]["output"]>;
-  date_updated?: Maybe<Scalars["timestamptz"]["output"]>;
-  id: Scalars["uuid"]["output"];
-  name: Scalars["String"]["output"];
-  time?: Maybe<Scalars["bigint"]["output"]>;
+  __typename?: 'documents';
+  blocks?: Maybe<Scalars['json']['output']>;
+  date_created?: Maybe<Scalars['timestamptz']['output']>;
+  date_updated?: Maybe<Scalars['timestamptz']['output']>;
+  id: Scalars['uuid']['output'];
+  name: Scalars['String']['output'];
+  time?: Maybe<Scalars['bigint']['output']>;
   /** An object relationship */
   user?: Maybe<Users>;
-  userId?: Maybe<Scalars["uuid"]["output"]>;
+  userId?: Maybe<Scalars['uuid']['output']>;
 };
+
 
 /** columns and relationships of "documents" */
 export type DocumentsBlocksArgs = {
-  path?: InputMaybe<Scalars["String"]["input"]>;
+  path?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregated selection of "documents" */
 export type Documents_Aggregate = {
-  __typename?: "documents_aggregate";
+  __typename?: 'documents_aggregate';
   aggregate?: Maybe<Documents_Aggregate_Fields>;
   nodes: Array<Documents>;
 };
@@ -6089,16 +5851,16 @@ export type Documents_Aggregate_Bool_Exp = {
 
 export type Documents_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<Documents_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
   filter?: InputMaybe<Documents_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "documents" */
 export type Documents_Aggregate_Fields = {
-  __typename?: "documents_aggregate_fields";
+  __typename?: 'documents_aggregate_fields';
   avg?: Maybe<Documents_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Documents_Max_Fields>;
   min?: Maybe<Documents_Min_Fields>;
   stddev?: Maybe<Documents_Stddev_Fields>;
@@ -6110,10 +5872,11 @@ export type Documents_Aggregate_Fields = {
   variance?: Maybe<Documents_Variance_Fields>;
 };
 
+
 /** aggregate fields of "documents" */
 export type Documents_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Documents_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "documents" */
@@ -6140,8 +5903,8 @@ export type Documents_Arr_Rel_Insert_Input = {
 
 /** aggregate avg on columns */
 export type Documents_Avg_Fields = {
-  __typename?: "documents_avg_fields";
-  time?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'documents_avg_fields';
+  time?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by avg() on columns of table "documents" */
@@ -6167,35 +5930,35 @@ export type Documents_Bool_Exp = {
 /** unique or primary key constraints on table "documents" */
 export enum Documents_Constraint {
   /** unique or primary key constraint on columns "id" */
-  DocumentsPkey = "documents_pkey",
+  DocumentsPkey = 'documents_pkey'
 }
 
 /** input type for incrementing numeric columns in table "documents" */
 export type Documents_Inc_Input = {
-  time?: InputMaybe<Scalars["bigint"]["input"]>;
+  time?: InputMaybe<Scalars['bigint']['input']>;
 };
 
 /** input type for inserting data into table "documents" */
 export type Documents_Insert_Input = {
-  blocks?: InputMaybe<Scalars["json"]["input"]>;
-  date_created?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  date_updated?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  time?: InputMaybe<Scalars["bigint"]["input"]>;
+  blocks?: InputMaybe<Scalars['json']['input']>;
+  date_created?: InputMaybe<Scalars['timestamptz']['input']>;
+  date_updated?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  time?: InputMaybe<Scalars['bigint']['input']>;
   user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
 export type Documents_Max_Fields = {
-  __typename?: "documents_max_fields";
-  date_created?: Maybe<Scalars["timestamptz"]["output"]>;
-  date_updated?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  time?: Maybe<Scalars["bigint"]["output"]>;
-  userId?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'documents_max_fields';
+  date_created?: Maybe<Scalars['timestamptz']['output']>;
+  date_updated?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  time?: Maybe<Scalars['bigint']['output']>;
+  userId?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** order by max() on columns of table "documents" */
@@ -6210,13 +5973,13 @@ export type Documents_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Documents_Min_Fields = {
-  __typename?: "documents_min_fields";
-  date_created?: Maybe<Scalars["timestamptz"]["output"]>;
-  date_updated?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  time?: Maybe<Scalars["bigint"]["output"]>;
-  userId?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'documents_min_fields';
+  date_created?: Maybe<Scalars['timestamptz']['output']>;
+  date_updated?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  time?: Maybe<Scalars['bigint']['output']>;
+  userId?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** order by min() on columns of table "documents" */
@@ -6231,9 +5994,9 @@ export type Documents_Min_Order_By = {
 
 /** response of any mutation on the table "documents" */
 export type Documents_Mutation_Response = {
-  __typename?: "documents_mutation_response";
+  __typename?: 'documents_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Documents>;
 };
@@ -6259,42 +6022,42 @@ export type Documents_Order_By = {
 
 /** primary key columns input for table: documents */
 export type Documents_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "documents" */
 export enum Documents_Select_Column {
   /** column name */
-  Blocks = "blocks",
+  Blocks = 'blocks',
   /** column name */
-  DateCreated = "date_created",
+  DateCreated = 'date_created',
   /** column name */
-  DateUpdated = "date_updated",
+  DateUpdated = 'date_updated',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Time = "time",
+  Time = 'time',
   /** column name */
-  UserId = "userId",
+  UserId = 'userId'
 }
 
 /** input type for updating data in table "documents" */
 export type Documents_Set_Input = {
-  blocks?: InputMaybe<Scalars["json"]["input"]>;
-  date_created?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  date_updated?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  time?: InputMaybe<Scalars["bigint"]["input"]>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  blocks?: InputMaybe<Scalars['json']['input']>;
+  date_created?: InputMaybe<Scalars['timestamptz']['input']>;
+  date_updated?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  time?: InputMaybe<Scalars['bigint']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Documents_Stddev_Fields = {
-  __typename?: "documents_stddev_fields";
-  time?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'documents_stddev_fields';
+  time?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev() on columns of table "documents" */
@@ -6304,8 +6067,8 @@ export type Documents_Stddev_Order_By = {
 
 /** aggregate stddev_pop on columns */
 export type Documents_Stddev_Pop_Fields = {
-  __typename?: "documents_stddev_pop_fields";
-  time?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'documents_stddev_pop_fields';
+  time?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev_pop() on columns of table "documents" */
@@ -6315,8 +6078,8 @@ export type Documents_Stddev_Pop_Order_By = {
 
 /** aggregate stddev_samp on columns */
 export type Documents_Stddev_Samp_Fields = {
-  __typename?: "documents_stddev_samp_fields";
-  time?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'documents_stddev_samp_fields';
+  time?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev_samp() on columns of table "documents" */
@@ -6334,19 +6097,19 @@ export type Documents_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Documents_Stream_Cursor_Value_Input = {
-  blocks?: InputMaybe<Scalars["json"]["input"]>;
-  date_created?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  date_updated?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  time?: InputMaybe<Scalars["bigint"]["input"]>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  blocks?: InputMaybe<Scalars['json']['input']>;
+  date_created?: InputMaybe<Scalars['timestamptz']['input']>;
+  date_updated?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  time?: InputMaybe<Scalars['bigint']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Documents_Sum_Fields = {
-  __typename?: "documents_sum_fields";
-  time?: Maybe<Scalars["bigint"]["output"]>;
+  __typename?: 'documents_sum_fields';
+  time?: Maybe<Scalars['bigint']['output']>;
 };
 
 /** order by sum() on columns of table "documents" */
@@ -6357,19 +6120,19 @@ export type Documents_Sum_Order_By = {
 /** update columns of table "documents" */
 export enum Documents_Update_Column {
   /** column name */
-  Blocks = "blocks",
+  Blocks = 'blocks',
   /** column name */
-  DateCreated = "date_created",
+  DateCreated = 'date_created',
   /** column name */
-  DateUpdated = "date_updated",
+  DateUpdated = 'date_updated',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Time = "time",
+  Time = 'time',
   /** column name */
-  UserId = "userId",
+  UserId = 'userId'
 }
 
 export type Documents_Updates = {
@@ -6383,8 +6146,8 @@ export type Documents_Updates = {
 
 /** aggregate var_pop on columns */
 export type Documents_Var_Pop_Fields = {
-  __typename?: "documents_var_pop_fields";
-  time?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'documents_var_pop_fields';
+  time?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by var_pop() on columns of table "documents" */
@@ -6394,8 +6157,8 @@ export type Documents_Var_Pop_Order_By = {
 
 /** aggregate var_samp on columns */
 export type Documents_Var_Samp_Fields = {
-  __typename?: "documents_var_samp_fields";
-  time?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'documents_var_samp_fields';
+  time?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by var_samp() on columns of table "documents" */
@@ -6405,8 +6168,8 @@ export type Documents_Var_Samp_Order_By = {
 
 /** aggregate variance on columns */
 export type Documents_Variance_Fields = {
-  __typename?: "documents_variance_fields";
-  time?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'documents_variance_fields';
+  time?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by variance() on columns of table "documents" */
@@ -6416,15 +6179,15 @@ export type Documents_Variance_Order_By = {
 
 /** Boolean expression to compare columns of type "json". All fields are combined with logical 'AND'. */
 export type Json_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars["json"]["input"]>;
-  _gt?: InputMaybe<Scalars["json"]["input"]>;
-  _gte?: InputMaybe<Scalars["json"]["input"]>;
-  _in?: InputMaybe<Array<Scalars["json"]["input"]>>;
-  _is_null?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _lt?: InputMaybe<Scalars["json"]["input"]>;
-  _lte?: InputMaybe<Scalars["json"]["input"]>;
-  _neq?: InputMaybe<Scalars["json"]["input"]>;
-  _nin?: InputMaybe<Array<Scalars["json"]["input"]>>;
+  _eq?: InputMaybe<Scalars['json']['input']>;
+  _gt?: InputMaybe<Scalars['json']['input']>;
+  _gte?: InputMaybe<Scalars['json']['input']>;
+  _in?: InputMaybe<Array<Scalars['json']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['json']['input']>;
+  _lte?: InputMaybe<Scalars['json']['input']>;
+  _neq?: InputMaybe<Scalars['json']['input']>;
+  _nin?: InputMaybe<Array<Scalars['json']['input']>>;
 };
 
 export type Jsonb_Cast_Exp = {
@@ -6435,47 +6198,48 @@ export type Jsonb_Cast_Exp = {
 export type Jsonb_Comparison_Exp = {
   _cast?: InputMaybe<Jsonb_Cast_Exp>;
   /** is the column contained in the given json value */
-  _contained_in?: InputMaybe<Scalars["jsonb"]["input"]>;
+  _contained_in?: InputMaybe<Scalars['jsonb']['input']>;
   /** does the column contain the given json value at the top level */
-  _contains?: InputMaybe<Scalars["jsonb"]["input"]>;
-  _eq?: InputMaybe<Scalars["jsonb"]["input"]>;
-  _gt?: InputMaybe<Scalars["jsonb"]["input"]>;
-  _gte?: InputMaybe<Scalars["jsonb"]["input"]>;
+  _contains?: InputMaybe<Scalars['jsonb']['input']>;
+  _eq?: InputMaybe<Scalars['jsonb']['input']>;
+  _gt?: InputMaybe<Scalars['jsonb']['input']>;
+  _gte?: InputMaybe<Scalars['jsonb']['input']>;
   /** does the string exist as a top-level key in the column */
-  _has_key?: InputMaybe<Scalars["String"]["input"]>;
+  _has_key?: InputMaybe<Scalars['String']['input']>;
   /** do all of these strings exist as top-level keys in the column */
-  _has_keys_all?: InputMaybe<Array<Scalars["String"]["input"]>>;
+  _has_keys_all?: InputMaybe<Array<Scalars['String']['input']>>;
   /** do any of these strings exist as top-level keys in the column */
-  _has_keys_any?: InputMaybe<Array<Scalars["String"]["input"]>>;
-  _in?: InputMaybe<Array<Scalars["jsonb"]["input"]>>;
-  _is_null?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _lt?: InputMaybe<Scalars["jsonb"]["input"]>;
-  _lte?: InputMaybe<Scalars["jsonb"]["input"]>;
-  _neq?: InputMaybe<Scalars["jsonb"]["input"]>;
-  _nin?: InputMaybe<Array<Scalars["jsonb"]["input"]>>;
+  _has_keys_any?: InputMaybe<Array<Scalars['String']['input']>>;
+  _in?: InputMaybe<Array<Scalars['jsonb']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['jsonb']['input']>;
+  _lte?: InputMaybe<Scalars['jsonb']['input']>;
+  _neq?: InputMaybe<Scalars['jsonb']['input']>;
+  _nin?: InputMaybe<Array<Scalars['jsonb']['input']>>;
 };
 
 /** columns and relationships of "messages" */
 export type Messages = {
-  __typename?: "messages";
-  chatId: Scalars["uuid"]["output"];
+  __typename?: 'messages';
+  chatId: Scalars['uuid']['output'];
   /** An object relationship */
   chats?: Maybe<Chats>;
-  content?: Maybe<Scalars["String"]["output"]>;
-  createdAt?: Maybe<Scalars["timestamptz"]["output"]>;
-  data?: Maybe<Scalars["json"]["output"]>;
-  id: Scalars["uuid"]["output"];
-  role?: Maybe<Scalars["String"]["output"]>;
+  content?: Maybe<Scalars['String']['output']>;
+  createdAt?: Maybe<Scalars['timestamptz']['output']>;
+  data?: Maybe<Scalars['json']['output']>;
+  id: Scalars['uuid']['output'];
+  role?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** columns and relationships of "messages" */
 export type MessagesDataArgs = {
-  path?: InputMaybe<Scalars["String"]["input"]>;
+  path?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregated selection of "messages" */
 export type Messages_Aggregate = {
-  __typename?: "messages_aggregate";
+  __typename?: 'messages_aggregate';
   aggregate?: Maybe<Messages_Aggregate_Fields>;
   nodes: Array<Messages>;
 };
@@ -6486,23 +6250,24 @@ export type Messages_Aggregate_Bool_Exp = {
 
 export type Messages_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<Messages_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
   filter?: InputMaybe<Messages_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "messages" */
 export type Messages_Aggregate_Fields = {
-  __typename?: "messages_aggregate_fields";
-  count: Scalars["Int"]["output"];
+  __typename?: 'messages_aggregate_fields';
+  count: Scalars['Int']['output'];
   max?: Maybe<Messages_Max_Fields>;
   min?: Maybe<Messages_Min_Fields>;
 };
 
+
 /** aggregate fields of "messages" */
 export type Messages_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Messages_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "messages" */
@@ -6536,28 +6301,28 @@ export type Messages_Bool_Exp = {
 /** unique or primary key constraints on table "messages" */
 export enum Messages_Constraint {
   /** unique or primary key constraint on columns "id" */
-  MessagesPkey = "messages_pkey",
+  MessagesPkey = 'messages_pkey'
 }
 
 /** input type for inserting data into table "messages" */
 export type Messages_Insert_Input = {
-  chatId?: InputMaybe<Scalars["uuid"]["input"]>;
+  chatId?: InputMaybe<Scalars['uuid']['input']>;
   chats?: InputMaybe<Chats_Obj_Rel_Insert_Input>;
-  content?: InputMaybe<Scalars["String"]["input"]>;
-  createdAt?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  data?: InputMaybe<Scalars["json"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  role?: InputMaybe<Scalars["String"]["input"]>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['timestamptz']['input']>;
+  data?: InputMaybe<Scalars['json']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  role?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Messages_Max_Fields = {
-  __typename?: "messages_max_fields";
-  chatId?: Maybe<Scalars["uuid"]["output"]>;
-  content?: Maybe<Scalars["String"]["output"]>;
-  createdAt?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  role?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'messages_max_fields';
+  chatId?: Maybe<Scalars['uuid']['output']>;
+  content?: Maybe<Scalars['String']['output']>;
+  createdAt?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  role?: Maybe<Scalars['String']['output']>;
 };
 
 /** order by max() on columns of table "messages" */
@@ -6571,12 +6336,12 @@ export type Messages_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Messages_Min_Fields = {
-  __typename?: "messages_min_fields";
-  chatId?: Maybe<Scalars["uuid"]["output"]>;
-  content?: Maybe<Scalars["String"]["output"]>;
-  createdAt?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  role?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'messages_min_fields';
+  chatId?: Maybe<Scalars['uuid']['output']>;
+  content?: Maybe<Scalars['String']['output']>;
+  createdAt?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  role?: Maybe<Scalars['String']['output']>;
 };
 
 /** order by min() on columns of table "messages" */
@@ -6590,9 +6355,9 @@ export type Messages_Min_Order_By = {
 
 /** response of any mutation on the table "messages" */
 export type Messages_Mutation_Response = {
-  __typename?: "messages_mutation_response";
+  __typename?: 'messages_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Messages>;
 };
@@ -6617,33 +6382,33 @@ export type Messages_Order_By = {
 
 /** primary key columns input for table: messages */
 export type Messages_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "messages" */
 export enum Messages_Select_Column {
   /** column name */
-  ChatId = "chatId",
+  ChatId = 'chatId',
   /** column name */
-  Content = "content",
+  Content = 'content',
   /** column name */
-  CreatedAt = "createdAt",
+  CreatedAt = 'createdAt',
   /** column name */
-  Data = "data",
+  Data = 'data',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Role = "role",
+  Role = 'role'
 }
 
 /** input type for updating data in table "messages" */
 export type Messages_Set_Input = {
-  chatId?: InputMaybe<Scalars["uuid"]["input"]>;
-  content?: InputMaybe<Scalars["String"]["input"]>;
-  createdAt?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  data?: InputMaybe<Scalars["json"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  role?: InputMaybe<Scalars["String"]["input"]>;
+  chatId?: InputMaybe<Scalars['uuid']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['timestamptz']['input']>;
+  data?: InputMaybe<Scalars['json']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  role?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Streaming cursor of the table "messages" */
@@ -6656,28 +6421,28 @@ export type Messages_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Messages_Stream_Cursor_Value_Input = {
-  chatId?: InputMaybe<Scalars["uuid"]["input"]>;
-  content?: InputMaybe<Scalars["String"]["input"]>;
-  createdAt?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  data?: InputMaybe<Scalars["json"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  role?: InputMaybe<Scalars["String"]["input"]>;
+  chatId?: InputMaybe<Scalars['uuid']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['timestamptz']['input']>;
+  data?: InputMaybe<Scalars['json']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  role?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** update columns of table "messages" */
 export enum Messages_Update_Column {
   /** column name */
-  ChatId = "chatId",
+  ChatId = 'chatId',
   /** column name */
-  Content = "content",
+  Content = 'content',
   /** column name */
-  CreatedAt = "createdAt",
+  CreatedAt = 'createdAt',
   /** column name */
-  Data = "data",
+  Data = 'data',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Role = "role",
+  Role = 'role'
 }
 
 export type Messages_Updates = {
@@ -6689,7 +6454,7 @@ export type Messages_Updates = {
 
 /** mutation root */
 export type Mutation_Root = {
-  __typename?: "mutation_root";
+  __typename?: 'mutation_root';
   /** delete data from the table: "accounts" */
   delete_accounts?: Maybe<Accounts_Mutation_Response>;
   /** delete single row from the table: "accounts" */
@@ -6889,9 +6654,7 @@ export type Mutation_Root = {
   /** update single row of the table: "ai_categories" */
   update_ai_categories_by_pk?: Maybe<Ai_Categories>;
   /** update multiples rows of table: "ai_categories" */
-  update_ai_categories_many?: Maybe<
-    Array<Maybe<Ai_Categories_Mutation_Response>>
-  >;
+  update_ai_categories_many?: Maybe<Array<Maybe<Ai_Categories_Mutation_Response>>>;
   /** update data of the table: "ai_models" */
   update_ai_models?: Maybe<Ai_Models_Mutation_Response>;
   /** update single row of the table: "ai_models" */
@@ -6909,17 +6672,13 @@ export type Mutation_Root = {
   /** update single row of the table: "directus_files" */
   update_directus_files_by_pk?: Maybe<Directus_Files>;
   /** update multiples rows of table: "directus_files" */
-  update_directus_files_many?: Maybe<
-    Array<Maybe<Directus_Files_Mutation_Response>>
-  >;
+  update_directus_files_many?: Maybe<Array<Maybe<Directus_Files_Mutation_Response>>>;
   /** update data of the table: "directus_users" */
   update_directus_users?: Maybe<Directus_Users_Mutation_Response>;
   /** update single row of the table: "directus_users" */
   update_directus_users_by_pk?: Maybe<Directus_Users>;
   /** update multiples rows of table: "directus_users" */
-  update_directus_users_many?: Maybe<
-    Array<Maybe<Directus_Users_Mutation_Response>>
-  >;
+  update_directus_users_many?: Maybe<Array<Maybe<Directus_Users_Mutation_Response>>>;
   /** update data of the table: "documents" */
   update_documents?: Maybe<Documents_Mutation_Response>;
   /** update single row of the table: "documents" */
@@ -6937,25 +6696,19 @@ export type Mutation_Root = {
   /** update single row of the table: "password_reset_tokens" */
   update_password_reset_tokens_by_pk?: Maybe<Password_Reset_Tokens>;
   /** update multiples rows of table: "password_reset_tokens" */
-  update_password_reset_tokens_many?: Maybe<
-    Array<Maybe<Password_Reset_Tokens_Mutation_Response>>
-  >;
+  update_password_reset_tokens_many?: Maybe<Array<Maybe<Password_Reset_Tokens_Mutation_Response>>>;
   /** update data of the table: "payment_history" */
   update_payment_history?: Maybe<Payment_History_Mutation_Response>;
   /** update single row of the table: "payment_history" */
   update_payment_history_by_pk?: Maybe<Payment_History>;
   /** update multiples rows of table: "payment_history" */
-  update_payment_history_many?: Maybe<
-    Array<Maybe<Payment_History_Mutation_Response>>
-  >;
+  update_payment_history_many?: Maybe<Array<Maybe<Payment_History_Mutation_Response>>>;
   /** update data of the table: "plan_categories" */
   update_plan_categories?: Maybe<Plan_Categories_Mutation_Response>;
   /** update single row of the table: "plan_categories" */
   update_plan_categories_by_pk?: Maybe<Plan_Categories>;
   /** update multiples rows of table: "plan_categories" */
-  update_plan_categories_many?: Maybe<
-    Array<Maybe<Plan_Categories_Mutation_Response>>
-  >;
+  update_plan_categories_many?: Maybe<Array<Maybe<Plan_Categories_Mutation_Response>>>;
   /** update data of the table: "plans" */
   update_plans?: Maybe<Plans_Mutation_Response>;
   /** update single row of the table: "plans" */
@@ -6967,17 +6720,13 @@ export type Mutation_Root = {
   /** update single row of the table: "profile_categories" */
   update_profile_categories_by_pk?: Maybe<Profile_Categories>;
   /** update multiples rows of table: "profile_categories" */
-  update_profile_categories_many?: Maybe<
-    Array<Maybe<Profile_Categories_Mutation_Response>>
-  >;
+  update_profile_categories_many?: Maybe<Array<Maybe<Profile_Categories_Mutation_Response>>>;
   /** update data of the table: "provider_type" */
   update_provider_type?: Maybe<Provider_Type_Mutation_Response>;
   /** update single row of the table: "provider_type" */
   update_provider_type_by_pk?: Maybe<Provider_Type>;
   /** update multiples rows of table: "provider_type" */
-  update_provider_type_many?: Maybe<
-    Array<Maybe<Provider_Type_Mutation_Response>>
-  >;
+  update_provider_type_many?: Maybe<Array<Maybe<Provider_Type_Mutation_Response>>>;
   /** update data of the table: "roles" */
   update_roles?: Maybe<Roles_Mutation_Response>;
   /** update single row of the table: "roles" */
@@ -6995,17 +6744,13 @@ export type Mutation_Root = {
   /** update single row of the table: "template_categories" */
   update_template_categories_by_pk?: Maybe<Template_Categories>;
   /** update multiples rows of table: "template_categories" */
-  update_template_categories_many?: Maybe<
-    Array<Maybe<Template_Categories_Mutation_Response>>
-  >;
+  update_template_categories_many?: Maybe<Array<Maybe<Template_Categories_Mutation_Response>>>;
   /** update data of the table: "template_tags" */
   update_template_tags?: Maybe<Template_Tags_Mutation_Response>;
   /** update single row of the table: "template_tags" */
   update_template_tags_by_pk?: Maybe<Template_Tags>;
   /** update multiples rows of table: "template_tags" */
-  update_template_tags_many?: Maybe<
-    Array<Maybe<Template_Tags_Mutation_Response>>
-  >;
+  update_template_tags_many?: Maybe<Array<Maybe<Template_Tags_Mutation_Response>>>;
   /** update data of the table: "templates" */
   update_templates?: Maybe<Templates_Mutation_Response>;
   /** update single row of the table: "templates" */
@@ -7017,9 +6762,7 @@ export type Mutation_Root = {
   /** update single row of the table: "tokens_history" */
   update_tokens_history_by_pk?: Maybe<Tokens_History>;
   /** update multiples rows of table: "tokens_history" */
-  update_tokens_history_many?: Maybe<
-    Array<Maybe<Tokens_History_Mutation_Response>>
-  >;
+  update_tokens_history_many?: Maybe<Array<Maybe<Tokens_History_Mutation_Response>>>;
   /** update data of the table: "users" */
   update_users?: Maybe<Users_Mutation_Response>;
   /** update single row of the table: "users" */
@@ -7031,9 +6774,7 @@ export type Mutation_Root = {
   /** update single row of the table: "verification_tokens" */
   update_verification_tokens_by_pk?: Maybe<Verification_Tokens>;
   /** update multiples rows of table: "verification_tokens" */
-  update_verification_tokens_many?: Maybe<
-    Array<Maybe<Verification_Tokens_Mutation_Response>>
-  >;
+  update_verification_tokens_many?: Maybe<Array<Maybe<Verification_Tokens_Mutation_Response>>>;
   /** update data of the table: "wallets" */
   update_wallets?: Maybe<Wallets_Mutation_Response>;
   /** update single row of the table: "wallets" */
@@ -7042,240 +6783,288 @@ export type Mutation_Root = {
   update_wallets_many?: Maybe<Array<Maybe<Wallets_Mutation_Response>>>;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_AccountsArgs = {
   where: Accounts_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Accounts_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Ai_CategoriesArgs = {
   where: Ai_Categories_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Ai_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Ai_ModelsArgs = {
   where: Ai_Models_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Ai_Models_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_ChatsArgs = {
   where: Chats_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Chats_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Directus_FilesArgs = {
   where: Directus_Files_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Directus_Files_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Directus_UsersArgs = {
   where: Directus_Users_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Directus_Users_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_DocumentsArgs = {
   where: Documents_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Documents_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_MessagesArgs = {
   where: Messages_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Messages_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Password_Reset_TokensArgs = {
   where: Password_Reset_Tokens_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Password_Reset_Tokens_By_PkArgs = {
-  token: Scalars["uuid"]["input"];
+  token: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Payment_HistoryArgs = {
   where: Payment_History_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Payment_History_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Plan_CategoriesArgs = {
   where: Plan_Categories_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Plan_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_PlansArgs = {
   where: Plans_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Plans_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Profile_CategoriesArgs = {
   where: Profile_Categories_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Profile_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Provider_TypeArgs = {
   where: Provider_Type_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Provider_Type_By_PkArgs = {
-  value: Scalars["String"]["input"];
+  value: Scalars['String']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_RolesArgs = {
   where: Roles_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Roles_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_SessionsArgs = {
   where: Sessions_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Sessions_By_PkArgs = {
-  sessionToken: Scalars["String"]["input"];
+  sessionToken: Scalars['String']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Template_CategoriesArgs = {
   where: Template_Categories_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Template_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Template_TagsArgs = {
   where: Template_Tags_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Template_Tags_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_TemplatesArgs = {
   where: Templates_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Templates_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Tokens_HistoryArgs = {
   where: Tokens_History_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Tokens_History_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_UsersArgs = {
   where: Users_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Users_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_Verification_TokensArgs = {
   where: Verification_Tokens_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Verification_Tokens_By_PkArgs = {
-  token: Scalars["String"]["input"];
+  token: Scalars['String']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootDelete_WalletsArgs = {
   where: Wallets_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootDelete_Wallets_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 /** mutation root */
 export type Mutation_RootGetVectorDataArgs = {
   data: GetVectorDataInput;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_AccountsArgs = {
@@ -7283,11 +7072,13 @@ export type Mutation_RootInsert_AccountsArgs = {
   on_conflict?: InputMaybe<Accounts_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Accounts_OneArgs = {
   object: Accounts_Insert_Input;
   on_conflict?: InputMaybe<Accounts_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Ai_CategoriesArgs = {
@@ -7295,11 +7086,13 @@ export type Mutation_RootInsert_Ai_CategoriesArgs = {
   on_conflict?: InputMaybe<Ai_Categories_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Ai_Categories_OneArgs = {
   object: Ai_Categories_Insert_Input;
   on_conflict?: InputMaybe<Ai_Categories_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Ai_ModelsArgs = {
@@ -7307,11 +7100,13 @@ export type Mutation_RootInsert_Ai_ModelsArgs = {
   on_conflict?: InputMaybe<Ai_Models_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Ai_Models_OneArgs = {
   object: Ai_Models_Insert_Input;
   on_conflict?: InputMaybe<Ai_Models_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_ChatsArgs = {
@@ -7319,11 +7114,13 @@ export type Mutation_RootInsert_ChatsArgs = {
   on_conflict?: InputMaybe<Chats_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Chats_OneArgs = {
   object: Chats_Insert_Input;
   on_conflict?: InputMaybe<Chats_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Directus_FilesArgs = {
@@ -7331,11 +7128,13 @@ export type Mutation_RootInsert_Directus_FilesArgs = {
   on_conflict?: InputMaybe<Directus_Files_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Directus_Files_OneArgs = {
   object: Directus_Files_Insert_Input;
   on_conflict?: InputMaybe<Directus_Files_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Directus_UsersArgs = {
@@ -7343,11 +7142,13 @@ export type Mutation_RootInsert_Directus_UsersArgs = {
   on_conflict?: InputMaybe<Directus_Users_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Directus_Users_OneArgs = {
   object: Directus_Users_Insert_Input;
   on_conflict?: InputMaybe<Directus_Users_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_DocumentsArgs = {
@@ -7355,11 +7156,13 @@ export type Mutation_RootInsert_DocumentsArgs = {
   on_conflict?: InputMaybe<Documents_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Documents_OneArgs = {
   object: Documents_Insert_Input;
   on_conflict?: InputMaybe<Documents_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_MessagesArgs = {
@@ -7367,11 +7170,13 @@ export type Mutation_RootInsert_MessagesArgs = {
   on_conflict?: InputMaybe<Messages_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Messages_OneArgs = {
   object: Messages_Insert_Input;
   on_conflict?: InputMaybe<Messages_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Password_Reset_TokensArgs = {
@@ -7379,11 +7184,13 @@ export type Mutation_RootInsert_Password_Reset_TokensArgs = {
   on_conflict?: InputMaybe<Password_Reset_Tokens_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Password_Reset_Tokens_OneArgs = {
   object: Password_Reset_Tokens_Insert_Input;
   on_conflict?: InputMaybe<Password_Reset_Tokens_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Payment_HistoryArgs = {
@@ -7391,11 +7198,13 @@ export type Mutation_RootInsert_Payment_HistoryArgs = {
   on_conflict?: InputMaybe<Payment_History_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Payment_History_OneArgs = {
   object: Payment_History_Insert_Input;
   on_conflict?: InputMaybe<Payment_History_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Plan_CategoriesArgs = {
@@ -7403,11 +7212,13 @@ export type Mutation_RootInsert_Plan_CategoriesArgs = {
   on_conflict?: InputMaybe<Plan_Categories_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Plan_Categories_OneArgs = {
   object: Plan_Categories_Insert_Input;
   on_conflict?: InputMaybe<Plan_Categories_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_PlansArgs = {
@@ -7415,11 +7226,13 @@ export type Mutation_RootInsert_PlansArgs = {
   on_conflict?: InputMaybe<Plans_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Plans_OneArgs = {
   object: Plans_Insert_Input;
   on_conflict?: InputMaybe<Plans_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Profile_CategoriesArgs = {
@@ -7427,11 +7240,13 @@ export type Mutation_RootInsert_Profile_CategoriesArgs = {
   on_conflict?: InputMaybe<Profile_Categories_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Profile_Categories_OneArgs = {
   object: Profile_Categories_Insert_Input;
   on_conflict?: InputMaybe<Profile_Categories_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Provider_TypeArgs = {
@@ -7439,11 +7254,13 @@ export type Mutation_RootInsert_Provider_TypeArgs = {
   on_conflict?: InputMaybe<Provider_Type_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Provider_Type_OneArgs = {
   object: Provider_Type_Insert_Input;
   on_conflict?: InputMaybe<Provider_Type_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_RolesArgs = {
@@ -7451,11 +7268,13 @@ export type Mutation_RootInsert_RolesArgs = {
   on_conflict?: InputMaybe<Roles_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Roles_OneArgs = {
   object: Roles_Insert_Input;
   on_conflict?: InputMaybe<Roles_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_SessionsArgs = {
@@ -7463,11 +7282,13 @@ export type Mutation_RootInsert_SessionsArgs = {
   on_conflict?: InputMaybe<Sessions_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Sessions_OneArgs = {
   object: Sessions_Insert_Input;
   on_conflict?: InputMaybe<Sessions_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Template_CategoriesArgs = {
@@ -7475,11 +7296,13 @@ export type Mutation_RootInsert_Template_CategoriesArgs = {
   on_conflict?: InputMaybe<Template_Categories_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Template_Categories_OneArgs = {
   object: Template_Categories_Insert_Input;
   on_conflict?: InputMaybe<Template_Categories_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Template_TagsArgs = {
@@ -7487,11 +7310,13 @@ export type Mutation_RootInsert_Template_TagsArgs = {
   on_conflict?: InputMaybe<Template_Tags_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Template_Tags_OneArgs = {
   object: Template_Tags_Insert_Input;
   on_conflict?: InputMaybe<Template_Tags_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_TemplatesArgs = {
@@ -7499,11 +7324,13 @@ export type Mutation_RootInsert_TemplatesArgs = {
   on_conflict?: InputMaybe<Templates_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Templates_OneArgs = {
   object: Templates_Insert_Input;
   on_conflict?: InputMaybe<Templates_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Tokens_HistoryArgs = {
@@ -7511,11 +7338,13 @@ export type Mutation_RootInsert_Tokens_HistoryArgs = {
   on_conflict?: InputMaybe<Tokens_History_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Tokens_History_OneArgs = {
   object: Tokens_History_Insert_Input;
   on_conflict?: InputMaybe<Tokens_History_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_UsersArgs = {
@@ -7523,11 +7352,13 @@ export type Mutation_RootInsert_UsersArgs = {
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Users_OneArgs = {
   object: Users_Insert_Input;
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_Verification_TokensArgs = {
@@ -7535,11 +7366,13 @@ export type Mutation_RootInsert_Verification_TokensArgs = {
   on_conflict?: InputMaybe<Verification_Tokens_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Verification_Tokens_OneArgs = {
   object: Verification_Tokens_Insert_Input;
   on_conflict?: InputMaybe<Verification_Tokens_On_Conflict>;
 };
+
 
 /** mutation root */
 export type Mutation_RootInsert_WalletsArgs = {
@@ -7547,16 +7380,19 @@ export type Mutation_RootInsert_WalletsArgs = {
   on_conflict?: InputMaybe<Wallets_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootInsert_Wallets_OneArgs = {
   object: Wallets_Insert_Input;
   on_conflict?: InputMaybe<Wallets_On_Conflict>;
 };
 
+
 /** mutation root */
 export type Mutation_RootMakeBetterPromtArgs = {
   data: MakeBetterPromtInput;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_AccountsArgs = {
@@ -7565,6 +7401,7 @@ export type Mutation_RootUpdate_AccountsArgs = {
   where: Accounts_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Accounts_By_PkArgs = {
   _inc?: InputMaybe<Accounts_Inc_Input>;
@@ -7572,10 +7409,12 @@ export type Mutation_RootUpdate_Accounts_By_PkArgs = {
   pk_columns: Accounts_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Accounts_ManyArgs = {
   updates: Array<Accounts_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Ai_CategoriesArgs = {
@@ -7584,6 +7423,7 @@ export type Mutation_RootUpdate_Ai_CategoriesArgs = {
   where: Ai_Categories_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Ai_Categories_By_PkArgs = {
   _inc?: InputMaybe<Ai_Categories_Inc_Input>;
@@ -7591,10 +7431,12 @@ export type Mutation_RootUpdate_Ai_Categories_By_PkArgs = {
   pk_columns: Ai_Categories_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Ai_Categories_ManyArgs = {
   updates: Array<Ai_Categories_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Ai_ModelsArgs = {
@@ -7603,6 +7445,7 @@ export type Mutation_RootUpdate_Ai_ModelsArgs = {
   where: Ai_Models_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Ai_Models_By_PkArgs = {
   _inc?: InputMaybe<Ai_Models_Inc_Input>;
@@ -7610,10 +7453,12 @@ export type Mutation_RootUpdate_Ai_Models_By_PkArgs = {
   pk_columns: Ai_Models_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Ai_Models_ManyArgs = {
   updates: Array<Ai_Models_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_ChatsArgs = {
@@ -7621,16 +7466,19 @@ export type Mutation_RootUpdate_ChatsArgs = {
   where: Chats_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Chats_By_PkArgs = {
   _set?: InputMaybe<Chats_Set_Input>;
   pk_columns: Chats_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Chats_ManyArgs = {
   updates: Array<Chats_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Directus_FilesArgs = {
@@ -7639,6 +7487,7 @@ export type Mutation_RootUpdate_Directus_FilesArgs = {
   where: Directus_Files_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Directus_Files_By_PkArgs = {
   _inc?: InputMaybe<Directus_Files_Inc_Input>;
@@ -7646,10 +7495,12 @@ export type Mutation_RootUpdate_Directus_Files_By_PkArgs = {
   pk_columns: Directus_Files_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Directus_Files_ManyArgs = {
   updates: Array<Directus_Files_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Directus_UsersArgs = {
@@ -7657,16 +7508,19 @@ export type Mutation_RootUpdate_Directus_UsersArgs = {
   where: Directus_Users_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Directus_Users_By_PkArgs = {
   _set?: InputMaybe<Directus_Users_Set_Input>;
   pk_columns: Directus_Users_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Directus_Users_ManyArgs = {
   updates: Array<Directus_Users_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_DocumentsArgs = {
@@ -7675,6 +7529,7 @@ export type Mutation_RootUpdate_DocumentsArgs = {
   where: Documents_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Documents_By_PkArgs = {
   _inc?: InputMaybe<Documents_Inc_Input>;
@@ -7682,10 +7537,12 @@ export type Mutation_RootUpdate_Documents_By_PkArgs = {
   pk_columns: Documents_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Documents_ManyArgs = {
   updates: Array<Documents_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_MessagesArgs = {
@@ -7693,16 +7550,19 @@ export type Mutation_RootUpdate_MessagesArgs = {
   where: Messages_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Messages_By_PkArgs = {
   _set?: InputMaybe<Messages_Set_Input>;
   pk_columns: Messages_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Messages_ManyArgs = {
   updates: Array<Messages_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Password_Reset_TokensArgs = {
@@ -7710,16 +7570,19 @@ export type Mutation_RootUpdate_Password_Reset_TokensArgs = {
   where: Password_Reset_Tokens_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Password_Reset_Tokens_By_PkArgs = {
   _set?: InputMaybe<Password_Reset_Tokens_Set_Input>;
   pk_columns: Password_Reset_Tokens_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Password_Reset_Tokens_ManyArgs = {
   updates: Array<Password_Reset_Tokens_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Payment_HistoryArgs = {
@@ -7733,6 +7596,7 @@ export type Mutation_RootUpdate_Payment_HistoryArgs = {
   where: Payment_History_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Payment_History_By_PkArgs = {
   _append?: InputMaybe<Payment_History_Append_Input>;
@@ -7745,10 +7609,12 @@ export type Mutation_RootUpdate_Payment_History_By_PkArgs = {
   pk_columns: Payment_History_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Payment_History_ManyArgs = {
   updates: Array<Payment_History_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Plan_CategoriesArgs = {
@@ -7757,6 +7623,7 @@ export type Mutation_RootUpdate_Plan_CategoriesArgs = {
   where: Plan_Categories_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Plan_Categories_By_PkArgs = {
   _inc?: InputMaybe<Plan_Categories_Inc_Input>;
@@ -7764,10 +7631,12 @@ export type Mutation_RootUpdate_Plan_Categories_By_PkArgs = {
   pk_columns: Plan_Categories_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Plan_Categories_ManyArgs = {
   updates: Array<Plan_Categories_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_PlansArgs = {
@@ -7776,6 +7645,7 @@ export type Mutation_RootUpdate_PlansArgs = {
   where: Plans_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Plans_By_PkArgs = {
   _inc?: InputMaybe<Plans_Inc_Input>;
@@ -7783,10 +7653,12 @@ export type Mutation_RootUpdate_Plans_By_PkArgs = {
   pk_columns: Plans_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Plans_ManyArgs = {
   updates: Array<Plans_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Profile_CategoriesArgs = {
@@ -7795,6 +7667,7 @@ export type Mutation_RootUpdate_Profile_CategoriesArgs = {
   where: Profile_Categories_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Profile_Categories_By_PkArgs = {
   _inc?: InputMaybe<Profile_Categories_Inc_Input>;
@@ -7802,10 +7675,12 @@ export type Mutation_RootUpdate_Profile_Categories_By_PkArgs = {
   pk_columns: Profile_Categories_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Profile_Categories_ManyArgs = {
   updates: Array<Profile_Categories_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Provider_TypeArgs = {
@@ -7813,16 +7688,19 @@ export type Mutation_RootUpdate_Provider_TypeArgs = {
   where: Provider_Type_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Provider_Type_By_PkArgs = {
   _set?: InputMaybe<Provider_Type_Set_Input>;
   pk_columns: Provider_Type_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Provider_Type_ManyArgs = {
   updates: Array<Provider_Type_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_RolesArgs = {
@@ -7830,16 +7708,19 @@ export type Mutation_RootUpdate_RolesArgs = {
   where: Roles_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Roles_By_PkArgs = {
   _set?: InputMaybe<Roles_Set_Input>;
   pk_columns: Roles_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Roles_ManyArgs = {
   updates: Array<Roles_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_SessionsArgs = {
@@ -7847,16 +7728,19 @@ export type Mutation_RootUpdate_SessionsArgs = {
   where: Sessions_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Sessions_By_PkArgs = {
   _set?: InputMaybe<Sessions_Set_Input>;
   pk_columns: Sessions_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Sessions_ManyArgs = {
   updates: Array<Sessions_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Template_CategoriesArgs = {
@@ -7865,6 +7749,7 @@ export type Mutation_RootUpdate_Template_CategoriesArgs = {
   where: Template_Categories_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Template_Categories_By_PkArgs = {
   _inc?: InputMaybe<Template_Categories_Inc_Input>;
@@ -7872,10 +7757,12 @@ export type Mutation_RootUpdate_Template_Categories_By_PkArgs = {
   pk_columns: Template_Categories_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Template_Categories_ManyArgs = {
   updates: Array<Template_Categories_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Template_TagsArgs = {
@@ -7884,6 +7771,7 @@ export type Mutation_RootUpdate_Template_TagsArgs = {
   where: Template_Tags_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Template_Tags_By_PkArgs = {
   _inc?: InputMaybe<Template_Tags_Inc_Input>;
@@ -7891,10 +7779,12 @@ export type Mutation_RootUpdate_Template_Tags_By_PkArgs = {
   pk_columns: Template_Tags_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Template_Tags_ManyArgs = {
   updates: Array<Template_Tags_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_TemplatesArgs = {
@@ -7903,6 +7793,7 @@ export type Mutation_RootUpdate_TemplatesArgs = {
   where: Templates_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Templates_By_PkArgs = {
   _inc?: InputMaybe<Templates_Inc_Input>;
@@ -7910,10 +7801,12 @@ export type Mutation_RootUpdate_Templates_By_PkArgs = {
   pk_columns: Templates_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Templates_ManyArgs = {
   updates: Array<Templates_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Tokens_HistoryArgs = {
@@ -7922,6 +7815,7 @@ export type Mutation_RootUpdate_Tokens_HistoryArgs = {
   where: Tokens_History_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Tokens_History_By_PkArgs = {
   _inc?: InputMaybe<Tokens_History_Inc_Input>;
@@ -7929,10 +7823,12 @@ export type Mutation_RootUpdate_Tokens_History_By_PkArgs = {
   pk_columns: Tokens_History_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Tokens_History_ManyArgs = {
   updates: Array<Tokens_History_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_UsersArgs = {
@@ -7940,16 +7836,19 @@ export type Mutation_RootUpdate_UsersArgs = {
   where: Users_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Users_By_PkArgs = {
   _set?: InputMaybe<Users_Set_Input>;
   pk_columns: Users_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Users_ManyArgs = {
   updates: Array<Users_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Verification_TokensArgs = {
@@ -7957,16 +7856,19 @@ export type Mutation_RootUpdate_Verification_TokensArgs = {
   where: Verification_Tokens_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Verification_Tokens_By_PkArgs = {
   _set?: InputMaybe<Verification_Tokens_Set_Input>;
   pk_columns: Verification_Tokens_Pk_Columns_Input;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Verification_Tokens_ManyArgs = {
   updates: Array<Verification_Tokens_Updates>;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_WalletsArgs = {
@@ -7975,12 +7877,14 @@ export type Mutation_RootUpdate_WalletsArgs = {
   where: Wallets_Bool_Exp;
 };
 
+
 /** mutation root */
 export type Mutation_RootUpdate_Wallets_By_PkArgs = {
   _inc?: InputMaybe<Wallets_Inc_Input>;
   _set?: InputMaybe<Wallets_Set_Input>;
   pk_columns: Wallets_Pk_Columns_Input;
 };
+
 
 /** mutation root */
 export type Mutation_RootUpdate_Wallets_ManyArgs = {
@@ -7990,46 +7894,47 @@ export type Mutation_RootUpdate_Wallets_ManyArgs = {
 /** column ordering options */
 export enum Order_By {
   /** in ascending order, nulls last */
-  Asc = "asc",
+  Asc = 'asc',
   /** in ascending order, nulls first */
-  AscNullsFirst = "asc_nulls_first",
+  AscNullsFirst = 'asc_nulls_first',
   /** in ascending order, nulls last */
-  AscNullsLast = "asc_nulls_last",
+  AscNullsLast = 'asc_nulls_last',
   /** in descending order, nulls first */
-  Desc = "desc",
+  Desc = 'desc',
   /** in descending order, nulls first */
-  DescNullsFirst = "desc_nulls_first",
+  DescNullsFirst = 'desc_nulls_first',
   /** in descending order, nulls last */
-  DescNullsLast = "desc_nulls_last",
+  DescNullsLast = 'desc_nulls_last'
 }
 
 /** columns and relationships of "password_reset_tokens" */
 export type Password_Reset_Tokens = {
-  __typename?: "password_reset_tokens";
-  email: Scalars["String"]["output"];
-  expires: Scalars["timestamptz"]["output"];
-  token: Scalars["uuid"]["output"];
+  __typename?: 'password_reset_tokens';
+  email: Scalars['String']['output'];
+  expires: Scalars['timestamptz']['output'];
+  token: Scalars['uuid']['output'];
 };
 
 /** aggregated selection of "password_reset_tokens" */
 export type Password_Reset_Tokens_Aggregate = {
-  __typename?: "password_reset_tokens_aggregate";
+  __typename?: 'password_reset_tokens_aggregate';
   aggregate?: Maybe<Password_Reset_Tokens_Aggregate_Fields>;
   nodes: Array<Password_Reset_Tokens>;
 };
 
 /** aggregate fields of "password_reset_tokens" */
 export type Password_Reset_Tokens_Aggregate_Fields = {
-  __typename?: "password_reset_tokens_aggregate_fields";
-  count: Scalars["Int"]["output"];
+  __typename?: 'password_reset_tokens_aggregate_fields';
+  count: Scalars['Int']['output'];
   max?: Maybe<Password_Reset_Tokens_Max_Fields>;
   min?: Maybe<Password_Reset_Tokens_Min_Fields>;
 };
 
+
 /** aggregate fields of "password_reset_tokens" */
 export type Password_Reset_Tokens_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Password_Reset_Tokens_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Boolean expression to filter rows from the table "password_reset_tokens". All fields are combined with a logical 'AND'. */
@@ -8045,39 +7950,39 @@ export type Password_Reset_Tokens_Bool_Exp = {
 /** unique or primary key constraints on table "password_reset_tokens" */
 export enum Password_Reset_Tokens_Constraint {
   /** unique or primary key constraint on columns "email" */
-  PasswordResetTokenEmailKey = "password_reset_token_email_key",
+  PasswordResetTokenEmailKey = 'password_reset_token_email_key',
   /** unique or primary key constraint on columns "token" */
-  PasswordResetTokenPkey = "password_reset_token_pkey",
+  PasswordResetTokenPkey = 'password_reset_token_pkey'
 }
 
 /** input type for inserting data into table "password_reset_tokens" */
 export type Password_Reset_Tokens_Insert_Input = {
-  email?: InputMaybe<Scalars["String"]["input"]>;
-  expires?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  token?: InputMaybe<Scalars["uuid"]["input"]>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  token?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
 export type Password_Reset_Tokens_Max_Fields = {
-  __typename?: "password_reset_tokens_max_fields";
-  email?: Maybe<Scalars["String"]["output"]>;
-  expires?: Maybe<Scalars["timestamptz"]["output"]>;
-  token?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'password_reset_tokens_max_fields';
+  email?: Maybe<Scalars['String']['output']>;
+  expires?: Maybe<Scalars['timestamptz']['output']>;
+  token?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** aggregate min on columns */
 export type Password_Reset_Tokens_Min_Fields = {
-  __typename?: "password_reset_tokens_min_fields";
-  email?: Maybe<Scalars["String"]["output"]>;
-  expires?: Maybe<Scalars["timestamptz"]["output"]>;
-  token?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'password_reset_tokens_min_fields';
+  email?: Maybe<Scalars['String']['output']>;
+  expires?: Maybe<Scalars['timestamptz']['output']>;
+  token?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** response of any mutation on the table "password_reset_tokens" */
 export type Password_Reset_Tokens_Mutation_Response = {
-  __typename?: "password_reset_tokens_mutation_response";
+  __typename?: 'password_reset_tokens_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Password_Reset_Tokens>;
 };
@@ -8098,24 +8003,24 @@ export type Password_Reset_Tokens_Order_By = {
 
 /** primary key columns input for table: password_reset_tokens */
 export type Password_Reset_Tokens_Pk_Columns_Input = {
-  token: Scalars["uuid"]["input"];
+  token: Scalars['uuid']['input'];
 };
 
 /** select columns of table "password_reset_tokens" */
 export enum Password_Reset_Tokens_Select_Column {
   /** column name */
-  Email = "email",
+  Email = 'email',
   /** column name */
-  Expires = "expires",
+  Expires = 'expires',
   /** column name */
-  Token = "token",
+  Token = 'token'
 }
 
 /** input type for updating data in table "password_reset_tokens" */
 export type Password_Reset_Tokens_Set_Input = {
-  email?: InputMaybe<Scalars["String"]["input"]>;
-  expires?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  token?: InputMaybe<Scalars["uuid"]["input"]>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  token?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** Streaming cursor of the table "password_reset_tokens" */
@@ -8128,19 +8033,19 @@ export type Password_Reset_Tokens_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Password_Reset_Tokens_Stream_Cursor_Value_Input = {
-  email?: InputMaybe<Scalars["String"]["input"]>;
-  expires?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  token?: InputMaybe<Scalars["uuid"]["input"]>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  token?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** update columns of table "password_reset_tokens" */
 export enum Password_Reset_Tokens_Update_Column {
   /** column name */
-  Email = "email",
+  Email = 'email',
   /** column name */
-  Expires = "expires",
+  Expires = 'expires',
   /** column name */
-  Token = "token",
+  Token = 'token'
 }
 
 export type Password_Reset_Tokens_Updates = {
@@ -8152,34 +8057,35 @@ export type Password_Reset_Tokens_Updates = {
 
 /** columns and relationships of "payment_history" */
 export type Payment_History = {
-  __typename?: "payment_history";
-  amount?: Maybe<Scalars["Int"]["output"]>;
-  data: Scalars["jsonb"]["output"];
-  date: Scalars["timestamptz"]["output"];
-  id: Scalars["uuid"]["output"];
-  invoice_id?: Maybe<Scalars["String"]["output"]>;
-  status: Scalars["Int"]["output"];
-  transaction_id: Scalars["Int"]["output"];
-  user_id: Scalars["uuid"]["output"];
+  __typename?: 'payment_history';
+  amount?: Maybe<Scalars['Int']['output']>;
+  data: Scalars['jsonb']['output'];
+  date: Scalars['timestamptz']['output'];
+  id: Scalars['uuid']['output'];
+  invoice_id?: Maybe<Scalars['String']['output']>;
+  status: Scalars['Int']['output'];
+  transaction_id: Scalars['Int']['output'];
+  user_id: Scalars['uuid']['output'];
 };
+
 
 /** columns and relationships of "payment_history" */
 export type Payment_HistoryDataArgs = {
-  path?: InputMaybe<Scalars["String"]["input"]>;
+  path?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregated selection of "payment_history" */
 export type Payment_History_Aggregate = {
-  __typename?: "payment_history_aggregate";
+  __typename?: 'payment_history_aggregate';
   aggregate?: Maybe<Payment_History_Aggregate_Fields>;
   nodes: Array<Payment_History>;
 };
 
 /** aggregate fields of "payment_history" */
 export type Payment_History_Aggregate_Fields = {
-  __typename?: "payment_history_aggregate_fields";
+  __typename?: 'payment_history_aggregate_fields';
   avg?: Maybe<Payment_History_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Payment_History_Max_Fields>;
   min?: Maybe<Payment_History_Min_Fields>;
   stddev?: Maybe<Payment_History_Stddev_Fields>;
@@ -8191,23 +8097,24 @@ export type Payment_History_Aggregate_Fields = {
   variance?: Maybe<Payment_History_Variance_Fields>;
 };
 
+
 /** aggregate fields of "payment_history" */
 export type Payment_History_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Payment_History_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** append existing jsonb value of filtered columns with new jsonb value */
 export type Payment_History_Append_Input = {
-  data?: InputMaybe<Scalars["jsonb"]["input"]>;
+  data?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Payment_History_Avg_Fields = {
-  __typename?: "payment_history_avg_fields";
-  amount?: Maybe<Scalars["Float"]["output"]>;
-  status?: Maybe<Scalars["Float"]["output"]>;
-  transaction_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'payment_history_avg_fields';
+  amount?: Maybe<Scalars['Float']['output']>;
+  status?: Maybe<Scalars['Float']['output']>;
+  transaction_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "payment_history". All fields are combined with a logical 'AND'. */
@@ -8228,12 +8135,12 @@ export type Payment_History_Bool_Exp = {
 /** unique or primary key constraints on table "payment_history" */
 export enum Payment_History_Constraint {
   /** unique or primary key constraint on columns "id" */
-  PaymentHistoryPkey = "payment_history_pkey",
+  PaymentHistoryPkey = 'payment_history_pkey'
 }
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type Payment_History_Delete_At_Path_Input = {
-  data?: InputMaybe<Array<Scalars["String"]["input"]>>;
+  data?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 /**
@@ -8241,62 +8148,62 @@ export type Payment_History_Delete_At_Path_Input = {
  * end). throws an error if top level container is not an array
  */
 export type Payment_History_Delete_Elem_Input = {
-  data?: InputMaybe<Scalars["Int"]["input"]>;
+  data?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** delete key/value pair or string element. key/value pairs are matched based on their key value */
 export type Payment_History_Delete_Key_Input = {
-  data?: InputMaybe<Scalars["String"]["input"]>;
+  data?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** input type for incrementing numeric columns in table "payment_history" */
 export type Payment_History_Inc_Input = {
-  amount?: InputMaybe<Scalars["Int"]["input"]>;
-  status?: InputMaybe<Scalars["Int"]["input"]>;
-  transaction_id?: InputMaybe<Scalars["Int"]["input"]>;
+  amount?: InputMaybe<Scalars['Int']['input']>;
+  status?: InputMaybe<Scalars['Int']['input']>;
+  transaction_id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "payment_history" */
 export type Payment_History_Insert_Input = {
-  amount?: InputMaybe<Scalars["Int"]["input"]>;
-  data?: InputMaybe<Scalars["jsonb"]["input"]>;
-  date?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  invoice_id?: InputMaybe<Scalars["String"]["input"]>;
-  status?: InputMaybe<Scalars["Int"]["input"]>;
-  transaction_id?: InputMaybe<Scalars["Int"]["input"]>;
-  user_id?: InputMaybe<Scalars["uuid"]["input"]>;
+  amount?: InputMaybe<Scalars['Int']['input']>;
+  data?: InputMaybe<Scalars['jsonb']['input']>;
+  date?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  invoice_id?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Scalars['Int']['input']>;
+  transaction_id?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
 export type Payment_History_Max_Fields = {
-  __typename?: "payment_history_max_fields";
-  amount?: Maybe<Scalars["Int"]["output"]>;
-  date?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  invoice_id?: Maybe<Scalars["String"]["output"]>;
-  status?: Maybe<Scalars["Int"]["output"]>;
-  transaction_id?: Maybe<Scalars["Int"]["output"]>;
-  user_id?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'payment_history_max_fields';
+  amount?: Maybe<Scalars['Int']['output']>;
+  date?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  invoice_id?: Maybe<Scalars['String']['output']>;
+  status?: Maybe<Scalars['Int']['output']>;
+  transaction_id?: Maybe<Scalars['Int']['output']>;
+  user_id?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** aggregate min on columns */
 export type Payment_History_Min_Fields = {
-  __typename?: "payment_history_min_fields";
-  amount?: Maybe<Scalars["Int"]["output"]>;
-  date?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  invoice_id?: Maybe<Scalars["String"]["output"]>;
-  status?: Maybe<Scalars["Int"]["output"]>;
-  transaction_id?: Maybe<Scalars["Int"]["output"]>;
-  user_id?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'payment_history_min_fields';
+  amount?: Maybe<Scalars['Int']['output']>;
+  date?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  invoice_id?: Maybe<Scalars['String']['output']>;
+  status?: Maybe<Scalars['Int']['output']>;
+  transaction_id?: Maybe<Scalars['Int']['output']>;
+  user_id?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** response of any mutation on the table "payment_history" */
 export type Payment_History_Mutation_Response = {
-  __typename?: "payment_history_mutation_response";
+  __typename?: 'payment_history_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Payment_History>;
 };
@@ -8322,68 +8229,68 @@ export type Payment_History_Order_By = {
 
 /** primary key columns input for table: payment_history */
 export type Payment_History_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
 export type Payment_History_Prepend_Input = {
-  data?: InputMaybe<Scalars["jsonb"]["input"]>;
+  data?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
 /** select columns of table "payment_history" */
 export enum Payment_History_Select_Column {
   /** column name */
-  Amount = "amount",
+  Amount = 'amount',
   /** column name */
-  Data = "data",
+  Data = 'data',
   /** column name */
-  Date = "date",
+  Date = 'date',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  InvoiceId = "invoice_id",
+  InvoiceId = 'invoice_id',
   /** column name */
-  Status = "status",
+  Status = 'status',
   /** column name */
-  TransactionId = "transaction_id",
+  TransactionId = 'transaction_id',
   /** column name */
-  UserId = "user_id",
+  UserId = 'user_id'
 }
 
 /** input type for updating data in table "payment_history" */
 export type Payment_History_Set_Input = {
-  amount?: InputMaybe<Scalars["Int"]["input"]>;
-  data?: InputMaybe<Scalars["jsonb"]["input"]>;
-  date?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  invoice_id?: InputMaybe<Scalars["String"]["input"]>;
-  status?: InputMaybe<Scalars["Int"]["input"]>;
-  transaction_id?: InputMaybe<Scalars["Int"]["input"]>;
-  user_id?: InputMaybe<Scalars["uuid"]["input"]>;
+  amount?: InputMaybe<Scalars['Int']['input']>;
+  data?: InputMaybe<Scalars['jsonb']['input']>;
+  date?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  invoice_id?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Scalars['Int']['input']>;
+  transaction_id?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Payment_History_Stddev_Fields = {
-  __typename?: "payment_history_stddev_fields";
-  amount?: Maybe<Scalars["Float"]["output"]>;
-  status?: Maybe<Scalars["Float"]["output"]>;
-  transaction_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'payment_history_stddev_fields';
+  amount?: Maybe<Scalars['Float']['output']>;
+  status?: Maybe<Scalars['Float']['output']>;
+  transaction_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Payment_History_Stddev_Pop_Fields = {
-  __typename?: "payment_history_stddev_pop_fields";
-  amount?: Maybe<Scalars["Float"]["output"]>;
-  status?: Maybe<Scalars["Float"]["output"]>;
-  transaction_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'payment_history_stddev_pop_fields';
+  amount?: Maybe<Scalars['Float']['output']>;
+  status?: Maybe<Scalars['Float']['output']>;
+  transaction_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Payment_History_Stddev_Samp_Fields = {
-  __typename?: "payment_history_stddev_samp_fields";
-  amount?: Maybe<Scalars["Float"]["output"]>;
-  status?: Maybe<Scalars["Float"]["output"]>;
-  transaction_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'payment_history_stddev_samp_fields';
+  amount?: Maybe<Scalars['Float']['output']>;
+  status?: Maybe<Scalars['Float']['output']>;
+  transaction_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "payment_history" */
@@ -8396,42 +8303,42 @@ export type Payment_History_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Payment_History_Stream_Cursor_Value_Input = {
-  amount?: InputMaybe<Scalars["Int"]["input"]>;
-  data?: InputMaybe<Scalars["jsonb"]["input"]>;
-  date?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  invoice_id?: InputMaybe<Scalars["String"]["input"]>;
-  status?: InputMaybe<Scalars["Int"]["input"]>;
-  transaction_id?: InputMaybe<Scalars["Int"]["input"]>;
-  user_id?: InputMaybe<Scalars["uuid"]["input"]>;
+  amount?: InputMaybe<Scalars['Int']['input']>;
+  data?: InputMaybe<Scalars['jsonb']['input']>;
+  date?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  invoice_id?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Scalars['Int']['input']>;
+  transaction_id?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Payment_History_Sum_Fields = {
-  __typename?: "payment_history_sum_fields";
-  amount?: Maybe<Scalars["Int"]["output"]>;
-  status?: Maybe<Scalars["Int"]["output"]>;
-  transaction_id?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'payment_history_sum_fields';
+  amount?: Maybe<Scalars['Int']['output']>;
+  status?: Maybe<Scalars['Int']['output']>;
+  transaction_id?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "payment_history" */
 export enum Payment_History_Update_Column {
   /** column name */
-  Amount = "amount",
+  Amount = 'amount',
   /** column name */
-  Data = "data",
+  Data = 'data',
   /** column name */
-  Date = "date",
+  Date = 'date',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  InvoiceId = "invoice_id",
+  InvoiceId = 'invoice_id',
   /** column name */
-  Status = "status",
+  Status = 'status',
   /** column name */
-  TransactionId = "transaction_id",
+  TransactionId = 'transaction_id',
   /** column name */
-  UserId = "user_id",
+  UserId = 'user_id'
 }
 
 export type Payment_History_Updates = {
@@ -8458,49 +8365,49 @@ export type Payment_History_Updates = {
 
 /** aggregate var_pop on columns */
 export type Payment_History_Var_Pop_Fields = {
-  __typename?: "payment_history_var_pop_fields";
-  amount?: Maybe<Scalars["Float"]["output"]>;
-  status?: Maybe<Scalars["Float"]["output"]>;
-  transaction_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'payment_history_var_pop_fields';
+  amount?: Maybe<Scalars['Float']['output']>;
+  status?: Maybe<Scalars['Float']['output']>;
+  transaction_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Payment_History_Var_Samp_Fields = {
-  __typename?: "payment_history_var_samp_fields";
-  amount?: Maybe<Scalars["Float"]["output"]>;
-  status?: Maybe<Scalars["Float"]["output"]>;
-  transaction_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'payment_history_var_samp_fields';
+  amount?: Maybe<Scalars['Float']['output']>;
+  status?: Maybe<Scalars['Float']['output']>;
+  transaction_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Payment_History_Variance_Fields = {
-  __typename?: "payment_history_variance_fields";
-  amount?: Maybe<Scalars["Float"]["output"]>;
-  status?: Maybe<Scalars["Float"]["output"]>;
-  transaction_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'payment_history_variance_fields';
+  amount?: Maybe<Scalars['Float']['output']>;
+  status?: Maybe<Scalars['Float']['output']>;
+  transaction_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** columns and relationships of "plan_categories" */
 export type Plan_Categories = {
-  __typename?: "plan_categories";
-  icon?: Maybe<Scalars["String"]["output"]>;
-  id: Scalars["Int"]["output"];
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'plan_categories';
+  icon?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregated selection of "plan_categories" */
 export type Plan_Categories_Aggregate = {
-  __typename?: "plan_categories_aggregate";
+  __typename?: 'plan_categories_aggregate';
   aggregate?: Maybe<Plan_Categories_Aggregate_Fields>;
   nodes: Array<Plan_Categories>;
 };
 
 /** aggregate fields of "plan_categories" */
 export type Plan_Categories_Aggregate_Fields = {
-  __typename?: "plan_categories_aggregate_fields";
+  __typename?: 'plan_categories_aggregate_fields';
   avg?: Maybe<Plan_Categories_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Plan_Categories_Max_Fields>;
   min?: Maybe<Plan_Categories_Min_Fields>;
   stddev?: Maybe<Plan_Categories_Stddev_Fields>;
@@ -8512,16 +8419,17 @@ export type Plan_Categories_Aggregate_Fields = {
   variance?: Maybe<Plan_Categories_Variance_Fields>;
 };
 
+
 /** aggregate fields of "plan_categories" */
 export type Plan_Categories_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Plan_Categories_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Plan_Categories_Avg_Fields = {
-  __typename?: "plan_categories_avg_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plan_categories_avg_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "plan_categories". All fields are combined with a logical 'AND'. */
@@ -8538,45 +8446,45 @@ export type Plan_Categories_Bool_Exp = {
 /** unique or primary key constraints on table "plan_categories" */
 export enum Plan_Categories_Constraint {
   /** unique or primary key constraint on columns "id" */
-  PlanCategoriesPkey = "plan_categories_pkey",
+  PlanCategoriesPkey = 'plan_categories_pkey'
 }
 
 /** input type for incrementing numeric columns in table "plan_categories" */
 export type Plan_Categories_Inc_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "plan_categories" */
 export type Plan_Categories_Insert_Input = {
-  icon?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Plan_Categories_Max_Fields = {
-  __typename?: "plan_categories_max_fields";
-  icon?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'plan_categories_max_fields';
+  icon?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregate min on columns */
 export type Plan_Categories_Min_Fields = {
-  __typename?: "plan_categories_min_fields";
-  icon?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'plan_categories_min_fields';
+  icon?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** response of any mutation on the table "plan_categories" */
 export type Plan_Categories_Mutation_Response = {
-  __typename?: "plan_categories_mutation_response";
+  __typename?: 'plan_categories_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Plan_Categories>;
 };
@@ -8598,45 +8506,45 @@ export type Plan_Categories_Order_By = {
 
 /** primary key columns input for table: plan_categories */
 export type Plan_Categories_Pk_Columns_Input = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
 
 /** select columns of table "plan_categories" */
 export enum Plan_Categories_Select_Column {
   /** column name */
-  Icon = "icon",
+  Icon = 'icon',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Title = "title",
+  Title = 'title'
 }
 
 /** input type for updating data in table "plan_categories" */
 export type Plan_Categories_Set_Input = {
-  icon?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Plan_Categories_Stddev_Fields = {
-  __typename?: "plan_categories_stddev_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plan_categories_stddev_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Plan_Categories_Stddev_Pop_Fields = {
-  __typename?: "plan_categories_stddev_pop_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plan_categories_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Plan_Categories_Stddev_Samp_Fields = {
-  __typename?: "plan_categories_stddev_samp_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plan_categories_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "plan_categories" */
@@ -8649,28 +8557,28 @@ export type Plan_Categories_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Plan_Categories_Stream_Cursor_Value_Input = {
-  icon?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Plan_Categories_Sum_Fields = {
-  __typename?: "plan_categories_sum_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'plan_categories_sum_fields';
+  id?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "plan_categories" */
 export enum Plan_Categories_Update_Column {
   /** column name */
-  Icon = "icon",
+  Icon = 'icon',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Title = "title",
+  Title = 'title'
 }
 
 export type Plan_Categories_Updates = {
@@ -8684,44 +8592,44 @@ export type Plan_Categories_Updates = {
 
 /** aggregate var_pop on columns */
 export type Plan_Categories_Var_Pop_Fields = {
-  __typename?: "plan_categories_var_pop_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plan_categories_var_pop_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Plan_Categories_Var_Samp_Fields = {
-  __typename?: "plan_categories_var_samp_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plan_categories_var_samp_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Plan_Categories_Variance_Fields = {
-  __typename?: "plan_categories_variance_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plan_categories_variance_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** columns and relationships of "plans" */
 export type Plans = {
-  __typename?: "plans";
-  description: Scalars["String"]["output"];
-  id: Scalars["uuid"]["output"];
-  name: Scalars["String"]["output"];
-  price: Scalars["Int"]["output"];
-  tokens: Scalars["Int"]["output"];
+  __typename?: 'plans';
+  description: Scalars['String']['output'];
+  id: Scalars['uuid']['output'];
+  name: Scalars['String']['output'];
+  price: Scalars['Int']['output'];
+  tokens: Scalars['Int']['output'];
 };
 
 /** aggregated selection of "plans" */
 export type Plans_Aggregate = {
-  __typename?: "plans_aggregate";
+  __typename?: 'plans_aggregate';
   aggregate?: Maybe<Plans_Aggregate_Fields>;
   nodes: Array<Plans>;
 };
 
 /** aggregate fields of "plans" */
 export type Plans_Aggregate_Fields = {
-  __typename?: "plans_aggregate_fields";
+  __typename?: 'plans_aggregate_fields';
   avg?: Maybe<Plans_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Plans_Max_Fields>;
   min?: Maybe<Plans_Min_Fields>;
   stddev?: Maybe<Plans_Stddev_Fields>;
@@ -8733,17 +8641,18 @@ export type Plans_Aggregate_Fields = {
   variance?: Maybe<Plans_Variance_Fields>;
 };
 
+
 /** aggregate fields of "plans" */
 export type Plans_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Plans_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Plans_Avg_Fields = {
-  __typename?: "plans_avg_fields";
-  price?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plans_avg_fields';
+  price?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "plans". All fields are combined with a logical 'AND'. */
@@ -8761,49 +8670,49 @@ export type Plans_Bool_Exp = {
 /** unique or primary key constraints on table "plans" */
 export enum Plans_Constraint {
   /** unique or primary key constraint on columns "id" */
-  PlansPkey = "plans_pkey",
+  PlansPkey = 'plans_pkey'
 }
 
 /** input type for incrementing numeric columns in table "plans" */
 export type Plans_Inc_Input = {
-  price?: InputMaybe<Scalars["Int"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
+  price?: InputMaybe<Scalars['Int']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "plans" */
 export type Plans_Insert_Input = {
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  price?: InputMaybe<Scalars["Int"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  price?: InputMaybe<Scalars['Int']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** aggregate max on columns */
 export type Plans_Max_Fields = {
-  __typename?: "plans_max_fields";
-  description?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  price?: Maybe<Scalars["Int"]["output"]>;
-  tokens?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'plans_max_fields';
+  description?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  price?: Maybe<Scalars['Int']['output']>;
+  tokens?: Maybe<Scalars['Int']['output']>;
 };
 
 /** aggregate min on columns */
 export type Plans_Min_Fields = {
-  __typename?: "plans_min_fields";
-  description?: Maybe<Scalars["String"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  price?: Maybe<Scalars["Int"]["output"]>;
-  tokens?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'plans_min_fields';
+  description?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  price?: Maybe<Scalars['Int']['output']>;
+  tokens?: Maybe<Scalars['Int']['output']>;
 };
 
 /** response of any mutation on the table "plans" */
 export type Plans_Mutation_Response = {
-  __typename?: "plans_mutation_response";
+  __typename?: 'plans_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Plans>;
 };
@@ -8826,51 +8735,51 @@ export type Plans_Order_By = {
 
 /** primary key columns input for table: plans */
 export type Plans_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "plans" */
 export enum Plans_Select_Column {
   /** column name */
-  Description = "description",
+  Description = 'description',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Price = "price",
+  Price = 'price',
   /** column name */
-  Tokens = "tokens",
+  Tokens = 'tokens'
 }
 
 /** input type for updating data in table "plans" */
 export type Plans_Set_Input = {
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  price?: InputMaybe<Scalars["Int"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  price?: InputMaybe<Scalars['Int']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Plans_Stddev_Fields = {
-  __typename?: "plans_stddev_fields";
-  price?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plans_stddev_fields';
+  price?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Plans_Stddev_Pop_Fields = {
-  __typename?: "plans_stddev_pop_fields";
-  price?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plans_stddev_pop_fields';
+  price?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Plans_Stddev_Samp_Fields = {
-  __typename?: "plans_stddev_samp_fields";
-  price?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plans_stddev_samp_fields';
+  price?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "plans" */
@@ -8883,32 +8792,32 @@ export type Plans_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Plans_Stream_Cursor_Value_Input = {
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  price?: InputMaybe<Scalars["Int"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  price?: InputMaybe<Scalars['Int']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Plans_Sum_Fields = {
-  __typename?: "plans_sum_fields";
-  price?: Maybe<Scalars["Int"]["output"]>;
-  tokens?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'plans_sum_fields';
+  price?: Maybe<Scalars['Int']['output']>;
+  tokens?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "plans" */
 export enum Plans_Update_Column {
   /** column name */
-  Description = "description",
+  Description = 'description',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Price = "price",
+  Price = 'price',
   /** column name */
-  Tokens = "tokens",
+  Tokens = 'tokens'
 }
 
 export type Plans_Updates = {
@@ -8922,45 +8831,45 @@ export type Plans_Updates = {
 
 /** aggregate var_pop on columns */
 export type Plans_Var_Pop_Fields = {
-  __typename?: "plans_var_pop_fields";
-  price?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plans_var_pop_fields';
+  price?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Plans_Var_Samp_Fields = {
-  __typename?: "plans_var_samp_fields";
-  price?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plans_var_samp_fields';
+  price?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Plans_Variance_Fields = {
-  __typename?: "plans_variance_fields";
-  price?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'plans_variance_fields';
+  price?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** the profile layout buttons data */
 export type Profile_Categories = {
-  __typename?: "profile_categories";
-  id: Scalars["Int"]["output"];
-  name?: Maybe<Scalars["bpchar"]["output"]>;
-  title: Scalars["String"]["output"];
+  __typename?: 'profile_categories';
+  id: Scalars['Int']['output'];
+  name?: Maybe<Scalars['bpchar']['output']>;
+  title: Scalars['String']['output'];
 };
 
 /** aggregated selection of "profile_categories" */
 export type Profile_Categories_Aggregate = {
-  __typename?: "profile_categories_aggregate";
+  __typename?: 'profile_categories_aggregate';
   aggregate?: Maybe<Profile_Categories_Aggregate_Fields>;
   nodes: Array<Profile_Categories>;
 };
 
 /** aggregate fields of "profile_categories" */
 export type Profile_Categories_Aggregate_Fields = {
-  __typename?: "profile_categories_aggregate_fields";
+  __typename?: 'profile_categories_aggregate_fields';
   avg?: Maybe<Profile_Categories_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Profile_Categories_Max_Fields>;
   min?: Maybe<Profile_Categories_Min_Fields>;
   stddev?: Maybe<Profile_Categories_Stddev_Fields>;
@@ -8972,16 +8881,17 @@ export type Profile_Categories_Aggregate_Fields = {
   variance?: Maybe<Profile_Categories_Variance_Fields>;
 };
 
+
 /** aggregate fields of "profile_categories" */
 export type Profile_Categories_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Profile_Categories_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Profile_Categories_Avg_Fields = {
-  __typename?: "profile_categories_avg_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'profile_categories_avg_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "profile_categories". All fields are combined with a logical 'AND'. */
@@ -8997,42 +8907,42 @@ export type Profile_Categories_Bool_Exp = {
 /** unique or primary key constraints on table "profile_categories" */
 export enum Profile_Categories_Constraint {
   /** unique or primary key constraint on columns "id" */
-  ProfileCategoriesPkey = "profile_categories_pkey",
+  ProfileCategoriesPkey = 'profile_categories_pkey'
 }
 
 /** input type for incrementing numeric columns in table "profile_categories" */
 export type Profile_Categories_Inc_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "profile_categories" */
 export type Profile_Categories_Insert_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["bpchar"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['bpchar']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Profile_Categories_Max_Fields = {
-  __typename?: "profile_categories_max_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["bpchar"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'profile_categories_max_fields';
+  id?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['bpchar']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregate min on columns */
 export type Profile_Categories_Min_Fields = {
-  __typename?: "profile_categories_min_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["bpchar"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'profile_categories_min_fields';
+  id?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['bpchar']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** response of any mutation on the table "profile_categories" */
 export type Profile_Categories_Mutation_Response = {
-  __typename?: "profile_categories_mutation_response";
+  __typename?: 'profile_categories_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Profile_Categories>;
 };
@@ -9053,42 +8963,42 @@ export type Profile_Categories_Order_By = {
 
 /** primary key columns input for table: profile_categories */
 export type Profile_Categories_Pk_Columns_Input = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
 
 /** select columns of table "profile_categories" */
 export enum Profile_Categories_Select_Column {
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Title = "title",
+  Title = 'title'
 }
 
 /** input type for updating data in table "profile_categories" */
 export type Profile_Categories_Set_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["bpchar"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['bpchar']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Profile_Categories_Stddev_Fields = {
-  __typename?: "profile_categories_stddev_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'profile_categories_stddev_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Profile_Categories_Stddev_Pop_Fields = {
-  __typename?: "profile_categories_stddev_pop_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'profile_categories_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Profile_Categories_Stddev_Samp_Fields = {
-  __typename?: "profile_categories_stddev_samp_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'profile_categories_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "profile_categories" */
@@ -9101,25 +9011,25 @@ export type Profile_Categories_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Profile_Categories_Stream_Cursor_Value_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["bpchar"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['bpchar']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Profile_Categories_Sum_Fields = {
-  __typename?: "profile_categories_sum_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'profile_categories_sum_fields';
+  id?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "profile_categories" */
 export enum Profile_Categories_Update_Column {
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Title = "title",
+  Title = 'title'
 }
 
 export type Profile_Categories_Updates = {
@@ -9133,69 +9043,72 @@ export type Profile_Categories_Updates = {
 
 /** aggregate var_pop on columns */
 export type Profile_Categories_Var_Pop_Fields = {
-  __typename?: "profile_categories_var_pop_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'profile_categories_var_pop_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Profile_Categories_Var_Samp_Fields = {
-  __typename?: "profile_categories_var_samp_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'profile_categories_var_samp_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Profile_Categories_Variance_Fields = {
-  __typename?: "profile_categories_variance_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'profile_categories_variance_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** columns and relationships of "provider_type" */
 export type Provider_Type = {
-  __typename?: "provider_type";
+  __typename?: 'provider_type';
   /** An array relationship */
   accounts: Array<Accounts>;
   /** An aggregate relationship */
   accounts_aggregate: Accounts_Aggregate;
-  value: Scalars["String"]["output"];
+  value: Scalars['String']['output'];
 };
+
 
 /** columns and relationships of "provider_type" */
 export type Provider_TypeAccountsArgs = {
   distinct_on?: InputMaybe<Array<Accounts_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Accounts_Order_By>>;
   where?: InputMaybe<Accounts_Bool_Exp>;
 };
 
+
 /** columns and relationships of "provider_type" */
 export type Provider_TypeAccounts_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Accounts_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Accounts_Order_By>>;
   where?: InputMaybe<Accounts_Bool_Exp>;
 };
 
 /** aggregated selection of "provider_type" */
 export type Provider_Type_Aggregate = {
-  __typename?: "provider_type_aggregate";
+  __typename?: 'provider_type_aggregate';
   aggregate?: Maybe<Provider_Type_Aggregate_Fields>;
   nodes: Array<Provider_Type>;
 };
 
 /** aggregate fields of "provider_type" */
 export type Provider_Type_Aggregate_Fields = {
-  __typename?: "provider_type_aggregate_fields";
-  count: Scalars["Int"]["output"];
+  __typename?: 'provider_type_aggregate_fields';
+  count: Scalars['Int']['output'];
   max?: Maybe<Provider_Type_Max_Fields>;
   min?: Maybe<Provider_Type_Min_Fields>;
 };
 
+
 /** aggregate fields of "provider_type" */
 export type Provider_Type_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Provider_Type_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Boolean expression to filter rows from the table "provider_type". All fields are combined with a logical 'AND'. */
@@ -9211,32 +9124,32 @@ export type Provider_Type_Bool_Exp = {
 /** unique or primary key constraints on table "provider_type" */
 export enum Provider_Type_Constraint {
   /** unique or primary key constraint on columns "value" */
-  ProviderTypePkey = "provider_type_pkey",
+  ProviderTypePkey = 'provider_type_pkey'
 }
 
 /** input type for inserting data into table "provider_type" */
 export type Provider_Type_Insert_Input = {
   accounts?: InputMaybe<Accounts_Arr_Rel_Insert_Input>;
-  value?: InputMaybe<Scalars["String"]["input"]>;
+  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Provider_Type_Max_Fields = {
-  __typename?: "provider_type_max_fields";
-  value?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'provider_type_max_fields';
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregate min on columns */
 export type Provider_Type_Min_Fields = {
-  __typename?: "provider_type_min_fields";
-  value?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'provider_type_min_fields';
+  value?: Maybe<Scalars['String']['output']>;
 };
 
 /** response of any mutation on the table "provider_type" */
 export type Provider_Type_Mutation_Response = {
-  __typename?: "provider_type_mutation_response";
+  __typename?: 'provider_type_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Provider_Type>;
 };
@@ -9263,18 +9176,18 @@ export type Provider_Type_Order_By = {
 
 /** primary key columns input for table: provider_type */
 export type Provider_Type_Pk_Columns_Input = {
-  value: Scalars["String"]["input"];
+  value: Scalars['String']['input'];
 };
 
 /** select columns of table "provider_type" */
 export enum Provider_Type_Select_Column {
   /** column name */
-  Value = "value",
+  Value = 'value'
 }
 
 /** input type for updating data in table "provider_type" */
 export type Provider_Type_Set_Input = {
-  value?: InputMaybe<Scalars["String"]["input"]>;
+  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Streaming cursor of the table "provider_type" */
@@ -9287,13 +9200,13 @@ export type Provider_Type_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Provider_Type_Stream_Cursor_Value_Input = {
-  value?: InputMaybe<Scalars["String"]["input"]>;
+  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** update columns of table "provider_type" */
 export enum Provider_Type_Update_Column {
   /** column name */
-  Value = "value",
+  Value = 'value'
 }
 
 export type Provider_Type_Updates = {
@@ -9304,7 +9217,7 @@ export type Provider_Type_Updates = {
 };
 
 export type Query_Root = {
-  __typename?: "query_root";
+  __typename?: 'query_root';
   /** Filter options for a local Aggregate query, used to convert the result to the specified filters */
   Aggregate?: Maybe<AggregateObjectsObj>;
   /** Get Objects on a local Weaviate */
@@ -9449,485 +9362,554 @@ export type Query_Root = {
   wallets_by_pk?: Maybe<Wallets>;
 };
 
+
 export type Query_RootAccountsArgs = {
   distinct_on?: InputMaybe<Array<Accounts_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Accounts_Order_By>>;
   where?: InputMaybe<Accounts_Bool_Exp>;
 };
+
 
 export type Query_RootAccounts_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Accounts_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Accounts_Order_By>>;
   where?: InputMaybe<Accounts_Bool_Exp>;
 };
 
+
 export type Query_RootAccounts_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootAi_CategoriesArgs = {
   distinct_on?: InputMaybe<Array<Ai_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Ai_Categories_Order_By>>;
   where?: InputMaybe<Ai_Categories_Bool_Exp>;
 };
+
 
 export type Query_RootAi_Categories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Ai_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Ai_Categories_Order_By>>;
   where?: InputMaybe<Ai_Categories_Bool_Exp>;
 };
 
+
 export type Query_RootAi_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
+
 
 export type Query_RootAi_ModelsArgs = {
   distinct_on?: InputMaybe<Array<Ai_Models_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Ai_Models_Order_By>>;
   where?: InputMaybe<Ai_Models_Bool_Exp>;
 };
+
 
 export type Query_RootAi_Models_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Ai_Models_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Ai_Models_Order_By>>;
   where?: InputMaybe<Ai_Models_Bool_Exp>;
 };
 
+
 export type Query_RootAi_Models_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootChatsArgs = {
   distinct_on?: InputMaybe<Array<Chats_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Chats_Order_By>>;
   where?: InputMaybe<Chats_Bool_Exp>;
 };
+
 
 export type Query_RootChats_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Chats_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Chats_Order_By>>;
   where?: InputMaybe<Chats_Bool_Exp>;
 };
 
+
 export type Query_RootChats_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootDirectus_FilesArgs = {
   distinct_on?: InputMaybe<Array<Directus_Files_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Directus_Files_Order_By>>;
   where?: InputMaybe<Directus_Files_Bool_Exp>;
 };
+
 
 export type Query_RootDirectus_Files_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Directus_Files_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Directus_Files_Order_By>>;
   where?: InputMaybe<Directus_Files_Bool_Exp>;
 };
 
+
 export type Query_RootDirectus_Files_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootDirectus_UsersArgs = {
   distinct_on?: InputMaybe<Array<Directus_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Directus_Users_Order_By>>;
   where?: InputMaybe<Directus_Users_Bool_Exp>;
 };
+
 
 export type Query_RootDirectus_Users_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Directus_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Directus_Users_Order_By>>;
   where?: InputMaybe<Directus_Users_Bool_Exp>;
 };
 
+
 export type Query_RootDirectus_Users_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootDocumentsArgs = {
   distinct_on?: InputMaybe<Array<Documents_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Documents_Order_By>>;
   where?: InputMaybe<Documents_Bool_Exp>;
 };
+
 
 export type Query_RootDocuments_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Documents_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Documents_Order_By>>;
   where?: InputMaybe<Documents_Bool_Exp>;
 };
 
+
 export type Query_RootDocuments_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootMessagesArgs = {
   distinct_on?: InputMaybe<Array<Messages_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Messages_Order_By>>;
   where?: InputMaybe<Messages_Bool_Exp>;
 };
+
 
 export type Query_RootMessages_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Messages_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Messages_Order_By>>;
   where?: InputMaybe<Messages_Bool_Exp>;
 };
 
+
 export type Query_RootMessages_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootPassword_Reset_TokensArgs = {
   distinct_on?: InputMaybe<Array<Password_Reset_Tokens_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Password_Reset_Tokens_Order_By>>;
   where?: InputMaybe<Password_Reset_Tokens_Bool_Exp>;
 };
+
 
 export type Query_RootPassword_Reset_Tokens_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Password_Reset_Tokens_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Password_Reset_Tokens_Order_By>>;
   where?: InputMaybe<Password_Reset_Tokens_Bool_Exp>;
 };
 
+
 export type Query_RootPassword_Reset_Tokens_By_PkArgs = {
-  token: Scalars["uuid"]["input"];
+  token: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootPayment_HistoryArgs = {
   distinct_on?: InputMaybe<Array<Payment_History_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Payment_History_Order_By>>;
   where?: InputMaybe<Payment_History_Bool_Exp>;
 };
+
 
 export type Query_RootPayment_History_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Payment_History_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Payment_History_Order_By>>;
   where?: InputMaybe<Payment_History_Bool_Exp>;
 };
 
+
 export type Query_RootPayment_History_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootPlan_CategoriesArgs = {
   distinct_on?: InputMaybe<Array<Plan_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Plan_Categories_Order_By>>;
   where?: InputMaybe<Plan_Categories_Bool_Exp>;
 };
+
 
 export type Query_RootPlan_Categories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Plan_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Plan_Categories_Order_By>>;
   where?: InputMaybe<Plan_Categories_Bool_Exp>;
 };
 
+
 export type Query_RootPlan_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
+
 
 export type Query_RootPlansArgs = {
   distinct_on?: InputMaybe<Array<Plans_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Plans_Order_By>>;
   where?: InputMaybe<Plans_Bool_Exp>;
 };
+
 
 export type Query_RootPlans_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Plans_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Plans_Order_By>>;
   where?: InputMaybe<Plans_Bool_Exp>;
 };
 
+
 export type Query_RootPlans_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootProfile_CategoriesArgs = {
   distinct_on?: InputMaybe<Array<Profile_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Profile_Categories_Order_By>>;
   where?: InputMaybe<Profile_Categories_Bool_Exp>;
 };
+
 
 export type Query_RootProfile_Categories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Profile_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Profile_Categories_Order_By>>;
   where?: InputMaybe<Profile_Categories_Bool_Exp>;
 };
 
+
 export type Query_RootProfile_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
+
 
 export type Query_RootProvider_TypeArgs = {
   distinct_on?: InputMaybe<Array<Provider_Type_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Provider_Type_Order_By>>;
   where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
+
 
 export type Query_RootProvider_Type_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Provider_Type_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Provider_Type_Order_By>>;
   where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
 
+
 export type Query_RootProvider_Type_By_PkArgs = {
-  value: Scalars["String"]["input"];
+  value: Scalars['String']['input'];
 };
+
 
 export type Query_RootRolesArgs = {
   distinct_on?: InputMaybe<Array<Roles_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Roles_Order_By>>;
   where?: InputMaybe<Roles_Bool_Exp>;
 };
+
 
 export type Query_RootRoles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Roles_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Roles_Order_By>>;
   where?: InputMaybe<Roles_Bool_Exp>;
 };
 
+
 export type Query_RootRoles_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootSessionsArgs = {
   distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Sessions_Order_By>>;
   where?: InputMaybe<Sessions_Bool_Exp>;
 };
+
 
 export type Query_RootSessions_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Sessions_Order_By>>;
   where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
+
 export type Query_RootSessions_By_PkArgs = {
-  sessionToken: Scalars["String"]["input"];
+  sessionToken: Scalars['String']['input'];
 };
+
 
 export type Query_RootTemplate_CategoriesArgs = {
   distinct_on?: InputMaybe<Array<Template_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Template_Categories_Order_By>>;
   where?: InputMaybe<Template_Categories_Bool_Exp>;
 };
+
 
 export type Query_RootTemplate_Categories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Template_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Template_Categories_Order_By>>;
   where?: InputMaybe<Template_Categories_Bool_Exp>;
 };
 
+
 export type Query_RootTemplate_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
+
 
 export type Query_RootTemplate_TagsArgs = {
   distinct_on?: InputMaybe<Array<Template_Tags_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Template_Tags_Order_By>>;
   where?: InputMaybe<Template_Tags_Bool_Exp>;
 };
+
 
 export type Query_RootTemplate_Tags_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Template_Tags_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Template_Tags_Order_By>>;
   where?: InputMaybe<Template_Tags_Bool_Exp>;
 };
 
+
 export type Query_RootTemplate_Tags_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
+
 
 export type Query_RootTemplatesArgs = {
   distinct_on?: InputMaybe<Array<Templates_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Templates_Order_By>>;
   where?: InputMaybe<Templates_Bool_Exp>;
 };
+
 
 export type Query_RootTemplates_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Templates_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Templates_Order_By>>;
   where?: InputMaybe<Templates_Bool_Exp>;
 };
 
+
 export type Query_RootTemplates_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootTokens_HistoryArgs = {
   distinct_on?: InputMaybe<Array<Tokens_History_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Tokens_History_Order_By>>;
   where?: InputMaybe<Tokens_History_Bool_Exp>;
 };
+
 
 export type Query_RootTokens_History_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Tokens_History_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Tokens_History_Order_By>>;
   where?: InputMaybe<Tokens_History_Bool_Exp>;
 };
 
+
 export type Query_RootTokens_History_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootUsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
+
 
 export type Query_RootUsers_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
+
 export type Query_RootUsers_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
+
 
 export type Query_RootVerification_TokensArgs = {
   distinct_on?: InputMaybe<Array<Verification_Tokens_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Verification_Tokens_Order_By>>;
   where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
+
 
 export type Query_RootVerification_Tokens_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Verification_Tokens_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Verification_Tokens_Order_By>>;
   where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
 
+
 export type Query_RootVerification_Tokens_By_PkArgs = {
-  token: Scalars["String"]["input"];
+  token: Scalars['String']['input'];
 };
+
 
 export type Query_RootWalletsArgs = {
   distinct_on?: InputMaybe<Array<Wallets_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Wallets_Order_By>>;
   where?: InputMaybe<Wallets_Bool_Exp>;
 };
+
 
 export type Query_RootWallets_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Wallets_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Wallets_Order_By>>;
   where?: InputMaybe<Wallets_Bool_Exp>;
 };
 
+
 export type Query_RootWallets_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** columns and relationships of "roles" */
 export type Roles = {
-  __typename?: "roles";
+  __typename?: 'roles';
   /** An object relationship */
   directus_img?: Maybe<Directus_Files>;
   /** An object relationship */
   directus_img_min?: Maybe<Directus_Files>;
-  id: Scalars["uuid"]["output"];
-  image?: Maybe<Scalars["uuid"]["output"]>;
-  image_min?: Maybe<Scalars["uuid"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  promt?: Maybe<Scalars["String"]["output"]>;
-  title: Scalars["String"]["output"];
-  type?: Maybe<Scalars["String"]["output"]>;
+  id: Scalars['uuid']['output'];
+  image?: Maybe<Scalars['uuid']['output']>;
+  image_min?: Maybe<Scalars['uuid']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  promt?: Maybe<Scalars['String']['output']>;
+  title: Scalars['String']['output'];
+  type?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregated selection of "roles" */
 export type Roles_Aggregate = {
-  __typename?: "roles_aggregate";
+  __typename?: 'roles_aggregate';
   aggregate?: Maybe<Roles_Aggregate_Fields>;
   nodes: Array<Roles>;
 };
@@ -9938,23 +9920,24 @@ export type Roles_Aggregate_Bool_Exp = {
 
 export type Roles_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<Roles_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
   filter?: InputMaybe<Roles_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "roles" */
 export type Roles_Aggregate_Fields = {
-  __typename?: "roles_aggregate_fields";
-  count: Scalars["Int"]["output"];
+  __typename?: 'roles_aggregate_fields';
+  count: Scalars['Int']['output'];
   max?: Maybe<Roles_Max_Fields>;
   min?: Maybe<Roles_Min_Fields>;
 };
 
+
 /** aggregate fields of "roles" */
 export type Roles_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Roles_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "roles" */
@@ -9990,34 +9973,34 @@ export type Roles_Bool_Exp = {
 /** unique or primary key constraints on table "roles" */
 export enum Roles_Constraint {
   /** unique or primary key constraint on columns "id" */
-  RolesPkey = "roles_pkey",
+  RolesPkey = 'roles_pkey',
   /** unique or primary key constraint on columns "id" */
-  RolesUidKey = "roles_uid_key",
+  RolesUidKey = 'roles_uid_key'
 }
 
 /** input type for inserting data into table "roles" */
 export type Roles_Insert_Input = {
   directus_img?: InputMaybe<Directus_Files_Obj_Rel_Insert_Input>;
   directus_img_min?: InputMaybe<Directus_Files_Obj_Rel_Insert_Input>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  image?: InputMaybe<Scalars["uuid"]["input"]>;
-  image_min?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  promt?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  type?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  image?: InputMaybe<Scalars['uuid']['input']>;
+  image_min?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  promt?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Roles_Max_Fields = {
-  __typename?: "roles_max_fields";
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  image?: Maybe<Scalars["uuid"]["output"]>;
-  image_min?: Maybe<Scalars["uuid"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  promt?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  type?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'roles_max_fields';
+  id?: Maybe<Scalars['uuid']['output']>;
+  image?: Maybe<Scalars['uuid']['output']>;
+  image_min?: Maybe<Scalars['uuid']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  promt?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
 };
 
 /** order by max() on columns of table "roles" */
@@ -10033,14 +10016,14 @@ export type Roles_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Roles_Min_Fields = {
-  __typename?: "roles_min_fields";
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  image?: Maybe<Scalars["uuid"]["output"]>;
-  image_min?: Maybe<Scalars["uuid"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  promt?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
-  type?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'roles_min_fields';
+  id?: Maybe<Scalars['uuid']['output']>;
+  image?: Maybe<Scalars['uuid']['output']>;
+  image_min?: Maybe<Scalars['uuid']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  promt?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
 };
 
 /** order by min() on columns of table "roles" */
@@ -10056,9 +10039,9 @@ export type Roles_Min_Order_By = {
 
 /** response of any mutation on the table "roles" */
 export type Roles_Mutation_Response = {
-  __typename?: "roles_mutation_response";
+  __typename?: 'roles_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Roles>;
 };
@@ -10085,36 +10068,36 @@ export type Roles_Order_By = {
 
 /** primary key columns input for table: roles */
 export type Roles_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "roles" */
 export enum Roles_Select_Column {
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Image = "image",
+  Image = 'image',
   /** column name */
-  ImageMin = "image_min",
+  ImageMin = 'image_min',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Promt = "promt",
+  Promt = 'promt',
   /** column name */
-  Title = "title",
+  Title = 'title',
   /** column name */
-  Type = "type",
+  Type = 'type'
 }
 
 /** input type for updating data in table "roles" */
 export type Roles_Set_Input = {
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  image?: InputMaybe<Scalars["uuid"]["input"]>;
-  image_min?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  promt?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  type?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  image?: InputMaybe<Scalars['uuid']['input']>;
+  image_min?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  promt?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Streaming cursor of the table "roles" */
@@ -10127,31 +10110,31 @@ export type Roles_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Roles_Stream_Cursor_Value_Input = {
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  image?: InputMaybe<Scalars["uuid"]["input"]>;
-  image_min?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  promt?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  type?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  image?: InputMaybe<Scalars['uuid']['input']>;
+  image_min?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  promt?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** update columns of table "roles" */
 export enum Roles_Update_Column {
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Image = "image",
+  Image = 'image',
   /** column name */
-  ImageMin = "image_min",
+  ImageMin = 'image_min',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Promt = "promt",
+  Promt = 'promt',
   /** column name */
-  Title = "title",
+  Title = 'title',
   /** column name */
-  Type = "type",
+  Type = 'type'
 }
 
 export type Roles_Updates = {
@@ -10163,18 +10146,18 @@ export type Roles_Updates = {
 
 /** columns and relationships of "sessions" */
 export type Sessions = {
-  __typename?: "sessions";
-  expires: Scalars["timestamptz"]["output"];
-  id: Scalars["uuid"]["output"];
-  sessionToken: Scalars["String"]["output"];
+  __typename?: 'sessions';
+  expires: Scalars['timestamptz']['output'];
+  id: Scalars['uuid']['output'];
+  sessionToken: Scalars['String']['output'];
   /** An object relationship */
   user: Users;
-  userId: Scalars["uuid"]["output"];
+  userId: Scalars['uuid']['output'];
 };
 
 /** aggregated selection of "sessions" */
 export type Sessions_Aggregate = {
-  __typename?: "sessions_aggregate";
+  __typename?: 'sessions_aggregate';
   aggregate?: Maybe<Sessions_Aggregate_Fields>;
   nodes: Array<Sessions>;
 };
@@ -10185,23 +10168,24 @@ export type Sessions_Aggregate_Bool_Exp = {
 
 export type Sessions_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<Sessions_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
   filter?: InputMaybe<Sessions_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "sessions" */
 export type Sessions_Aggregate_Fields = {
-  __typename?: "sessions_aggregate_fields";
-  count: Scalars["Int"]["output"];
+  __typename?: 'sessions_aggregate_fields';
+  count: Scalars['Int']['output'];
   max?: Maybe<Sessions_Max_Fields>;
   min?: Maybe<Sessions_Min_Fields>;
 };
 
+
 /** aggregate fields of "sessions" */
 export type Sessions_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Sessions_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "sessions" */
@@ -10233,25 +10217,25 @@ export type Sessions_Bool_Exp = {
 /** unique or primary key constraints on table "sessions" */
 export enum Sessions_Constraint {
   /** unique or primary key constraint on columns "sessionToken" */
-  SessionsPkey = "sessions_pkey",
+  SessionsPkey = 'sessions_pkey'
 }
 
 /** input type for inserting data into table "sessions" */
 export type Sessions_Insert_Input = {
-  expires?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  sessionToken?: InputMaybe<Scalars["String"]["input"]>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  sessionToken?: InputMaybe<Scalars['String']['input']>;
   user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
 export type Sessions_Max_Fields = {
-  __typename?: "sessions_max_fields";
-  expires?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  sessionToken?: Maybe<Scalars["String"]["output"]>;
-  userId?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'sessions_max_fields';
+  expires?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  sessionToken?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** order by max() on columns of table "sessions" */
@@ -10264,11 +10248,11 @@ export type Sessions_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Sessions_Min_Fields = {
-  __typename?: "sessions_min_fields";
-  expires?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  sessionToken?: Maybe<Scalars["String"]["output"]>;
-  userId?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'sessions_min_fields';
+  expires?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  sessionToken?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** order by min() on columns of table "sessions" */
@@ -10281,9 +10265,9 @@ export type Sessions_Min_Order_By = {
 
 /** response of any mutation on the table "sessions" */
 export type Sessions_Mutation_Response = {
-  __typename?: "sessions_mutation_response";
+  __typename?: 'sessions_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Sessions>;
 };
@@ -10306,27 +10290,27 @@ export type Sessions_Order_By = {
 
 /** primary key columns input for table: sessions */
 export type Sessions_Pk_Columns_Input = {
-  sessionToken: Scalars["String"]["input"];
+  sessionToken: Scalars['String']['input'];
 };
 
 /** select columns of table "sessions" */
 export enum Sessions_Select_Column {
   /** column name */
-  Expires = "expires",
+  Expires = 'expires',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  SessionToken = "sessionToken",
+  SessionToken = 'sessionToken',
   /** column name */
-  UserId = "userId",
+  UserId = 'userId'
 }
 
 /** input type for updating data in table "sessions" */
 export type Sessions_Set_Input = {
-  expires?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  sessionToken?: InputMaybe<Scalars["String"]["input"]>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  sessionToken?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** Streaming cursor of the table "sessions" */
@@ -10339,22 +10323,22 @@ export type Sessions_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Sessions_Stream_Cursor_Value_Input = {
-  expires?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  sessionToken?: InputMaybe<Scalars["String"]["input"]>;
-  userId?: InputMaybe<Scalars["uuid"]["input"]>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  sessionToken?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** update columns of table "sessions" */
 export enum Sessions_Update_Column {
   /** column name */
-  Expires = "expires",
+  Expires = 'expires',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  SessionToken = "sessionToken",
+  SessionToken = 'sessionToken',
   /** column name */
-  UserId = "userId",
+  UserId = 'userId'
 }
 
 export type Sessions_Updates = {
@@ -10365,7 +10349,7 @@ export type Sessions_Updates = {
 };
 
 export type Subscription_Root = {
-  __typename?: "subscription_root";
+  __typename?: 'subscription_root';
   /** An array relationship */
   accounts: Array<Accounts>;
   /** An aggregate relationship */
@@ -10552,652 +10536,746 @@ export type Subscription_Root = {
   wallets_stream: Array<Wallets>;
 };
 
+
 export type Subscription_RootAccountsArgs = {
   distinct_on?: InputMaybe<Array<Accounts_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Accounts_Order_By>>;
   where?: InputMaybe<Accounts_Bool_Exp>;
 };
+
 
 export type Subscription_RootAccounts_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Accounts_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Accounts_Order_By>>;
   where?: InputMaybe<Accounts_Bool_Exp>;
 };
 
+
 export type Subscription_RootAccounts_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootAccounts_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Accounts_Stream_Cursor_Input>>;
   where?: InputMaybe<Accounts_Bool_Exp>;
 };
 
+
 export type Subscription_RootAi_CategoriesArgs = {
   distinct_on?: InputMaybe<Array<Ai_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Ai_Categories_Order_By>>;
   where?: InputMaybe<Ai_Categories_Bool_Exp>;
 };
+
 
 export type Subscription_RootAi_Categories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Ai_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Ai_Categories_Order_By>>;
   where?: InputMaybe<Ai_Categories_Bool_Exp>;
 };
 
+
 export type Subscription_RootAi_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
 
+
 export type Subscription_RootAi_Categories_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Ai_Categories_Stream_Cursor_Input>>;
   where?: InputMaybe<Ai_Categories_Bool_Exp>;
 };
 
+
 export type Subscription_RootAi_ModelsArgs = {
   distinct_on?: InputMaybe<Array<Ai_Models_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Ai_Models_Order_By>>;
   where?: InputMaybe<Ai_Models_Bool_Exp>;
 };
+
 
 export type Subscription_RootAi_Models_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Ai_Models_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Ai_Models_Order_By>>;
   where?: InputMaybe<Ai_Models_Bool_Exp>;
 };
 
+
 export type Subscription_RootAi_Models_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootAi_Models_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Ai_Models_Stream_Cursor_Input>>;
   where?: InputMaybe<Ai_Models_Bool_Exp>;
 };
 
+
 export type Subscription_RootChatsArgs = {
   distinct_on?: InputMaybe<Array<Chats_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Chats_Order_By>>;
   where?: InputMaybe<Chats_Bool_Exp>;
 };
+
 
 export type Subscription_RootChats_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Chats_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Chats_Order_By>>;
   where?: InputMaybe<Chats_Bool_Exp>;
 };
 
+
 export type Subscription_RootChats_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootChats_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Chats_Stream_Cursor_Input>>;
   where?: InputMaybe<Chats_Bool_Exp>;
 };
 
+
 export type Subscription_RootDirectus_FilesArgs = {
   distinct_on?: InputMaybe<Array<Directus_Files_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Directus_Files_Order_By>>;
   where?: InputMaybe<Directus_Files_Bool_Exp>;
 };
+
 
 export type Subscription_RootDirectus_Files_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Directus_Files_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Directus_Files_Order_By>>;
   where?: InputMaybe<Directus_Files_Bool_Exp>;
 };
 
+
 export type Subscription_RootDirectus_Files_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootDirectus_Files_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Directus_Files_Stream_Cursor_Input>>;
   where?: InputMaybe<Directus_Files_Bool_Exp>;
 };
 
+
 export type Subscription_RootDirectus_UsersArgs = {
   distinct_on?: InputMaybe<Array<Directus_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Directus_Users_Order_By>>;
   where?: InputMaybe<Directus_Users_Bool_Exp>;
 };
+
 
 export type Subscription_RootDirectus_Users_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Directus_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Directus_Users_Order_By>>;
   where?: InputMaybe<Directus_Users_Bool_Exp>;
 };
 
+
 export type Subscription_RootDirectus_Users_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootDirectus_Users_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Directus_Users_Stream_Cursor_Input>>;
   where?: InputMaybe<Directus_Users_Bool_Exp>;
 };
 
+
 export type Subscription_RootDocumentsArgs = {
   distinct_on?: InputMaybe<Array<Documents_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Documents_Order_By>>;
   where?: InputMaybe<Documents_Bool_Exp>;
 };
+
 
 export type Subscription_RootDocuments_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Documents_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Documents_Order_By>>;
   where?: InputMaybe<Documents_Bool_Exp>;
 };
 
+
 export type Subscription_RootDocuments_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootDocuments_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Documents_Stream_Cursor_Input>>;
   where?: InputMaybe<Documents_Bool_Exp>;
 };
 
+
 export type Subscription_RootMessagesArgs = {
   distinct_on?: InputMaybe<Array<Messages_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Messages_Order_By>>;
   where?: InputMaybe<Messages_Bool_Exp>;
 };
+
 
 export type Subscription_RootMessages_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Messages_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Messages_Order_By>>;
   where?: InputMaybe<Messages_Bool_Exp>;
 };
 
+
 export type Subscription_RootMessages_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootMessages_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Messages_Stream_Cursor_Input>>;
   where?: InputMaybe<Messages_Bool_Exp>;
 };
 
+
 export type Subscription_RootPassword_Reset_TokensArgs = {
   distinct_on?: InputMaybe<Array<Password_Reset_Tokens_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Password_Reset_Tokens_Order_By>>;
   where?: InputMaybe<Password_Reset_Tokens_Bool_Exp>;
 };
+
 
 export type Subscription_RootPassword_Reset_Tokens_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Password_Reset_Tokens_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Password_Reset_Tokens_Order_By>>;
   where?: InputMaybe<Password_Reset_Tokens_Bool_Exp>;
 };
 
+
 export type Subscription_RootPassword_Reset_Tokens_By_PkArgs = {
-  token: Scalars["uuid"]["input"];
+  token: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootPassword_Reset_Tokens_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Password_Reset_Tokens_Stream_Cursor_Input>>;
   where?: InputMaybe<Password_Reset_Tokens_Bool_Exp>;
 };
 
+
 export type Subscription_RootPayment_HistoryArgs = {
   distinct_on?: InputMaybe<Array<Payment_History_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Payment_History_Order_By>>;
   where?: InputMaybe<Payment_History_Bool_Exp>;
 };
+
 
 export type Subscription_RootPayment_History_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Payment_History_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Payment_History_Order_By>>;
   where?: InputMaybe<Payment_History_Bool_Exp>;
 };
 
+
 export type Subscription_RootPayment_History_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootPayment_History_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Payment_History_Stream_Cursor_Input>>;
   where?: InputMaybe<Payment_History_Bool_Exp>;
 };
 
+
 export type Subscription_RootPlan_CategoriesArgs = {
   distinct_on?: InputMaybe<Array<Plan_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Plan_Categories_Order_By>>;
   where?: InputMaybe<Plan_Categories_Bool_Exp>;
 };
+
 
 export type Subscription_RootPlan_Categories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Plan_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Plan_Categories_Order_By>>;
   where?: InputMaybe<Plan_Categories_Bool_Exp>;
 };
 
+
 export type Subscription_RootPlan_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
 
+
 export type Subscription_RootPlan_Categories_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Plan_Categories_Stream_Cursor_Input>>;
   where?: InputMaybe<Plan_Categories_Bool_Exp>;
 };
 
+
 export type Subscription_RootPlansArgs = {
   distinct_on?: InputMaybe<Array<Plans_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Plans_Order_By>>;
   where?: InputMaybe<Plans_Bool_Exp>;
 };
+
 
 export type Subscription_RootPlans_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Plans_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Plans_Order_By>>;
   where?: InputMaybe<Plans_Bool_Exp>;
 };
 
+
 export type Subscription_RootPlans_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootPlans_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Plans_Stream_Cursor_Input>>;
   where?: InputMaybe<Plans_Bool_Exp>;
 };
 
+
 export type Subscription_RootProfile_CategoriesArgs = {
   distinct_on?: InputMaybe<Array<Profile_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Profile_Categories_Order_By>>;
   where?: InputMaybe<Profile_Categories_Bool_Exp>;
 };
+
 
 export type Subscription_RootProfile_Categories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Profile_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Profile_Categories_Order_By>>;
   where?: InputMaybe<Profile_Categories_Bool_Exp>;
 };
 
+
 export type Subscription_RootProfile_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
 
+
 export type Subscription_RootProfile_Categories_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Profile_Categories_Stream_Cursor_Input>>;
   where?: InputMaybe<Profile_Categories_Bool_Exp>;
 };
 
+
 export type Subscription_RootProvider_TypeArgs = {
   distinct_on?: InputMaybe<Array<Provider_Type_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Provider_Type_Order_By>>;
   where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
+
 
 export type Subscription_RootProvider_Type_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Provider_Type_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Provider_Type_Order_By>>;
   where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
 
+
 export type Subscription_RootProvider_Type_By_PkArgs = {
-  value: Scalars["String"]["input"];
+  value: Scalars['String']['input'];
 };
 
+
 export type Subscription_RootProvider_Type_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Provider_Type_Stream_Cursor_Input>>;
   where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
 
+
 export type Subscription_RootRolesArgs = {
   distinct_on?: InputMaybe<Array<Roles_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Roles_Order_By>>;
   where?: InputMaybe<Roles_Bool_Exp>;
 };
+
 
 export type Subscription_RootRoles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Roles_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Roles_Order_By>>;
   where?: InputMaybe<Roles_Bool_Exp>;
 };
 
+
 export type Subscription_RootRoles_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootRoles_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Roles_Stream_Cursor_Input>>;
   where?: InputMaybe<Roles_Bool_Exp>;
 };
 
+
 export type Subscription_RootSessionsArgs = {
   distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Sessions_Order_By>>;
   where?: InputMaybe<Sessions_Bool_Exp>;
 };
+
 
 export type Subscription_RootSessions_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Sessions_Order_By>>;
   where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
+
 export type Subscription_RootSessions_By_PkArgs = {
-  sessionToken: Scalars["String"]["input"];
+  sessionToken: Scalars['String']['input'];
 };
 
+
 export type Subscription_RootSessions_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Sessions_Stream_Cursor_Input>>;
   where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
+
 export type Subscription_RootTemplate_CategoriesArgs = {
   distinct_on?: InputMaybe<Array<Template_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Template_Categories_Order_By>>;
   where?: InputMaybe<Template_Categories_Bool_Exp>;
 };
+
 
 export type Subscription_RootTemplate_Categories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Template_Categories_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Template_Categories_Order_By>>;
   where?: InputMaybe<Template_Categories_Bool_Exp>;
 };
 
+
 export type Subscription_RootTemplate_Categories_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
 
+
 export type Subscription_RootTemplate_Categories_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Template_Categories_Stream_Cursor_Input>>;
   where?: InputMaybe<Template_Categories_Bool_Exp>;
 };
 
+
 export type Subscription_RootTemplate_TagsArgs = {
   distinct_on?: InputMaybe<Array<Template_Tags_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Template_Tags_Order_By>>;
   where?: InputMaybe<Template_Tags_Bool_Exp>;
 };
+
 
 export type Subscription_RootTemplate_Tags_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Template_Tags_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Template_Tags_Order_By>>;
   where?: InputMaybe<Template_Tags_Bool_Exp>;
 };
 
+
 export type Subscription_RootTemplate_Tags_By_PkArgs = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
 
+
 export type Subscription_RootTemplate_Tags_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Template_Tags_Stream_Cursor_Input>>;
   where?: InputMaybe<Template_Tags_Bool_Exp>;
 };
 
+
 export type Subscription_RootTemplatesArgs = {
   distinct_on?: InputMaybe<Array<Templates_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Templates_Order_By>>;
   where?: InputMaybe<Templates_Bool_Exp>;
 };
+
 
 export type Subscription_RootTemplates_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Templates_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Templates_Order_By>>;
   where?: InputMaybe<Templates_Bool_Exp>;
 };
 
+
 export type Subscription_RootTemplates_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootTemplates_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Templates_Stream_Cursor_Input>>;
   where?: InputMaybe<Templates_Bool_Exp>;
 };
 
+
 export type Subscription_RootTokens_HistoryArgs = {
   distinct_on?: InputMaybe<Array<Tokens_History_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Tokens_History_Order_By>>;
   where?: InputMaybe<Tokens_History_Bool_Exp>;
 };
+
 
 export type Subscription_RootTokens_History_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Tokens_History_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Tokens_History_Order_By>>;
   where?: InputMaybe<Tokens_History_Bool_Exp>;
 };
 
+
 export type Subscription_RootTokens_History_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootTokens_History_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Tokens_History_Stream_Cursor_Input>>;
   where?: InputMaybe<Tokens_History_Bool_Exp>;
 };
 
+
 export type Subscription_RootUsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
+
 
 export type Subscription_RootUsers_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
+
 export type Subscription_RootUsers_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootUsers_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Users_Stream_Cursor_Input>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
+
 export type Subscription_RootVerification_TokensArgs = {
   distinct_on?: InputMaybe<Array<Verification_Tokens_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Verification_Tokens_Order_By>>;
   where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
+
 
 export type Subscription_RootVerification_Tokens_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Verification_Tokens_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Verification_Tokens_Order_By>>;
   where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
 
+
 export type Subscription_RootVerification_Tokens_By_PkArgs = {
-  token: Scalars["String"]["input"];
+  token: Scalars['String']['input'];
 };
 
+
 export type Subscription_RootVerification_Tokens_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Verification_Tokens_Stream_Cursor_Input>>;
   where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
 
+
 export type Subscription_RootWalletsArgs = {
   distinct_on?: InputMaybe<Array<Wallets_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Wallets_Order_By>>;
   where?: InputMaybe<Wallets_Bool_Exp>;
 };
+
 
 export type Subscription_RootWallets_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Wallets_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Wallets_Order_By>>;
   where?: InputMaybe<Wallets_Bool_Exp>;
 };
 
+
 export type Subscription_RootWallets_By_PkArgs = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
+
 export type Subscription_RootWallets_StreamArgs = {
-  batch_size: Scalars["Int"]["input"];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Wallets_Stream_Cursor_Input>>;
   where?: InputMaybe<Wallets_Bool_Exp>;
 };
 
 /** columns and relationships of "template_categories" */
 export type Template_Categories = {
-  __typename?: "template_categories";
-  id: Scalars["Int"]["output"];
-  name?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'template_categories';
+  id: Scalars['Int']['output'];
+  name?: Maybe<Scalars['String']['output']>;
   /** An array relationship */
   templates: Array<Templates>;
   /** An aggregate relationship */
   templates_aggregate: Templates_Aggregate;
-  titile?: Maybe<Scalars["String"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Int"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Int"]["output"]>;
-  ui_sm_c?: Maybe<Scalars["String"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Int"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Int"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Int"]["output"]>;
+  titile?: Maybe<Scalars['String']['output']>;
+  ui_lg_c?: Maybe<Scalars['Int']['output']>;
+  ui_lg_w?: Maybe<Scalars['Int']['output']>;
+  ui_sm_c?: Maybe<Scalars['String']['output']>;
+  ui_sm_w?: Maybe<Scalars['Int']['output']>;
+  ui_table_c?: Maybe<Scalars['Int']['output']>;
+  ui_table_w?: Maybe<Scalars['Int']['output']>;
 };
+
 
 /** columns and relationships of "template_categories" */
 export type Template_CategoriesTemplatesArgs = {
   distinct_on?: InputMaybe<Array<Templates_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Templates_Order_By>>;
   where?: InputMaybe<Templates_Bool_Exp>;
 };
 
+
 /** columns and relationships of "template_categories" */
 export type Template_CategoriesTemplates_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Templates_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Templates_Order_By>>;
   where?: InputMaybe<Templates_Bool_Exp>;
 };
 
 /** aggregated selection of "template_categories" */
 export type Template_Categories_Aggregate = {
-  __typename?: "template_categories_aggregate";
+  __typename?: 'template_categories_aggregate';
   aggregate?: Maybe<Template_Categories_Aggregate_Fields>;
   nodes: Array<Template_Categories>;
 };
 
 /** aggregate fields of "template_categories" */
 export type Template_Categories_Aggregate_Fields = {
-  __typename?: "template_categories_aggregate_fields";
+  __typename?: 'template_categories_aggregate_fields';
   avg?: Maybe<Template_Categories_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Template_Categories_Max_Fields>;
   min?: Maybe<Template_Categories_Min_Fields>;
   stddev?: Maybe<Template_Categories_Stddev_Fields>;
@@ -11209,21 +11287,22 @@ export type Template_Categories_Aggregate_Fields = {
   variance?: Maybe<Template_Categories_Variance_Fields>;
 };
 
+
 /** aggregate fields of "template_categories" */
 export type Template_Categories_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Template_Categories_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Template_Categories_Avg_Fields = {
-  __typename?: "template_categories_avg_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_categories_avg_fields';
+  id?: Maybe<Scalars['Float']['output']>;
+  ui_lg_c?: Maybe<Scalars['Float']['output']>;
+  ui_lg_w?: Maybe<Scalars['Float']['output']>;
+  ui_sm_w?: Maybe<Scalars['Float']['output']>;
+  ui_table_c?: Maybe<Scalars['Float']['output']>;
+  ui_table_w?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "template_categories". All fields are combined with a logical 'AND'. */
@@ -11247,66 +11326,66 @@ export type Template_Categories_Bool_Exp = {
 /** unique or primary key constraints on table "template_categories" */
 export enum Template_Categories_Constraint {
   /** unique or primary key constraint on columns "id" */
-  TemplateCategoriesPkey = "template_categories_pkey",
+  TemplateCategoriesPkey = 'template_categories_pkey'
 }
 
 /** input type for incrementing numeric columns in table "template_categories" */
 export type Template_Categories_Inc_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_lg_c?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_lg_w?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_sm_w?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_table_c?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_table_w?: InputMaybe<Scalars["Int"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  ui_lg_c?: InputMaybe<Scalars['Int']['input']>;
+  ui_lg_w?: InputMaybe<Scalars['Int']['input']>;
+  ui_sm_w?: InputMaybe<Scalars['Int']['input']>;
+  ui_table_c?: InputMaybe<Scalars['Int']['input']>;
+  ui_table_w?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "template_categories" */
 export type Template_Categories_Insert_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
   templates?: InputMaybe<Templates_Arr_Rel_Insert_Input>;
-  titile?: InputMaybe<Scalars["String"]["input"]>;
-  ui_lg_c?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_lg_w?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_sm_c?: InputMaybe<Scalars["String"]["input"]>;
-  ui_sm_w?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_table_c?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_table_w?: InputMaybe<Scalars["Int"]["input"]>;
+  titile?: InputMaybe<Scalars['String']['input']>;
+  ui_lg_c?: InputMaybe<Scalars['Int']['input']>;
+  ui_lg_w?: InputMaybe<Scalars['Int']['input']>;
+  ui_sm_c?: InputMaybe<Scalars['String']['input']>;
+  ui_sm_w?: InputMaybe<Scalars['Int']['input']>;
+  ui_table_c?: InputMaybe<Scalars['Int']['input']>;
+  ui_table_w?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** aggregate max on columns */
 export type Template_Categories_Max_Fields = {
-  __typename?: "template_categories_max_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  titile?: Maybe<Scalars["String"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Int"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Int"]["output"]>;
-  ui_sm_c?: Maybe<Scalars["String"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Int"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Int"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'template_categories_max_fields';
+  id?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  titile?: Maybe<Scalars['String']['output']>;
+  ui_lg_c?: Maybe<Scalars['Int']['output']>;
+  ui_lg_w?: Maybe<Scalars['Int']['output']>;
+  ui_sm_c?: Maybe<Scalars['String']['output']>;
+  ui_sm_w?: Maybe<Scalars['Int']['output']>;
+  ui_table_c?: Maybe<Scalars['Int']['output']>;
+  ui_table_w?: Maybe<Scalars['Int']['output']>;
 };
 
 /** aggregate min on columns */
 export type Template_Categories_Min_Fields = {
-  __typename?: "template_categories_min_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  titile?: Maybe<Scalars["String"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Int"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Int"]["output"]>;
-  ui_sm_c?: Maybe<Scalars["String"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Int"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Int"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'template_categories_min_fields';
+  id?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  titile?: Maybe<Scalars['String']['output']>;
+  ui_lg_c?: Maybe<Scalars['Int']['output']>;
+  ui_lg_w?: Maybe<Scalars['Int']['output']>;
+  ui_sm_c?: Maybe<Scalars['String']['output']>;
+  ui_sm_w?: Maybe<Scalars['Int']['output']>;
+  ui_table_c?: Maybe<Scalars['Int']['output']>;
+  ui_table_w?: Maybe<Scalars['Int']['output']>;
 };
 
 /** response of any mutation on the table "template_categories" */
 export type Template_Categories_Mutation_Response = {
-  __typename?: "template_categories_mutation_response";
+  __typename?: 'template_categories_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Template_Categories>;
 };
@@ -11341,75 +11420,75 @@ export type Template_Categories_Order_By = {
 
 /** primary key columns input for table: template_categories */
 export type Template_Categories_Pk_Columns_Input = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
 
 /** select columns of table "template_categories" */
 export enum Template_Categories_Select_Column {
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Titile = "titile",
+  Titile = 'titile',
   /** column name */
-  UiLgC = "ui_lg_c",
+  UiLgC = 'ui_lg_c',
   /** column name */
-  UiLgW = "ui_lg_w",
+  UiLgW = 'ui_lg_w',
   /** column name */
-  UiSmC = "ui_sm_c",
+  UiSmC = 'ui_sm_c',
   /** column name */
-  UiSmW = "ui_sm_w",
+  UiSmW = 'ui_sm_w',
   /** column name */
-  UiTableC = "ui_table_c",
+  UiTableC = 'ui_table_c',
   /** column name */
-  UiTableW = "ui_table_w",
+  UiTableW = 'ui_table_w'
 }
 
 /** input type for updating data in table "template_categories" */
 export type Template_Categories_Set_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  titile?: InputMaybe<Scalars["String"]["input"]>;
-  ui_lg_c?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_lg_w?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_sm_c?: InputMaybe<Scalars["String"]["input"]>;
-  ui_sm_w?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_table_c?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_table_w?: InputMaybe<Scalars["Int"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  titile?: InputMaybe<Scalars['String']['input']>;
+  ui_lg_c?: InputMaybe<Scalars['Int']['input']>;
+  ui_lg_w?: InputMaybe<Scalars['Int']['input']>;
+  ui_sm_c?: InputMaybe<Scalars['String']['input']>;
+  ui_sm_w?: InputMaybe<Scalars['Int']['input']>;
+  ui_table_c?: InputMaybe<Scalars['Int']['input']>;
+  ui_table_w?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Template_Categories_Stddev_Fields = {
-  __typename?: "template_categories_stddev_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_categories_stddev_fields';
+  id?: Maybe<Scalars['Float']['output']>;
+  ui_lg_c?: Maybe<Scalars['Float']['output']>;
+  ui_lg_w?: Maybe<Scalars['Float']['output']>;
+  ui_sm_w?: Maybe<Scalars['Float']['output']>;
+  ui_table_c?: Maybe<Scalars['Float']['output']>;
+  ui_table_w?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Template_Categories_Stddev_Pop_Fields = {
-  __typename?: "template_categories_stddev_pop_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_categories_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']['output']>;
+  ui_lg_c?: Maybe<Scalars['Float']['output']>;
+  ui_lg_w?: Maybe<Scalars['Float']['output']>;
+  ui_sm_w?: Maybe<Scalars['Float']['output']>;
+  ui_table_c?: Maybe<Scalars['Float']['output']>;
+  ui_table_w?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Template_Categories_Stddev_Samp_Fields = {
-  __typename?: "template_categories_stddev_samp_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_categories_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']['output']>;
+  ui_lg_c?: Maybe<Scalars['Float']['output']>;
+  ui_lg_w?: Maybe<Scalars['Float']['output']>;
+  ui_sm_w?: Maybe<Scalars['Float']['output']>;
+  ui_table_c?: Maybe<Scalars['Float']['output']>;
+  ui_table_w?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "template_categories" */
@@ -11422,48 +11501,48 @@ export type Template_Categories_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Template_Categories_Stream_Cursor_Value_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  titile?: InputMaybe<Scalars["String"]["input"]>;
-  ui_lg_c?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_lg_w?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_sm_c?: InputMaybe<Scalars["String"]["input"]>;
-  ui_sm_w?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_table_c?: InputMaybe<Scalars["Int"]["input"]>;
-  ui_table_w?: InputMaybe<Scalars["Int"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  titile?: InputMaybe<Scalars['String']['input']>;
+  ui_lg_c?: InputMaybe<Scalars['Int']['input']>;
+  ui_lg_w?: InputMaybe<Scalars['Int']['input']>;
+  ui_sm_c?: InputMaybe<Scalars['String']['input']>;
+  ui_sm_w?: InputMaybe<Scalars['Int']['input']>;
+  ui_table_c?: InputMaybe<Scalars['Int']['input']>;
+  ui_table_w?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Template_Categories_Sum_Fields = {
-  __typename?: "template_categories_sum_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Int"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Int"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Int"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Int"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'template_categories_sum_fields';
+  id?: Maybe<Scalars['Int']['output']>;
+  ui_lg_c?: Maybe<Scalars['Int']['output']>;
+  ui_lg_w?: Maybe<Scalars['Int']['output']>;
+  ui_sm_w?: Maybe<Scalars['Int']['output']>;
+  ui_table_c?: Maybe<Scalars['Int']['output']>;
+  ui_table_w?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "template_categories" */
 export enum Template_Categories_Update_Column {
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Titile = "titile",
+  Titile = 'titile',
   /** column name */
-  UiLgC = "ui_lg_c",
+  UiLgC = 'ui_lg_c',
   /** column name */
-  UiLgW = "ui_lg_w",
+  UiLgW = 'ui_lg_w',
   /** column name */
-  UiSmC = "ui_sm_c",
+  UiSmC = 'ui_sm_c',
   /** column name */
-  UiSmW = "ui_sm_w",
+  UiSmW = 'ui_sm_w',
   /** column name */
-  UiTableC = "ui_table_c",
+  UiTableC = 'ui_table_c',
   /** column name */
-  UiTableW = "ui_table_w",
+  UiTableW = 'ui_table_w'
 }
 
 export type Template_Categories_Updates = {
@@ -11477,57 +11556,57 @@ export type Template_Categories_Updates = {
 
 /** aggregate var_pop on columns */
 export type Template_Categories_Var_Pop_Fields = {
-  __typename?: "template_categories_var_pop_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_categories_var_pop_fields';
+  id?: Maybe<Scalars['Float']['output']>;
+  ui_lg_c?: Maybe<Scalars['Float']['output']>;
+  ui_lg_w?: Maybe<Scalars['Float']['output']>;
+  ui_sm_w?: Maybe<Scalars['Float']['output']>;
+  ui_table_c?: Maybe<Scalars['Float']['output']>;
+  ui_table_w?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Template_Categories_Var_Samp_Fields = {
-  __typename?: "template_categories_var_samp_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_categories_var_samp_fields';
+  id?: Maybe<Scalars['Float']['output']>;
+  ui_lg_c?: Maybe<Scalars['Float']['output']>;
+  ui_lg_w?: Maybe<Scalars['Float']['output']>;
+  ui_sm_w?: Maybe<Scalars['Float']['output']>;
+  ui_table_c?: Maybe<Scalars['Float']['output']>;
+  ui_table_w?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Template_Categories_Variance_Fields = {
-  __typename?: "template_categories_variance_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_lg_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_sm_w?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_c?: Maybe<Scalars["Float"]["output"]>;
-  ui_table_w?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_categories_variance_fields';
+  id?: Maybe<Scalars['Float']['output']>;
+  ui_lg_c?: Maybe<Scalars['Float']['output']>;
+  ui_lg_w?: Maybe<Scalars['Float']['output']>;
+  ui_sm_w?: Maybe<Scalars['Float']['output']>;
+  ui_table_c?: Maybe<Scalars['Float']['output']>;
+  ui_table_w?: Maybe<Scalars['Float']['output']>;
 };
 
 /** columns and relationships of "template_tags" */
 export type Template_Tags = {
-  __typename?: "template_tags";
-  id: Scalars["Int"]["output"];
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'template_tags';
+  id: Scalars['Int']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregated selection of "template_tags" */
 export type Template_Tags_Aggregate = {
-  __typename?: "template_tags_aggregate";
+  __typename?: 'template_tags_aggregate';
   aggregate?: Maybe<Template_Tags_Aggregate_Fields>;
   nodes: Array<Template_Tags>;
 };
 
 /** aggregate fields of "template_tags" */
 export type Template_Tags_Aggregate_Fields = {
-  __typename?: "template_tags_aggregate_fields";
+  __typename?: 'template_tags_aggregate_fields';
   avg?: Maybe<Template_Tags_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Template_Tags_Max_Fields>;
   min?: Maybe<Template_Tags_Min_Fields>;
   stddev?: Maybe<Template_Tags_Stddev_Fields>;
@@ -11539,16 +11618,17 @@ export type Template_Tags_Aggregate_Fields = {
   variance?: Maybe<Template_Tags_Variance_Fields>;
 };
 
+
 /** aggregate fields of "template_tags" */
 export type Template_Tags_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Template_Tags_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Template_Tags_Avg_Fields = {
-  __typename?: "template_tags_avg_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_tags_avg_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "template_tags". All fields are combined with a logical 'AND'. */
@@ -11564,42 +11644,42 @@ export type Template_Tags_Bool_Exp = {
 /** unique or primary key constraints on table "template_tags" */
 export enum Template_Tags_Constraint {
   /** unique or primary key constraint on columns "id" */
-  TemplateTagsPkey = "template_tags_pkey",
+  TemplateTagsPkey = 'template_tags_pkey'
 }
 
 /** input type for incrementing numeric columns in table "template_tags" */
 export type Template_Tags_Inc_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "template_tags" */
 export type Template_Tags_Insert_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Template_Tags_Max_Fields = {
-  __typename?: "template_tags_max_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'template_tags_max_fields';
+  id?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregate min on columns */
 export type Template_Tags_Min_Fields = {
-  __typename?: "template_tags_min_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'template_tags_min_fields';
+  id?: Maybe<Scalars['Int']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** response of any mutation on the table "template_tags" */
 export type Template_Tags_Mutation_Response = {
-  __typename?: "template_tags_mutation_response";
+  __typename?: 'template_tags_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Template_Tags>;
 };
@@ -11620,42 +11700,42 @@ export type Template_Tags_Order_By = {
 
 /** primary key columns input for table: template_tags */
 export type Template_Tags_Pk_Columns_Input = {
-  id: Scalars["Int"]["input"];
+  id: Scalars['Int']['input'];
 };
 
 /** select columns of table "template_tags" */
 export enum Template_Tags_Select_Column {
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Title = "title",
+  Title = 'title'
 }
 
 /** input type for updating data in table "template_tags" */
 export type Template_Tags_Set_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Template_Tags_Stddev_Fields = {
-  __typename?: "template_tags_stddev_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_tags_stddev_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Template_Tags_Stddev_Pop_Fields = {
-  __typename?: "template_tags_stddev_pop_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_tags_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Template_Tags_Stddev_Samp_Fields = {
-  __typename?: "template_tags_stddev_samp_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_tags_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "template_tags" */
@@ -11668,25 +11748,25 @@ export type Template_Tags_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Template_Tags_Stream_Cursor_Value_Input = {
-  id?: InputMaybe<Scalars["Int"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Template_Tags_Sum_Fields = {
-  __typename?: "template_tags_sum_fields";
-  id?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'template_tags_sum_fields';
+  id?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "template_tags" */
 export enum Template_Tags_Update_Column {
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Title = "title",
+  Title = 'title'
 }
 
 export type Template_Tags_Updates = {
@@ -11700,47 +11780,48 @@ export type Template_Tags_Updates = {
 
 /** aggregate var_pop on columns */
 export type Template_Tags_Var_Pop_Fields = {
-  __typename?: "template_tags_var_pop_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_tags_var_pop_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Template_Tags_Var_Samp_Fields = {
-  __typename?: "template_tags_var_samp_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_tags_var_samp_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Template_Tags_Variance_Fields = {
-  __typename?: "template_tags_variance_fields";
-  id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'template_tags_variance_fields';
+  id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** columns and relationships of "templates" */
 export type Templates = {
-  __typename?: "templates";
-  description?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'templates';
+  description?: Maybe<Scalars['String']['output']>;
   /** An object relationship */
   directus_file?: Maybe<Directus_Files>;
-  filelds?: Maybe<Scalars["json"]["output"]>;
-  group_id?: Maybe<Scalars["Int"]["output"]>;
-  icon?: Maybe<Scalars["uuid"]["output"]>;
-  id: Scalars["uuid"]["output"];
-  name?: Maybe<Scalars["String"]["output"]>;
-  promt?: Maybe<Scalars["String"]["output"]>;
+  filelds?: Maybe<Scalars['json']['output']>;
+  group_id?: Maybe<Scalars['Int']['output']>;
+  icon?: Maybe<Scalars['uuid']['output']>;
+  id: Scalars['uuid']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  promt?: Maybe<Scalars['String']['output']>;
   /** An object relationship */
   template_category?: Maybe<Template_Categories>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  title?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** columns and relationships of "templates" */
 export type TemplatesFileldsArgs = {
-  path?: InputMaybe<Scalars["String"]["input"]>;
+  path?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregated selection of "templates" */
 export type Templates_Aggregate = {
-  __typename?: "templates_aggregate";
+  __typename?: 'templates_aggregate';
   aggregate?: Maybe<Templates_Aggregate_Fields>;
   nodes: Array<Templates>;
 };
@@ -11751,16 +11832,16 @@ export type Templates_Aggregate_Bool_Exp = {
 
 export type Templates_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<Templates_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
   filter?: InputMaybe<Templates_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "templates" */
 export type Templates_Aggregate_Fields = {
-  __typename?: "templates_aggregate_fields";
+  __typename?: 'templates_aggregate_fields';
   avg?: Maybe<Templates_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Templates_Max_Fields>;
   min?: Maybe<Templates_Min_Fields>;
   stddev?: Maybe<Templates_Stddev_Fields>;
@@ -11772,10 +11853,11 @@ export type Templates_Aggregate_Fields = {
   variance?: Maybe<Templates_Variance_Fields>;
 };
 
+
 /** aggregate fields of "templates" */
 export type Templates_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Templates_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "templates" */
@@ -11802,8 +11884,8 @@ export type Templates_Arr_Rel_Insert_Input = {
 
 /** aggregate avg on columns */
 export type Templates_Avg_Fields = {
-  __typename?: "templates_avg_fields";
-  group_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'templates_avg_fields';
+  group_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by avg() on columns of table "templates" */
@@ -11831,40 +11913,40 @@ export type Templates_Bool_Exp = {
 /** unique or primary key constraints on table "templates" */
 export enum Templates_Constraint {
   /** unique or primary key constraint on columns "id" */
-  TemplatesPkey = "templates_pkey",
+  TemplatesPkey = 'templates_pkey',
   /** unique or primary key constraint on columns "id" */
-  TemplatesUidKey = "templates_uid_key",
+  TemplatesUidKey = 'templates_uid_key'
 }
 
 /** input type for incrementing numeric columns in table "templates" */
 export type Templates_Inc_Input = {
-  group_id?: InputMaybe<Scalars["Int"]["input"]>;
+  group_id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "templates" */
 export type Templates_Insert_Input = {
-  description?: InputMaybe<Scalars["String"]["input"]>;
+  description?: InputMaybe<Scalars['String']['input']>;
   directus_file?: InputMaybe<Directus_Files_Obj_Rel_Insert_Input>;
-  filelds?: InputMaybe<Scalars["json"]["input"]>;
-  group_id?: InputMaybe<Scalars["Int"]["input"]>;
-  icon?: InputMaybe<Scalars["uuid"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  promt?: InputMaybe<Scalars["String"]["input"]>;
+  filelds?: InputMaybe<Scalars['json']['input']>;
+  group_id?: InputMaybe<Scalars['Int']['input']>;
+  icon?: InputMaybe<Scalars['uuid']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  promt?: InputMaybe<Scalars['String']['input']>;
   template_category?: InputMaybe<Template_Categories_Obj_Rel_Insert_Input>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Templates_Max_Fields = {
-  __typename?: "templates_max_fields";
-  description?: Maybe<Scalars["String"]["output"]>;
-  group_id?: Maybe<Scalars["Int"]["output"]>;
-  icon?: Maybe<Scalars["uuid"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  promt?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'templates_max_fields';
+  description?: Maybe<Scalars['String']['output']>;
+  group_id?: Maybe<Scalars['Int']['output']>;
+  icon?: Maybe<Scalars['uuid']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  promt?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** order by max() on columns of table "templates" */
@@ -11880,14 +11962,14 @@ export type Templates_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Templates_Min_Fields = {
-  __typename?: "templates_min_fields";
-  description?: Maybe<Scalars["String"]["output"]>;
-  group_id?: Maybe<Scalars["Int"]["output"]>;
-  icon?: Maybe<Scalars["uuid"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  promt?: Maybe<Scalars["String"]["output"]>;
-  title?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'templates_min_fields';
+  description?: Maybe<Scalars['String']['output']>;
+  group_id?: Maybe<Scalars['Int']['output']>;
+  icon?: Maybe<Scalars['uuid']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  promt?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
 };
 
 /** order by min() on columns of table "templates" */
@@ -11903,9 +11985,9 @@ export type Templates_Min_Order_By = {
 
 /** response of any mutation on the table "templates" */
 export type Templates_Mutation_Response = {
-  __typename?: "templates_mutation_response";
+  __typename?: 'templates_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Templates>;
 };
@@ -11933,45 +12015,45 @@ export type Templates_Order_By = {
 
 /** primary key columns input for table: templates */
 export type Templates_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "templates" */
 export enum Templates_Select_Column {
   /** column name */
-  Description = "description",
+  Description = 'description',
   /** column name */
-  Filelds = "filelds",
+  Filelds = 'filelds',
   /** column name */
-  GroupId = "group_id",
+  GroupId = 'group_id',
   /** column name */
-  Icon = "icon",
+  Icon = 'icon',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Promt = "promt",
+  Promt = 'promt',
   /** column name */
-  Title = "title",
+  Title = 'title'
 }
 
 /** input type for updating data in table "templates" */
 export type Templates_Set_Input = {
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  filelds?: InputMaybe<Scalars["json"]["input"]>;
-  group_id?: InputMaybe<Scalars["Int"]["input"]>;
-  icon?: InputMaybe<Scalars["uuid"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  promt?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  filelds?: InputMaybe<Scalars['json']['input']>;
+  group_id?: InputMaybe<Scalars['Int']['input']>;
+  icon?: InputMaybe<Scalars['uuid']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  promt?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Templates_Stddev_Fields = {
-  __typename?: "templates_stddev_fields";
-  group_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'templates_stddev_fields';
+  group_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev() on columns of table "templates" */
@@ -11981,8 +12063,8 @@ export type Templates_Stddev_Order_By = {
 
 /** aggregate stddev_pop on columns */
 export type Templates_Stddev_Pop_Fields = {
-  __typename?: "templates_stddev_pop_fields";
-  group_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'templates_stddev_pop_fields';
+  group_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev_pop() on columns of table "templates" */
@@ -11992,8 +12074,8 @@ export type Templates_Stddev_Pop_Order_By = {
 
 /** aggregate stddev_samp on columns */
 export type Templates_Stddev_Samp_Fields = {
-  __typename?: "templates_stddev_samp_fields";
-  group_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'templates_stddev_samp_fields';
+  group_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev_samp() on columns of table "templates" */
@@ -12011,20 +12093,20 @@ export type Templates_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Templates_Stream_Cursor_Value_Input = {
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  filelds?: InputMaybe<Scalars["json"]["input"]>;
-  group_id?: InputMaybe<Scalars["Int"]["input"]>;
-  icon?: InputMaybe<Scalars["uuid"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  promt?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  filelds?: InputMaybe<Scalars['json']['input']>;
+  group_id?: InputMaybe<Scalars['Int']['input']>;
+  icon?: InputMaybe<Scalars['uuid']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  promt?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Templates_Sum_Fields = {
-  __typename?: "templates_sum_fields";
-  group_id?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'templates_sum_fields';
+  group_id?: Maybe<Scalars['Int']['output']>;
 };
 
 /** order by sum() on columns of table "templates" */
@@ -12035,21 +12117,21 @@ export type Templates_Sum_Order_By = {
 /** update columns of table "templates" */
 export enum Templates_Update_Column {
   /** column name */
-  Description = "description",
+  Description = 'description',
   /** column name */
-  Filelds = "filelds",
+  Filelds = 'filelds',
   /** column name */
-  GroupId = "group_id",
+  GroupId = 'group_id',
   /** column name */
-  Icon = "icon",
+  Icon = 'icon',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  Promt = "promt",
+  Promt = 'promt',
   /** column name */
-  Title = "title",
+  Title = 'title'
 }
 
 export type Templates_Updates = {
@@ -12063,8 +12145,8 @@ export type Templates_Updates = {
 
 /** aggregate var_pop on columns */
 export type Templates_Var_Pop_Fields = {
-  __typename?: "templates_var_pop_fields";
-  group_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'templates_var_pop_fields';
+  group_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by var_pop() on columns of table "templates" */
@@ -12074,8 +12156,8 @@ export type Templates_Var_Pop_Order_By = {
 
 /** aggregate var_samp on columns */
 export type Templates_Var_Samp_Fields = {
-  __typename?: "templates_var_samp_fields";
-  group_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'templates_var_samp_fields';
+  group_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by var_samp() on columns of table "templates" */
@@ -12085,8 +12167,8 @@ export type Templates_Var_Samp_Order_By = {
 
 /** aggregate variance on columns */
 export type Templates_Variance_Fields = {
-  __typename?: "templates_variance_fields";
-  group_id?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'templates_variance_fields';
+  group_id?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by variance() on columns of table "templates" */
@@ -12096,52 +12178,52 @@ export type Templates_Variance_Order_By = {
 
 /** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
 export type Timestamp_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars["timestamp"]["input"]>;
-  _gt?: InputMaybe<Scalars["timestamp"]["input"]>;
-  _gte?: InputMaybe<Scalars["timestamp"]["input"]>;
-  _in?: InputMaybe<Array<Scalars["timestamp"]["input"]>>;
-  _is_null?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _lt?: InputMaybe<Scalars["timestamp"]["input"]>;
-  _lte?: InputMaybe<Scalars["timestamp"]["input"]>;
-  _neq?: InputMaybe<Scalars["timestamp"]["input"]>;
-  _nin?: InputMaybe<Array<Scalars["timestamp"]["input"]>>;
+  _eq?: InputMaybe<Scalars['timestamp']['input']>;
+  _gt?: InputMaybe<Scalars['timestamp']['input']>;
+  _gte?: InputMaybe<Scalars['timestamp']['input']>;
+  _in?: InputMaybe<Array<Scalars['timestamp']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['timestamp']['input']>;
+  _lte?: InputMaybe<Scalars['timestamp']['input']>;
+  _neq?: InputMaybe<Scalars['timestamp']['input']>;
+  _nin?: InputMaybe<Array<Scalars['timestamp']['input']>>;
 };
 
 /** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
 export type Timestamptz_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  _gt?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  _gte?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  _in?: InputMaybe<Array<Scalars["timestamptz"]["input"]>>;
-  _is_null?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _lt?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  _lte?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  _neq?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  _nin?: InputMaybe<Array<Scalars["timestamptz"]["input"]>>;
+  _eq?: InputMaybe<Scalars['timestamptz']['input']>;
+  _gt?: InputMaybe<Scalars['timestamptz']['input']>;
+  _gte?: InputMaybe<Scalars['timestamptz']['input']>;
+  _in?: InputMaybe<Array<Scalars['timestamptz']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['timestamptz']['input']>;
+  _lte?: InputMaybe<Scalars['timestamptz']['input']>;
+  _neq?: InputMaybe<Scalars['timestamptz']['input']>;
+  _nin?: InputMaybe<Array<Scalars['timestamptz']['input']>>;
 };
 
 /** columns and relationships of "tokens_history" */
 export type Tokens_History = {
-  __typename?: "tokens_history";
-  additional_tokens?: Maybe<Scalars["Int"]["output"]>;
-  date: Scalars["timestamptz"]["output"];
-  id: Scalars["uuid"]["output"];
-  tokens: Scalars["Int"]["output"];
-  user_id: Scalars["uuid"]["output"];
+  __typename?: 'tokens_history';
+  additional_tokens?: Maybe<Scalars['Int']['output']>;
+  date: Scalars['timestamptz']['output'];
+  id: Scalars['uuid']['output'];
+  tokens: Scalars['Int']['output'];
+  user_id: Scalars['uuid']['output'];
 };
 
 /** aggregated selection of "tokens_history" */
 export type Tokens_History_Aggregate = {
-  __typename?: "tokens_history_aggregate";
+  __typename?: 'tokens_history_aggregate';
   aggregate?: Maybe<Tokens_History_Aggregate_Fields>;
   nodes: Array<Tokens_History>;
 };
 
 /** aggregate fields of "tokens_history" */
 export type Tokens_History_Aggregate_Fields = {
-  __typename?: "tokens_history_aggregate_fields";
+  __typename?: 'tokens_history_aggregate_fields';
   avg?: Maybe<Tokens_History_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Tokens_History_Max_Fields>;
   min?: Maybe<Tokens_History_Min_Fields>;
   stddev?: Maybe<Tokens_History_Stddev_Fields>;
@@ -12153,17 +12235,18 @@ export type Tokens_History_Aggregate_Fields = {
   variance?: Maybe<Tokens_History_Variance_Fields>;
 };
 
+
 /** aggregate fields of "tokens_history" */
 export type Tokens_History_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Tokens_History_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Tokens_History_Avg_Fields = {
-  __typename?: "tokens_history_avg_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'tokens_history_avg_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "tokens_history". All fields are combined with a logical 'AND'. */
@@ -12181,49 +12264,49 @@ export type Tokens_History_Bool_Exp = {
 /** unique or primary key constraints on table "tokens_history" */
 export enum Tokens_History_Constraint {
   /** unique or primary key constraint on columns "id" */
-  TokensHistoryPkey = "tokens_history_pkey",
+  TokensHistoryPkey = 'tokens_history_pkey'
 }
 
 /** input type for incrementing numeric columns in table "tokens_history" */
 export type Tokens_History_Inc_Input = {
-  additional_tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
+  additional_tokens?: InputMaybe<Scalars['Int']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "tokens_history" */
 export type Tokens_History_Insert_Input = {
-  additional_tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  date?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  user_id?: InputMaybe<Scalars["uuid"]["input"]>;
+  additional_tokens?: InputMaybe<Scalars['Int']['input']>;
+  date?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
 export type Tokens_History_Max_Fields = {
-  __typename?: "tokens_history_max_fields";
-  additional_tokens?: Maybe<Scalars["Int"]["output"]>;
-  date?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  tokens?: Maybe<Scalars["Int"]["output"]>;
-  user_id?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'tokens_history_max_fields';
+  additional_tokens?: Maybe<Scalars['Int']['output']>;
+  date?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  tokens?: Maybe<Scalars['Int']['output']>;
+  user_id?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** aggregate min on columns */
 export type Tokens_History_Min_Fields = {
-  __typename?: "tokens_history_min_fields";
-  additional_tokens?: Maybe<Scalars["Int"]["output"]>;
-  date?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  tokens?: Maybe<Scalars["Int"]["output"]>;
-  user_id?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'tokens_history_min_fields';
+  additional_tokens?: Maybe<Scalars['Int']['output']>;
+  date?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  tokens?: Maybe<Scalars['Int']['output']>;
+  user_id?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** response of any mutation on the table "tokens_history" */
 export type Tokens_History_Mutation_Response = {
-  __typename?: "tokens_history_mutation_response";
+  __typename?: 'tokens_history_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Tokens_History>;
 };
@@ -12246,51 +12329,51 @@ export type Tokens_History_Order_By = {
 
 /** primary key columns input for table: tokens_history */
 export type Tokens_History_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "tokens_history" */
 export enum Tokens_History_Select_Column {
   /** column name */
-  AdditionalTokens = "additional_tokens",
+  AdditionalTokens = 'additional_tokens',
   /** column name */
-  Date = "date",
+  Date = 'date',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Tokens = "tokens",
+  Tokens = 'tokens',
   /** column name */
-  UserId = "user_id",
+  UserId = 'user_id'
 }
 
 /** input type for updating data in table "tokens_history" */
 export type Tokens_History_Set_Input = {
-  additional_tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  date?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  user_id?: InputMaybe<Scalars["uuid"]["input"]>;
+  additional_tokens?: InputMaybe<Scalars['Int']['input']>;
+  date?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Tokens_History_Stddev_Fields = {
-  __typename?: "tokens_history_stddev_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'tokens_history_stddev_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Tokens_History_Stddev_Pop_Fields = {
-  __typename?: "tokens_history_stddev_pop_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'tokens_history_stddev_pop_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Tokens_History_Stddev_Samp_Fields = {
-  __typename?: "tokens_history_stddev_samp_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'tokens_history_stddev_samp_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "tokens_history" */
@@ -12303,32 +12386,32 @@ export type Tokens_History_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Tokens_History_Stream_Cursor_Value_Input = {
-  additional_tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  date?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  user_id?: InputMaybe<Scalars["uuid"]["input"]>;
+  additional_tokens?: InputMaybe<Scalars['Int']['input']>;
+  date?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Tokens_History_Sum_Fields = {
-  __typename?: "tokens_history_sum_fields";
-  additional_tokens?: Maybe<Scalars["Int"]["output"]>;
-  tokens?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'tokens_history_sum_fields';
+  additional_tokens?: Maybe<Scalars['Int']['output']>;
+  tokens?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "tokens_history" */
 export enum Tokens_History_Update_Column {
   /** column name */
-  AdditionalTokens = "additional_tokens",
+  AdditionalTokens = 'additional_tokens',
   /** column name */
-  Date = "date",
+  Date = 'date',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Tokens = "tokens",
+  Tokens = 'tokens',
   /** column name */
-  UserId = "user_id",
+  UserId = 'user_id'
 }
 
 export type Tokens_History_Updates = {
@@ -12342,130 +12425,137 @@ export type Tokens_History_Updates = {
 
 /** aggregate var_pop on columns */
 export type Tokens_History_Var_Pop_Fields = {
-  __typename?: "tokens_history_var_pop_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'tokens_history_var_pop_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Tokens_History_Var_Samp_Fields = {
-  __typename?: "tokens_history_var_samp_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'tokens_history_var_samp_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Tokens_History_Variance_Fields = {
-  __typename?: "tokens_history_variance_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'tokens_history_variance_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** columns and relationships of "users" */
 export type Users = {
-  __typename?: "users";
+  __typename?: 'users';
   /** An object relationship */
   accounts?: Maybe<Accounts>;
-  ai_text_model?: Maybe<Scalars["String"]["output"]>;
-  card_token?: Maybe<Scalars["String"]["output"]>;
+  ai_text_model?: Maybe<Scalars['String']['output']>;
+  card_token?: Maybe<Scalars['String']['output']>;
   /** An array relationship */
   chats: Array<Chats>;
   /** An aggregate relationship */
   chats_aggregate: Chats_Aggregate;
-  date_end_plan?: Maybe<Scalars["timestamptz"]["output"]>;
+  date_end_plan?: Maybe<Scalars['timestamptz']['output']>;
   /** An array relationship */
   documents: Array<Documents>;
   /** An aggregate relationship */
   documents_aggregate: Documents_Aggregate;
-  email: Scalars["String"]["output"];
-  emailVerified?: Maybe<Scalars["timestamptz"]["output"]>;
-  id: Scalars["uuid"]["output"];
-  image?: Maybe<Scalars["String"]["output"]>;
-  is_client?: Maybe<Scalars["Boolean"]["output"]>;
-  is_former_client?: Maybe<Scalars["Boolean"]["output"]>;
-  is_subscriber?: Maybe<Scalars["Boolean"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  plan_id?: Maybe<Scalars["uuid"]["output"]>;
+  email: Scalars['String']['output'];
+  emailVerified?: Maybe<Scalars['timestamptz']['output']>;
+  id: Scalars['uuid']['output'];
+  image?: Maybe<Scalars['String']['output']>;
+  is_client?: Maybe<Scalars['Boolean']['output']>;
+  is_former_client?: Maybe<Scalars['Boolean']['output']>;
+  is_subscriber?: Maybe<Scalars['Boolean']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  plan_id?: Maybe<Scalars['uuid']['output']>;
   /** An array relationship */
   sessions: Array<Sessions>;
   /** An aggregate relationship */
   sessions_aggregate: Sessions_Aggregate;
-  subscription_id?: Maybe<Scalars["String"]["output"]>;
+  subscription_id?: Maybe<Scalars['String']['output']>;
 };
+
 
 /** columns and relationships of "users" */
 export type UsersChatsArgs = {
   distinct_on?: InputMaybe<Array<Chats_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Chats_Order_By>>;
   where?: InputMaybe<Chats_Bool_Exp>;
 };
+
 
 /** columns and relationships of "users" */
 export type UsersChats_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Chats_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Chats_Order_By>>;
   where?: InputMaybe<Chats_Bool_Exp>;
 };
 
+
 /** columns and relationships of "users" */
 export type UsersDocumentsArgs = {
   distinct_on?: InputMaybe<Array<Documents_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Documents_Order_By>>;
   where?: InputMaybe<Documents_Bool_Exp>;
 };
+
 
 /** columns and relationships of "users" */
 export type UsersDocuments_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Documents_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Documents_Order_By>>;
   where?: InputMaybe<Documents_Bool_Exp>;
 };
 
+
 /** columns and relationships of "users" */
 export type UsersSessionsArgs = {
   distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Sessions_Order_By>>;
   where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
+
 /** columns and relationships of "users" */
 export type UsersSessions_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Sessions_Order_By>>;
   where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 /** aggregated selection of "users" */
 export type Users_Aggregate = {
-  __typename?: "users_aggregate";
+  __typename?: 'users_aggregate';
   aggregate?: Maybe<Users_Aggregate_Fields>;
   nodes: Array<Users>;
 };
 
 /** aggregate fields of "users" */
 export type Users_Aggregate_Fields = {
-  __typename?: "users_aggregate_fields";
-  count: Scalars["Int"]["output"];
+  __typename?: 'users_aggregate_fields';
+  count: Scalars['Int']['output'];
   max?: Maybe<Users_Max_Fields>;
   min?: Maybe<Users_Min_Fields>;
 };
 
+
 /** aggregate fields of "users" */
 export type Users_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Users_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'. */
@@ -12498,67 +12588,67 @@ export type Users_Bool_Exp = {
 /** unique or primary key constraints on table "users" */
 export enum Users_Constraint {
   /** unique or primary key constraint on columns "email" */
-  UsersEmailKey = "users_email_key",
+  UsersEmailKey = 'users_email_key',
   /** unique or primary key constraint on columns "id" */
-  UsersPkey = "users_pkey",
+  UsersPkey = 'users_pkey'
 }
 
 /** input type for inserting data into table "users" */
 export type Users_Insert_Input = {
   accounts?: InputMaybe<Accounts_Obj_Rel_Insert_Input>;
-  ai_text_model?: InputMaybe<Scalars["String"]["input"]>;
-  card_token?: InputMaybe<Scalars["String"]["input"]>;
+  ai_text_model?: InputMaybe<Scalars['String']['input']>;
+  card_token?: InputMaybe<Scalars['String']['input']>;
   chats?: InputMaybe<Chats_Arr_Rel_Insert_Input>;
-  date_end_plan?: InputMaybe<Scalars["timestamptz"]["input"]>;
+  date_end_plan?: InputMaybe<Scalars['timestamptz']['input']>;
   documents?: InputMaybe<Documents_Arr_Rel_Insert_Input>;
-  email?: InputMaybe<Scalars["String"]["input"]>;
-  emailVerified?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  image?: InputMaybe<Scalars["String"]["input"]>;
-  is_client?: InputMaybe<Scalars["Boolean"]["input"]>;
-  is_former_client?: InputMaybe<Scalars["Boolean"]["input"]>;
-  is_subscriber?: InputMaybe<Scalars["Boolean"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  plan_id?: InputMaybe<Scalars["uuid"]["input"]>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  emailVerified?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  is_client?: InputMaybe<Scalars['Boolean']['input']>;
+  is_former_client?: InputMaybe<Scalars['Boolean']['input']>;
+  is_subscriber?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  plan_id?: InputMaybe<Scalars['uuid']['input']>;
   sessions?: InputMaybe<Sessions_Arr_Rel_Insert_Input>;
-  subscription_id?: InputMaybe<Scalars["String"]["input"]>;
+  subscription_id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Users_Max_Fields = {
-  __typename?: "users_max_fields";
-  ai_text_model?: Maybe<Scalars["String"]["output"]>;
-  card_token?: Maybe<Scalars["String"]["output"]>;
-  date_end_plan?: Maybe<Scalars["timestamptz"]["output"]>;
-  email?: Maybe<Scalars["String"]["output"]>;
-  emailVerified?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  image?: Maybe<Scalars["String"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  plan_id?: Maybe<Scalars["uuid"]["output"]>;
-  subscription_id?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'users_max_fields';
+  ai_text_model?: Maybe<Scalars['String']['output']>;
+  card_token?: Maybe<Scalars['String']['output']>;
+  date_end_plan?: Maybe<Scalars['timestamptz']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  emailVerified?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  image?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  plan_id?: Maybe<Scalars['uuid']['output']>;
+  subscription_id?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregate min on columns */
 export type Users_Min_Fields = {
-  __typename?: "users_min_fields";
-  ai_text_model?: Maybe<Scalars["String"]["output"]>;
-  card_token?: Maybe<Scalars["String"]["output"]>;
-  date_end_plan?: Maybe<Scalars["timestamptz"]["output"]>;
-  email?: Maybe<Scalars["String"]["output"]>;
-  emailVerified?: Maybe<Scalars["timestamptz"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  image?: Maybe<Scalars["String"]["output"]>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  plan_id?: Maybe<Scalars["uuid"]["output"]>;
-  subscription_id?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'users_min_fields';
+  ai_text_model?: Maybe<Scalars['String']['output']>;
+  card_token?: Maybe<Scalars['String']['output']>;
+  date_end_plan?: Maybe<Scalars['timestamptz']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  emailVerified?: Maybe<Scalars['timestamptz']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  image?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  plan_id?: Maybe<Scalars['uuid']['output']>;
+  subscription_id?: Maybe<Scalars['String']['output']>;
 };
 
 /** response of any mutation on the table "users" */
 export type Users_Mutation_Response = {
-  __typename?: "users_mutation_response";
+  __typename?: 'users_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Users>;
 };
@@ -12600,54 +12690,54 @@ export type Users_Order_By = {
 
 /** primary key columns input for table: users */
 export type Users_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "users" */
 export enum Users_Select_Column {
   /** column name */
-  AiTextModel = "ai_text_model",
+  AiTextModel = 'ai_text_model',
   /** column name */
-  CardToken = "card_token",
+  CardToken = 'card_token',
   /** column name */
-  DateEndPlan = "date_end_plan",
+  DateEndPlan = 'date_end_plan',
   /** column name */
-  Email = "email",
+  Email = 'email',
   /** column name */
-  EmailVerified = "emailVerified",
+  EmailVerified = 'emailVerified',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Image = "image",
+  Image = 'image',
   /** column name */
-  IsClient = "is_client",
+  IsClient = 'is_client',
   /** column name */
-  IsFormerClient = "is_former_client",
+  IsFormerClient = 'is_former_client',
   /** column name */
-  IsSubscriber = "is_subscriber",
+  IsSubscriber = 'is_subscriber',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  PlanId = "plan_id",
+  PlanId = 'plan_id',
   /** column name */
-  SubscriptionId = "subscription_id",
+  SubscriptionId = 'subscription_id'
 }
 
 /** input type for updating data in table "users" */
 export type Users_Set_Input = {
-  ai_text_model?: InputMaybe<Scalars["String"]["input"]>;
-  card_token?: InputMaybe<Scalars["String"]["input"]>;
-  date_end_plan?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  email?: InputMaybe<Scalars["String"]["input"]>;
-  emailVerified?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  image?: InputMaybe<Scalars["String"]["input"]>;
-  is_client?: InputMaybe<Scalars["Boolean"]["input"]>;
-  is_former_client?: InputMaybe<Scalars["Boolean"]["input"]>;
-  is_subscriber?: InputMaybe<Scalars["Boolean"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  plan_id?: InputMaybe<Scalars["uuid"]["input"]>;
-  subscription_id?: InputMaybe<Scalars["String"]["input"]>;
+  ai_text_model?: InputMaybe<Scalars['String']['input']>;
+  card_token?: InputMaybe<Scalars['String']['input']>;
+  date_end_plan?: InputMaybe<Scalars['timestamptz']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  emailVerified?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  is_client?: InputMaybe<Scalars['Boolean']['input']>;
+  is_former_client?: InputMaybe<Scalars['Boolean']['input']>;
+  is_subscriber?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  plan_id?: InputMaybe<Scalars['uuid']['input']>;
+  subscription_id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Streaming cursor of the table "users" */
@@ -12660,49 +12750,49 @@ export type Users_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Users_Stream_Cursor_Value_Input = {
-  ai_text_model?: InputMaybe<Scalars["String"]["input"]>;
-  card_token?: InputMaybe<Scalars["String"]["input"]>;
-  date_end_plan?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  email?: InputMaybe<Scalars["String"]["input"]>;
-  emailVerified?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  image?: InputMaybe<Scalars["String"]["input"]>;
-  is_client?: InputMaybe<Scalars["Boolean"]["input"]>;
-  is_former_client?: InputMaybe<Scalars["Boolean"]["input"]>;
-  is_subscriber?: InputMaybe<Scalars["Boolean"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  plan_id?: InputMaybe<Scalars["uuid"]["input"]>;
-  subscription_id?: InputMaybe<Scalars["String"]["input"]>;
+  ai_text_model?: InputMaybe<Scalars['String']['input']>;
+  card_token?: InputMaybe<Scalars['String']['input']>;
+  date_end_plan?: InputMaybe<Scalars['timestamptz']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  emailVerified?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  is_client?: InputMaybe<Scalars['Boolean']['input']>;
+  is_former_client?: InputMaybe<Scalars['Boolean']['input']>;
+  is_subscriber?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  plan_id?: InputMaybe<Scalars['uuid']['input']>;
+  subscription_id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** update columns of table "users" */
 export enum Users_Update_Column {
   /** column name */
-  AiTextModel = "ai_text_model",
+  AiTextModel = 'ai_text_model',
   /** column name */
-  CardToken = "card_token",
+  CardToken = 'card_token',
   /** column name */
-  DateEndPlan = "date_end_plan",
+  DateEndPlan = 'date_end_plan',
   /** column name */
-  Email = "email",
+  Email = 'email',
   /** column name */
-  EmailVerified = "emailVerified",
+  EmailVerified = 'emailVerified',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  Image = "image",
+  Image = 'image',
   /** column name */
-  IsClient = "is_client",
+  IsClient = 'is_client',
   /** column name */
-  IsFormerClient = "is_former_client",
+  IsFormerClient = 'is_former_client',
   /** column name */
-  IsSubscriber = "is_subscriber",
+  IsSubscriber = 'is_subscriber',
   /** column name */
-  Name = "name",
+  Name = 'name',
   /** column name */
-  PlanId = "plan_id",
+  PlanId = 'plan_id',
   /** column name */
-  SubscriptionId = "subscription_id",
+  SubscriptionId = 'subscription_id'
 }
 
 export type Users_Updates = {
@@ -12714,44 +12804,45 @@ export type Users_Updates = {
 
 /** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
 export type Uuid_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars["uuid"]["input"]>;
-  _gt?: InputMaybe<Scalars["uuid"]["input"]>;
-  _gte?: InputMaybe<Scalars["uuid"]["input"]>;
-  _in?: InputMaybe<Array<Scalars["uuid"]["input"]>>;
-  _is_null?: InputMaybe<Scalars["Boolean"]["input"]>;
-  _lt?: InputMaybe<Scalars["uuid"]["input"]>;
-  _lte?: InputMaybe<Scalars["uuid"]["input"]>;
-  _neq?: InputMaybe<Scalars["uuid"]["input"]>;
-  _nin?: InputMaybe<Array<Scalars["uuid"]["input"]>>;
+  _eq?: InputMaybe<Scalars['uuid']['input']>;
+  _gt?: InputMaybe<Scalars['uuid']['input']>;
+  _gte?: InputMaybe<Scalars['uuid']['input']>;
+  _in?: InputMaybe<Array<Scalars['uuid']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['uuid']['input']>;
+  _lte?: InputMaybe<Scalars['uuid']['input']>;
+  _neq?: InputMaybe<Scalars['uuid']['input']>;
+  _nin?: InputMaybe<Array<Scalars['uuid']['input']>>;
 };
 
 /** columns and relationships of "verification_tokens" */
 export type Verification_Tokens = {
-  __typename?: "verification_tokens";
-  expires: Scalars["timestamptz"]["output"];
-  identifier: Scalars["String"]["output"];
-  token: Scalars["String"]["output"];
+  __typename?: 'verification_tokens';
+  expires: Scalars['timestamptz']['output'];
+  identifier: Scalars['String']['output'];
+  token: Scalars['String']['output'];
 };
 
 /** aggregated selection of "verification_tokens" */
 export type Verification_Tokens_Aggregate = {
-  __typename?: "verification_tokens_aggregate";
+  __typename?: 'verification_tokens_aggregate';
   aggregate?: Maybe<Verification_Tokens_Aggregate_Fields>;
   nodes: Array<Verification_Tokens>;
 };
 
 /** aggregate fields of "verification_tokens" */
 export type Verification_Tokens_Aggregate_Fields = {
-  __typename?: "verification_tokens_aggregate_fields";
-  count: Scalars["Int"]["output"];
+  __typename?: 'verification_tokens_aggregate_fields';
+  count: Scalars['Int']['output'];
   max?: Maybe<Verification_Tokens_Max_Fields>;
   min?: Maybe<Verification_Tokens_Min_Fields>;
 };
 
+
 /** aggregate fields of "verification_tokens" */
 export type Verification_Tokens_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Verification_Tokens_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Boolean expression to filter rows from the table "verification_tokens". All fields are combined with a logical 'AND'. */
@@ -12767,37 +12858,37 @@ export type Verification_Tokens_Bool_Exp = {
 /** unique or primary key constraints on table "verification_tokens" */
 export enum Verification_Tokens_Constraint {
   /** unique or primary key constraint on columns "token" */
-  VerificationTokensPkey = "verification_tokens_pkey",
+  VerificationTokensPkey = 'verification_tokens_pkey'
 }
 
 /** input type for inserting data into table "verification_tokens" */
 export type Verification_Tokens_Insert_Input = {
-  expires?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  identifier?: InputMaybe<Scalars["String"]["input"]>;
-  token?: InputMaybe<Scalars["String"]["input"]>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  identifier?: InputMaybe<Scalars['String']['input']>;
+  token?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
 export type Verification_Tokens_Max_Fields = {
-  __typename?: "verification_tokens_max_fields";
-  expires?: Maybe<Scalars["timestamptz"]["output"]>;
-  identifier?: Maybe<Scalars["String"]["output"]>;
-  token?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'verification_tokens_max_fields';
+  expires?: Maybe<Scalars['timestamptz']['output']>;
+  identifier?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregate min on columns */
 export type Verification_Tokens_Min_Fields = {
-  __typename?: "verification_tokens_min_fields";
-  expires?: Maybe<Scalars["timestamptz"]["output"]>;
-  identifier?: Maybe<Scalars["String"]["output"]>;
-  token?: Maybe<Scalars["String"]["output"]>;
+  __typename?: 'verification_tokens_min_fields';
+  expires?: Maybe<Scalars['timestamptz']['output']>;
+  identifier?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']['output']>;
 };
 
 /** response of any mutation on the table "verification_tokens" */
 export type Verification_Tokens_Mutation_Response = {
-  __typename?: "verification_tokens_mutation_response";
+  __typename?: 'verification_tokens_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Verification_Tokens>;
 };
@@ -12818,24 +12909,24 @@ export type Verification_Tokens_Order_By = {
 
 /** primary key columns input for table: verification_tokens */
 export type Verification_Tokens_Pk_Columns_Input = {
-  token: Scalars["String"]["input"];
+  token: Scalars['String']['input'];
 };
 
 /** select columns of table "verification_tokens" */
 export enum Verification_Tokens_Select_Column {
   /** column name */
-  Expires = "expires",
+  Expires = 'expires',
   /** column name */
-  Identifier = "identifier",
+  Identifier = 'identifier',
   /** column name */
-  Token = "token",
+  Token = 'token'
 }
 
 /** input type for updating data in table "verification_tokens" */
 export type Verification_Tokens_Set_Input = {
-  expires?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  identifier?: InputMaybe<Scalars["String"]["input"]>;
-  token?: InputMaybe<Scalars["String"]["input"]>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  identifier?: InputMaybe<Scalars['String']['input']>;
+  token?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Streaming cursor of the table "verification_tokens" */
@@ -12848,19 +12939,19 @@ export type Verification_Tokens_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Verification_Tokens_Stream_Cursor_Value_Input = {
-  expires?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  identifier?: InputMaybe<Scalars["String"]["input"]>;
-  token?: InputMaybe<Scalars["String"]["input"]>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  identifier?: InputMaybe<Scalars['String']['input']>;
+  token?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** update columns of table "verification_tokens" */
 export enum Verification_Tokens_Update_Column {
   /** column name */
-  Expires = "expires",
+  Expires = 'expires',
   /** column name */
-  Identifier = "identifier",
+  Identifier = 'identifier',
   /** column name */
-  Token = "token",
+  Token = 'token'
 }
 
 export type Verification_Tokens_Updates = {
@@ -12872,28 +12963,28 @@ export type Verification_Tokens_Updates = {
 
 /** columns and relationships of "wallets" */
 export type Wallets = {
-  __typename?: "wallets";
-  additional_tokens?: Maybe<Scalars["Int"]["output"]>;
-  id: Scalars["uuid"]["output"];
-  last_use: Scalars["timestamptz"]["output"];
-  tokens: Scalars["Int"]["output"];
-  user_id: Scalars["uuid"]["output"];
+  __typename?: 'wallets';
+  additional_tokens?: Maybe<Scalars['Int']['output']>;
+  id: Scalars['uuid']['output'];
+  last_use: Scalars['timestamptz']['output'];
+  tokens: Scalars['Int']['output'];
+  user_id: Scalars['uuid']['output'];
   /** An object relationship */
   users?: Maybe<Users>;
 };
 
 /** aggregated selection of "wallets" */
 export type Wallets_Aggregate = {
-  __typename?: "wallets_aggregate";
+  __typename?: 'wallets_aggregate';
   aggregate?: Maybe<Wallets_Aggregate_Fields>;
   nodes: Array<Wallets>;
 };
 
 /** aggregate fields of "wallets" */
 export type Wallets_Aggregate_Fields = {
-  __typename?: "wallets_aggregate_fields";
+  __typename?: 'wallets_aggregate_fields';
   avg?: Maybe<Wallets_Avg_Fields>;
-  count: Scalars["Int"]["output"];
+  count: Scalars['Int']['output'];
   max?: Maybe<Wallets_Max_Fields>;
   min?: Maybe<Wallets_Min_Fields>;
   stddev?: Maybe<Wallets_Stddev_Fields>;
@@ -12905,17 +12996,18 @@ export type Wallets_Aggregate_Fields = {
   variance?: Maybe<Wallets_Variance_Fields>;
 };
 
+
 /** aggregate fields of "wallets" */
 export type Wallets_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Wallets_Select_Column>>;
-  distinct?: InputMaybe<Scalars["Boolean"]["input"]>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** aggregate avg on columns */
 export type Wallets_Avg_Fields = {
-  __typename?: "wallets_avg_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'wallets_avg_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "wallets". All fields are combined with a logical 'AND'. */
@@ -12934,50 +13026,50 @@ export type Wallets_Bool_Exp = {
 /** unique or primary key constraints on table "wallets" */
 export enum Wallets_Constraint {
   /** unique or primary key constraint on columns "id" */
-  WalletsPkey = "wallets_pkey",
+  WalletsPkey = 'wallets_pkey'
 }
 
 /** input type for incrementing numeric columns in table "wallets" */
 export type Wallets_Inc_Input = {
-  additional_tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
+  additional_tokens?: InputMaybe<Scalars['Int']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "wallets" */
 export type Wallets_Insert_Input = {
-  additional_tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  last_use?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  user_id?: InputMaybe<Scalars["uuid"]["input"]>;
+  additional_tokens?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  last_use?: InputMaybe<Scalars['timestamptz']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
   users?: InputMaybe<Users_Obj_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
 export type Wallets_Max_Fields = {
-  __typename?: "wallets_max_fields";
-  additional_tokens?: Maybe<Scalars["Int"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  last_use?: Maybe<Scalars["timestamptz"]["output"]>;
-  tokens?: Maybe<Scalars["Int"]["output"]>;
-  user_id?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'wallets_max_fields';
+  additional_tokens?: Maybe<Scalars['Int']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  last_use?: Maybe<Scalars['timestamptz']['output']>;
+  tokens?: Maybe<Scalars['Int']['output']>;
+  user_id?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** aggregate min on columns */
 export type Wallets_Min_Fields = {
-  __typename?: "wallets_min_fields";
-  additional_tokens?: Maybe<Scalars["Int"]["output"]>;
-  id?: Maybe<Scalars["uuid"]["output"]>;
-  last_use?: Maybe<Scalars["timestamptz"]["output"]>;
-  tokens?: Maybe<Scalars["Int"]["output"]>;
-  user_id?: Maybe<Scalars["uuid"]["output"]>;
+  __typename?: 'wallets_min_fields';
+  additional_tokens?: Maybe<Scalars['Int']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  last_use?: Maybe<Scalars['timestamptz']['output']>;
+  tokens?: Maybe<Scalars['Int']['output']>;
+  user_id?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** response of any mutation on the table "wallets" */
 export type Wallets_Mutation_Response = {
-  __typename?: "wallets_mutation_response";
+  __typename?: 'wallets_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars["Int"]["output"];
+  affected_rows: Scalars['Int']['output'];
   /** data from the rows affected by the mutation */
   returning: Array<Wallets>;
 };
@@ -13001,51 +13093,51 @@ export type Wallets_Order_By = {
 
 /** primary key columns input for table: wallets */
 export type Wallets_Pk_Columns_Input = {
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "wallets" */
 export enum Wallets_Select_Column {
   /** column name */
-  AdditionalTokens = "additional_tokens",
+  AdditionalTokens = 'additional_tokens',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  LastUse = "last_use",
+  LastUse = 'last_use',
   /** column name */
-  Tokens = "tokens",
+  Tokens = 'tokens',
   /** column name */
-  UserId = "user_id",
+  UserId = 'user_id'
 }
 
 /** input type for updating data in table "wallets" */
 export type Wallets_Set_Input = {
-  additional_tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  last_use?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  user_id?: InputMaybe<Scalars["uuid"]["input"]>;
+  additional_tokens?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  last_use?: InputMaybe<Scalars['timestamptz']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Wallets_Stddev_Fields = {
-  __typename?: "wallets_stddev_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'wallets_stddev_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Wallets_Stddev_Pop_Fields = {
-  __typename?: "wallets_stddev_pop_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'wallets_stddev_pop_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Wallets_Stddev_Samp_Fields = {
-  __typename?: "wallets_stddev_samp_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'wallets_stddev_samp_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "wallets" */
@@ -13058,32 +13150,32 @@ export type Wallets_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Wallets_Stream_Cursor_Value_Input = {
-  additional_tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  id?: InputMaybe<Scalars["uuid"]["input"]>;
-  last_use?: InputMaybe<Scalars["timestamptz"]["input"]>;
-  tokens?: InputMaybe<Scalars["Int"]["input"]>;
-  user_id?: InputMaybe<Scalars["uuid"]["input"]>;
+  additional_tokens?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  last_use?: InputMaybe<Scalars['timestamptz']['input']>;
+  tokens?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Wallets_Sum_Fields = {
-  __typename?: "wallets_sum_fields";
-  additional_tokens?: Maybe<Scalars["Int"]["output"]>;
-  tokens?: Maybe<Scalars["Int"]["output"]>;
+  __typename?: 'wallets_sum_fields';
+  additional_tokens?: Maybe<Scalars['Int']['output']>;
+  tokens?: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "wallets" */
 export enum Wallets_Update_Column {
   /** column name */
-  AdditionalTokens = "additional_tokens",
+  AdditionalTokens = 'additional_tokens',
   /** column name */
-  Id = "id",
+  Id = 'id',
   /** column name */
-  LastUse = "last_use",
+  LastUse = 'last_use',
   /** column name */
-  Tokens = "tokens",
+  Tokens = 'tokens',
   /** column name */
-  UserId = "user_id",
+  UserId = 'user_id'
 }
 
 export type Wallets_Updates = {
@@ -13097,348 +13189,364 @@ export type Wallets_Updates = {
 
 /** aggregate var_pop on columns */
 export type Wallets_Var_Pop_Fields = {
-  __typename?: "wallets_var_pop_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'wallets_var_pop_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Wallets_Var_Samp_Fields = {
-  __typename?: "wallets_var_samp_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'wallets_var_samp_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Wallets_Variance_Fields = {
-  __typename?: "wallets_variance_fields";
-  additional_tokens?: Maybe<Scalars["Float"]["output"]>;
-  tokens?: Maybe<Scalars["Float"]["output"]>;
+  __typename?: 'wallets_variance_fields';
+  additional_tokens?: Maybe<Scalars['Float']['output']>;
+  tokens?: Maybe<Scalars['Float']['output']>;
 };
+
+export type AddNewMessageMutationVariables = Exact<{
+  chatId?: InputMaybe<Scalars['uuid']['input']>;
+  content: Scalars['String']['input'];
+  data?: InputMaybe<Scalars['json']['input']>;
+  role: Scalars['String']['input'];
+}>;
+
+
+export type AddNewMessageMutation = { __typename?: 'mutation_root', insert_messages_one?: { __typename?: 'messages', id: any } | null };
 
 export type CreateChatMutationVariables = Exact<{
-  model?: InputMaybe<Scalars["String"]["input"]>;
-  system_promt?: InputMaybe<Scalars["String"]["input"]>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  userId: Scalars["uuid"]["input"];
+  model?: InputMaybe<Scalars['String']['input']>;
+  system_promt?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  userId: Scalars['uuid']['input'];
 }>;
 
-export type CreateChatMutation = {
-  __typename?: "mutation_root";
-  insert_chats_one?: { __typename?: "chats"; id: any } | null;
-};
 
-export type GetAiCategoriesQueryVariables = Exact<{ [key: string]: never }>;
+export type CreateChatMutation = { __typename?: 'mutation_root', insert_chats_one?: { __typename?: 'chats', id: any } | null };
 
-export type GetAiCategoriesQuery = {
-  __typename?: "query_root";
-  ai_categories: Array<{
-    __typename?: "ai_categories";
-    id: number;
-    title: string;
-    icon?: string | null;
-  }>;
-};
-
-export type GetRolesQueryVariables = Exact<{ [key: string]: never }>;
-
-export type GetRolesQuery = {
-  __typename?: "query_root";
-  roles: Array<{
-    __typename?: "roles";
-    id: any;
-    image?: any | null;
-    image_min?: any | null;
-    name?: string | null;
-    promt?: string | null;
-    title: string;
-    type?: string | null;
-  }>;
-};
-
-export type GetTemplateCategoriesQueryVariables = Exact<{
-  [key: string]: never;
+export type GetChatByIdQueryVariables = Exact<{
+  userId?: InputMaybe<Scalars['uuid']['input']>;
+  chatId?: InputMaybe<Scalars['uuid']['input']>;
 }>;
 
-export type GetTemplateCategoriesQuery = {
-  __typename?: "query_root";
-  template_categories: Array<{
-    __typename?: "template_categories";
-    id: number;
-    name?: string | null;
-    titile?: string | null;
-    ui_lg_c?: number | null;
-    ui_lg_w?: number | null;
-    ui_sm_c?: string | null;
-    ui_sm_w?: number | null;
-    ui_table_c?: number | null;
-    ui_table_w?: number | null;
-    templates: Array<{
-      __typename?: "templates";
-      id: any;
-      name?: string | null;
-      title?: string | null;
-      icon?: any | null;
-    }>;
-  }>;
-};
 
-export type GetTemplateTagsQueryVariables = Exact<{ [key: string]: never }>;
+export type GetChatByIdQuery = { __typename?: 'query_root', chats: Array<{ __typename?: 'chats', description?: string | null, icon?: any | null, model?: string | null, id: any, system_promt?: string | null, title?: string | null }> };
 
-export type GetTemplateTagsQuery = {
-  __typename?: "query_root";
-  template_tags: Array<{
-    __typename?: "template_tags";
-    id: number;
-    name?: string | null;
-    title?: string | null;
-  }>;
-};
+export type GetChatsByIdsQueryVariables = Exact<{
+  ids?: InputMaybe<Array<Scalars['uuid']['input']> | Scalars['uuid']['input']>;
+  userId: Scalars['uuid']['input'];
+}>;
+
+
+export type GetChatsByIdsQuery = { __typename?: 'query_root', chats: Array<{ __typename?: 'chats', id: any, title?: string | null, description?: string | null }> };
+
+export type GetChatHistoryWeaviateQueryVariables = Exact<{
+  query: Scalars['String']['input'];
+  userId: Scalars['TextGetObjectsChatsWeaviate']['input'];
+}>;
+
+
+export type GetChatHistoryWeaviateQuery = { __typename?: 'query_root', Get?: { __typename?: 'GetObjectsObj', ChatsWeaviate?: Array<{ __typename?: 'ChatsWeaviate', title?: string | null, userId?: string | null, _additional?: { __typename?: 'ChatsWeaviateAdditional', id?: string | null } | null } | null> | null } | null };
+
+export type GetCurrentPromtQueryVariables = Exact<{
+  name?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type GetCurrentPromtQuery = { __typename?: 'query_root', roles: Array<{ __typename?: 'roles', promt?: string | null, title: string, id: any, name?: string | null, directus_img?: { __typename?: 'directus_files', filename_disk?: string | null } | null }> };
+
+export type GetMyChatsQueryVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+  value: Scalars['String']['input'];
+}>;
+
+
+export type GetMyChatsQuery = { __typename?: 'query_root', chats: Array<{ __typename?: 'chats', id: any, createdAt?: any | null, title?: string | null, description?: string | null }> };
+
+export type GetRolesWithTitleFilterQueryVariables = Exact<{
+  title: Scalars['String']['input'];
+}>;
+
+
+export type GetRolesWithTitleFilterQuery = { __typename?: 'query_root', roles: Array<{ __typename?: 'roles', id: any, name?: string | null, title: string, type?: string | null, promt?: string | null, directus_img?: { __typename?: 'directus_files', filename_disk?: string | null } | null }> };
+
+export type GetRolesWeaviateQueryVariables = Exact<{
+  query: Scalars['String']['input'];
+}>;
+
+
+export type GetRolesWeaviateQuery = { __typename?: 'query_root', Get?: { __typename?: 'GetObjectsObj', RolesWeaviate?: Array<{ __typename?: 'RolesWeaviate', title?: string | null, name?: string | null, _additional?: { __typename?: 'RolesWeaviateAdditional', id?: string | null } | null } | null> | null } | null };
+
+export type GetAiCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAiCategoriesQuery = { __typename?: 'query_root', ai_categories: Array<{ __typename?: 'ai_categories', id: number, title: string, icon?: string | null }> };
+
+export type GetRolesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetRolesQuery = { __typename?: 'query_root', roles: Array<{ __typename?: 'roles', id: any, image?: any | null, image_min?: any | null, name?: string | null, promt?: string | null, title: string, type?: string | null }> };
+
+export type GetTemplateCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetTemplateCategoriesQuery = { __typename?: 'query_root', template_categories: Array<{ __typename?: 'template_categories', id: number, name?: string | null, titile?: string | null, ui_lg_c?: number | null, ui_lg_w?: number | null, ui_sm_c?: string | null, ui_sm_w?: number | null, ui_table_c?: number | null, ui_table_w?: number | null, templates: Array<{ __typename?: 'templates', id: any, name?: string | null, title?: string | null, icon?: any | null }> }> };
+
+export type GetTemplateTagsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetTemplateTagsQuery = { __typename?: 'query_root', template_tags: Array<{ __typename?: 'template_tags', id: number, name?: string | null, title?: string | null }> };
 
 export type GetPlanUserQueryVariables = Exact<{
-  id: Scalars["uuid"]["input"];
+  id: Scalars['uuid']['input'];
 }>;
 
-export type GetPlanUserQuery = {
-  __typename?: "query_root";
-  users_by_pk?: {
-    __typename?: "users";
-    date_end_plan?: any | null;
-    plan_id?: any | null;
-  } | null;
-};
+
+export type GetPlanUserQuery = { __typename?: 'query_root', users_by_pk?: { __typename?: 'users', date_end_plan?: any | null, plan_id?: any | null } | null };
 
 export type UserWalletSubscriptionVariables = Exact<{
-  userId: Scalars["uuid"]["input"];
+  userId: Scalars['uuid']['input'];
 }>;
 
-export type UserWalletSubscription = {
-  __typename?: "subscription_root";
-  wallets: Array<{
-    __typename?: "wallets";
-    tokens: number;
-    user_id: any;
-    additional_tokens?: number | null;
-  }>;
-};
 
-export const CreateChatDocument = gql`
-  mutation CreateChat(
-    $model: String
-    $system_promt: String
-    $title: String
-    $userId: uuid!
+export type UserWalletSubscription = { __typename?: 'subscription_root', wallets: Array<{ __typename?: 'wallets', tokens: number, user_id: any, additional_tokens?: number | null }> };
+
+
+export const AddNewMessageDocument = gql`
+    mutation AddNewMessage($chatId: uuid, $content: String!, $data: json, $role: String!) {
+  insert_messages_one(
+    object: {chatId: $chatId, content: $content, data: $data, role: $role}
   ) {
-    insert_chats_one(
-      object: {
-        model: $model
-        system_promt: $system_promt
-        title: $title
-        userId: $userId
-      }
+    id
+  }
+}
+    `;
+export const CreateChatDocument = gql`
+    mutation CreateChat($model: String, $system_promt: String, $title: String, $userId: uuid!) {
+  insert_chats_one(
+    object: {model: $model, system_promt: $system_promt, title: $title, userId: $userId}
+  ) {
+    id
+  }
+}
+    `;
+export const GetChatByIdDocument = gql`
+    query GetChatById($userId: uuid, $chatId: uuid) {
+  chats(where: {id: {_eq: $chatId}, _and: {userId: {_eq: $userId}}}) {
+    description
+    icon
+    model
+    id
+    system_promt
+    title
+  }
+}
+    `;
+export const GetChatsByIdsDocument = gql`
+    query GetChatsByIds($ids: [uuid!], $userId: uuid!) {
+  chats(where: {id: {_in: $ids}, _and: {userId: {_eq: $userId}}}) {
+    id
+    title
+    description
+  }
+}
+    `;
+export const GetChatHistoryWeaviateDocument = gql`
+    query GetChatHistoryWeaviate($query: String!, $userId: TextGetObjectsChatsWeaviate!) {
+  Get {
+    ChatsWeaviate(
+      hybrid: {query: $query, properties: ["title"]}
+      limit: 3
+      where: {path: ["userId"], operator: Equal, valueText: $userId}
     ) {
-      id
+      _additional {
+        id
+      }
+      title
+      userId
     }
   }
-`;
+}
+    `;
+export const GetCurrentPromtDocument = gql`
+    query GetCurrentPromt($name: String) {
+  roles(where: {name: {_eq: $name}}) {
+    promt
+    title
+    id
+    name
+    directus_img {
+      filename_disk
+    }
+  }
+}
+    `;
+export const GetMyChatsDocument = gql`
+    query GetMyChats($userId: uuid!, $value: String!) {
+  chats(
+    where: {userId: {_eq: $userId}, _and: {title: {_iregex: $value}}}
+    order_by: {createdAt: desc}
+  ) {
+    id
+    createdAt
+    title
+    description
+  }
+}
+    `;
+export const GetRolesWithTitleFilterDocument = gql`
+    query GetRolesWithTitleFilter($title: String!) {
+  roles(where: {title: {_iregex: $title}}) {
+    id
+    name
+    title
+    type
+    promt
+    directus_img {
+      filename_disk
+    }
+  }
+}
+    `;
+export const GetRolesWeaviateDocument = gql`
+    query GetRolesWeaviate($query: String!) {
+  Get {
+    RolesWeaviate(hybrid: {query: $query, properties: ["title"]}, limit: 3) {
+      _additional {
+        id
+      }
+      title
+      name
+    }
+  }
+}
+    `;
 export const GetAiCategoriesDocument = gql`
-  query GetAiCategories {
-    ai_categories {
+    query GetAiCategories {
+  ai_categories {
+    id
+    title
+    icon
+  }
+}
+    `;
+export const GetRolesDocument = gql`
+    query GetRoles @cached(ttl: 1) {
+  roles {
+    id
+    image
+    image_min
+    name
+    promt
+    title
+    type
+  }
+}
+    `;
+export const GetTemplateCategoriesDocument = gql`
+    query GetTemplateCategories @cached(ttl: 1) {
+  template_categories(order_by: {id: asc}) {
+    id
+    name
+    titile
+    templates {
       id
+      name
       title
       icon
     }
+    ui_lg_c
+    ui_lg_w
+    ui_sm_c
+    ui_sm_w
+    ui_table_c
+    ui_table_w
   }
-`;
-export const GetRolesDocument = gql`
-  query GetRoles @cached(ttl: 1) {
-    roles {
-      id
-      image
-      image_min
-      name
-      promt
-      title
-      type
-    }
-  }
-`;
-export const GetTemplateCategoriesDocument = gql`
-  query GetTemplateCategories @cached(ttl: 1) {
-    template_categories(order_by: { id: asc }) {
-      id
-      name
-      titile
-      templates {
-        id
-        name
-        title
-        icon
-      }
-      ui_lg_c
-      ui_lg_w
-      ui_sm_c
-      ui_sm_w
-      ui_table_c
-      ui_table_w
-    }
-  }
-`;
+}
+    `;
 export const GetTemplateTagsDocument = gql`
-  query GetTemplateTags @cached(ttl: 1) {
-    template_tags {
-      id
-      name
-      title
-    }
+    query GetTemplateTags @cached(ttl: 1) {
+  template_tags {
+    id
+    name
+    title
   }
-`;
+}
+    `;
 export const GetPlanUserDocument = gql`
-  query GetPlanUser($id: uuid!) {
-    users_by_pk(id: $id) {
-      date_end_plan
-      plan_id
-    }
+    query GetPlanUser($id: uuid!) {
+  users_by_pk(id: $id) {
+    date_end_plan
+    plan_id
   }
-`;
+}
+    `;
 export const UserWalletDocument = gql`
-  subscription UserWallet($userId: uuid!) {
-    wallets(where: { user_id: { _eq: $userId } }) {
-      tokens
-      user_id
-      additional_tokens
-    }
+    subscription UserWallet($userId: uuid!) {
+  wallets(where: {user_id: {_eq: $userId}}) {
+    tokens
+    user_id
+    additional_tokens
   }
-`;
+}
+    `;
 
-export type SdkFunctionWrapper = <T>(
-  action: (requestHeaders?: Record<string, string>) => Promise<T>,
-  operationName: string,
-  operationType?: string,
-  variables?: any,
-) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
-const defaultWrapper: SdkFunctionWrapper = (
-  action,
-  _operationName,
-  _operationType,
-  _variables,
-) => action();
 
-export function getSdk(
-  client: GraphQLClient,
-  withWrapper: SdkFunctionWrapper = defaultWrapper,
-) {
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, _variables) => action();
+
+export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    CreateChat(
-      variables: CreateChatMutationVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<CreateChatMutation> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<CreateChatMutation>(CreateChatDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        "CreateChat",
-        "mutation",
-        variables,
-      );
+    AddNewMessage(variables: AddNewMessageMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<AddNewMessageMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<AddNewMessageMutation>(AddNewMessageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AddNewMessage', 'mutation', variables);
     },
-    GetAiCategories(
-      variables?: GetAiCategoriesQueryVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetAiCategoriesQuery> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetAiCategoriesQuery>(
-            GetAiCategoriesDocument,
-            variables,
-            { ...requestHeaders, ...wrappedRequestHeaders },
-          ),
-        "GetAiCategories",
-        "query",
-        variables,
-      );
+    CreateChat(variables: CreateChatMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CreateChatMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CreateChatMutation>(CreateChatDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'CreateChat', 'mutation', variables);
     },
-    GetRoles(
-      variables?: GetRolesQueryVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetRolesQuery> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetRolesQuery>(GetRolesDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        "GetRoles",
-        "query",
-        variables,
-      );
+    GetChatById(variables?: GetChatByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetChatByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetChatByIdQuery>(GetChatByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetChatById', 'query', variables);
     },
-    GetTemplateCategories(
-      variables?: GetTemplateCategoriesQueryVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetTemplateCategoriesQuery> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetTemplateCategoriesQuery>(
-            GetTemplateCategoriesDocument,
-            variables,
-            { ...requestHeaders, ...wrappedRequestHeaders },
-          ),
-        "GetTemplateCategories",
-        "query",
-        variables,
-      );
+    GetChatsByIds(variables: GetChatsByIdsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetChatsByIdsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetChatsByIdsQuery>(GetChatsByIdsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetChatsByIds', 'query', variables);
     },
-    GetTemplateTags(
-      variables?: GetTemplateTagsQueryVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetTemplateTagsQuery> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetTemplateTagsQuery>(
-            GetTemplateTagsDocument,
-            variables,
-            { ...requestHeaders, ...wrappedRequestHeaders },
-          ),
-        "GetTemplateTags",
-        "query",
-        variables,
-      );
+    GetChatHistoryWeaviate(variables: GetChatHistoryWeaviateQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetChatHistoryWeaviateQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetChatHistoryWeaviateQuery>(GetChatHistoryWeaviateDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetChatHistoryWeaviate', 'query', variables);
     },
-    GetPlanUser(
-      variables: GetPlanUserQueryVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<GetPlanUserQuery> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<GetPlanUserQuery>(GetPlanUserDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        "GetPlanUser",
-        "query",
-        variables,
-      );
+    GetCurrentPromt(variables?: GetCurrentPromtQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCurrentPromtQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCurrentPromtQuery>(GetCurrentPromtDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetCurrentPromt', 'query', variables);
     },
-    UserWallet(
-      variables: UserWalletSubscriptionVariables,
-      requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<UserWalletSubscription> {
-      return withWrapper(
-        (wrappedRequestHeaders) =>
-          client.request<UserWalletSubscription>(
-            UserWalletDocument,
-            variables,
-            { ...requestHeaders, ...wrappedRequestHeaders },
-          ),
-        "UserWallet",
-        "subscription",
-        variables,
-      );
+    GetMyChats(variables: GetMyChatsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetMyChatsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetMyChatsQuery>(GetMyChatsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetMyChats', 'query', variables);
     },
+    GetRolesWithTitleFilter(variables: GetRolesWithTitleFilterQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetRolesWithTitleFilterQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetRolesWithTitleFilterQuery>(GetRolesWithTitleFilterDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetRolesWithTitleFilter', 'query', variables);
+    },
+    GetRolesWeaviate(variables: GetRolesWeaviateQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetRolesWeaviateQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetRolesWeaviateQuery>(GetRolesWeaviateDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetRolesWeaviate', 'query', variables);
+    },
+    GetAiCategories(variables?: GetAiCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAiCategoriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAiCategoriesQuery>(GetAiCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetAiCategories', 'query', variables);
+    },
+    GetRoles(variables?: GetRolesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetRolesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetRolesQuery>(GetRolesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetRoles', 'query', variables);
+    },
+    GetTemplateCategories(variables?: GetTemplateCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTemplateCategoriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetTemplateCategoriesQuery>(GetTemplateCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetTemplateCategories', 'query', variables);
+    },
+    GetTemplateTags(variables?: GetTemplateTagsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTemplateTagsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetTemplateTagsQuery>(GetTemplateTagsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetTemplateTags', 'query', variables);
+    },
+    GetPlanUser(variables: GetPlanUserQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPlanUserQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPlanUserQuery>(GetPlanUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetPlanUser', 'query', variables);
+    },
+    UserWallet(variables: UserWalletSubscriptionVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<UserWalletSubscription> {
+      return withWrapper((wrappedRequestHeaders) => client.request<UserWalletSubscription>(UserWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'UserWallet', 'subscription', variables);
+    }
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
