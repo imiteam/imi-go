@@ -1,12 +1,12 @@
-'use client'
-import {GetAiCategoriesQuery} from 'generated'
-import {Suspense, memo} from 'react'
-import {List} from './List'
-import {Search} from './Search'
+"use client";
+import { GetAiCategoriesQuery } from "generated";
+import { Suspense, memo } from "react";
+import { List } from "./List";
+import { Search } from "./Search";
 
 export const AiCategories = memo(function AiCategories(props: {
-  className?: string
-  aiCategories: GetAiCategoriesQuery
+  className?: string;
+  aiCategories: GetAiCategoriesQuery;
 }) {
   return (
     <div
@@ -28,7 +28,9 @@ export const AiCategories = memo(function AiCategories(props: {
         />
 
         <Search>
-          <Suspense fallback={<>Loading...</>}>{/* <SearchResultsWrapper></SearchResultsWrapper> */}</Suspense>
+          <Suspense fallback={<>Loading...</>}>
+            {/* <SearchResultsWrapper></SearchResultsWrapper> */}
+          </Suspense>
         </Search>
       </div>
       <List
@@ -36,5 +38,5 @@ export const AiCategories = memo(function AiCategories(props: {
         className="order-3 mt-[16px] flex h-[44px] w-full items-center rounded-[16px] border border-active-btn-white px-[2px] md:visible md:sm:vsm:h-[53px] lg:hidden"
       />
     </div>
-  )
-})
+  );
+});

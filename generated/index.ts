@@ -13116,6 +13116,18 @@ export type Wallets_Variance_Fields = {
   tokens?: Maybe<Scalars["Float"]["output"]>;
 };
 
+export type CreateChatMutationVariables = Exact<{
+  model?: InputMaybe<Scalars["String"]["input"]>;
+  system_promt?: InputMaybe<Scalars["String"]["input"]>;
+  title?: InputMaybe<Scalars["String"]["input"]>;
+  userId: Scalars["uuid"]["input"];
+}>;
+
+export type CreateChatMutation = {
+  __typename?: "mutation_root";
+  insert_chats_one?: { __typename?: "chats"; id: any } | null;
+};
+
 export type GetAiCategoriesQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetAiCategoriesQuery = {
@@ -13210,6 +13222,25 @@ export type UserWalletSubscription = {
   }>;
 };
 
+export const CreateChatDocument = gql`
+  mutation CreateChat(
+    $model: String
+    $system_promt: String
+    $title: String
+    $userId: uuid!
+  ) {
+    insert_chats_one(
+      object: {
+        model: $model
+        system_promt: $system_promt
+        title: $title
+        userId: $userId
+      }
+    ) {
+      id
+    }
+  }
+`;
 export const GetAiCategoriesDocument = gql`
   query GetAiCategories {
     ai_categories {
@@ -13299,6 +13330,21 @@ export function getSdk(
   withWrapper: SdkFunctionWrapper = defaultWrapper,
 ) {
   return {
+    CreateChat(
+      variables: CreateChatMutationVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<CreateChatMutation> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<CreateChatMutation>(CreateChatDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        "CreateChat",
+        "mutation",
+        variables,
+      );
+    },
     GetAiCategories(
       variables?: GetAiCategoriesQueryVariables,
       requestHeaders?: GraphQLClientRequestHeaders,
