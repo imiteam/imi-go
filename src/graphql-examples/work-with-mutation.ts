@@ -44,6 +44,7 @@
 
 // Далее в клиентских компонетах к примеру можно вот так использовать :
 
+
 // const handleCreateNewChat = useCallback(async (userId: string, systemPromt: string) => {
 //     // setCurrentRoleId(role.id)
 //     try {
@@ -68,3 +69,21 @@
 //         systemPromt: systemPromt,
 //       })
 //     }
+// Для серверных компонентов :
+
+
+// const {data} = await getClient().mutate({
+//     mutation: CreateChatDocument,
+//     variables: {
+//       model: model,
+//       title: 'Новый чат',
+//       userId: userId,
+//       system_promt: 'absent',
+//     },
+//     fetchPolicy: 'no-cache',
+//     context: {
+//       fetchOptions: {
+//         next: {revalidate: 0},
+//       },
+//     },
+//   })

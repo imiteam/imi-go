@@ -1,18 +1,17 @@
 {
-    "printWidth": 120,
-    "semi": false,
-    "singleQuote": true,
-    "bracketSpacing": false,
-    "htmlWhitespaceSensitivity": "ignore",
-    "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
-    "overrides": [
-      {
-        "files": "**/src/**/*",
-        "options": {
-          "tailwindFunctions": ["cn"],
-          "tailwindConfig": "./tailwind.config.js"
-        }
+  "printWidth": 120,
+  "semi": false,
+  "singleQuote": true,
+  "bracketSpacing": false,
+  "htmlWhitespaceSensitivity": "ignore",
+  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": "**/src/**/*",
+      "options": {
+        "tailwindFunctions": ["cn"],
+        "tailwindConfig": "./tailwind.config.js"
       }
-    ]
-  }
-  
+    }
+  ]
+}
