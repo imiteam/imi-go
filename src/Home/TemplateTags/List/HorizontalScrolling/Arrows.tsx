@@ -1,6 +1,7 @@
 import { ArrowIcon } from "./ArrowIcon";
 import React from "react";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
+import { ArrowButton } from "./ArrowButton";
 
 function Arrow({
   children,
@@ -45,7 +46,7 @@ export function RightArrowTemplates() {
   return (
     <div className="md:hidden">
       <Arrow disabled={disabled} onClick={() => scrollNext()}>
-        <ArrowIcon icon="arrow-r-20" />
+        <ArrowButton buttonName="arrow-r-20" />
       </Arrow>
     </div>
   );
@@ -67,7 +68,7 @@ export function LeftArrowTemplates() {
   return (
     <div className="md:hidden">
       <Arrow disabled={disabled} onClick={() => scrollPrev()}>
-        <ArrowIcon icon="arrow-l-20" />
+        <ArrowButton buttonName="arrow-l-20"/>
       </Arrow>
     </div>
   );

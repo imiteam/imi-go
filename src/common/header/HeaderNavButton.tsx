@@ -15,10 +15,22 @@ type NavButtonPropsType = {
   activeButtonName: string;
   title: string;
 };
+interface ButtonNameToClassName {
+  [key: string]: string;
+}
 
 export const HeaderNavButton = memo(function HeaderNavButton(
   props: NavButtonPropsType,
 ) {
+  
+  const buttonNameToClassName: ButtonNameToClassName = {
+    templates: "md:relative md:bottom-[8px] md:left-[16px]",
+    chat: "md:relative md:bottom-[8px] md:left-[32px]",
+    learning: "md:relative md:bottom-[8px] md:left-[44px]",
+    history: "md:relative md:bottom-[8px] md:left-[63px]",
+  };
+  
+  const className : string = buttonNameToClassName[props.buttonName]
   let cursor = props.title === "Обучение" ? "not-allowed" : "pointer";
 
   let isActive = props.buttonName === props.activeButtonName;
@@ -37,23 +49,9 @@ export const HeaderNavButton = memo(function HeaderNavButton(
             className="md:flex md:flex-col"
           >
             <SwitchIcon isActive={isActive} iconName={props.buttonName} />
-            {props.buttonName === "templates" ? (
-              <span className="md:relative md:bottom-[8px] md:left-[16px]">
+            <span className={className}>
                 {props.title}
-              </span>
-            ) : props.buttonName === "chat" ? (
-              <span className="md:relative md:bottom-[8px] md:left-[32px]">
-                {props.title}
-              </span>
-            ) : props.buttonName === "learning" ? (
-              <span className="md:relative md:bottom-[8px] md:left-[44px]">
-                {props.title}
-              </span>
-            ) : (
-              <span className="md:relative md:bottom-[8px] md:left-[63px]">
-                {props.title}
-              </span>
-            )}
+            </span>
             {/* <span className="md:relative md:bottom-[8px] md:left-[16px]">{props.title}</span> */}
           </Button>
         </TooltipTrigger>
@@ -76,23 +74,9 @@ export const HeaderNavButton = memo(function HeaderNavButton(
       id="navBtn"
     >
       <SwitchIcon isActive={isActive} iconName={props.buttonName} />
-      {props.buttonName === "templates" ? (
-        <span className="md:relative md:bottom-[8px] md:left-[16px]">
-          {props.title}
-        </span>
-      ) : props.buttonName === "chat" ? (
-        <span className="md:relative md:bottom-[8px] md:left-[32px]">
-          {props.title}
-        </span>
-      ) : props.buttonName === "learning" ? (
-        <span className="md:relative md:bottom-[8px] md:left-[44px]">
-          {props.title}
-        </span>
-      ) : (
-        <span className="md:relative md:bottom-[8px] md:left-[63px]">
-          {props.title}
-        </span>
-      )}
+      <span className={className}>
+        {props.title}
+      </span>
     </Button>
   );
 });
