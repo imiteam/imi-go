@@ -9,6 +9,8 @@ import { authOptions } from "app/api/auth/[...nextauth]/route";
 import { TemplateTags } from "./TemplateTags";
 import { AiCategories } from "./AiCategories";
 import { ChatBots } from "./ChatBots";
+import { TemplateCategories } from "./TemplateCategories";
+import { FixedInput } from "./FixedInput";
 
 export const Home = async function Home() {
   const tags = await getAllTemplateTags();
@@ -27,6 +29,11 @@ export const Home = async function Home() {
         <AiCategories aiCategories={aiCategories} />
         <TemplateTags isHomePage tags={tags["template_tags"]} />
         <ChatBots roles={roles["roles"]} />
+        <TemplateCategories
+          templateCategories={templateCategories.template_categories}
+          ishomePage
+        />
+        <FixedInput />
       </div>
     </main>
   );
