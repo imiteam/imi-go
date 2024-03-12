@@ -1,4 +1,3 @@
-import { JWTPayload, jwtVerify, SignJWT } from "jose";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import { HasuraAdapter } from "next-auth-hasura-adapter";
 import Email from "next-auth/providers/email";

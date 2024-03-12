@@ -1,0 +1,26 @@
+# Directories
+.github/
+.vscode/
+build/
+generated/
+node_modules/
+**/.next/
+
+# Files
+docker-compose.yaml
+.gitignore
+*.graphql
+**/graphql/index.ts
+**/graphql/index.tsx
+README.md
+LICENSE
+.eslintrc.json
+
+# Permission denied
+tsconfig.json
+
+#extensions
+**/*.png
+
+#next.js out
+out/
