@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
 
   let cookieStore = cookies();
-  let userCookie = cookieStore.get("next-auth.session-token");
+  let userCookie = cookieStore.get("__Secure-next-auth.session-token");
 
   return (
     <ApolloWrapper additionalData={userCookie?.value}>
