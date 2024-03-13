@@ -79,7 +79,7 @@ export async function POST(req: any) {
       })
       const id = json.id
       console.log('ответ от AI', {chatId: id, content: completion, role: 'assistant'});
-      client.request(AddNewMessageDocument, {chatId: id, content: completion, role: 'assistant'}).then((res)=> console.log("айди ответа в БД",res.insert_messages_one.id)).catch(() => console.log("не смог записать ответ в базу"))
+      client.request(AddNewMessageDocument, {chatId: id, content: completion, role: 'assistant'}).then((res : any)=> console.log("айди ответа в БД",res.insert_messages_one.id)).catch(() => console.log("не смог записать ответ в базу"))
     },
     async onToken(token: string) {
       tokenCounter += 1
