@@ -3,7 +3,7 @@ import {redirect} from 'next/navigation'
 import {useChatStore} from '../lib/useChatStore'
 import {ChatLayout} from './ChatLayout'
 import { getAllChatMessages, getCurrentPromt } from 'Chat/graphql/action'
-import { getUserInfo } from 'Plans/graphql/action'
+import { getUserInfo } from '../../Account/Plans/graphql/action'
 
 export const ChatSection = async function ChatSection(props: {
   className?: string
