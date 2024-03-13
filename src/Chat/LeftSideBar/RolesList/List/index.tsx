@@ -5,16 +5,17 @@ import React, {memo, useCallback} from 'react'
 import AutoSizer from 'react-virtualized-auto-sizer'
 import {FixedSizeList, ListChildComponentProps} from 'react-window'
 import chatBotMiniItem from './RolesItem'
+import { useChatStore } from 'Chat/lib/useChatStore'
 
 
 export const List = memo(function List(props: {roles: any; userId: string}) {
 
   const {theme} = useTheme()
-
+  const model = useChatStore.getState().model
   const handleCreateNewChat = useCallback(async (role: any) => {
     try {
-      await createChatAction({
-        model: 'gpt-3',
+      await createChatAction({ 
+        model: model!,
         title: role.title,
         userId: props.userId,
         systemPromt: role.name,

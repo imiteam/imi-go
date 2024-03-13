@@ -2,7 +2,7 @@ import cn from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
-import logo from "../../../public/assets/Logo_IMI.png";
+import logo from "../../../public/assets/Logotip.png";
 
 export const Logo = memo(function Logo(props: { className?: string }) {
   return (

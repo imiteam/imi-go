@@ -11,6 +11,8 @@ import { AiCategories } from "./AiCategories";
 import { ChatBots } from "./ChatBots";
 import { TemplateCategories } from "./TemplateCategories";
 import { FixedInput } from "./FixedInput";
+import { getUserInfo } from "Plans/graphql/action";
+import { useChatStore } from "Chat/lib/useChatStore";
 
 export const Home = async function Home() {
   const tags = await getAllTemplateTags();
@@ -21,7 +23,9 @@ export const Home = async function Home() {
 
   const templateCategories = await getAllTemplateCategories();
 
-  const session = await getServerSession(authOptions);
+  getServerSession(authOptions).then((res) => getUserInfo({userId: res?.user.id!})).then((data) => useChatStore.setState({
+    model : data.users[0].ai_text_model!
+  }));
 
   return (
     <main className="flex size-full flex-col items-center bg-bg-lite pb-[80px] dark:bg-bg-dark">
