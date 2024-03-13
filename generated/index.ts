@@ -13208,6 +13208,37 @@ export type Wallets_Variance_Fields = {
   tokens?: Maybe<Scalars['Float']['output']>;
 };
 
+export type GetPlanCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetPlanCategoriesQuery = { __typename?: 'query_root', plan_categories: Array<{ __typename?: 'plan_categories', icon?: string | null, id: number, name?: string | null, title?: string | null }> };
+
+export type GetPlanInfoQueryVariables = Exact<{
+  id: Scalars['uuid']['input'];
+}>;
+
+
+export type GetPlanInfoQuery = { __typename?: 'query_root', plans_by_pk?: { __typename?: 'plans', name: string, price: number, tokens: number } | null };
+
+export type GetPlanUserQueryVariables = Exact<{
+  id: Scalars['uuid']['input'];
+}>;
+
+
+export type GetPlanUserQuery = { __typename?: 'query_root', users_by_pk?: { __typename?: 'users', date_end_plan?: any | null, plan_id?: any | null } | null };
+
+export type GetUserInfoQueryVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+}>;
+
+
+export type GetUserInfoQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', ai_text_model?: string | null, plan_id?: any | null, is_client?: boolean | null }> };
+
+export type GetProfileCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetProfileCategoriesQuery = { __typename?: 'query_root', profile_categories: Array<{ __typename?: 'profile_categories', name?: any | null, title: string, id: number }> };
+
 export type AddNewMessageMutationVariables = Exact<{
   chatId?: InputMaybe<Scalars['uuid']['input']>;
   content: Scalars['String']['input'];
@@ -13348,20 +13379,6 @@ export type GetTemplateTagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetTemplateTagsQuery = { __typename?: 'query_root', template_tags: Array<{ __typename?: 'template_tags', id: number, name?: string | null, title?: string | null }> };
 
-export type GetUserInfoQueryVariables = Exact<{
-  userId: Scalars['uuid']['input'];
-}>;
-
-
-export type GetUserInfoQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', ai_text_model?: string | null, plan_id?: any | null, is_client?: boolean | null }> };
-
-export type GetPlanUserQueryVariables = Exact<{
-  id: Scalars['uuid']['input'];
-}>;
-
-
-export type GetPlanUserQuery = { __typename?: 'query_root', users_by_pk?: { __typename?: 'users', date_end_plan?: any | null, plan_id?: any | null } | null };
-
 export type UserWalletSubscriptionVariables = Exact<{
   userId: Scalars['uuid']['input'];
 }>;
@@ -13370,6 +13387,51 @@ export type UserWalletSubscriptionVariables = Exact<{
 export type UserWalletSubscription = { __typename?: 'subscription_root', wallets: Array<{ __typename?: 'wallets', tokens: number, user_id: any, additional_tokens?: number | null }> };
 
 
+export const GetPlanCategoriesDocument = gql`
+    query GetPlanCategories {
+  plan_categories {
+    icon
+    id
+    name
+    title
+  }
+}
+    `;
+export const GetPlanInfoDocument = gql`
+    query GetPlanInfo($id: uuid!) {
+  plans_by_pk(id: $id) {
+    name
+    price
+    tokens
+  }
+}
+    `;
+export const GetPlanUserDocument = gql`
+    query GetPlanUser($id: uuid!) {
+  users_by_pk(id: $id) {
+    date_end_plan
+    plan_id
+  }
+}
+    `;
+export const GetUserInfoDocument = gql`
+    query GetUserInfo($userId: uuid!) {
+  users(where: {id: {_eq: $userId}}) {
+    ai_text_model
+    plan_id
+    is_client
+  }
+}
+    `;
+export const GetProfileCategoriesDocument = gql`
+    query GetProfileCategories {
+  profile_categories {
+    name
+    title
+    id
+  }
+}
+    `;
 export const AddNewMessageDocument = gql`
     mutation AddNewMessage($chatId: uuid, $content: String!, $data: json, $role: String!) {
   insert_messages_one(
@@ -13590,23 +13652,6 @@ export const GetTemplateTagsDocument = gql`
   }
 }
     `;
-export const GetUserInfoDocument = gql`
-    query GetUserInfo($userId: uuid!) {
-  users(where: {id: {_eq: $userId}}) {
-    ai_text_model
-    plan_id
-    is_client
-  }
-}
-    `;
-export const GetPlanUserDocument = gql`
-    query GetPlanUser($id: uuid!) {
-  users_by_pk(id: $id) {
-    date_end_plan
-    plan_id
-  }
-}
-    `;
 export const UserWalletDocument = gql`
     subscription UserWallet($userId: uuid!) {
   wallets(where: {user_id: {_eq: $userId}}) {
@@ -13624,6 +13669,21 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    GetPlanCategories(variables?: GetPlanCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPlanCategoriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPlanCategoriesQuery>(GetPlanCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetPlanCategories', 'query', variables);
+    },
+    GetPlanInfo(variables: GetPlanInfoQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPlanInfoQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPlanInfoQuery>(GetPlanInfoDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetPlanInfo', 'query', variables);
+    },
+    GetPlanUser(variables: GetPlanUserQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPlanUserQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPlanUserQuery>(GetPlanUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetPlanUser', 'query', variables);
+    },
+    GetUserInfo(variables: GetUserInfoQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserInfoQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetUserInfoQuery>(GetUserInfoDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetUserInfo', 'query', variables);
+    },
+    GetProfileCategories(variables?: GetProfileCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProfileCategoriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProfileCategoriesQuery>(GetProfileCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetProfileCategories', 'query', variables);
+    },
     AddNewMessage(variables: AddNewMessageMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<AddNewMessageMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<AddNewMessageMutation>(AddNewMessageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AddNewMessage', 'mutation', variables);
     },
@@ -13680,12 +13740,6 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetTemplateTags(variables?: GetTemplateTagsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTemplateTagsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetTemplateTagsQuery>(GetTemplateTagsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetTemplateTags', 'query', variables);
-    },
-    GetUserInfo(variables: GetUserInfoQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserInfoQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetUserInfoQuery>(GetUserInfoDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetUserInfo', 'query', variables);
-    },
-    GetPlanUser(variables: GetPlanUserQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPlanUserQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPlanUserQuery>(GetPlanUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetPlanUser', 'query', variables);
     },
     UserWallet(variables: UserWalletSubscriptionVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<UserWalletSubscription> {
       return withWrapper((wrappedRequestHeaders) => client.request<UserWalletSubscription>(UserWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'UserWallet', 'subscription', variables);

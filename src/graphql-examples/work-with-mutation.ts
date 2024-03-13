@@ -34,7 +34,7 @@
 //       variables: {
 //         model: props.model,
 //         title: props.title,
-//         userId: props.userId,
+//         userId: props.userId, 
 //         system_promt: props.systemPromt,
 //       },
 //     })

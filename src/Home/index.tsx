@@ -1,18 +1,15 @@
-import { getServerSession } from "next-auth";
 import {
   getAiCategories,
   getAllRoles,
   getAllTemplateCategories,
   getAllTemplateTags,
 } from "./graphql/actions/query";
-import { authOptions } from "app/api/auth/[...nextauth]/route";
 import { TemplateTags } from "./TemplateTags";
 import { AiCategories } from "./AiCategories";
 import { ChatBots } from "./ChatBots";
 import { TemplateCategories } from "./TemplateCategories";
 import { FixedInput } from "./FixedInput";
-import { getUserInfo } from "Plans/graphql/action";
-import { useChatStore } from "Chat/lib/useChatStore";
+
 
 export const Home = async function Home() {
   const tags = await getAllTemplateTags();
