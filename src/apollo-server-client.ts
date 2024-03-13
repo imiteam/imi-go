@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 
 export const { getClient } = registerApolloClient(() => {
   let cookieStore = cookies();
-  let userCookie = cookieStore.get("next-auth.session-token");
+  let userCookie = cookieStore.get("__Secure-next-auth.session-token");
 
   const httpLink = new HttpLink({
     uri: process.env.NEXT_PUBLIC_HASURA_GRAPHQL_URL!,
