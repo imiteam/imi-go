@@ -13228,6 +13228,53 @@ export type CreateChatMutationVariables = Exact<{
 
 export type CreateChatMutation = { __typename?: 'mutation_root', insert_chats_one?: { __typename?: 'chats', id: any } | null };
 
+export type DeleteChatByIdMutationVariables = Exact<{
+  chatId: Scalars['uuid']['input'];
+}>;
+
+
+export type DeleteChatByIdMutation = { __typename?: 'mutation_root', delete_chats?: { __typename?: 'chats_mutation_response', returning: Array<{ __typename?: 'chats', id: any, title?: string | null }> } | null };
+
+export type DeleteMessageMutationVariables = Exact<{
+  messageId: Scalars['uuid']['input'];
+}>;
+
+
+export type DeleteMessageMutation = { __typename?: 'mutation_root', delete_messages_by_pk?: { __typename?: 'messages', id: any } | null };
+
+export type ChangeAiTextModelMutationVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+  model: Scalars['String']['input'];
+}>;
+
+
+export type ChangeAiTextModelMutation = { __typename?: 'mutation_root', update_users?: { __typename?: 'users_mutation_response', affected_rows: number, returning: Array<{ __typename?: 'users', id: any, ai_text_model?: string | null }> } | null };
+
+export type UpdateChatMutationVariables = Exact<{
+  chatId: Scalars['uuid']['input'];
+  title?: InputMaybe<Scalars['String']['input']>;
+  model?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type UpdateChatMutation = { __typename?: 'mutation_root', update_chats?: { __typename?: 'chats_mutation_response', returning: Array<{ __typename?: 'chats', id: any }> } | null };
+
+export type EditMessageMutationVariables = Exact<{
+  messageId: Scalars['uuid']['input'];
+  content?: InputMaybe<Scalars['String']['input']>;
+  data?: InputMaybe<Scalars['json']['input']>;
+}>;
+
+
+export type EditMessageMutation = { __typename?: 'mutation_root', update_messages_by_pk?: { __typename?: 'messages', id: any } | null };
+
+export type GetAllChatMessagesQueryVariables = Exact<{
+  chatId?: InputMaybe<Scalars['uuid']['input']>;
+}>;
+
+
+export type GetAllChatMessagesQuery = { __typename?: 'query_root', messages: Array<{ __typename?: 'messages', chatId: any, content?: string | null, data?: any | null, id: any, role?: string | null, createdAt?: any | null }> };
+
 export type GetChatByIdQueryVariables = Exact<{
   userId?: InputMaybe<Scalars['uuid']['input']>;
   chatId?: InputMaybe<Scalars['uuid']['input']>;
@@ -13301,6 +13348,13 @@ export type GetTemplateTagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetTemplateTagsQuery = { __typename?: 'query_root', template_tags: Array<{ __typename?: 'template_tags', id: number, name?: string | null, title?: string | null }> };
 
+export type GetUserInfoQueryVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+}>;
+
+
+export type GetUserInfoQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', ai_text_model?: string | null, plan_id?: any | null, is_client?: boolean | null }> };
+
 export type GetPlanUserQueryVariables = Exact<{
   id: Scalars['uuid']['input'];
 }>;
@@ -13331,6 +13385,65 @@ export const CreateChatDocument = gql`
     object: {model: $model, system_promt: $system_promt, title: $title, userId: $userId}
   ) {
     id
+  }
+}
+    `;
+export const DeleteChatByIdDocument = gql`
+    mutation DeleteChatById($chatId: uuid!) {
+  delete_chats(where: {id: {_eq: $chatId}}) {
+    returning {
+      id
+      title
+    }
+  }
+}
+    `;
+export const DeleteMessageDocument = gql`
+    mutation DeleteMessage($messageId: uuid!) {
+  delete_messages_by_pk(id: $messageId) {
+    id
+  }
+}
+    `;
+export const ChangeAiTextModelDocument = gql`
+    mutation ChangeAiTextModel($userId: uuid!, $model: String!) {
+  update_users(where: {id: {_eq: $userId}}, _set: {ai_text_model: $model}) {
+    affected_rows
+    returning {
+      id
+      ai_text_model
+    }
+  }
+}
+    `;
+export const UpdateChatDocument = gql`
+    mutation UpdateChat($chatId: uuid!, $title: String, $model: String) {
+  update_chats(where: {id: {_eq: $chatId}}, _set: {title: $title, model: $model}) {
+    returning {
+      id
+    }
+  }
+}
+    `;
+export const EditMessageDocument = gql`
+    mutation EditMessage($messageId: uuid!, $content: String, $data: json) {
+  update_messages_by_pk(
+    pk_columns: {id: $messageId}
+    _set: {content: $content, data: $data}
+  ) {
+    id
+  }
+}
+    `;
+export const GetAllChatMessagesDocument = gql`
+    query GetAllChatMessages($chatId: uuid) {
+  messages(where: {chatId: {_eq: $chatId}}, order_by: {createdAt: asc}) {
+    chatId
+    content
+    data
+    id
+    role
+    createdAt
   }
 }
     `;
@@ -13477,6 +13590,15 @@ export const GetTemplateTagsDocument = gql`
   }
 }
     `;
+export const GetUserInfoDocument = gql`
+    query GetUserInfo($userId: uuid!) {
+  users(where: {id: {_eq: $userId}}) {
+    ai_text_model
+    plan_id
+    is_client
+  }
+}
+    `;
 export const GetPlanUserDocument = gql`
     query GetPlanUser($id: uuid!) {
   users_by_pk(id: $id) {
@@ -13507,6 +13629,24 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     CreateChat(variables: CreateChatMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CreateChatMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<CreateChatMutation>(CreateChatDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'CreateChat', 'mutation', variables);
+    },
+    DeleteChatById(variables: DeleteChatByIdMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<DeleteChatByIdMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<DeleteChatByIdMutation>(DeleteChatByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'DeleteChatById', 'mutation', variables);
+    },
+    DeleteMessage(variables: DeleteMessageMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<DeleteMessageMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<DeleteMessageMutation>(DeleteMessageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'DeleteMessage', 'mutation', variables);
+    },
+    ChangeAiTextModel(variables: ChangeAiTextModelMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<ChangeAiTextModelMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<ChangeAiTextModelMutation>(ChangeAiTextModelDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'ChangeAiTextModel', 'mutation', variables);
+    },
+    UpdateChat(variables: UpdateChatMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<UpdateChatMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<UpdateChatMutation>(UpdateChatDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'UpdateChat', 'mutation', variables);
+    },
+    EditMessage(variables: EditMessageMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<EditMessageMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<EditMessageMutation>(EditMessageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'EditMessage', 'mutation', variables);
+    },
+    GetAllChatMessages(variables?: GetAllChatMessagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllChatMessagesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllChatMessagesQuery>(GetAllChatMessagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetAllChatMessages', 'query', variables);
     },
     GetChatById(variables?: GetChatByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetChatByIdQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetChatByIdQuery>(GetChatByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetChatById', 'query', variables);
@@ -13540,6 +13680,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetTemplateTags(variables?: GetTemplateTagsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTemplateTagsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetTemplateTagsQuery>(GetTemplateTagsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetTemplateTags', 'query', variables);
+    },
+    GetUserInfo(variables: GetUserInfoQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserInfoQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetUserInfoQuery>(GetUserInfoDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetUserInfo', 'query', variables);
     },
     GetPlanUser(variables: GetPlanUserQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPlanUserQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetPlanUserQuery>(GetPlanUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetPlanUser', 'query', variables);
