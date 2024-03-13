@@ -50,7 +50,7 @@ export async function POST(req: any) {
     'gpt-3.5-turbo-0613': 1.2,
     'gpt-4': 1.5
   };
-  // console.log(finalModel!, "model",systemPromt,"systemPromt"  )
+  
   const response = await openai.chat.completions.create({
     model: finalModel!,
     stream: true,
@@ -59,7 +59,8 @@ export async function POST(req: any) {
   // onComplete -> add message mutatuion
   let tokenCounter = 0
   const stream = OpenAIStream(response, {
-    async onStart() {},
+    async onStart() {
+    },
     async onCompletion(completion) {
       // TODO: rupdate chat title if message count = 2
       // TODO: add message to chat
@@ -77,8 +78,8 @@ export async function POST(req: any) {
         }),
       })
       const id = json.id
-
-      client.request(AddNewMessageDocument, {chatId: id, content: completion, role: 'assistant'})
+      console.log('ответ от AI', {chatId: id, content: completion, role: 'assistant'});
+      client.request(AddNewMessageDocument, {chatId: id, content: completion, role: 'assistant'}).then((res)=> console.log("айди ответа в БД",res.insert_messages_one.id)).catch(() => console.log("не смог записать ответ в базу"))
     },
     async onToken(token: string) {
       tokenCounter += 1

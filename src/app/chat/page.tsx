@@ -7,11 +7,10 @@ export default async function Page({searchParams}: {searchParams: {[key: string]
   const userId = searchParams.userId
   const message = searchParams.message
   const model = useChatStore.getState().model
-
   const {data} = await getClient().mutate({
     mutation: CreateChatDocument,
     variables: {
-      model: model,
+      model: "gpt-3.5",
       title: 'Новый чат',
       userId: userId,
       system_promt: 'absent',

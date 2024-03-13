@@ -23,10 +23,6 @@ export const Home = async function Home() {
 
   const templateCategories = await getAllTemplateCategories();
 
-  getServerSession(authOptions).then((res) => getUserInfo({userId: res?.user.id!})).then((data) => useChatStore.setState({
-    model : data ? data.users[0].ai_text_model! : "gpt-3.5"
-  }));
-
   return (
     <main className="flex size-full flex-col items-center bg-bg-lite pb-[80px] dark:bg-bg-dark">
       <div className="flex grow flex-col items-center md:w-full md:items-baseline lg:max-w-936 xl:max-w-1216">

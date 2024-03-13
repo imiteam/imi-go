@@ -71,7 +71,7 @@ export const useChatStore = create<
   chatId: undefined,
   description: undefined,
   icon: undefined,
-  model: 'gpt-3.5-turbo-0613',
+  model: 'gpt-3.5',
   system_promt: undefined,
   title: 'Новый чат',
   currentRoleId: 1,
