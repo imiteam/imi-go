@@ -1,0 +1,1 @@
+export {SupportPage as default} from "../../../Account/Support"

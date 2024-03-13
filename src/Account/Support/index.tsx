@@ -12,7 +12,7 @@ export type mockSupportDataType = {
   }
 }
 
-export default async function SupportPage() {
+export const SupportPage =  async function SupportPage() {
   const mockSupportData: Array<mockSupportDataType> = [
     {
       id: 1,
