@@ -31,7 +31,6 @@ export const ChatSection = async function ChatSection(props: {
       if(props.systemPromt === "absent"){
         return res.messages
       } else {
-        
         switch(props.systemPromt){
         case "business" :
             initialMessage = "Я бизнес мен с опытом Я бизнес мен с опытом Я бизнес мен с опытом"
@@ -61,8 +60,6 @@ export const ChatSection = async function ChatSection(props: {
         return [{id : "13ca03ea-9d6c-4664-b458-8db864e3b508", content : initialMessage, role : "tool", ui : currentPromt.roles[0].directus_img?.filename_disk},...res.messages]
       }
     })
-
-    
 
     const userInfo = await getUserInfo({userId: props.userId})
     

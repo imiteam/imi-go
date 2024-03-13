@@ -45,7 +45,7 @@ export const Item = memo(function Item(props: {
         if (props.firstChatId === chatId && props.secondChatId !== null) {
           router.push(`/chat/${props.secondChatId}?userId=${props.userId}`)
         } else if (props.firstChatId === chatId && props.secondChatId === null) {
-          createChatAction({model: 'gpt-3.5-turbo-0613', title: 'Новый чат', userId: userId!, systemPromt: 'system'})
+          createChatAction({model: 'gpt-3.5', title: 'Новый чат', userId: userId!, systemPromt: 'absent'})
         } else {
           router.push(`/chat/${props.firstChatId}?userId=${props.userId}`)
         }
