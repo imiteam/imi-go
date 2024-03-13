@@ -7,13 +7,6 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
-// const client = new GraphQLClient(process.env.HASURA_PROJECT_ENDPOINT!, {
-//   fetch,
-//   headers: {
-//     'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET!,
-//   },
-// })
-
 // export const runtime = 'edge'
 
 export async function POST(req: any) {
