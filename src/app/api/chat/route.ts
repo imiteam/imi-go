@@ -1,18 +1,18 @@
 import {OpenAIStream, StreamingTextResponse} from 'ai'
 import { AddNewMessageDocument } from 'generated'
-import {GraphQLClient} from 'graphql-request'
+import { getClient } from 'apollo-server-client'
 import OpenAI from 'openai'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
-const client = new GraphQLClient(process.env.HASURA_PROJECT_ENDPOINT!, {
-  fetch,
-  headers: {
-    'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET!,
-  },
-})
+// const client = new GraphQLClient(process.env.HASURA_PROJECT_ENDPOINT!, {
+//   fetch,
+//   headers: {
+//     'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET!,
+//   },
+// })
 
 // export const runtime = 'edge'
 
@@ -78,8 +78,10 @@ export async function POST(req: any) {
         }),
       })
       const id = json.id
-      console.log('ответ от AI', {chatId: id, content: completion, role: 'assistant'});
-      client.request(AddNewMessageDocument, {chatId: id, content: completion, role: 'assistant'}).then((res : any)=> console.log("айди ответа в БД",res.insert_messages_one.id)).catch(() => console.log("не смог записать ответ в базу"))
+      await getClient().mutate({
+        mutation : AddNewMessageDocument,
+        variables : {chatId: id, content: completion, role: 'assistant'}
+      })
     },
     async onToken(token: string) {
       tokenCounter += 1

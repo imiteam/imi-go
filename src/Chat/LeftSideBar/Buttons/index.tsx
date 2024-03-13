@@ -7,7 +7,7 @@ export const Buttons = memo(function Buttons(props: {className?: string; userId:
   const handleCreateNewChat = useCallback(async () => {
     try {
       await createChatAction({
-        model: 'gpt-3.5-turbo-0613',
+        model: 'gpt-3.5',
         title: 'Новый чат',
         userId: props.userId,
         systemPromt: 'absent',
