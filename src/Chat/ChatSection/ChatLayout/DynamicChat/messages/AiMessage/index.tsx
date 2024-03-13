@@ -1,5 +1,5 @@
 import {Message} from 'ai'
-import Logo_IMI from '../../../../../../../public/assets/Logo.svg'
+import Logo_IMI from '../../../../../../../public/assets/Logo_IMI.png'
 import {CodeBlock} from './codeblock'
 import {MemoizedReactMarkdown} from './markdown'
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '../../../../../../common/UIkit/tooltip'

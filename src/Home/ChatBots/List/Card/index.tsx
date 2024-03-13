@@ -4,6 +4,7 @@ import { createChatAction } from "../../../../Chat/graphql/action";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { memo, useCallback } from "react";
+import { useChatStore } from "Chat/lib/useChatStore";
 // Нигде не используется, пока закомментил
 // import {VisibilityContext} from 'react-horizontal-scrolling-menu'
 
@@ -18,14 +19,12 @@ export const Card = memo(function Card(props: {
   // const visibility = React.useContext(VisibilityContext)
   // const _visible = visibility.isItemVisible(itemId)
   const { data: session } = useSession();
-
+  const model = useChatStore.getState().model
   const handleCreateNewChat = useCallback(
     async (userId: string, systemPromt: string) => {
-      // setCurrentRoleId(role.id)
       try {
-        console.log(userId);
         await createChatAction({
-          model: "gpt-3",
+          model: model!,
           title: props.title,
           userId: userId,
           systemPromt: systemPromt,

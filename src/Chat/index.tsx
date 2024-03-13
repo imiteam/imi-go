@@ -1,4 +1,3 @@
-// import {ChatSection} from 'Chat/ChatSection'
 import {getClient} from 'apollo-server-client'
 import {getMyChats} from '../Chat/graphql/action'
 import {
@@ -8,10 +7,11 @@ import {
   GetRolesWithTitleFilterQueryVariables,
 } from 'generated'
 import {useChatStore} from '../Chat/lib/useChatStore'
-// import {History} from './History'
+import {History} from './History'
 import {LeftSideBar} from './LeftSideBar'
 import { ChatSection } from './ChatSection'
-// import MobileSideBar from './MobileSideBar'
+import MobileSideBar from './MobileSideBar'
+
 export const Chat = async function Chat(props: {
   // PARAMS.ID - АЙДИШКА ЧАТА
   params: {id: string}
@@ -64,7 +64,7 @@ export const Chat = async function Chat(props: {
           roles={data.roles}
           userId={props.searchParams.userId as string}
         />
-{/* 
+
         <MobileSideBar
           chats={historyData.chats}
           id={props.params.id}
@@ -72,7 +72,7 @@ export const Chat = async function Chat(props: {
           searchParamsHistory={props.searchParams.history_search}
           searchParamsRoles={props.searchParams}
           userId={props.searchParams.userId as string}
-        /> */}
+        />
 
         <ChatSection
           id={props.params.id}
@@ -80,13 +80,13 @@ export const Chat = async function Chat(props: {
           homePageMessage={props.searchParams.message ? (props.searchParams.message as string) : undefined}
           systemPromt={getChat.chats[0]?.system_promt}
         />
-        {/* <History
+        <History
           searchParams={props.searchParams.history_search}
           id={props.params.id}
           className="flex h-full flex-col"
           chats={historyData.chats}
           userId={props.searchParams.userId as string}
-        /> */}
+        />
       </div>
     </main>
   )

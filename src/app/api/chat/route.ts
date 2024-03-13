@@ -50,7 +50,7 @@ export async function POST(req: any) {
     'gpt-3.5-turbo-0613': 1.2,
     'gpt-4': 1.5
   };
- 
+  // console.log(finalModel!, "model",systemPromt,"systemPromt"  )
   const response = await openai.chat.completions.create({
     model: finalModel!,
     stream: true,
@@ -66,7 +66,7 @@ export async function POST(req: any) {
       // Deduct your tokens here
       // @ts-ignore
       const tokensUsed = tokenCounter * (tokenCoefficients[finalModel] || 1);
-      await fetch('https://imi-go.ru/used-tokens', {
+      await fetch('https://api.imigo.ai/used-tokens', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
