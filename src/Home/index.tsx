@@ -24,7 +24,7 @@ export const Home = async function Home() {
   const templateCategories = await getAllTemplateCategories();
 
   getServerSession(authOptions).then((res) => getUserInfo({userId: res?.user.id!})).then((data) => useChatStore.setState({
-    model : data.users[0].ai_text_model!
+    model : data ? data.users[0].ai_text_model! : "gpt-3.5"
   }));
 
   return (
