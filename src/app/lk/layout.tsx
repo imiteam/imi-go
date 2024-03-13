@@ -1,0 +1,1 @@
+export {LkLayout as default} from '../../Account/common/Layout'
