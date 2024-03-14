@@ -265,7 +265,7 @@ export const ChatSettingsModal = memo(function ChatSettingsModal() {
                     Расскажите о себе
                   </span>
                   <div className="ml-[10px] w-[13px]">
-                    <TooltipProvider>
+                    <TooltipProvider delayDuration={150}>
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <span className="block w-[13px]">
@@ -315,7 +315,7 @@ export const ChatSettingsModal = memo(function ChatSettingsModal() {
                     Каким образом бы вы желали, чтобы он отвечал?
                   </span>
                   <div className="ml-[10px] w-[13px]">
-                    <TooltipProvider>
+                    <TooltipProvider delayDuration={150}>
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <span className="block w-[13px]">

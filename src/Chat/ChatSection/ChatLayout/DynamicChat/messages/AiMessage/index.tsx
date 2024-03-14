@@ -149,7 +149,7 @@ export default function AiMessage({isLastMessage, isLoading, stop, reload, messa
               <button onClick={() => customStop()}>Отмена</button>
             ) : (
               <div className="flex h-[34px] items-center rounded-[12px] bg-[#FFFFFF] dark:bg-[#000000]">
-                <TooltipProvider>
+                <TooltipProvider delayDuration={150}>
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <div className="flex size-[32px] cursor-pointer items-center justify-center">
@@ -165,7 +165,7 @@ export default function AiMessage({isLastMessage, isLoading, stop, reload, messa
                 </TooltipProvider>
 
                 {isLastMessage ? (
-                  <TooltipProvider>
+                  <TooltipProvider delayDuration={150}>
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <div
@@ -185,7 +185,7 @@ export default function AiMessage({isLastMessage, isLoading, stop, reload, messa
                 ) : (
                   <></>
                 )}
-                <TooltipProvider>
+                <TooltipProvider delayDuration={150}>
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <div
@@ -202,7 +202,7 @@ export default function AiMessage({isLastMessage, isLoading, stop, reload, messa
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
-                <TooltipProvider>
+                <TooltipProvider delayDuration={150}>
                   <Tooltip>
                     <TooltipContent className="relative right-[50px] top-[44px] rounded-[8px] bg-[black] dark:bg-[#ffffff] ">
                       <span className="font-TTNormsRegular text-[14px] leading-[20px] text-[#FFFFFF] dark:text-[#000000]">

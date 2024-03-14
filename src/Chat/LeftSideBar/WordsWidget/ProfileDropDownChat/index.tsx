@@ -23,7 +23,7 @@ export default function ProfileDropDown(props: {userWalletData: UserWalletSubscr
           )}
           </span>
         )}
-        <TooltipProvider>
+        <TooltipProvider delayDuration={150}>
           <Tooltip>
             <TooltipTrigger asChild>
               <SelectTrigger

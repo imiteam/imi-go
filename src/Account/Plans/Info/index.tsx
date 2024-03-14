@@ -95,7 +95,7 @@ export const Info = (props: {
             {' ' + props.plan}
           </span>
           <span className="ml-[6px] w-[16px]">
-            <TooltipProvider>
+            <TooltipProvider delayDuration={150}>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <span className=" w-[20px]">

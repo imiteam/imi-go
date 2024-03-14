@@ -37,7 +37,7 @@ export const Buttons = memo(function Buttons(props: {className?: string; userId:
         callBack={handleCreateNewChat}
       />
       </Link>
-      {/* <TooltipProvider>
+      {/* <TooltipProvider delayDuration={150}>
           <Tooltip>
             <TooltipTrigger asChild className='cursor-not-allowed'>
               <NavButton title="Избранные чаты" icon="favoriteChatSideBar" callBack={() => {}} component="roleSideBarBtn" />

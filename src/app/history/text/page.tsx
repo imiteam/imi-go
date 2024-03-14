@@ -1,0 +1,1 @@
+export {TextHistories as default} from "../../../History/Text"

@@ -14,7 +14,7 @@ export const Item = memo(function Item(props: {
   isHomePage: boolean;
 }) {
   return props.isHomePage ? (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={150}>
       <Tooltip>
         <TooltipTrigger asChild>
           <div

@@ -51,7 +51,7 @@ export const CategoryItem = memo(function CategoryItem(props: {
       </span>
     </Button>
   ) : (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={150}>
       <Tooltip>
         <TooltipTrigger asChild>
           <Button

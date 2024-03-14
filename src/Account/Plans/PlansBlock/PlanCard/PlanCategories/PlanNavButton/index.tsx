@@ -22,7 +22,7 @@ export const PlanNavButton = (props: {id: number; title: string; icon: string}) 
       </span>
     </Button>
   ) : (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={150}>
       <Tooltip>
         <TooltipTrigger asChild>
           <Button

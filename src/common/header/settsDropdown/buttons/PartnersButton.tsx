@@ -15,7 +15,7 @@ export const PartnersButton = memo(function PartnersButton(props: {
   setIsShowSetts: (value: boolean) => void;
 }) {
   return (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={150}>
       <Tooltip>
         <TooltipTrigger asChild>
           <Link

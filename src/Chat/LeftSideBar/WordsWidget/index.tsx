@@ -63,7 +63,7 @@ export const WordsWidget = memo(function WordsWidget(props: {className?: string;
         </span>
         {/* <Image src={improvePlan} alt="improvePlan" width={14} height={16} /> */}
       </div>
-      <TooltipProvider>
+      <TooltipProvider delayDuration={150}>
         <Tooltip>
           <TooltipTrigger asChild>
             <div

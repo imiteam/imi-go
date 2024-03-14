@@ -24,7 +24,7 @@ export const PlanFeatureItem = (props: {title: string; active: boolean}) => {
       </span>
       {props.active && (
         <span className="ml-[6px] w-[16px]">
-          <TooltipProvider>
+          <TooltipProvider delayDuration={150}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <span className="size-[20px]">

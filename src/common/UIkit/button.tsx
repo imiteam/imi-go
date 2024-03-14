@@ -133,7 +133,7 @@ const buttonVariants = cva(
         activePaginationButton:
           "flex py-2 px-3 font-TTNormsMedium lg:text-[12px] md:text-[12px] leading-[14px] text-[#2D384B] dark:text-[#CECFD2] border border-[#D0D5DD] dark:border-[#333741] rounded-[10px]",
         defaultPageButton:
-          "flex items-center justify-center font-TTNormsMedium text-[14px] leading-[14px] text-[#475467] dark:text-[#98A2B3]",
+          "flex items-center justify-center font-TTNormsMedium text-[14px] leading-[14px] text-[#475467] dark:text-[#98A2B3] rounded-[8px] hover:bg-[#EDF2F678] dark:hover:bg-[#17181C9E]",
         activePageButton:
           "flex items-center justify-center rounded-[8px] bg-[#EDF2F6] dark:bg-[#17181C] font-TTNormsMedium text-[14px] leading-[14px] text-[#475467] dark:text-[#98A2B3]",
         signMethodButton:

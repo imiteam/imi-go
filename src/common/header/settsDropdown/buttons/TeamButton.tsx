@@ -15,7 +15,7 @@ export const TeamButton = memo(function TeamButton(props: {
   setIsShowSetts: (value: boolean) => void;
 }) {
   return (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={150}>
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
