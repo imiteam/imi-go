@@ -11,7 +11,7 @@ export const TableSwitchIcon =  memo(function TableSwitchIcon({icon}: {icon: str
   switch (icon) {
     case 'show':
       return (
-        <TooltipProvider>
+        <TooltipProvider delayDuration={150}>
           <Tooltip>
             <TooltipTrigger asChild>
               <svg
@@ -41,7 +41,7 @@ export const TableSwitchIcon =  memo(function TableSwitchIcon({icon}: {icon: str
       )
     case 'download':
       return (
-        <TooltipProvider>
+        <TooltipProvider delayDuration={150}>
           <Tooltip>
             <TooltipTrigger asChild>
               <svg
@@ -71,7 +71,7 @@ export const TableSwitchIcon =  memo(function TableSwitchIcon({icon}: {icon: str
       )
     case 'message':
       return (
-        <TooltipProvider>
+        <TooltipProvider delayDuration={150}>
           <Tooltip>
             <TooltipTrigger asChild>
               <svg

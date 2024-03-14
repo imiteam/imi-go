@@ -24,7 +24,7 @@ export const ChatModelsNavButton = memo(function ChatModelsNavButton(props: {
           <span>{props.title}</span>
         </Button>
       ) : (
-        <TooltipProvider>
+        <TooltipProvider delayDuration={150}>
           <Tooltip>
             <TooltipTrigger asChild>
               <Button

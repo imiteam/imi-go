@@ -126,7 +126,7 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
           ниже 4 кнопки шапки чата для десктопа (более 980 пикселей)
           */}
         <div className="flex justify-between md:hidden lg:h-[36px] lg:w-[162px] xl:h-[40px] xl:w-[184px]">
-          <TooltipProvider>
+          <TooltipProvider delayDuration={150}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <span>
@@ -144,7 +144,7 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
             </Tooltip>
           </TooltipProvider>
 
-          <TooltipProvider>
+          <TooltipProvider delayDuration={150}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <span>

@@ -866,6 +866,10 @@ table thead tr:hover {
 #templateSelect {
   overflow-x: hidden;
 }
+
+#hoveredTextHistoryTableEventIcon:hover path{
+  stroke: #0b3bec !important; 
+}
 /*  */
 /* @media screen and (max-width : 549px) {
   #planCategories {

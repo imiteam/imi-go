@@ -36,7 +36,7 @@ export const HeaderNavButton = memo(function HeaderNavButton(
   let isActive = props.buttonName === props.activeButtonName;
 
   return props.title === "Обучение" ? (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={150}>
       <Tooltip>
         <TooltipTrigger asChild>
           <Button

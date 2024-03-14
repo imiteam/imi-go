@@ -24,7 +24,7 @@ export const Item = memo(function Item(props: {
 
   return (
     <div tabIndex={0}>
-      <TooltipProvider>
+      <TooltipProvider delayDuration={150}>
         <Tooltip>
           <TooltipTrigger asChild>
             <Button

@@ -18,7 +18,7 @@ export const ProfileNavButton = ({id, title, name}: {id: number; title: string; 
 
   let cursor = name === 'team' || name === 'partners' ? 'not-allowed' : 'pointer'
   return name === 'team' || name === 'partners' ? (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={150}>
       <Tooltip>
         <TooltipTrigger asChild>
           <Button
