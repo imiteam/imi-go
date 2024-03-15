@@ -22,7 +22,8 @@ export const PlanFeatureItem = (props: {title: string; active: boolean}) => {
       >
         {props.title}
       </span>
-      {props.active && (
+      {/* вопросик рядом с каждой фичей ? не красиво */}
+      {/* {props.active && (
         <span className="ml-[6px] w-[16px]">
           <TooltipProvider delayDuration={150}>
             <Tooltip>
@@ -37,7 +38,7 @@ export const PlanFeatureItem = (props: {title: string; active: boolean}) => {
             </Tooltip>
           </TooltipProvider>
         </span>
-      )}
+      )} */}
     </div>
   )
 }

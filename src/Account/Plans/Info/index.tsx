@@ -6,6 +6,7 @@ import Image from 'next/image'
 import {PackageCard} from './PackageCard'
 import {ProfileSimpleButton} from './ProfileSimpleButton'
 import { PlanModalIcon } from './icon_components/PlanModalIcon'
+import { useMemo } from 'react'
 
 export const Info = (props: {
   plan: string | undefined
@@ -52,6 +53,17 @@ export const Info = (props: {
       partSum: 19,
     },
   ]
+  const processWordsCount = useMemo(
+    () =>  {
+      if(!props.wordsCount){
+        return NaN
+      } else {
+        return (props.wordsCount * 3) / 4
+      }
+    },
+    [props.wordsCount],
+  );
+
   return (
     <div
       className="flex h-[94px] w-full items-center justify-between rounded-[20px] bg-[#FFFFFF] dark:bg-[#21242C] vsm:h-[134px] vsm:flex-col vsm:rounded-[16px]
@@ -143,7 +155,16 @@ export const Info = (props: {
                                     lg:text-[20px] lg:leading-[30px]
                                     xl:text-[20px] xl:leading-[30px]"
           >
-            {' ' + props.wordsCount} слов
+            {isNaN(processWordsCount) ? (
+            <div className="flex justify-center items-center">
+              <div
+                className="animate-spin rounded-full h-4.5 w-4.5 border-b-2 border-gray-900"
+                style={{ width: "15px", height: "15px" }}
+              ></div>
+            </div>
+          ) : (
+            ` ${Math.round(processWordsCount)} слов`
+          )}
           </span>
         </div>
         <Dialog>

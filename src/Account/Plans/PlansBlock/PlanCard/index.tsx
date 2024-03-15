@@ -7,11 +7,18 @@ import {PlanCardHeader} from './PlanCardHeader'
 import {PlanFeatureItem} from './PlanFeatureItem'
 import {PlanInfo} from './PlanInfo'
 import {SinglePlanButton} from './SinglePlanButton'
+import { useSession } from 'next-auth/react'
 
-export const PlanCard = memo(function PlanCard({plan}: {plan: PlansMockData}) {
+export type MetaDataType = {
+  plan : string
+  tokens : number
+  yearly : boolean
+}
+export const PlanCard = memo(function PlanCard({plan,planName}: {plan: PlansMockData,planName: string | undefined}) {
+  const session = useSession()
   return (
     <div
-      style={{borderColor: plan.isActive ? '#0B3BEC' : ''}}
+      style={{borderColor: plan.name === planName ? '#0B3BEC' : ''}}
       className={`rounded-[20px] border-[2px] border-[#D0D5DD] dark:border-[#333741] planSm:my-3 planSm:rounded-[16px] md:mx-[12px] md:w-1/3
                     md:min-w-[234px] md:p-[16px] md:pb-[20px]
                     md:planSm:mx-0 md:planSm:w-full lg:mx-[12px] lg:w-1/3 lg:p-[20px]
@@ -32,7 +39,7 @@ export const PlanCard = memo(function PlanCard({plan}: {plan: PlansMockData}) {
         benefit={plan.benefit}
         planType={plan.planButton.type}
       />
-      <GoToPlanButton isActive={plan.isActive} />
+      <GoToPlanButton planName={plan.name} isActive={plan.name === planName} planPayDataType={plan.paymentFetchObj} userId={session.data?.user.id!}/>
       <div
         id="planFeature"
         className="flex h-[250px] w-full flex-col
