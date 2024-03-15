@@ -1,5 +1,5 @@
 'use client'
-
+// Использовано - 1) купить "доп пакет" на странице - настройки -> тарифы и оплата , 2) покупка тарифа на странице - настройки -> тарифы и оплата
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import {Cross2Icon} from '@radix-ui/react-icons'
 import * as React from 'react'

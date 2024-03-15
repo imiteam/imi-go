@@ -1,12 +1,17 @@
 'use client'
 import {GetPlanCategoriesQuery} from 'generated'
-import {memo} from 'react'
+import {memo, useEffect, useRef} from 'react'
 import {PayToggle} from './PayToggle'
 import {PlanCard} from './PlanCard'
 import {PlanCategories} from './PlanCard/PlanCategories'
+import { useProfileStore } from 'Account/lib/useProfileStore'
+import { Dialog, DialogContent } from 'common/UIkit/plansModal'
+import { useOnClickOutside } from 'usehooks-ts'
+import { useClickAway } from 'react-use'
 
 export type PlansMockData = {
   title: string
+  name: string
   presentation: string
   sale: number
   benefit: number
@@ -22,14 +27,27 @@ export type PlansMockData = {
         }>
       | string
   }
-  isActive: boolean
   planFeautures: Array<{title: string; includes: boolean}>
+  paymentFetchObj : {
+    amount: number,
+    description: string,
+    metadata: {
+      plan: string,
+      tokens: number,
+      yearly: boolean,
+    },
+    is_subscription: boolean,
+ } 
 }
 
-export const PlansBlock = memo(function PlansBlock({planCategories}: {planCategories: GetPlanCategoriesQuery}) {
+export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {planCategories: GetPlanCategoriesQuery,planName: string | undefined}) {
+
+  const {paymentUrl} = useProfileStore()
+
   const data: Array<PlansMockData> = [
     {
       title: 'Бесплатный',
+      name: "Free",
       presentation: 'Всем желающим использовать нейросети',
       sale: 0,
       benefit: 0,
@@ -40,7 +58,6 @@ export const PlansBlock = memo(function PlansBlock({planCategories}: {planCatego
         type: 'simple',
         title: 'GPT 3.5',
       },
-      isActive: false,
       planFeautures: [
         {
           title: 'IMI чат: чат-бот c ИИ',
@@ -67,9 +84,20 @@ export const PlansBlock = memo(function PlansBlock({planCategories}: {planCatego
           includes: false,
         },
       ],
+      paymentFetchObj : {
+        amount : 0,
+        description : "Бесплатный тариф",
+        metadata : {
+          plan : "Free",
+          tokens : 10000,
+          yearly : false
+        },
+        is_subscription : true
+      }
     },
     {
-      title: 'Продвинутый',
+      title: 'Базовый',
+      name: "Base",
       presentation: 'Раскройте свой творческий потенциал',
       sale: 20,
       benefit: 3250,
@@ -80,7 +108,6 @@ export const PlansBlock = memo(function PlansBlock({planCategories}: {planCatego
         type: 'simple',
         title: 'GPT 3.5 TURBO',
       },
-      isActive: true,
       planFeautures: [
         {
           title: 'IMI чат: чат-бот c ИИ',
@@ -107,9 +134,20 @@ export const PlansBlock = memo(function PlansBlock({planCategories}: {planCatego
           includes: true,
         },
       ],
+      paymentFetchObj : {
+        amount : 9999,
+        description : "Базовый тариф",
+        metadata : {
+          plan : "Base",
+          tokens : 1000000,
+          yearly : false
+        },
+        is_subscription : true
+      }
     },
     {
-      title: 'PRO / Команда',
+      title: 'PRO',
+      name: "Pro",
       presentation: 'Используйте свой потенциал на максимум',
       sale: 33,
       benefit: 17250,
@@ -123,7 +161,6 @@ export const PlansBlock = memo(function PlansBlock({planCategories}: {planCatego
           {title: 'GPT 4', id: 2},
         ],
       },
-      isActive: false,
       planFeautures: [
         {
           title: 'IMI чат: ИИ 4.0 и стандартной версией 3.5',
@@ -150,15 +187,45 @@ export const PlansBlock = memo(function PlansBlock({planCategories}: {planCatego
           includes: true,
         },
       ],
+      paymentFetchObj : {
+        amount : 13990,
+        description : "PRO тариф",
+        metadata : {
+          plan : "Pro",
+          tokens : 5000000,
+          yearly : false
+        },
+        is_subscription : true
+      }
     },
-  ]
+  ] 
+  const {SetPaymentUrl} = useProfileStore()
+  const iframeeRef = useRef<HTMLIFrameElement | null>(null);
+  useClickAway(iframeeRef, (e) => {
+      if(iframeeRef.current){
+        SetPaymentUrl("")
+        window.location.reload(); // обновляем экран чтобы пользователь увидел обновленный активный план в карточке плана, в названии плана, дате след оплаты и т д
+      }
+  })
   return (
     <div
       className="flex w-full flex-col items-center justify-between rounded-[20px] md:mb-[8px] md:bg-[none] md:py-[12px] md:planSm:mb-0 md:planSm:py-0
                         md:planSm:pt-[12px] lg:mb-[12px]
                         lg:h-[760px] lg:bg-[#FFFFFF] lg:p-[24px]
-                        lg:dark:bg-[#21242C] xl:h-[769px] xl:p-[32px]"
+                        lg:dark:bg-[#21242C] xl:h-[769px] xl:p-[32px] relative"
     >
+      {paymentUrl && (
+          <Dialog open={paymentUrl !== ""}>
+            <DialogContent>
+              <iframe 
+                      ref={iframeeRef}
+                      src={paymentUrl}
+                      title="Payment"
+                      style={{ width: '100%', height: '100%', border: 'none', borderRadius : "20px" }}
+                    />
+            </DialogContent>
+          </Dialog>
+      )}
       <div
         className="flex w-full items-center justify-between md:mb-[16px] md:h-[79px] md:flex-col
                             md:vsm:h-[86px] lg:mb-[24px]
@@ -184,7 +251,7 @@ export const PlansBlock = memo(function PlansBlock({planCategories}: {planCatego
                         planSm:vsm:pt-0"
       >
         {data.map((p, index) => {
-          return <PlanCard plan={p} key={index} />
+          return <PlanCard plan={p} key={index} planName={planName}/>
         })}
       </div>
     </div>

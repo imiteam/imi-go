@@ -5,6 +5,10 @@ interface ProfileNavButton {
   buttonId: number
   SetButtonId: (id: number) => void
 }
+interface PaymentModalUrl {
+  paymentUrl: string
+  SetPaymentUrl: (url: string) => void
+}
 // interface SelectedPlanCategories {
 //   selectedPlanCategoriesId: number
 //   setSelectedPlanCategoriesId: (id: number) => void
@@ -18,10 +22,12 @@ interface ProfileNavButton {
 //   SetMultiplyPlanButtonId: (id: number) => void
 // }
 
-export const useProfileStore = create<ProfileNavButton>()((set) => ({
+export const useProfileStore = create<ProfileNavButton & PaymentModalUrl>()((set) => ({
 //   & SelectedPlanCategories & PlanPayToggleButton & MultiplyPlanButton
   buttonId: 1,
   SetButtonId: (id) => set({buttonId: id}),
+  paymentUrl : "",
+  SetPaymentUrl : (url : string) => set(() => ({paymentUrl :url}))
   //   selectedPlanCategoriesId: 1,
   //   setSelectedPlanCategoriesId: (id) => set(() => ({selectedPlanCategoriesId: id})),
   //   selectedToggleButtonId: 1,

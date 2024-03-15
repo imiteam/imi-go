@@ -44,7 +44,7 @@ export const PlansPage = async () => {
         nextPaySum={plans_by_pk?.price}
         nextPayDate={users_by_pk?.date_end_plan}
       />
-      <PlansBlock planCategories={plan_categories} />
+      <PlansBlock planCategories={plan_categories} planName={plans_by_pk?.name}/>
       <RequestBlock />
       <div className="flex h-auto w-full justify-center">
         <div

@@ -24,7 +24,7 @@ const DropdownSelectTrigger = React.forwardRef<
   >
     {children}
     <SelectPrimitive.Icon asChild className="">
-      <ChevronDown className="relative left-[1px] top-[2px] h-4 w-[36px] opacity-50 md:left-[-7px] md:top-[3px]" />
+      <ChevronDown className="relative left-[1px] top-[5px] h-4 w-[36px] opacity-50 md:left-[-7px] md:top-[3px]" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));
