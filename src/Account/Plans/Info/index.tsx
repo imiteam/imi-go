@@ -68,7 +68,7 @@ export const Info = (props: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ subscription_id: id }),
-    }).then(() => setShowCancelPlanModal(false));
+    }).then(() => setShowCancelPlanModal(false)).then(() => window.location.reload());
  }, [GetUserSubscriptionIdData?.users[0].subscription_id]);
 
     //работа с модалкой
