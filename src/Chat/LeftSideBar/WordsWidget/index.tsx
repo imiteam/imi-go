@@ -10,7 +10,8 @@ import {
   UserWalletSubscriptionVariables,
 } from 'generated'
 import {memo, useCallback, useMemo} from 'react'
-
+import Image from "next/image"
+import betterYourPlan from "../../../../public/assets/betterYourPlan.png"
 export const WordsWidget = memo(function WordsWidget(props: {className?: string; id: string; userId: string}) {
   const {data: userWalletData} = useSubscription<UserWalletSubscription, UserWalletSubscriptionVariables>(
     UserWalletDocument,
@@ -27,17 +28,27 @@ export const WordsWidget = memo(function WordsWidget(props: {className?: string;
   const planName = useCallback(
     (data: any | undefined) => {
       if (data) {
-        switch (data.users_by_pk.plan_id) {
-          case '8d035581-2209-4212-a4f2-6938bd0bf32a':
-            return 'Бесплатный'
+        switch (data.users_by_pk?.plan_id) {
+          case "8d035581-2209-4212-a4f2-6938bd0bf32a":
+            return "Бесплатный";
+          case "6a7c060b-1d7c-414a-88a5-f43edc9b6aee":
+            return "Базовый"
           default:
-            return 'нету плана'
+            return "нету плана";
         }
       }
     },
     [data],
   )
-  const progress = useMemo(() => (userWalletData?.wallets[0]?.tokens! / 100000) * 100, [userWalletData?.wallets])
+  const progress = useMemo(() => {
+   let maxTokens;
+   if(data?.users_by_pk?.plan_id === "8d035581-2209-4212-a4f2-6938bd0bf32a"){
+    maxTokens = 10000
+   } else {
+    maxTokens = 100000000
+   } 
+   return (userWalletData?.wallets[0]?.tokens! / maxTokens) * 100
+  }, [userWalletData?.wallets,data])
   return (
     <div
       className="
@@ -61,7 +72,7 @@ export const WordsWidget = memo(function WordsWidget(props: {className?: string;
         >
           Улучшить план
         </span>
-        {/* <Image src={improvePlan} alt="improvePlan" width={14} height={16} /> */}
+        <Image src={betterYourPlan} alt="improvePlan" width={14} height={16} />
       </div>
       <TooltipProvider delayDuration={150}>
         <Tooltip>

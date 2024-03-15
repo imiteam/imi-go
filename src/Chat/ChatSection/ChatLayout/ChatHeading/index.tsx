@@ -54,6 +54,7 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
   const handleChangeModel = useCallback(
     async (model: string) => {
       try {
+        // && props.userInfo.users[0].plan_id === "айдишка "про" плана" в if снизу
         if (props.userInfo.users[0].is_client) {
           await updateChatAction({chatId: pathname.slice(6), title: props.title, model: model})
           await ChangeAiTextModel({userId: props.userId, model: model})

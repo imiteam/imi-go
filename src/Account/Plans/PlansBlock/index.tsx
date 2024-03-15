@@ -5,7 +5,7 @@ import {PayToggle} from './PayToggle'
 import {PlanCard} from './PlanCard'
 import {PlanCategories} from './PlanCard/PlanCategories'
 import { useProfileStore } from 'Account/lib/useProfileStore'
-import { Dialog, DialogContent } from 'common/UIkit/plansModal'
+import { Dialog, DialogContent } from 'common/UIkit/additionalPlansModal'
 import { useOnClickOutside } from 'usehooks-ts'
 import { useClickAway } from 'react-use'
 
@@ -16,7 +16,6 @@ export type PlansMockData = {
   sale: number
   benefit: number
   sum: number
-  usersCount: string
   wordsCount: number | string
   planButton: {
     type: string
@@ -52,7 +51,6 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
       sale: 0,
       benefit: 0,
       sum: 0,
-      usersCount: '1 пользователь',
       wordsCount: 10000,
       planButton: {
         type: 'simple',
@@ -102,7 +100,6 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
       sale: 20,
       benefit: 3250,
       sum: 9999,
-      usersCount: '1 пользователь',
       wordsCount: 'безлимитно',
       planButton: {
         type: 'simple',
@@ -152,7 +149,6 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
       sale: 33,
       benefit: 17250,
       sum: 13990,
-      usersCount: '5 пользователей',
       wordsCount: 4000000,
       planButton: {
         type: 'multiply',

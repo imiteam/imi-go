@@ -220,6 +220,7 @@ const buttonVariants = cva(
         ChatModelsModalNavButton: "w-auto h-[34px] grow",
         InsructionsToggleButton: "size-[16px]",
         closeMobileMenuBtn: "md:sm:size-[36px]",
+        profileCancelPlanButton: "w-[100px] xl:h-[44px] lg:h-[40px] md:h-[40px]",
         // cancelEditMessage: "w-[84px] h-[34px]", TODO: Fix
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
