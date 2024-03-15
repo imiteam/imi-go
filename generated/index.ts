@@ -3644,11 +3644,14 @@ export type Accounts = {
   expires_at?: Maybe<Scalars['Int']['output']>;
   id: Scalars['uuid']['output'];
   id_token?: Maybe<Scalars['String']['output']>;
+  oauth_token?: Maybe<Scalars['String']['output']>;
+  oauth_token_secret?: Maybe<Scalars['String']['output']>;
   provider: Scalars['String']['output'];
   providerAccountId: Scalars['String']['output'];
   /** An object relationship */
   provider_type: Provider_Type;
   refresh_token?: Maybe<Scalars['String']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['bigint']['output']>;
   scope?: Maybe<Scalars['String']['output']>;
   session_state?: Maybe<Scalars['String']['output']>;
   token_type?: Maybe<Scalars['String']['output']>;
@@ -3725,11 +3728,13 @@ export type Accounts_Arr_Rel_Insert_Input = {
 export type Accounts_Avg_Fields = {
   __typename?: 'accounts_avg_fields';
   expires_at?: Maybe<Scalars['Float']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by avg() on columns of table "accounts" */
 export type Accounts_Avg_Order_By = {
   expires_at?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "accounts". All fields are combined with a logical 'AND'. */
@@ -3741,10 +3746,13 @@ export type Accounts_Bool_Exp = {
   expires_at?: InputMaybe<Int_Comparison_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
   id_token?: InputMaybe<String_Comparison_Exp>;
+  oauth_token?: InputMaybe<String_Comparison_Exp>;
+  oauth_token_secret?: InputMaybe<String_Comparison_Exp>;
   provider?: InputMaybe<String_Comparison_Exp>;
   providerAccountId?: InputMaybe<String_Comparison_Exp>;
   provider_type?: InputMaybe<Provider_Type_Bool_Exp>;
   refresh_token?: InputMaybe<String_Comparison_Exp>;
+  refresh_token_expires_in?: InputMaybe<Bigint_Comparison_Exp>;
   scope?: InputMaybe<String_Comparison_Exp>;
   session_state?: InputMaybe<String_Comparison_Exp>;
   token_type?: InputMaybe<String_Comparison_Exp>;
@@ -3762,6 +3770,7 @@ export enum Accounts_Constraint {
 /** input type for incrementing numeric columns in table "accounts" */
 export type Accounts_Inc_Input = {
   expires_at?: InputMaybe<Scalars['Int']['input']>;
+  refresh_token_expires_in?: InputMaybe<Scalars['bigint']['input']>;
 };
 
 /** input type for inserting data into table "accounts" */
@@ -3770,10 +3779,13 @@ export type Accounts_Insert_Input = {
   expires_at?: InputMaybe<Scalars['Int']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   id_token?: InputMaybe<Scalars['String']['input']>;
+  oauth_token?: InputMaybe<Scalars['String']['input']>;
+  oauth_token_secret?: InputMaybe<Scalars['String']['input']>;
   provider?: InputMaybe<Scalars['String']['input']>;
   providerAccountId?: InputMaybe<Scalars['String']['input']>;
   provider_type?: InputMaybe<Provider_Type_Obj_Rel_Insert_Input>;
   refresh_token?: InputMaybe<Scalars['String']['input']>;
+  refresh_token_expires_in?: InputMaybe<Scalars['bigint']['input']>;
   scope?: InputMaybe<Scalars['String']['input']>;
   session_state?: InputMaybe<Scalars['String']['input']>;
   token_type?: InputMaybe<Scalars['String']['input']>;
@@ -3789,9 +3801,12 @@ export type Accounts_Max_Fields = {
   expires_at?: Maybe<Scalars['Int']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   id_token?: Maybe<Scalars['String']['output']>;
+  oauth_token?: Maybe<Scalars['String']['output']>;
+  oauth_token_secret?: Maybe<Scalars['String']['output']>;
   provider?: Maybe<Scalars['String']['output']>;
   providerAccountId?: Maybe<Scalars['String']['output']>;
   refresh_token?: Maybe<Scalars['String']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['bigint']['output']>;
   scope?: Maybe<Scalars['String']['output']>;
   session_state?: Maybe<Scalars['String']['output']>;
   token_type?: Maybe<Scalars['String']['output']>;
@@ -3805,9 +3820,12 @@ export type Accounts_Max_Order_By = {
   expires_at?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   id_token?: InputMaybe<Order_By>;
+  oauth_token?: InputMaybe<Order_By>;
+  oauth_token_secret?: InputMaybe<Order_By>;
   provider?: InputMaybe<Order_By>;
   providerAccountId?: InputMaybe<Order_By>;
   refresh_token?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
   scope?: InputMaybe<Order_By>;
   session_state?: InputMaybe<Order_By>;
   token_type?: InputMaybe<Order_By>;
@@ -3822,9 +3840,12 @@ export type Accounts_Min_Fields = {
   expires_at?: Maybe<Scalars['Int']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   id_token?: Maybe<Scalars['String']['output']>;
+  oauth_token?: Maybe<Scalars['String']['output']>;
+  oauth_token_secret?: Maybe<Scalars['String']['output']>;
   provider?: Maybe<Scalars['String']['output']>;
   providerAccountId?: Maybe<Scalars['String']['output']>;
   refresh_token?: Maybe<Scalars['String']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['bigint']['output']>;
   scope?: Maybe<Scalars['String']['output']>;
   session_state?: Maybe<Scalars['String']['output']>;
   token_type?: Maybe<Scalars['String']['output']>;
@@ -3838,9 +3859,12 @@ export type Accounts_Min_Order_By = {
   expires_at?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   id_token?: InputMaybe<Order_By>;
+  oauth_token?: InputMaybe<Order_By>;
+  oauth_token_secret?: InputMaybe<Order_By>;
   provider?: InputMaybe<Order_By>;
   providerAccountId?: InputMaybe<Order_By>;
   refresh_token?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
   scope?: InputMaybe<Order_By>;
   session_state?: InputMaybe<Order_By>;
   token_type?: InputMaybe<Order_By>;
@@ -3877,10 +3901,13 @@ export type Accounts_Order_By = {
   expires_at?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   id_token?: InputMaybe<Order_By>;
+  oauth_token?: InputMaybe<Order_By>;
+  oauth_token_secret?: InputMaybe<Order_By>;
   provider?: InputMaybe<Order_By>;
   providerAccountId?: InputMaybe<Order_By>;
   provider_type?: InputMaybe<Provider_Type_Order_By>;
   refresh_token?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
   scope?: InputMaybe<Order_By>;
   session_state?: InputMaybe<Order_By>;
   token_type?: InputMaybe<Order_By>;
@@ -3905,11 +3932,17 @@ export enum Accounts_Select_Column {
   /** column name */
   IdToken = 'id_token',
   /** column name */
+  OauthToken = 'oauth_token',
+  /** column name */
+  OauthTokenSecret = 'oauth_token_secret',
+  /** column name */
   Provider = 'provider',
   /** column name */
   ProviderAccountId = 'providerAccountId',
   /** column name */
   RefreshToken = 'refresh_token',
+  /** column name */
+  RefreshTokenExpiresIn = 'refresh_token_expires_in',
   /** column name */
   Scope = 'scope',
   /** column name */
@@ -3928,9 +3961,12 @@ export type Accounts_Set_Input = {
   expires_at?: InputMaybe<Scalars['Int']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   id_token?: InputMaybe<Scalars['String']['input']>;
+  oauth_token?: InputMaybe<Scalars['String']['input']>;
+  oauth_token_secret?: InputMaybe<Scalars['String']['input']>;
   provider?: InputMaybe<Scalars['String']['input']>;
   providerAccountId?: InputMaybe<Scalars['String']['input']>;
   refresh_token?: InputMaybe<Scalars['String']['input']>;
+  refresh_token_expires_in?: InputMaybe<Scalars['bigint']['input']>;
   scope?: InputMaybe<Scalars['String']['input']>;
   session_state?: InputMaybe<Scalars['String']['input']>;
   token_type?: InputMaybe<Scalars['String']['input']>;
@@ -3942,33 +3978,39 @@ export type Accounts_Set_Input = {
 export type Accounts_Stddev_Fields = {
   __typename?: 'accounts_stddev_fields';
   expires_at?: Maybe<Scalars['Float']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev() on columns of table "accounts" */
 export type Accounts_Stddev_Order_By = {
   expires_at?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Accounts_Stddev_Pop_Fields = {
   __typename?: 'accounts_stddev_pop_fields';
   expires_at?: Maybe<Scalars['Float']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev_pop() on columns of table "accounts" */
 export type Accounts_Stddev_Pop_Order_By = {
   expires_at?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Accounts_Stddev_Samp_Fields = {
   __typename?: 'accounts_stddev_samp_fields';
   expires_at?: Maybe<Scalars['Float']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by stddev_samp() on columns of table "accounts" */
 export type Accounts_Stddev_Samp_Order_By = {
   expires_at?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "accounts" */
@@ -3985,9 +4027,12 @@ export type Accounts_Stream_Cursor_Value_Input = {
   expires_at?: InputMaybe<Scalars['Int']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   id_token?: InputMaybe<Scalars['String']['input']>;
+  oauth_token?: InputMaybe<Scalars['String']['input']>;
+  oauth_token_secret?: InputMaybe<Scalars['String']['input']>;
   provider?: InputMaybe<Scalars['String']['input']>;
   providerAccountId?: InputMaybe<Scalars['String']['input']>;
   refresh_token?: InputMaybe<Scalars['String']['input']>;
+  refresh_token_expires_in?: InputMaybe<Scalars['bigint']['input']>;
   scope?: InputMaybe<Scalars['String']['input']>;
   session_state?: InputMaybe<Scalars['String']['input']>;
   token_type?: InputMaybe<Scalars['String']['input']>;
@@ -3999,11 +4044,13 @@ export type Accounts_Stream_Cursor_Value_Input = {
 export type Accounts_Sum_Fields = {
   __typename?: 'accounts_sum_fields';
   expires_at?: Maybe<Scalars['Int']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['bigint']['output']>;
 };
 
 /** order by sum() on columns of table "accounts" */
 export type Accounts_Sum_Order_By = {
   expires_at?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
 };
 
 /** update columns of table "accounts" */
@@ -4017,11 +4064,17 @@ export enum Accounts_Update_Column {
   /** column name */
   IdToken = 'id_token',
   /** column name */
+  OauthToken = 'oauth_token',
+  /** column name */
+  OauthTokenSecret = 'oauth_token_secret',
+  /** column name */
   Provider = 'provider',
   /** column name */
   ProviderAccountId = 'providerAccountId',
   /** column name */
   RefreshToken = 'refresh_token',
+  /** column name */
+  RefreshTokenExpiresIn = 'refresh_token_expires_in',
   /** column name */
   Scope = 'scope',
   /** column name */
@@ -4047,33 +4100,39 @@ export type Accounts_Updates = {
 export type Accounts_Var_Pop_Fields = {
   __typename?: 'accounts_var_pop_fields';
   expires_at?: Maybe<Scalars['Float']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by var_pop() on columns of table "accounts" */
 export type Accounts_Var_Pop_Order_By = {
   expires_at?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
 export type Accounts_Var_Samp_Fields = {
   __typename?: 'accounts_var_samp_fields';
   expires_at?: Maybe<Scalars['Float']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by var_samp() on columns of table "accounts" */
 export type Accounts_Var_Samp_Order_By = {
   expires_at?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
 };
 
 /** aggregate variance on columns */
 export type Accounts_Variance_Fields = {
   __typename?: 'accounts_variance_fields';
   expires_at?: Maybe<Scalars['Float']['output']>;
+  refresh_token_expires_in?: Maybe<Scalars['Float']['output']>;
 };
 
 /** order by variance() on columns of table "accounts" */
 export type Accounts_Variance_Order_By = {
   expires_at?: InputMaybe<Order_By>;
+  refresh_token_expires_in?: InputMaybe<Order_By>;
 };
 
 /** columns and relationships of "ai_categories" */
@@ -8059,10 +8118,14 @@ export type Password_Reset_Tokens_Updates = {
 export type Payment_History = {
   __typename?: 'payment_history';
   amount?: Maybe<Scalars['Int']['output']>;
+  card?: Maybe<Scalars['String']['output']>;
+  card_exp_date?: Maybe<Scalars['String']['output']>;
   data: Scalars['jsonb']['output'];
   date: Scalars['timestamptz']['output'];
+  four_last?: Maybe<Scalars['String']['output']>;
   id: Scalars['uuid']['output'];
   invoice_id?: Maybe<Scalars['String']['output']>;
+  plan?: Maybe<Scalars['String']['output']>;
   status: Scalars['Int']['output'];
   transaction_id: Scalars['Int']['output'];
   user_id: Scalars['uuid']['output'];
@@ -8123,10 +8186,14 @@ export type Payment_History_Bool_Exp = {
   _not?: InputMaybe<Payment_History_Bool_Exp>;
   _or?: InputMaybe<Array<Payment_History_Bool_Exp>>;
   amount?: InputMaybe<Int_Comparison_Exp>;
+  card?: InputMaybe<String_Comparison_Exp>;
+  card_exp_date?: InputMaybe<String_Comparison_Exp>;
   data?: InputMaybe<Jsonb_Comparison_Exp>;
   date?: InputMaybe<Timestamptz_Comparison_Exp>;
+  four_last?: InputMaybe<String_Comparison_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
   invoice_id?: InputMaybe<String_Comparison_Exp>;
+  plan?: InputMaybe<String_Comparison_Exp>;
   status?: InputMaybe<Int_Comparison_Exp>;
   transaction_id?: InputMaybe<Int_Comparison_Exp>;
   user_id?: InputMaybe<Uuid_Comparison_Exp>;
@@ -8166,10 +8233,14 @@ export type Payment_History_Inc_Input = {
 /** input type for inserting data into table "payment_history" */
 export type Payment_History_Insert_Input = {
   amount?: InputMaybe<Scalars['Int']['input']>;
+  card?: InputMaybe<Scalars['String']['input']>;
+  card_exp_date?: InputMaybe<Scalars['String']['input']>;
   data?: InputMaybe<Scalars['jsonb']['input']>;
   date?: InputMaybe<Scalars['timestamptz']['input']>;
+  four_last?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   invoice_id?: InputMaybe<Scalars['String']['input']>;
+  plan?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Scalars['Int']['input']>;
   transaction_id?: InputMaybe<Scalars['Int']['input']>;
   user_id?: InputMaybe<Scalars['uuid']['input']>;
@@ -8179,9 +8250,13 @@ export type Payment_History_Insert_Input = {
 export type Payment_History_Max_Fields = {
   __typename?: 'payment_history_max_fields';
   amount?: Maybe<Scalars['Int']['output']>;
+  card?: Maybe<Scalars['String']['output']>;
+  card_exp_date?: Maybe<Scalars['String']['output']>;
   date?: Maybe<Scalars['timestamptz']['output']>;
+  four_last?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   invoice_id?: Maybe<Scalars['String']['output']>;
+  plan?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['Int']['output']>;
   transaction_id?: Maybe<Scalars['Int']['output']>;
   user_id?: Maybe<Scalars['uuid']['output']>;
@@ -8191,9 +8266,13 @@ export type Payment_History_Max_Fields = {
 export type Payment_History_Min_Fields = {
   __typename?: 'payment_history_min_fields';
   amount?: Maybe<Scalars['Int']['output']>;
+  card?: Maybe<Scalars['String']['output']>;
+  card_exp_date?: Maybe<Scalars['String']['output']>;
   date?: Maybe<Scalars['timestamptz']['output']>;
+  four_last?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   invoice_id?: Maybe<Scalars['String']['output']>;
+  plan?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['Int']['output']>;
   transaction_id?: Maybe<Scalars['Int']['output']>;
   user_id?: Maybe<Scalars['uuid']['output']>;
@@ -8218,10 +8297,14 @@ export type Payment_History_On_Conflict = {
 /** Ordering options when selecting data from "payment_history". */
 export type Payment_History_Order_By = {
   amount?: InputMaybe<Order_By>;
+  card?: InputMaybe<Order_By>;
+  card_exp_date?: InputMaybe<Order_By>;
   data?: InputMaybe<Order_By>;
   date?: InputMaybe<Order_By>;
+  four_last?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   invoice_id?: InputMaybe<Order_By>;
+  plan?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
   transaction_id?: InputMaybe<Order_By>;
   user_id?: InputMaybe<Order_By>;
@@ -8242,13 +8325,21 @@ export enum Payment_History_Select_Column {
   /** column name */
   Amount = 'amount',
   /** column name */
+  Card = 'card',
+  /** column name */
+  CardExpDate = 'card_exp_date',
+  /** column name */
   Data = 'data',
   /** column name */
   Date = 'date',
   /** column name */
+  FourLast = 'four_last',
+  /** column name */
   Id = 'id',
   /** column name */
   InvoiceId = 'invoice_id',
+  /** column name */
+  Plan = 'plan',
   /** column name */
   Status = 'status',
   /** column name */
@@ -8260,10 +8351,14 @@ export enum Payment_History_Select_Column {
 /** input type for updating data in table "payment_history" */
 export type Payment_History_Set_Input = {
   amount?: InputMaybe<Scalars['Int']['input']>;
+  card?: InputMaybe<Scalars['String']['input']>;
+  card_exp_date?: InputMaybe<Scalars['String']['input']>;
   data?: InputMaybe<Scalars['jsonb']['input']>;
   date?: InputMaybe<Scalars['timestamptz']['input']>;
+  four_last?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   invoice_id?: InputMaybe<Scalars['String']['input']>;
+  plan?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Scalars['Int']['input']>;
   transaction_id?: InputMaybe<Scalars['Int']['input']>;
   user_id?: InputMaybe<Scalars['uuid']['input']>;
@@ -8304,10 +8399,14 @@ export type Payment_History_Stream_Cursor_Input = {
 /** Initial value of the column from where the streaming should start */
 export type Payment_History_Stream_Cursor_Value_Input = {
   amount?: InputMaybe<Scalars['Int']['input']>;
+  card?: InputMaybe<Scalars['String']['input']>;
+  card_exp_date?: InputMaybe<Scalars['String']['input']>;
   data?: InputMaybe<Scalars['jsonb']['input']>;
   date?: InputMaybe<Scalars['timestamptz']['input']>;
+  four_last?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   invoice_id?: InputMaybe<Scalars['String']['input']>;
+  plan?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Scalars['Int']['input']>;
   transaction_id?: InputMaybe<Scalars['Int']['input']>;
   user_id?: InputMaybe<Scalars['uuid']['input']>;
@@ -8326,13 +8425,21 @@ export enum Payment_History_Update_Column {
   /** column name */
   Amount = 'amount',
   /** column name */
+  Card = 'card',
+  /** column name */
+  CardExpDate = 'card_exp_date',
+  /** column name */
   Data = 'data',
   /** column name */
   Date = 'date',
   /** column name */
+  FourLast = 'four_last',
+  /** column name */
   Id = 'id',
   /** column name */
   InvoiceId = 'invoice_id',
+  /** column name */
+  Plan = 'plan',
   /** column name */
   Status = 'status',
   /** column name */
@@ -9901,6 +10008,7 @@ export type Roles = {
   id: Scalars['uuid']['output'];
   image?: Maybe<Scalars['uuid']['output']>;
   image_min?: Maybe<Scalars['uuid']['output']>;
+  initial_message?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   promt?: Maybe<Scalars['String']['output']>;
   title: Scalars['String']['output'];
@@ -9964,6 +10072,7 @@ export type Roles_Bool_Exp = {
   id?: InputMaybe<Uuid_Comparison_Exp>;
   image?: InputMaybe<Uuid_Comparison_Exp>;
   image_min?: InputMaybe<Uuid_Comparison_Exp>;
+  initial_message?: InputMaybe<String_Comparison_Exp>;
   name?: InputMaybe<String_Comparison_Exp>;
   promt?: InputMaybe<String_Comparison_Exp>;
   title?: InputMaybe<String_Comparison_Exp>;
@@ -9985,6 +10094,7 @@ export type Roles_Insert_Input = {
   id?: InputMaybe<Scalars['uuid']['input']>;
   image?: InputMaybe<Scalars['uuid']['input']>;
   image_min?: InputMaybe<Scalars['uuid']['input']>;
+  initial_message?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   promt?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -9997,6 +10107,7 @@ export type Roles_Max_Fields = {
   id?: Maybe<Scalars['uuid']['output']>;
   image?: Maybe<Scalars['uuid']['output']>;
   image_min?: Maybe<Scalars['uuid']['output']>;
+  initial_message?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   promt?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
@@ -10008,6 +10119,7 @@ export type Roles_Max_Order_By = {
   id?: InputMaybe<Order_By>;
   image?: InputMaybe<Order_By>;
   image_min?: InputMaybe<Order_By>;
+  initial_message?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
   promt?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
@@ -10020,6 +10132,7 @@ export type Roles_Min_Fields = {
   id?: Maybe<Scalars['uuid']['output']>;
   image?: Maybe<Scalars['uuid']['output']>;
   image_min?: Maybe<Scalars['uuid']['output']>;
+  initial_message?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   promt?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
@@ -10031,6 +10144,7 @@ export type Roles_Min_Order_By = {
   id?: InputMaybe<Order_By>;
   image?: InputMaybe<Order_By>;
   image_min?: InputMaybe<Order_By>;
+  initial_message?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
   promt?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
@@ -10060,6 +10174,7 @@ export type Roles_Order_By = {
   id?: InputMaybe<Order_By>;
   image?: InputMaybe<Order_By>;
   image_min?: InputMaybe<Order_By>;
+  initial_message?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
   promt?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
@@ -10080,6 +10195,8 @@ export enum Roles_Select_Column {
   /** column name */
   ImageMin = 'image_min',
   /** column name */
+  InitialMessage = 'initial_message',
+  /** column name */
   Name = 'name',
   /** column name */
   Promt = 'promt',
@@ -10094,6 +10211,7 @@ export type Roles_Set_Input = {
   id?: InputMaybe<Scalars['uuid']['input']>;
   image?: InputMaybe<Scalars['uuid']['input']>;
   image_min?: InputMaybe<Scalars['uuid']['input']>;
+  initial_message?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   promt?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -10113,6 +10231,7 @@ export type Roles_Stream_Cursor_Value_Input = {
   id?: InputMaybe<Scalars['uuid']['input']>;
   image?: InputMaybe<Scalars['uuid']['input']>;
   image_min?: InputMaybe<Scalars['uuid']['input']>;
+  initial_message?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   promt?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -10127,6 +10246,8 @@ export enum Roles_Update_Column {
   Image = 'image',
   /** column name */
   ImageMin = 'image_min',
+  /** column name */
+  InitialMessage = 'initial_message',
   /** column name */
   Name = 'name',
   /** column name */
@@ -12467,6 +12588,7 @@ export type Users = {
   is_client?: Maybe<Scalars['Boolean']['output']>;
   is_former_client?: Maybe<Scalars['Boolean']['output']>;
   is_subscriber?: Maybe<Scalars['Boolean']['output']>;
+  is_year_sub?: Maybe<Scalars['Boolean']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   plan_id?: Maybe<Scalars['uuid']['output']>;
   /** An array relationship */
@@ -12578,6 +12700,7 @@ export type Users_Bool_Exp = {
   is_client?: InputMaybe<Boolean_Comparison_Exp>;
   is_former_client?: InputMaybe<Boolean_Comparison_Exp>;
   is_subscriber?: InputMaybe<Boolean_Comparison_Exp>;
+  is_year_sub?: InputMaybe<Boolean_Comparison_Exp>;
   name?: InputMaybe<String_Comparison_Exp>;
   plan_id?: InputMaybe<Uuid_Comparison_Exp>;
   sessions?: InputMaybe<Sessions_Bool_Exp>;
@@ -12608,6 +12731,7 @@ export type Users_Insert_Input = {
   is_client?: InputMaybe<Scalars['Boolean']['input']>;
   is_former_client?: InputMaybe<Scalars['Boolean']['input']>;
   is_subscriber?: InputMaybe<Scalars['Boolean']['input']>;
+  is_year_sub?: InputMaybe<Scalars['Boolean']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   plan_id?: InputMaybe<Scalars['uuid']['input']>;
   sessions?: InputMaybe<Sessions_Arr_Rel_Insert_Input>;
@@ -12682,6 +12806,7 @@ export type Users_Order_By = {
   is_client?: InputMaybe<Order_By>;
   is_former_client?: InputMaybe<Order_By>;
   is_subscriber?: InputMaybe<Order_By>;
+  is_year_sub?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
   plan_id?: InputMaybe<Order_By>;
   sessions_aggregate?: InputMaybe<Sessions_Aggregate_Order_By>;
@@ -12716,6 +12841,8 @@ export enum Users_Select_Column {
   /** column name */
   IsSubscriber = 'is_subscriber',
   /** column name */
+  IsYearSub = 'is_year_sub',
+  /** column name */
   Name = 'name',
   /** column name */
   PlanId = 'plan_id',
@@ -12735,6 +12862,7 @@ export type Users_Set_Input = {
   is_client?: InputMaybe<Scalars['Boolean']['input']>;
   is_former_client?: InputMaybe<Scalars['Boolean']['input']>;
   is_subscriber?: InputMaybe<Scalars['Boolean']['input']>;
+  is_year_sub?: InputMaybe<Scalars['Boolean']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   plan_id?: InputMaybe<Scalars['uuid']['input']>;
   subscription_id?: InputMaybe<Scalars['String']['input']>;
@@ -12760,6 +12888,7 @@ export type Users_Stream_Cursor_Value_Input = {
   is_client?: InputMaybe<Scalars['Boolean']['input']>;
   is_former_client?: InputMaybe<Scalars['Boolean']['input']>;
   is_subscriber?: InputMaybe<Scalars['Boolean']['input']>;
+  is_year_sub?: InputMaybe<Scalars['Boolean']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   plan_id?: InputMaybe<Scalars['uuid']['input']>;
   subscription_id?: InputMaybe<Scalars['String']['input']>;
@@ -12787,6 +12916,8 @@ export enum Users_Update_Column {
   IsFormerClient = 'is_former_client',
   /** column name */
   IsSubscriber = 'is_subscriber',
+  /** column name */
+  IsYearSub = 'is_year_sub',
   /** column name */
   Name = 'name',
   /** column name */
@@ -13208,6 +13339,13 @@ export type Wallets_Variance_Fields = {
   tokens?: Maybe<Scalars['Float']['output']>;
 };
 
+export type GetUserHistoryQueryVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+}>;
+
+
+export type GetUserHistoryQuery = { __typename?: 'query_root', payment_history: Array<{ __typename?: 'payment_history', transaction_id: number, date: any, plan?: string | null, card?: string | null, four_last?: string | null, card_exp_date?: string | null, amount?: number | null, status: number }> };
+
 export type GetPlanCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -13394,6 +13532,20 @@ export type UserWalletSubscriptionVariables = Exact<{
 export type UserWalletSubscription = { __typename?: 'subscription_root', wallets: Array<{ __typename?: 'wallets', tokens: number, user_id: any, additional_tokens?: number | null }> };
 
 
+export const GetUserHistoryDocument = gql`
+    query GetUserHistory($userId: uuid!) {
+  payment_history(where: {user_id: {_eq: $userId}}) {
+    transaction_id
+    date
+    plan
+    card
+    four_last
+    card_exp_date
+    amount
+    status
+  }
+}
+    `;
 export const GetPlanCategoriesDocument = gql`
     query GetPlanCategories {
   plan_categories {
@@ -13683,6 +13835,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    GetUserHistory(variables: GetUserHistoryQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserHistoryQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetUserHistoryQuery>(GetUserHistoryDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetUserHistory', 'query', variables);
+    },
     GetPlanCategories(variables?: GetPlanCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPlanCategoriesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetPlanCategoriesQuery>(GetPlanCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetPlanCategories', 'query', variables);
     },

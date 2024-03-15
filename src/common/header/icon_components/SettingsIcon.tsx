@@ -3,7 +3,9 @@
 import { memo, useState } from "react";
 import { SettsDropdown } from "../settsDropdown";
 
-export const SettingsIcon = memo(function SettingIcon() {
+export const SettingsIcon = memo(function SettingIcon(props: {
+  userId : string
+}) {
   const [isShowSetts, setIsShowSetts] = useState<boolean>(false);
 
   return (
@@ -35,6 +37,7 @@ export const SettingsIcon = memo(function SettingIcon() {
       </svg>
       {isShowSetts && (
         <SettsDropdown
+          userId={props.userId}
           isShowSetts={isShowSetts}
           setIsShowSetts={setIsShowSetts}
         />

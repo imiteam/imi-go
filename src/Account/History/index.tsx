@@ -1,68 +1,34 @@
+import { GetUserHistoryDocument, GetUserHistoryQuery, GetUserHistoryQueryVariables } from 'generated'
 import Histories from './Histories'
+import { getClient } from 'apollo-server-client'
 
-export type mockHistoryType = {
-  id: number
-  date: string
-  plan: {
-    title: string
-    period: string
-  }
-  card: {
-    type: string
-    ending: number
-    expiry: string
-  }
-  sum: number
-  promocode: {
-    code: number | null
-    description: string | null
-  }
-  status: boolean
-}
-export const HistoryPage = async function HistoryPage() {
-  const mockHistory: Array<mockHistoryType> = [
-    {
-      id: 2,
-      date: '23.11.2026',
-      plan: {
-        title: 'Продвинутый',
-        period: '1 год',
-      },
-      card: {
-        type: 'Visa',
-        ending: 1234,
-        expiry: '01/02/2025',
-      },
-      sum: 1349,
-      promocode: {
-        code: null,
-        description: null,
-      },
-      status: false,
-    },
-    {
-      id: 1,
-      date: '12.10.2023',
-      plan: {
-        title: 'Продвинутый',
-        period: '1 месяц',
-      },
-      card: {
-        type: 'Visa',
-        ending: 1234,
-        expiry: '01/02/2025',
-      },
-      sum: 4999,
-      promocode: {
-        code: 11111,
-        description: '10',
-      },
-      status: true,
-    },
-  ]
+
+export const HistoryPage = async function HistoryPage(props :{
+  searchParams: {[key: string]: string | string[] | undefined}
+}) {
+  
+  const {data: getHistory} = await getClient().query<GetUserHistoryQuery,GetUserHistoryQueryVariables>({
+        query: GetUserHistoryDocument,
+        variables: { userId: props.searchParams.userId},
+        fetchPolicy: 'no-cache',
+        context: {
+          fetchOptions: {
+            next: {revalidate: 0},
+          },
+        },
+      })
+  
   return (
     <div className="size-full">
-      <Histories mockHistory={mockHistory} />
+      {
+        getHistory.payment_history.length ?
+          <Histories historyData={getHistory.payment_history} />
+          :
+          <span>
+            Список историй платежей пуст
+          </span>  
+      }
+      
     </div>
   )
 }

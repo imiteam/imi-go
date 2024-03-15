@@ -90,7 +90,7 @@ export default function Header() {
             )}
             <div className="flex w-[148px] items-center justify-between md:w-[103px] md:justify-end lg:ml-[20px] xl:ml-[28px]">
               <ThemeIcon />
-              <SettingsIcon />
+              <SettingsIcon userId={session?.user.id}/>
               <NotifyIcon />
             </div>
           </div>

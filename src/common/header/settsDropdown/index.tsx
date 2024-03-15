@@ -13,6 +13,7 @@ import { SignOutButton } from "./buttons/SignOutButton";
 export const SettsDropdown = memo(function SettsDropdown(props: {
   isShowSetts: boolean;
   setIsShowSetts: (value: boolean) => void;
+  userId : string;
 }) {
   const handleClickOutside = () => {
     props.setIsShowSetts(!props.isShowSetts);
@@ -39,6 +40,7 @@ export const SettsDropdown = memo(function SettsDropdown(props: {
       />
 
       <HistoryButton
+        userId={props.userId}
         isShowSetts={props.isShowSetts}
         setIsShowSetts={props.setIsShowSetts}
       />
