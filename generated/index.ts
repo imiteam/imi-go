@@ -13234,10 +13234,17 @@ export type GetUserInfoQueryVariables = Exact<{
 
 export type GetUserInfoQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', ai_text_model?: string | null, plan_id?: any | null, is_client?: boolean | null }> };
 
+export type GetUserSubscriptionIdQueryVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+}>;
+
+
+export type GetUserSubscriptionIdQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', subscription_id?: string | null }> };
+
 export type GetProfileCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetProfileCategoriesQuery = { __typename?: 'query_root', profile_categories: Array<{ __typename?: 'profile_categories', name?: any | null, title: string, id: number }> };
+export type GetProfileCategoriesQuery = { __typename?: 'query_root', profile_categories: Array<{ __typename?: 'profile_categories', title: string, name?: any | null, id: number }> };
 
 export type AddNewMessageMutationVariables = Exact<{
   chatId?: InputMaybe<Scalars['uuid']['input']>;
@@ -13423,11 +13430,18 @@ export const GetUserInfoDocument = gql`
   }
 }
     `;
+export const GetUserSubscriptionIdDocument = gql`
+    query GetUserSubscriptionId($userId: uuid!) {
+  users(where: {id: {_eq: $userId}}) {
+    subscription_id
+  }
+}
+    `;
 export const GetProfileCategoriesDocument = gql`
     query GetProfileCategories {
   profile_categories {
-    name
     title
+    name
     id
   }
 }
@@ -13680,6 +13694,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetUserInfo(variables: GetUserInfoQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserInfoQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetUserInfoQuery>(GetUserInfoDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetUserInfo', 'query', variables);
+    },
+    GetUserSubscriptionId(variables: GetUserSubscriptionIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserSubscriptionIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetUserSubscriptionIdQuery>(GetUserSubscriptionIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetUserSubscriptionId', 'query', variables);
     },
     GetProfileCategories(variables?: GetProfileCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProfileCategoriesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetProfileCategoriesQuery>(GetProfileCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetProfileCategories', 'query', variables);

@@ -1,12 +1,19 @@
 'use client'
 import question from '../../../../public/assets/questionMark.png'
-import {Dialog, DialogContent, DialogTrigger} from '../../../common/UIkit/plansModal'
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '../../../common/UIkit/tooltip'
 import Image from 'next/image'
 import {PackageCard} from './PackageCard'
 import {ProfileSimpleButton} from './ProfileSimpleButton'
 import { PlanModalIcon } from './icon_components/PlanModalIcon'
-import { useMemo } from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
+import { useQuery, useSubscription } from '@apollo/client'
+import { GetPlanUserDocument, GetUserSubscriptionIdDocument, GetUserSubscriptionIdQueryVariables, UserWalletDocument, UserWalletSubscription, UserWalletSubscriptionVariables } from 'generated'
+import { useSession } from 'next-auth/react'
+import { CancelPlanDialog, CancelPlanDialogContent, CancelPlanDialogTrigger } from 'common/UIkit/cancelPlanModal'
+import { Button } from 'common/UIkit/button'
+import { OkIcon } from 'Account/Settings/Blocks/buttons/icon_components/OkIcon'
+import { useClickAway } from 'react-use'
+import { Dialog, DialogContent, DialogTrigger } from 'common/UIkit/additionalPlansModal'
 
 export const Info = (props: {
   plan: string | undefined
@@ -23,6 +30,48 @@ export const Info = (props: {
     }
     return date.toLocaleDateString('ru-RU', options)
   }
+  const session = useSession()
+  const { data: userWalletData } = useSubscription<
+    UserWalletSubscription,
+    UserWalletSubscriptionVariables
+  >(UserWalletDocument, {
+    variables: {
+      userId: session.data?.user.id,
+    },
+  });
+  //работа с модалкой
+  const [showCancelPlanModal, setShowCancelPlanModal] = useState<boolean>(false)
+
+  const changeShowCancelPlanModal = (isShow : boolean) => {
+    if(!GetUserSubscriptionIdData?.users[0].subscription_id){
+      return
+    }
+    setShowCancelPlanModal(isShow)
+  } 
+  const cancelModalRef = useRef<any>(null);
+  useClickAway(cancelModalRef, () => {
+      if(cancelModalRef.current){
+        setShowCancelPlanModal(false)
+      }
+  })
+  const { data : GetUserSubscriptionIdData} = useQuery(GetUserSubscriptionIdDocument, {
+    variables: { userId: session.data?.user.id },
+   });
+
+   const cancelPlan = useCallback((id : string) => {
+    if(!id){
+      return
+    }
+    fetch('https://api.imigo.ai/subscription/close', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ subscription_id: id }),
+    }).then(() => setShowCancelPlanModal(false));
+ }, [GetUserSubscriptionIdData?.users[0].subscription_id]);
+
+    //работа с модалкой
   const planPackage = [
     {id: 1, wordsCount: 10000, sum: 199, benefit: 400, symbol: 10000, pic: 30, partSum: 19},
     {
@@ -55,13 +104,27 @@ export const Info = (props: {
   ]
   const processWordsCount = useMemo(
     () =>  {
-      if(!props.wordsCount){
+      if(!userWalletData?.wallets[0]?.tokens!){
         return NaN
       } else {
-        return (props.wordsCount * 3) / 4
+        return (userWalletData?.wallets[0]?.tokens! * 3) / 4
+      
       }
     },
-    [props.wordsCount],
+    [userWalletData?.wallets[0]?.tokens!],
+  );
+  
+  const currentPlan = useMemo(
+    () =>  {
+      if(props.plan === "Free"){
+        return "Бесплатный"
+      } else if (props.plan === "Pro") {
+        return "Продвинутый"
+      } else {
+        return "Базовый"
+      }
+    },
+    [props.plan],
   );
 
   return (
@@ -104,7 +167,7 @@ export const Info = (props: {
                                     lg:leading-[28px]
                                     xl:text-[20px] xl:leading-[30px]"
           >
-            {' ' + props.plan}
+            {' ' + currentPlan}
           </span>
           <span className="ml-[6px] w-[16px]">
             <TooltipProvider delayDuration={150}>
@@ -132,7 +195,55 @@ export const Info = (props: {
           >
             Следующий платеж {props.nextPaySum} &#x20BD; - {props.nextPayDate ? formatDate(props.nextPayDate) : null}
           </span>
-          <ProfileSimpleButton title="Отменить автоплатеж" callBack={() => {}} />
+          <CancelPlanDialog open={showCancelPlanModal} >
+            <CancelPlanDialogTrigger>
+              <ProfileSimpleButton title="Отменить автоплатеж" callBack={() => changeShowCancelPlanModal(true)} />
+            </CancelPlanDialogTrigger>
+            <CancelPlanDialogContent ref={cancelModalRef}>
+              <div className='w-full h-full rounded-[20px] bg-[#EDF2F6] dark:bg-[rgb(23,24,28)] flex flex-col'>
+
+                <div className="flex h-[97px] w-full items-center border-b-[1px] border-b-[#D0D5DD] p-[24px] dark:border-b-[#333741]">
+                  <div className="mr-[16px] flex size-[48px] items-center justify-center rounded-[10px] bg-[#FFFFFF] dark:bg-[#000000] vsm:hidden">
+                    <PlanModalIcon />
+                  </div>
+                    <span
+                      className="font-NeueMachinaBold text-[24px] leading-[32px] text-[#101828] dark:text-[#F5F5F6]
+                                      planSm:text-[20px] planSm:leading-[30px]"
+                    >
+                      Отмена рекурентного платежа
+                    </span>
+                </div>
+
+                <div className='w-full h-[130px] p-[24px] flex flex-col planSm:vsm:h-auto'>
+                  <div className='w-full h-auto flex flex-col'>
+                    <span
+                        className="font-TTNormsRegular text-[14px] leading-[20px] text-[#475467] dark:text-[#98A2B3]
+                                                    planSm:text-[12px] planSm:leading-[18px] text-center mb-3"
+                    >
+                      Внимание, отмена рекурентного платежа приведет к автоматическому переходу на бесплатный тариф с {props.nextPayDate ? formatDate(props.nextPayDate) : null}
+                    </span>
+                    <span
+                      className="font-NeueMachinaBold text-[24px] leading-[32px] text-[#101828] dark:text-[#F5F5F6]
+                                      planSm:text-[20px] planSm:leading-[30px] text-center"
+                    >
+                      Подтвердить отмену платежа ?
+                    </span>
+                  </div>
+                </div>
+
+                <div className='w-full h-auto flex justify-between py-[24px] px-[80px] vsm:px-[24px]'>
+                  <Button size="profileCancelPlanButton" variant="profileCancelButton" onClick={() => cancelPlan(GetUserSubscriptionIdData?.users[0].subscription_id)}>
+                    Да
+                  </Button>
+                  <Button size="profileCancelPlanButton" variant="profileOkButton" onClick={() => setShowCancelPlanModal(false)}>
+                    <OkIcon/>
+                    Нет
+                  </Button>
+                </div>
+
+              </div>
+            </CancelPlanDialogContent>
+          </CancelPlanDialog>
         </div>
       </div>
       <div

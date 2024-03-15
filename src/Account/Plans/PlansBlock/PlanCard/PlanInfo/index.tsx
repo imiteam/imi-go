@@ -4,7 +4,6 @@ import {PlanCardSlider} from './PlanCardSlider'
 
 export const PlanInfo = (props: {
   wordsCount: number | string
-  usersCount: string
   sum: number
   benefit: number
   planType: string
@@ -41,13 +40,6 @@ export const PlanInfo = (props: {
               {props.wordsCount.toLocaleString()} слов / месяц
             </span>
           )}
-          <span
-            className="font-TTNormsRegular text-[#475467] dark:text-[#98A2B3] md:text-[12px] lg:text-[12px]
-                                    xl:text-[14px] 
-                                    xl:leading-[20px]"
-          >
-            {props.usersCount}
-          </span>
         </div>
       ) : (
         <div
@@ -79,13 +71,6 @@ export const PlanInfo = (props: {
                 {changedWordsCount.toLocaleString()} слов / месяц
               </span>
             )}
-            <span
-              className="font-TTNormsRegular text-[#475467] dark:text-[#98A2B3] md:text-[12px] md:leading-[15px]
-                                        lg:text-[12px] lg:leading-[15px]
-                                        xl:text-[14px] xl:leading-[20px]"
-            >
-              {props.usersCount}
-            </span>
           </div>
         </div>
       )}

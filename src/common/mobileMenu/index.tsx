@@ -65,8 +65,10 @@ export default function MobileMenu() {
         switch (data.users_by_pk?.plan_id) {
           case "8d035581-2209-4212-a4f2-6938bd0bf32a":
             return "Бесплатный";
+          case "6a7c060b-1d7c-414a-88a5-f43edc9b6aee":
+            return "Базовый"
           default:
-            return "-1";
+            return "нету плана";
         }
       }
     },

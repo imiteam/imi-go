@@ -34,7 +34,6 @@ export const PlanCard = memo(function PlanCard({plan,planName}: {plan: PlansMock
 
       <PlanInfo
         sum={plan.sum}
-        usersCount={plan.usersCount}
         wordsCount={plan.wordsCount}
         benefit={plan.benefit}
         planType={plan.planButton.type}

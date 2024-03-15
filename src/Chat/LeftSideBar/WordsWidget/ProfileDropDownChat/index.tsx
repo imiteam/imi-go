@@ -10,7 +10,7 @@ export default function ProfileDropDown(props: {userWalletData: UserWalletSubscr
       <div className="flex flex-col">
         {props.userWalletData?.wallets[0]?.tokens && (
           <span
-            className="relative right-[4px] top-[4px] font-TTNormsMedium font-medium text-header-bg-lite dark:text-[#fff] 
+            className="relative right-[1px] top-[4px] font-TTNormsMedium font-medium text-header-bg-lite dark:text-[#fff] 
             md:right-[7px] md:top-[6px] md:font-InterMedium md:text-[12px]
             md:sm:font-TTNormsMedium md:sm:text-[14px] lg:text-[14px] "
           >
