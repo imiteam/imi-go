@@ -5,11 +5,11 @@ import {useTheme} from 'next-themes'
 import {useEffect, useState} from 'react'
 import { TableSwitchIcon } from './TableSwitchIcon.tsx'
 import { CardSwitchIcon } from '../HistoryCard/CardSwitchIcon'
-import { mockHistoryType } from 'Account/History/index.jsx'
+import { GetUserHistoryQuery } from 'generated'
 
 
-export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHistoryType>}) {
-  const [sortedData, setSortedData] = useState<Array<mockHistoryType>>(mockHistory)
+export default function HistoryTable(props: {historyData: GetUserHistoryQuery["payment_history"]}) {
+  const [sortedData, setSortedData] = useState<GetUserHistoryQuery["payment_history"]>(props.historyData)
   const [ascendDate, setAscendDate] = useState<boolean>(true)
   const [ascendSum, setAscendSum] = useState<boolean>(true)
   const {theme} = useTheme()
@@ -21,11 +21,19 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
     const newData = sortByDate(sortedData, ascendDate)
     setSortedData(newData)
   }
-
-  const sortByDate = (arr: Array<mockHistoryType>, ascending: boolean) => {
+  function formatDate(dateString : string) {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1; 
+    const year = date.getFullYear();
+    return `${day < 10 ? '0' + day : day}.${month < 10 ? '0' + month : month}.${year}`;
+  }
+  const sortByDate = (arr: GetUserHistoryQuery["payment_history"], ascending: boolean) => {
     return arr.sort((a, b) => {
-      const dateA = new Date(a.date.split('.').reverse().join('-')).valueOf()
-      const dateB = new Date(b.date.split('.').reverse().join('-')).valueOf()
+      const A = formatDate(a.date)
+      const B = formatDate(b.date)
+      const dateA = new Date(A.split('.').reverse().join('-')).valueOf()
+      const dateB = new Date(B.split('.').reverse().join('-')).valueOf()
       return ascending ? dateA - dateB : dateB - dateA
     })
   }
@@ -36,9 +44,9 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
     setSortedData(newData)
   }
 
-  const sortBySum = (arr: Array<mockHistoryType>, ascending: boolean) => {
+  const sortBySum = (arr: GetUserHistoryQuery["payment_history"], ascending: boolean) => {
     return arr.sort((a, b) => {
-      return ascending ? a.sum - b.sum : b.sum - a.sum
+      return ascending ? a.amount! - b.amount! : b.amount! - a.amount!
     })
   }
   return (
@@ -53,7 +61,7 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
           </TableHead>
           <TableHead>Тариф</TableHead>
           <TableHead>Карта</TableHead>
-          <TableHead className="flex cursor-pointer items-center md:hidden lg:visible" onClick={() => handleSumSort()}>
+          <TableHead className="flex cursor-pointer items-center lg:visible" onClick={() => handleSumSort()}>
             <span>Сумма</span>
             <TableSwitchIcon icon="sort" />
           </TableHead>
@@ -65,17 +73,17 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
       <TableBody>
         {sortedData.map((d) => {
           return (
-            <TableRow className="h-[72px] border-b border-b-[#DAE3E9] dark:border-b-[#17181C]" key={d.id}>
+            <TableRow className="h-[72px] border-b border-b-[#DAE3E9] dark:border-b-[#17181C]" key={d.transaction_id}>
               <TableCell
                 className="pl-[24px] font-TTNormsMedium text-[14px] leading-[14px] md:text-[12px]
                                                     md:planSm:text-[11px]
                                                      lg:text-[12px]
                                                      xl:text-[14px]"
               >
-                <span className="md:hidden">{'#' + d.id}</span>
+                <span className="md:hidden">{'#' + d.transaction_id}</span>
                 <div className="flex h-[34px] flex-col justify-between lg:hidden">
-                  <span className="">{'#' + d.id}</span>
-                  <span className="font-TTNormsRegular text-[#475467] dark:text-[#98A2B3]">{d.date}</span>
+                  <span className="">{'#' + d.transaction_id}</span>
+                  <span className="font-TTNormsRegular text-[#475467] dark:text-[#98A2B3]"> {formatDate(d.date)}</span>
                 </div>
               </TableCell>
               <TableCell
@@ -83,7 +91,7 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
                                                     
                                                     xl:text-[14px]"
               >
-                {d.date}
+                {formatDate(d.date)}
               </TableCell>
               <TableCell>
                 <div className="flex h-[34px] flex-col justify-between ">
@@ -93,7 +101,7 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
                                                         lg:text-[12px]
                                                         xl:text-[14px]"
                   >
-                    {d.plan.title}
+                    {d.plan}
                   </span>
                   <span
                     className="font-TTNormsRegular leading-[18px] text-[#667085] dark:text-[#98A2B3] md:text-[12px]
@@ -101,14 +109,14 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
                                                         lg:text-[12px]
                                                         xl:text-[12px]"
                   >
-                    {d.plan.period}
+                    период
                   </span>
                 </div>
               </TableCell>
               <TableCell>
                 <div className="flex h-full items-center">
                   <div className="mr-[12px] planSm:hidden">
-                    <CardSwitchIcon icon={d.card.type} />
+                    <CardSwitchIcon icon={d.card!} />
                   </div>
                   <div className="flex flex-col">
                     <span
@@ -117,7 +125,7 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
                                                             lg:text-[12px]
                                                             xl:text-[14px]"
                     >
-                      Visa ending in {d.card.ending}
+                      Visa ending in {d.four_last}
                     </span>
                     <span
                       className="font-TTNormsRegular leading-[20px] text-[#667085] dark:text-[#98A2B3] md:text-[12px]
@@ -125,7 +133,7 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
                                                             lg:text-[12px]
                                                             xl:text-[14px]"
                     >
-                      Expiry {d.card.expiry}
+                      Expiry {d.card_exp_date}
                     </span>
                   </div>
                 </div>
@@ -134,10 +142,10 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
                 className="font-TTNormsRegular text-[14px] leading-[20px] text-[#475467] dark:text-[#98A2B3]
                                                         planSm:font-TTNormsMedium planSm:text-[11px] planSm:text-[#101828] planSm:dark:text-[#98A2B3]"
               >
-                {d.sum + ' ₽'}
+                {d.amount + ' ₽'}
               </TableCell>
               <TableCell>
-                {d.promocode.code ? (
+                {/* {d.promocode.code ? (
                   <div className="flex h-[34px] flex-col justify-between  ">
                     <span
                       className="font-TTNormsMedium leading-[14px] text-[#667085] dark:text-[#F5F5F6] md:text-[12px]
@@ -158,10 +166,11 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
                   </div>
                 ) : (
                   <span>-</span>
-                )}
+                )} */}
+                <span>-</span>
               </TableCell>
               <TableCell>
-                {d.status ? (
+                {d.status === 1 ? (
                   <span
                     className="font-TTNormsRegular leading-[20px] text-[#079455] dark:text-[#47CD89] md:text-[12px]
                                                     md:planSm:text-[11px]
@@ -170,7 +179,9 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
                   >
                     Оплачен
                   </span>
-                ) : (
+                ) :
+                d.status === 0 ?
+                (
                   <span
                     className="font-TTNormsRegular leading-[20px] text-[#D92D20] dark:text-[#F97066] md:text-[12px]
                                                     md:planSm:text-[11px]
@@ -179,7 +190,17 @@ export default function HistoryTable({mockHistory}: {mockHistory: Array<mockHist
                   >
                     Отменен
                   </span>
-                )}
+                )
+                  :
+                  <span
+                    className="font-TTNormsRegular leading-[20px] text-[#3959af] dark:text-[#57699c] md:text-[12px]
+                                                    md:planSm:text-[11px]
+                                                    lg:text-[12px]
+                                                    xl:text-[14px]"
+                  >
+                    Возврат
+                  </span>
+                }
               </TableCell>
               <TableCell className="planSm:w-10px">
                 <div

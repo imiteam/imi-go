@@ -21,12 +21,15 @@ type accounts {
   expires_at: Int
   id: uuid!
   id_token: String
+  oauth_token: String
+  oauth_token_secret: String
   provider: String!
   providerAccountId: String!
 
   """An object relationship"""
   provider_type: provider_type!
   refresh_token: String
+  refresh_token_expires_in: bigint
   scope: String
   session_state: String
   token_type: String
@@ -103,6 +106,7 @@ input accounts_arr_rel_insert_input {
 """aggregate avg on columns"""
 type accounts_avg_fields {
   expires_at: Float
+  refresh_token_expires_in: Float
 }
 
 """
@@ -110,6 +114,7 @@ order by avg() on columns of table "accounts"
 """
 input accounts_avg_order_by {
   expires_at: order_by
+  refresh_token_expires_in: order_by
 }
 
 """
@@ -123,10 +128,13 @@ input accounts_bool_exp {
   expires_at: Int_comparison_exp
   id: uuid_comparison_exp
   id_token: String_comparison_exp
+  oauth_token: String_comparison_exp
+  oauth_token_secret: String_comparison_exp
   provider: String_comparison_exp
   providerAccountId: String_comparison_exp
   provider_type: provider_type_bool_exp
   refresh_token: String_comparison_exp
+  refresh_token_expires_in: bigint_comparison_exp
   scope: String_comparison_exp
   session_state: String_comparison_exp
   token_type: String_comparison_exp
@@ -150,6 +158,7 @@ input type for incrementing numeric columns in table "accounts"
 """
 input accounts_inc_input {
   expires_at: Int
+  refresh_token_expires_in: bigint
 }
 
 """
@@ -160,10 +169,13 @@ input accounts_insert_input {
   expires_at: Int
   id: uuid
   id_token: String
+  oauth_token: String
+  oauth_token_secret: String
   provider: String
   providerAccountId: String
   provider_type: provider_type_obj_rel_insert_input
   refresh_token: String
+  refresh_token_expires_in: bigint
   scope: String
   session_state: String
   token_type: String
@@ -178,9 +190,12 @@ type accounts_max_fields {
   expires_at: Int
   id: uuid
   id_token: String
+  oauth_token: String
+  oauth_token_secret: String
   provider: String
   providerAccountId: String
   refresh_token: String
+  refresh_token_expires_in: bigint
   scope: String
   session_state: String
   token_type: String
@@ -196,9 +211,12 @@ input accounts_max_order_by {
   expires_at: order_by
   id: order_by
   id_token: order_by
+  oauth_token: order_by
+  oauth_token_secret: order_by
   provider: order_by
   providerAccountId: order_by
   refresh_token: order_by
+  refresh_token_expires_in: order_by
   scope: order_by
   session_state: order_by
   token_type: order_by
@@ -212,9 +230,12 @@ type accounts_min_fields {
   expires_at: Int
   id: uuid
   id_token: String
+  oauth_token: String
+  oauth_token_secret: String
   provider: String
   providerAccountId: String
   refresh_token: String
+  refresh_token_expires_in: bigint
   scope: String
   session_state: String
   token_type: String
@@ -230,9 +251,12 @@ input accounts_min_order_by {
   expires_at: order_by
   id: order_by
   id_token: order_by
+  oauth_token: order_by
+  oauth_token_secret: order_by
   provider: order_by
   providerAccountId: order_by
   refresh_token: order_by
+  refresh_token_expires_in: order_by
   scope: order_by
   session_state: order_by
   token_type: order_by
@@ -276,10 +300,13 @@ input accounts_order_by {
   expires_at: order_by
   id: order_by
   id_token: order_by
+  oauth_token: order_by
+  oauth_token_secret: order_by
   provider: order_by
   providerAccountId: order_by
   provider_type: provider_type_order_by
   refresh_token: order_by
+  refresh_token_expires_in: order_by
   scope: order_by
   session_state: order_by
   token_type: order_by
@@ -310,6 +337,12 @@ enum accounts_select_column {
   id_token
 
   """column name"""
+  oauth_token
+
+  """column name"""
+  oauth_token_secret
+
+  """column name"""
   provider
 
   """column name"""
@@ -317,6 +350,9 @@ enum accounts_select_column {
 
   """column name"""
   refresh_token
+
+  """column name"""
+  refresh_token_expires_in
 
   """column name"""
   scope
@@ -342,9 +378,12 @@ input accounts_set_input {
   expires_at: Int
   id: uuid
   id_token: String
+  oauth_token: String
+  oauth_token_secret: String
   provider: String
   providerAccountId: String
   refresh_token: String
+  refresh_token_expires_in: bigint
   scope: String
   session_state: String
   token_type: String
@@ -355,6 +394,7 @@ input accounts_set_input {
 """aggregate stddev on columns"""
 type accounts_stddev_fields {
   expires_at: Float
+  refresh_token_expires_in: Float
 }
 
 """
@@ -362,11 +402,13 @@ order by stddev() on columns of table "accounts"
 """
 input accounts_stddev_order_by {
   expires_at: order_by
+  refresh_token_expires_in: order_by
 }
 
 """aggregate stddev_pop on columns"""
 type accounts_stddev_pop_fields {
   expires_at: Float
+  refresh_token_expires_in: Float
 }
 
 """
@@ -374,11 +416,13 @@ order by stddev_pop() on columns of table "accounts"
 """
 input accounts_stddev_pop_order_by {
   expires_at: order_by
+  refresh_token_expires_in: order_by
 }
 
 """aggregate stddev_samp on columns"""
 type accounts_stddev_samp_fields {
   expires_at: Float
+  refresh_token_expires_in: Float
 }
 
 """
@@ -386,6 +430,7 @@ order by stddev_samp() on columns of table "accounts"
 """
 input accounts_stddev_samp_order_by {
   expires_at: order_by
+  refresh_token_expires_in: order_by
 }
 
 """
@@ -405,9 +450,12 @@ input accounts_stream_cursor_value_input {
   expires_at: Int
   id: uuid
   id_token: String
+  oauth_token: String
+  oauth_token_secret: String
   provider: String
   providerAccountId: String
   refresh_token: String
+  refresh_token_expires_in: bigint
   scope: String
   session_state: String
   token_type: String
@@ -418,6 +466,7 @@ input accounts_stream_cursor_value_input {
 """aggregate sum on columns"""
 type accounts_sum_fields {
   expires_at: Int
+  refresh_token_expires_in: bigint
 }
 
 """
@@ -425,6 +474,7 @@ order by sum() on columns of table "accounts"
 """
 input accounts_sum_order_by {
   expires_at: order_by
+  refresh_token_expires_in: order_by
 }
 
 """
@@ -444,6 +494,12 @@ enum accounts_update_column {
   id_token
 
   """column name"""
+  oauth_token
+
+  """column name"""
+  oauth_token_secret
+
+  """column name"""
   provider
 
   """column name"""
@@ -451,6 +507,9 @@ enum accounts_update_column {
 
   """column name"""
   refresh_token
+
+  """column name"""
+  refresh_token_expires_in
 
   """column name"""
   scope
@@ -482,6 +541,7 @@ input accounts_updates {
 """aggregate var_pop on columns"""
 type accounts_var_pop_fields {
   expires_at: Float
+  refresh_token_expires_in: Float
 }
 
 """
@@ -489,11 +549,13 @@ order by var_pop() on columns of table "accounts"
 """
 input accounts_var_pop_order_by {
   expires_at: order_by
+  refresh_token_expires_in: order_by
 }
 
 """aggregate var_samp on columns"""
 type accounts_var_samp_fields {
   expires_at: Float
+  refresh_token_expires_in: Float
 }
 
 """
@@ -501,11 +563,13 @@ order by var_samp() on columns of table "accounts"
 """
 input accounts_var_samp_order_by {
   expires_at: order_by
+  refresh_token_expires_in: order_by
 }
 
 """aggregate variance on columns"""
 type accounts_variance_fields {
   expires_at: Float
+  refresh_token_expires_in: Float
 }
 
 """
@@ -513,6 +577,7 @@ order by variance() on columns of table "accounts"
 """
 input accounts_variance_order_by {
   expires_at: order_by
+  refresh_token_expires_in: order_by
 }
 
 type AggregateChatsWeaviate {
@@ -9119,13 +9184,17 @@ columns and relationships of "payment_history"
 """
 type payment_history {
   amount: Int
+  card: String
+  card_exp_date: String
   data(
     """JSON select path"""
     path: String
   ): jsonb!
   date: timestamptz!
+  four_last: String
   id: uuid!
   invoice_id: String
+  plan: String
   status: Int!
   transaction_id: Int!
   user_id: uuid!
@@ -9176,10 +9245,14 @@ input payment_history_bool_exp {
   _not: payment_history_bool_exp
   _or: [payment_history_bool_exp!]
   amount: Int_comparison_exp
+  card: String_comparison_exp
+  card_exp_date: String_comparison_exp
   data: jsonb_comparison_exp
   date: timestamptz_comparison_exp
+  four_last: String_comparison_exp
   id: uuid_comparison_exp
   invoice_id: String_comparison_exp
+  plan: String_comparison_exp
   status: Int_comparison_exp
   transaction_id: Int_comparison_exp
   user_id: uuid_comparison_exp
@@ -9231,10 +9304,14 @@ input type for inserting data into table "payment_history"
 """
 input payment_history_insert_input {
   amount: Int
+  card: String
+  card_exp_date: String
   data: jsonb
   date: timestamptz
+  four_last: String
   id: uuid
   invoice_id: String
+  plan: String
   status: Int
   transaction_id: Int
   user_id: uuid
@@ -9243,9 +9320,13 @@ input payment_history_insert_input {
 """aggregate max on columns"""
 type payment_history_max_fields {
   amount: Int
+  card: String
+  card_exp_date: String
   date: timestamptz
+  four_last: String
   id: uuid
   invoice_id: String
+  plan: String
   status: Int
   transaction_id: Int
   user_id: uuid
@@ -9254,9 +9335,13 @@ type payment_history_max_fields {
 """aggregate min on columns"""
 type payment_history_min_fields {
   amount: Int
+  card: String
+  card_exp_date: String
   date: timestamptz
+  four_last: String
   id: uuid
   invoice_id: String
+  plan: String
   status: Int
   transaction_id: Int
   user_id: uuid
@@ -9285,10 +9370,14 @@ input payment_history_on_conflict {
 """Ordering options when selecting data from "payment_history"."""
 input payment_history_order_by {
   amount: order_by
+  card: order_by
+  card_exp_date: order_by
   data: order_by
   date: order_by
+  four_last: order_by
   id: order_by
   invoice_id: order_by
+  plan: order_by
   status: order_by
   transaction_id: order_by
   user_id: order_by
@@ -9312,16 +9401,28 @@ enum payment_history_select_column {
   amount
 
   """column name"""
+  card
+
+  """column name"""
+  card_exp_date
+
+  """column name"""
   data
 
   """column name"""
   date
 
   """column name"""
+  four_last
+
+  """column name"""
   id
 
   """column name"""
   invoice_id
+
+  """column name"""
+  plan
 
   """column name"""
   status
@@ -9338,10 +9439,14 @@ input type for updating data in table "payment_history"
 """
 input payment_history_set_input {
   amount: Int
+  card: String
+  card_exp_date: String
   data: jsonb
   date: timestamptz
+  four_last: String
   id: uuid
   invoice_id: String
+  plan: String
   status: Int
   transaction_id: Int
   user_id: uuid
@@ -9382,10 +9487,14 @@ input payment_history_stream_cursor_input {
 """Initial value of the column from where the streaming should start"""
 input payment_history_stream_cursor_value_input {
   amount: Int
+  card: String
+  card_exp_date: String
   data: jsonb
   date: timestamptz
+  four_last: String
   id: uuid
   invoice_id: String
+  plan: String
   status: Int
   transaction_id: Int
   user_id: uuid
@@ -9406,16 +9515,28 @@ enum payment_history_update_column {
   amount
 
   """column name"""
+  card
+
+  """column name"""
+  card_exp_date
+
+  """column name"""
   data
 
   """column name"""
   date
 
   """column name"""
+  four_last
+
+  """column name"""
   id
 
   """column name"""
   invoice_id
+
+  """column name"""
+  plan
 
   """column name"""
   status
@@ -11490,6 +11611,7 @@ type roles {
   id: uuid!
   image: uuid
   image_min: uuid
+  initial_message: String
   name: String
   promt: String
   title: String!
@@ -11555,6 +11677,7 @@ input roles_bool_exp {
   id: uuid_comparison_exp
   image: uuid_comparison_exp
   image_min: uuid_comparison_exp
+  initial_message: String_comparison_exp
   name: String_comparison_exp
   promt: String_comparison_exp
   title: String_comparison_exp
@@ -11585,6 +11708,7 @@ input roles_insert_input {
   id: uuid
   image: uuid
   image_min: uuid
+  initial_message: String
   name: String
   promt: String
   title: String
@@ -11596,6 +11720,7 @@ type roles_max_fields {
   id: uuid
   image: uuid
   image_min: uuid
+  initial_message: String
   name: String
   promt: String
   title: String
@@ -11609,6 +11734,7 @@ input roles_max_order_by {
   id: order_by
   image: order_by
   image_min: order_by
+  initial_message: order_by
   name: order_by
   promt: order_by
   title: order_by
@@ -11620,6 +11746,7 @@ type roles_min_fields {
   id: uuid
   image: uuid
   image_min: uuid
+  initial_message: String
   name: String
   promt: String
   title: String
@@ -11633,6 +11760,7 @@ input roles_min_order_by {
   id: order_by
   image: order_by
   image_min: order_by
+  initial_message: order_by
   name: order_by
   promt: order_by
   title: order_by
@@ -11666,6 +11794,7 @@ input roles_order_by {
   id: order_by
   image: order_by
   image_min: order_by
+  initial_message: order_by
   name: order_by
   promt: order_by
   title: order_by
@@ -11691,6 +11820,9 @@ enum roles_select_column {
   image_min
 
   """column name"""
+  initial_message
+
+  """column name"""
   name
 
   """column name"""
@@ -11710,6 +11842,7 @@ input roles_set_input {
   id: uuid
   image: uuid
   image_min: uuid
+  initial_message: String
   name: String
   promt: String
   title: String
@@ -11732,6 +11865,7 @@ input roles_stream_cursor_value_input {
   id: uuid
   image: uuid
   image_min: uuid
+  initial_message: String
   name: String
   promt: String
   title: String
@@ -11750,6 +11884,9 @@ enum roles_update_column {
 
   """column name"""
   image_min
+
+  """column name"""
+  initial_message
 
   """column name"""
   name
@@ -15048,6 +15185,7 @@ type users {
   is_client: Boolean
   is_former_client: Boolean
   is_subscriber: Boolean
+  is_year_sub: Boolean
   name: String
   plan_id: uuid
 
@@ -15128,6 +15266,7 @@ input users_bool_exp {
   is_client: Boolean_comparison_exp
   is_former_client: Boolean_comparison_exp
   is_subscriber: Boolean_comparison_exp
+  is_year_sub: Boolean_comparison_exp
   name: String_comparison_exp
   plan_id: uuid_comparison_exp
   sessions: sessions_bool_exp
@@ -15167,6 +15306,7 @@ input users_insert_input {
   is_client: Boolean
   is_former_client: Boolean
   is_subscriber: Boolean
+  is_year_sub: Boolean
   name: String
   plan_id: uuid
   sessions: sessions_arr_rel_insert_input
@@ -15246,6 +15386,7 @@ input users_order_by {
   is_client: order_by
   is_former_client: order_by
   is_subscriber: order_by
+  is_year_sub: order_by
   name: order_by
   plan_id: order_by
   sessions_aggregate: sessions_aggregate_order_by
@@ -15292,6 +15433,9 @@ enum users_select_column {
   is_subscriber
 
   """column name"""
+  is_year_sub
+
+  """column name"""
   name
 
   """column name"""
@@ -15315,6 +15459,7 @@ input users_set_input {
   is_client: Boolean
   is_former_client: Boolean
   is_subscriber: Boolean
+  is_year_sub: Boolean
   name: String
   plan_id: uuid
   subscription_id: String
@@ -15343,6 +15488,7 @@ input users_stream_cursor_value_input {
   is_client: Boolean
   is_former_client: Boolean
   is_subscriber: Boolean
+  is_year_sub: Boolean
   name: String
   plan_id: uuid
   subscription_id: String
@@ -15381,6 +15527,9 @@ enum users_update_column {
 
   """column name"""
   is_subscriber
+
+  """column name"""
+  is_year_sub
 
   """column name"""
   name
