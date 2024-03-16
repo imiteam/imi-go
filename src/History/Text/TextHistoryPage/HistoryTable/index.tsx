@@ -1,21 +1,23 @@
 'use client'
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '../../../../common/UIkit/historyTable'
 import {useTheme} from 'next-themes'
-import {useEffect, useState} from 'react'
-import { HistoryType } from 'History/Text'
+import {useCallback, useEffect, useState} from 'react'
 import PageButton from '../common/PageButton'
 import PaginationButton from '../common/PaginationButton'
 import {SwitchHistoryTextIcon} from '../common/SwitchHistoryTextIcon'
+import { GetMyChatsQuery } from 'generated'
+import { deleteChatAction } from 'Chat/graphql/action'
+import { useRouter } from 'next/navigation'
 
-export default function HistoryTable({textHistory}: {textHistory: Array<HistoryType>}) {
+export default function HistoryTable({textHistory}: {textHistory: GetMyChatsQuery["chats"]}) {
   const {theme} = useTheme()
   useEffect(() => {
     document.documentElement.style.setProperty('--table-icon-hovered-color', theme === 'light' ? '#2D384B' : '#CECFD2')
     document.documentElement.style.setProperty('--table-head-row-bg-color', theme === 'light' ? '#EDF2F6' : '#17181C')
   }, [theme])
-
+  const router = useRouter()
   const [currentPage, setCurrentPage] = useState(1)
-  const [data, setData] = useState<Array<HistoryType>>(textHistory)
+  const [data, setData] = useState<GetMyChatsQuery["chats"]>(textHistory)
   const itemsPerPage = 8
   const paginationData = Math.ceil(textHistory.length / itemsPerPage)
   const pageNumbers = Array.from({length: paginationData}, (_, i) => i + 1)
@@ -50,15 +52,15 @@ export default function HistoryTable({textHistory}: {textHistory: Array<HistoryT
     setData(newData!)
   }
 
-  const sortByTitle = (arr: Array<HistoryType>, ascending: boolean) => {
+  const sortByTitle = (arr: GetMyChatsQuery["chats"], ascending: boolean) => {
     if (!arr) {
       return
     }
     return arr.sort((a, b) => {
-      if (a.title.title_name < b.title.title_name) {
+      if (a.title! < b.title!) {
         return ascending ? -1 : 1
       }
-      if (a.title.title_name > b.title.title_name) {
+      if (a.title! > b.title!) {
         return ascending ? 1 : -1
       }
       return 0
@@ -74,19 +76,67 @@ export default function HistoryTable({textHistory}: {textHistory: Array<HistoryT
     setData(newData)
   }
 
-  const sortByDate = (arr: Array<HistoryType>, ascending: boolean) => {
-    return arr.sort((a, b) => {
-      const dateA = new Date(a.edited.timestemp.date.split('.').reverse().join('-')).valueOf()
-      const dateB = new Date(b.edited.timestemp.date.split('.').reverse().join('-')).valueOf()
-      return ascending ? dateA - dateB : dateB - dateA
-    })
+  function formatDate(dateString : string) {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1; 
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    return `${day < 10 ? '0' + day : day}.${month < 10 ? '0' + month : month}.${year} в ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`;
   }
-  function truncateString(str: string) {
-    if (str.length > 44) {
-      return str.slice(0, 44) + '...'
+
+  function getDifference(date : string){
+    const createdDate = new Date(date);
+    const now = new Date()
+    const differenceInMilliseconds = now.getTime() - createdDate.getTime();
+    const differenceInMinutes = differenceInMilliseconds / 1000 / 60;
+    if(differenceInMinutes < 60){
+      return `${Math.round(differenceInMinutes)} мин назад`
+    } 
+    const differenceInHours = differenceInMinutes / 60;
+    if(differenceInHours < 24){
+      return `${Math.round(differenceInHours)} ч назад`
     }
-    return str
+    const differenceInDays = differenceInHours / 24;
+    if(differenceInDays < 30){
+      return `${Math.floor(differenceInDays)} д назад`
+    } else if((differenceInDays < 360) && (differenceInDays >= 30)) {
+      const differenceInMonths = Math.round(differenceInDays / 30);
+      return `${differenceInMonths} мес назад`;
+    } else {
+      const differenceInYears = Math.round(differenceInDays / 360);
+      return `${differenceInYears} г назад`;
+   }
   }
+
+  const sortByDate = (arr: GetMyChatsQuery["chats"], ascending: boolean) => {
+    return arr.sort((a, b) => {
+       const dateA = new Date(a.createdAt).getTime();
+       const dateB = new Date(b.createdAt).getTime();
+       return ascending ? dateA - dateB : dateB - dateA;
+    });
+   };
+  function truncateString(str: string) {
+    if(!str){
+      return
+    } else {
+      if (str.length > 44) {
+        return str.slice(0, 44) + '...'
+      } else {
+        return str
+      }
+      
+    }
+    
+  }
+
+  const handleDeleteChat = useCallback(async (event: React.MouseEvent, chatId: string) => {
+    event.stopPropagation()
+    await deleteChatAction(chatId)
+      .then(() => router.refresh())
+  }, [])
+
   useEffect(() => {
     setData(textHistory)
   }, [textHistory])
@@ -119,38 +169,54 @@ export default function HistoryTable({textHistory}: {textHistory: Array<HistoryT
                   <TableCell className="w-[40%] pl-[24px] md:w-[60%]">
                     <div className="flex h-full items-center">
                       <div className="mr-3 flex h-full items-center justify-center">
-                        <SwitchHistoryTextIcon icon={d.title.title_icon} />
+                        <SwitchHistoryTextIcon icon="chat" />
                       </div>
                       <div className="flex h-full flex-col">
                         <span className=" font-TTNormsMedium leading-[14px] text-[#101828] dark:text-[#F5F5F6] md:text-[12px] lg:text-[12px] xl:text-[14px]">
-                          {d.title.title_name}
+                          {d.title}
                         </span>
                         <span className=" font-TTNormsRegular leading-[18px] text-[#667085] dark:text-[#98A2B3] md:text-[12px] lg:text-[12px] ">
-                          {truncateString(d.title.title_description)}
+                          {truncateString(d.description!)}
                         </span>
                       </div>
                     </div>
                   </TableCell>
                   <TableCell className="w-[25%] md:w-[20%]">
-                    {d.format === 'doc' ? (
+                    {/* {d.format === 'doc' ? ( */}
                       <div className="flex h-full items-center">
-                        {d.type.type_icon ? (
+                        {/* {d.type.type_icon ? (
                           <div className="mr-3 flex h-full items-center justify-center">
                             <SwitchHistoryTextIcon icon={d.type.type_icon} />
                           </div>
                         ) : (
                           <div className="w-8"></div>
-                        )}
-
+                        )} */}
+                        <div className="mr-3 flex h-full items-center justify-center">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_11268_13175)">
+                            <path d="M0.833496 9.63301C0.833496 5.48463 0.833496 3.41047 2.12223 2.12174C3.41096 0.833008 5.48512 0.833008 9.6335 0.833008H10.3668C14.5152 0.833008 16.5894 0.833008 17.8781 2.12174C19.1668 3.41047 19.1668 5.48463 19.1668 9.63301V10.3663C19.1668 14.5147 19.1668 16.5889 17.8781 17.8776C16.5894 19.1663 14.5152 19.1663 10.3668 19.1663H9.6335C5.48512 19.1663 3.41096 19.1663 2.12223 17.8776C0.833496 16.5889 0.833496 14.5147 0.833496 10.3663V9.63301Z" fill="#0B3BEC"/>
+                            <rect x="13.3335" y="5.83301" width="1.66667" height="9.16667" fill="white"/>
+                            <path d="M12.5 5.83301H11.6528L10 11.1306V11.6663H11.1453L12.5 7.8221V5.83301Z" fill="white"/>
+                            <path d="M7.5 5.83301H8.34724L10 11.1306V11.6663H8.85468L7.5 7.8221V5.83301Z" fill="white"/>
+                            <rect width="1.66667" height="9.16667" transform="matrix(-1 0 0 1 6.6665 5.83301)" fill="white"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_11268_13175">
+                            <rect width="20" height="20" fill="white"/>
+                            </clipPath>
+                            </defs>
+                          </svg>
+                        </div>
                         <div className="flex h-full flex-col">
                           <span className=" font-TTNormsMedium leading-[14px] text-[#101828] dark:text-[#F5F5F6] md:text-[12px] lg:text-[12px] xl:text-[14px]">
-                            {d.type.type_name}
+                            IMI чат
                           </span>
                           <span className=" font-TTNormsRegular leading-[18px] text-[#667085] dark:text-[#98A2B3] md:text-[12px] lg:text-[12px]">
-                            {d.type.type_description}
+                            {d.description}
                           </span>
                         </div>
-                      </div>
+                        </div>
+                      {/* </div>
                     ) : (
                       <div className="flex h-full items-center">
                         <div className="mr-3 flex h-full items-center justify-center">
@@ -160,15 +226,15 @@ export default function HistoryTable({textHistory}: {textHistory: Array<HistoryT
                           {d.type.type_description}
                         </span>
                       </div>
-                    )}
+                    )} */}
                   </TableCell>
                   <TableCell className="w-[25%] md:w-[16%]">
                     <div className="flex h-full flex-col">
-                      <span className=" font-TTNormsRegular leading-[20px] text-[#101828] dark:text-[#F5F5F6] md:text-[12px] lg:text-[12px] xl:text-[14px]">
-                        {d.edited.ago}
+                      <span className="font-TTNormsRegular leading-[20px] text-[#101828] dark:text-[#F5F5F6] md:text-[12px] lg:text-[12px] xl:text-[14px]">
+                        {getDifference(d.createdAt)}
                       </span>
-                      <span className=" font-TTNormsRegular leading-[18px] text-[#667085] dark:text-[#98A2B3] md:text-[12px] lg:text-[12px]">
-                        {d.edited.timestemp.date} {d.edited.timestemp.time}
+                      <span className="font-TTNormsRegular leading-[18px] text-[#667085] dark:text-[#98A2B3] md:text-[12px] lg:text-[12px]">
+                        {formatDate(d.createdAt)}
                       </span>
                     </div>
                   </TableCell>
@@ -176,7 +242,7 @@ export default function HistoryTable({textHistory}: {textHistory: Array<HistoryT
                     <div className="flex h-full items-center">
                       <SwitchHistoryTextIcon icon="copy" />
                       <SwitchHistoryTextIcon icon="edit" />
-                      <SwitchHistoryTextIcon icon="delete" />
+                      <SwitchHistoryTextIcon icon="delete" callBack={handleDeleteChat} id={d.id}/>
                     </div>
                   </TableCell>
                 </TableRow>
@@ -218,23 +284,40 @@ export default function HistoryTable({textHistory}: {textHistory: Array<HistoryT
           data.map((d) => {
             return (
               <div
-                className="mb-2 flex h-[104px] w-full flex-col rounded-[16px] bg-[#FFFFFF] p-4 pb-2 dark:bg-[#21242C]"
+                className="mb-2 flex h-[104px] w-full flex-col justify-between rounded-[16px] bg-[#FFFFFF] p-4 pb-2 dark:bg-[#21242C]"
                 key={d.id}
               >
                 <div className="flex w-full justify-between">
                   <span className="font-TTNormsMedium text-[14px] leading-[14px] text-[#101828] dark:text-[#F5F5F6]">
-                    {d.title.title_name}
+                    {d.title}
                   </span>
                   <span className="font-TTNormsRegular text-[10px] leading-[18px] text-[#667085] dark:text-[#98A2B3]">
-                    {d.edited.timestemp.date}
+                    {formatDate(d.createdAt)}
                   </span>
                 </div>
                 <span className="truncate font-TTNormsRegular text-[14px] leading-[20px] text-[#667085] dark:text-[#98A2B3]">
-                  {d.title.title_description}
+                  {d.description}
                 </span>
                 <div className="flex h-[36px] w-full items-center justify-between">
-                  <div className="flex h-full">
-                    {d.type.type_icon && (
+                  <div className="flex h-full items-center">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className='mr-1'>
+                            <g clip-path="url(#clip0_11268_13175)">
+                            <path d="M0.833496 9.63301C0.833496 5.48463 0.833496 3.41047 2.12223 2.12174C3.41096 0.833008 5.48512 0.833008 9.6335 0.833008H10.3668C14.5152 0.833008 16.5894 0.833008 17.8781 2.12174C19.1668 3.41047 19.1668 5.48463 19.1668 9.63301V10.3663C19.1668 14.5147 19.1668 16.5889 17.8781 17.8776C16.5894 19.1663 14.5152 19.1663 10.3668 19.1663H9.6335C5.48512 19.1663 3.41096 19.1663 2.12223 17.8776C0.833496 16.5889 0.833496 14.5147 0.833496 10.3663V9.63301Z" fill="#0B3BEC"/>
+                            <rect x="13.3335" y="5.83301" width="1.66667" height="9.16667" fill="white"/>
+                            <path d="M12.5 5.83301H11.6528L10 11.1306V11.6663H11.1453L12.5 7.8221V5.83301Z" fill="white"/>
+                            <path d="M7.5 5.83301H8.34724L10 11.1306V11.6663H8.85468L7.5 7.8221V5.83301Z" fill="white"/>
+                            <rect width="1.66667" height="9.16667" transform="matrix(-1 0 0 1 6.6665 5.83301)" fill="white"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_11268_13175">
+                            <rect width="20" height="20" fill="white"/>
+                            </clipPath>
+                            </defs>
+                  </svg>
+                  <span className="font-TTNormsMedium text-[10px] leading-[14px] text-[#101828] dark:text-[#F5F5F6]">
+                            IMI чат
+                  </span>
+                    {/* {d.type.type_icon && (
                       <div className="mr-2 flex h-full items-center justify-center">
                         <SwitchHistoryTextIcon icon={d.type.type_icon} />
                       </div>
@@ -255,12 +338,12 @@ export default function HistoryTable({textHistory}: {textHistory: Array<HistoryT
                           {d.type.type_name}
                         </span>
                       </div>
-                    )}
+                    )} */}
                   </div>
                   <div className="flex h-full items-center">
-                    <SwitchHistoryTextIcon icon="copy" />
-                    <SwitchHistoryTextIcon icon="edit" />
-                    <SwitchHistoryTextIcon icon="delete" />
+                    {/* <SwitchHistoryTextIcon icon="copy" />
+                    <SwitchHistoryTextIcon icon="edit" /> */}
+                    <SwitchHistoryTextIcon icon="delete" callBack={handleDeleteChat} id={d.id}/>
                   </div>
                 </div>
               </div>

@@ -9,6 +9,7 @@ import {
   HistoryTypeSelectValue,
 } from '../../../../common/UIkit/HistoryTypeSelect'
 import { SwitchHistoryTextIcon } from '../common/SwitchHistoryTextIcon'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from 'common/UIkit/tooltip'
 
 export default function Settings({handleChange}: {handleChange: (value: string) => void}) {
   return (
@@ -16,12 +17,23 @@ export default function Settings({handleChange}: {handleChange: (value: string) 
       <div className="flex h-[36px] w-full items-center">
         <SearchInput />
         <div className="vsm:hidden">
-          <HistoryTypeSelect onValueChange={(e) => handleChange(e)}>
+          <HistoryTypeSelect onValueChange={(e) => handleChange(e)} disabled>
             <HistoryTypeSelectTrigger className="">
-              <div className="flex items-center">
-                <SwitchHistoryTextIcon icon="typeSelect" />
-                <HistoryTypeSelectValue placeholder="Типы" />
-              </div>
+              <TooltipProvider delayDuration={150}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className="flex items-center">
+                      <SwitchHistoryTextIcon icon="typeSelect" />
+                      <HistoryTypeSelectValue placeholder="Типы" />
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent className="rounded-[8px] bg-[black] dark:bg-[#ffffff]">
+                    <span className="font-TTNormsRegular text-[14px] leading-[20px] text-[#FFFFFF] dark:text-[#000000]">
+                      В разработке
+                    </span>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </HistoryTypeSelectTrigger>
             <HistoryTypeSelectContent className="">
               <HistoryTypeSelectGroup>

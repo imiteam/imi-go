@@ -13488,7 +13488,7 @@ export type GetMyChatsQueryVariables = Exact<{
 }>;
 
 
-export type GetMyChatsQuery = { __typename?: 'query_root', chats: Array<{ __typename?: 'chats', id: any, createdAt?: any | null, title?: string | null, description?: string | null }> };
+export type GetMyChatsQuery = { __typename?: 'query_root', chats: Array<{ __typename?: 'chats', id: any, createdAt?: any | null, title?: string | null, description?: string | null, system_promt?: string | null }> };
 
 export type GetRolesWithTitleFilterQueryVariables = Exact<{
   title: Scalars['String']['input'];
@@ -13736,6 +13736,7 @@ export const GetMyChatsDocument = gql`
     createdAt
     title
     description
+    system_promt
   }
 }
     `;

@@ -3,6 +3,7 @@ import { HistoryCategorySelect, HistoryCategorySelectContent, HistoryCategorySel
 import {Button} from '../../common/UIkit/button'
 import HistoryNavButton from './HistoryCategoryNavButtons'
 import { SwitchHistoryCategoryIcon } from './SwitchHistoryCategoryIcon'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from 'common/UIkit/tooltip'
 
 export default function HistoryCategories() {
   const historyCategories = [
@@ -75,10 +76,22 @@ export default function HistoryCategories() {
           </HistoryCategorySelectContent>
         </HistoryCategorySelect>
       </div>
-      <Button size="hostoryNewDoc" variant="hostoryNewDoc">
-        <SwitchHistoryCategoryIcon icon="newDoc" />
-        <span>Новый документ</span>
-      </Button>
+        <TooltipProvider delayDuration={150}>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button size="hostoryNewDoc" variant="hostoryNewDoc" className='cursor-not-allowed'>
+              <SwitchHistoryCategoryIcon icon="newDoc" />
+              <span>Новый документ</span>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent className="rounded-[8px] bg-[black] dark:bg-[#ffffff]">
+            <span className="font-TTNormsRegular text-[14px] leading-[20px] text-[#FFFFFF] dark:text-[#000000]">
+              В разработке
+            </span>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+      
     </div>
   )
 }

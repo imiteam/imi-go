@@ -73,7 +73,7 @@ export default function Header() {
               buttonName="learning"
               title="Обучение"
             />
-            <Link href="/history/text">
+            <Link href={`/history/text?userId=${session?.user.id}`}>
               <HeaderNavButton
                 activeButtonName={activeButton}
                 buttonName="history"
