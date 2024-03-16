@@ -60,7 +60,6 @@ export async function POST(req: any) {
       // Deduct your tokens here
       // @ts-ignore
       const tokensUsed = Math.round(tokenCounter * (tokenCoefficients[finalModel] || 1));
-      console.log(tokensUsed,"tokensUsed",tokenCounter,"tokenCounter")
       await fetch('https://api.imigo.ai/used-tokens', {
         method: 'POST',
         headers: {
