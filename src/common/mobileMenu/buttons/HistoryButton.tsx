@@ -7,9 +7,10 @@ import { SwitchIcon } from "../icon_components/SwitchIcon";
 export const HistoryButton = memo(function HistoryButton(props: {
   setShowMobileMenu: (value: boolean) => void;
   activeButton: string;
+  userId: string
 }) {
   return (
-    <Link href="/history/text" onClick={() => props.setShowMobileMenu(false)}>
+    <Link href={`/history/text?userId=${props.userId}`} onClick={() => props.setShowMobileMenu(false)}> 
       <div
         className="relative flex h-10 w-full items-center justify-start"
         style={{ left: props.activeButton === "history" ? "-13px" : "1px" }}

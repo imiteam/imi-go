@@ -1,10 +1,12 @@
 import {getProfileCategories} from './graphql/action'
 import Link from 'next/link'
 import {ProfileNavButton} from './ProfileNavButton/index'
+import { getServerSession } from 'next-auth'
+import { authOptions } from 'app/api/auth/[...nextauth]/route'
 
 export const ProfileCategories = async () => {
   const {profile_categories} = await getProfileCategories()
-
+  const session = await getServerSession(authOptions)
   return (
     <div
       className="flex w-full items-center vsm:overflow-x-auto vsm:px-[0px] sm:flex-col
@@ -38,17 +40,29 @@ export const ProfileCategories = async () => {
                 <ProfileNavButton id={category.id} title={category.title} key={category.id} name={category.name} />
               </div>
             )
-          } else {
+          } else if(category.name === 'history'){
             return (
               <Link
                 key={category.id}
-                href={`/lk/${category.name}`}
+                href={`/lk/${category.name}?userId=${session?.user.id}`}
                 className="md:flex md:h-[40px] 
                                       md:w-1/6 md:items-center md:sm:h-[32px] lg:h-[36px]
                                       lg:w-auto"
               >
                 <ProfileNavButton id={category.id} title={category.title} key={category.id} name={category.name} />
               </Link>
+            )
+          } else {
+            return (
+              <Link
+              key={category.id}
+              href={`/lk/${category.name}`}
+              className="md:flex md:h-[40px] 
+                                    md:w-1/6 md:items-center md:sm:h-[32px] lg:h-[36px]
+                                    lg:w-auto"
+            >
+              <ProfileNavButton id={category.id} title={category.title} key={category.id} name={category.name} />
+            </Link>
             )
           }
         })}

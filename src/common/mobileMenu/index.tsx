@@ -118,6 +118,7 @@ export default function MobileMenu() {
               <HistoryButton
                 activeButton={activeButton}
                 setShowMobileMenu={setShowMobileMenu}
+                userId={session?.user.id!}
               />
             </div>
             <SettingsButton
