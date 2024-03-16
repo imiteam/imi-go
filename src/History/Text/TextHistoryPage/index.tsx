@@ -2,6 +2,7 @@
 import {useState} from 'react'
 import Settings from './Settings'
 import HistoryTable from './HistoryTable'
+import { GetMyChatsQuery } from 'generated'
 
 type HistoryType = {
     id: number
@@ -29,17 +30,18 @@ type HistoryType = {
     historyCategoty: string
     histors: Array<HistoryType>
   }
-export default function TextHistoryPage({textHistory}: {textHistory: MocHistoryDataType}) {
+export default function TextHistoryPage({textHistory}: {textHistory: GetMyChatsQuery["chats"]}) {
   const [selectedType, setSelectedType] = useState<string>('all')
 
   function handleChange(value: string) {
     setSelectedType(value)
   }
-  let filteredData = textHistory.histors.filter((d ) => (selectedType === 'all' ? d : d.format === selectedType))
+  // пока нет базы данных для таблиц с документами и шаблоными
+  // let filteredData = textHistory.filter((d ) => (selectedType === 'all' ? d : d.format === selectedType))
   return (
     <div>
-      <Settings handleChange={handleChange} />
-      <HistoryTable textHistory={filteredData} />
+      {/* <Settings handleChange={handleChange} /> */}
+      <HistoryTable textHistory={textHistory} />
     </div>
   )
 }

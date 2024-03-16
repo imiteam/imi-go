@@ -88,7 +88,7 @@ export const SwitchIcon = memo(function SwitchIcon(props: {
       );
     case "history":
       return props.isActive ? (
-        <Image alt="hystoryIcon" src={hystoryIcon} />
+        <Image alt="hystoryIcon" src={hystoryIcon} className=" md:relative md:left-[63px] md:top-[5px] md:h-[39px]"/>
       ) : (
         <div className="flex h-[41px] w-[48px] items-center justify-center md:relative md:left-[63px] md:top-[5px] md:h-[39px] md:w-[44px]">
           <svg
