@@ -59,7 +59,7 @@ export async function POST(req: any) {
       // TODO: add message to chat
       // Deduct your tokens here
       // @ts-ignore
-      const tokensUsed = tokenCounter * (tokenCoefficients[finalModel] || 1);
+      const tokensUsed = Math.round(tokenCounter * (tokenCoefficients[finalModel] || 1));
       console.log(tokensUsed,"tokensUsed",tokenCounter,"tokenCounter")
       await fetch('https://api.imigo.ai/used-tokens', {
         method: 'POST',
