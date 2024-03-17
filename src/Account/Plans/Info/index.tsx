@@ -14,6 +14,8 @@ import { Button } from 'common/UIkit/button'
 import { OkIcon } from 'Account/Settings/Blocks/buttons/icon_components/OkIcon'
 import { useClickAway } from 'react-use'
 import { Dialog, DialogContent, DialogTrigger } from 'common/UIkit/additionalPlansModal'
+import { useProfileStore } from 'Account/lib/useProfileStore'
+import { CancelPlanModal } from './CancelPlanModal'
 
 export const Info = (props: {
   plan: string | undefined
@@ -73,7 +75,23 @@ export const Info = (props: {
 
     //работа с модалкой
   const planPackage = [
-    {id: 1, wordsCount: 10000, sum: 199, benefit: 400, symbol: 10000, pic: 30, partSum: 19},
+    {
+      id: 1, 
+      wordsCount: 10000, 
+      sum: 199, 
+      benefit: 400, 
+      symbol: 10000, 
+      pic: 30, 
+      partSum: 19,
+      paymentFetchObj : {
+        amount : 199,
+        description : "Пакет №1",
+        metadata : {
+          plan : "1",
+          tokens : 100,
+        }
+      }
+    },
     {
       id: 2,
       wordsCount: 30000,
@@ -82,6 +100,14 @@ export const Info = (props: {
       symbol: 10000,
       pic: 85,
       partSum: 19,
+      paymentFetchObj : {
+        amount : 299,
+        description : "Пакет №2",
+        metadata : {
+          plan : "2",
+          tokens : 1000,
+        }
+      }
     },
     {
       id: 3,
@@ -91,6 +117,14 @@ export const Info = (props: {
       symbol: 10000,
       pic: 170,
       partSum: 19,
+      paymentFetchObj : {
+        amount : 199,
+        description : "Пакет №3",
+        metadata : {
+          plan : "3",
+          tokens : 10000,
+        }
+      }
     },
     {
       id: 4,
@@ -100,6 +134,14 @@ export const Info = (props: {
       symbol: 10000,
       pic: 350,
       partSum: 19,
+      paymentFetchObj : {
+        amount : 199,
+        description : "Пакет №4",
+        metadata : {
+          plan : "4",
+          tokens : 100000,
+        }
+      }
     },
   ]
   const processWordsCount = useMemo(
@@ -127,6 +169,14 @@ export const Info = (props: {
     [props.plan],
   );
 
+  const {paymentPackegeUrl, SetPaymentPackegeUrl} = useProfileStore()
+  const iframeePackegeRef = useRef<HTMLIFrameElement | null>(null);
+  useClickAway(iframeePackegeRef, (e) => {
+    if(iframeePackegeRef.current){
+      SetPaymentPackegeUrl("")
+      window.location.reload(); // обновляем экран чтобы пользователь увидел обновленный активный план в карточке плана, в названии плана, дате след оплаты и т д
+    }
+})
   return (
     <div
       className="flex h-[94px] w-full items-center justify-between rounded-[20px] bg-[#FFFFFF] dark:bg-[#21242C] vsm:h-[134px] vsm:flex-col vsm:rounded-[16px]
@@ -135,6 +185,18 @@ export const Info = (props: {
                         lg:py-[16px]
                         xl:mb-[12px] xl:px-[32px] xl:py-[20px]"
     >
+      {paymentPackegeUrl && (
+          <Dialog open={paymentPackegeUrl !== ""}>
+            <DialogContent>
+              <iframe 
+                      ref={iframeePackegeRef}
+                      src={paymentPackegeUrl}
+                      title="Payment"
+                      style={{ width: '100%', height: '100%', border: 'none', borderRadius : "20px" }}
+                    />
+            </DialogContent>
+          </Dialog>
+      )}
       <span
         className="w-1/3 text-[#101828] dark:text-[#F5F5F6] md:hidden lg:font-TTNormsBold lg:text-[20px]
                             lg:leading-[30px] xl:font-NeueMachinaBold xl:text-[24px]
@@ -195,55 +257,16 @@ export const Info = (props: {
           >
             Следующий платеж {props.nextPaySum} &#x20BD; - {props.nextPayDate ? formatDate(props.nextPayDate) : null}
           </span>
-          <CancelPlanDialog open={showCancelPlanModal} >
-            <CancelPlanDialogTrigger>
-              <ProfileSimpleButton title="Отменить автоплатеж" callBack={() => changeShowCancelPlanModal(true)} />
-            </CancelPlanDialogTrigger>
-            <CancelPlanDialogContent ref={cancelModalRef}>
-              <div className='w-full h-full rounded-[20px] bg-[#EDF2F6] dark:bg-[rgb(23,24,28)] flex flex-col'>
-
-                <div className="flex h-[97px] w-full items-center border-b-[1px] border-b-[#D0D5DD] p-[24px] dark:border-b-[#333741]">
-                  <div className="mr-[16px] flex size-[48px] items-center justify-center rounded-[10px] bg-[#FFFFFF] dark:bg-[#000000] vsm:hidden">
-                    <PlanModalIcon />
-                  </div>
-                    <span
-                      className="font-NeueMachinaBold text-[24px] leading-[32px] text-[#101828] dark:text-[#F5F5F6]
-                                      planSm:text-[20px] planSm:leading-[30px]"
-                    >
-                      Отмена рекурентного платежа
-                    </span>
-                </div>
-
-                <div className='w-full h-[130px] p-[24px] flex flex-col planSm:vsm:h-auto'>
-                  <div className='w-full h-auto flex flex-col'>
-                    <span
-                        className="font-TTNormsRegular text-[14px] leading-[20px] text-[#475467] dark:text-[#98A2B3]
-                                                    planSm:text-[12px] planSm:leading-[18px] text-center mb-3"
-                    >
-                      Внимание, отмена рекурентного платежа приведет к автоматическому переходу на бесплатный тариф с {props.nextPayDate ? formatDate(props.nextPayDate) : null}
-                    </span>
-                    <span
-                      className="font-NeueMachinaBold text-[24px] leading-[32px] text-[#101828] dark:text-[#F5F5F6]
-                                      planSm:text-[20px] planSm:leading-[30px] text-center"
-                    >
-                      Подтвердить отмену платежа ?
-                    </span>
-                  </div>
-                </div>
-
-                <div className='w-full h-auto flex justify-between py-[24px] px-[80px] vsm:px-[24px]'>
-                  <Button size="profileCancelPlanButton" variant="profileCancelButton" onClick={() => cancelPlan(GetUserSubscriptionIdData?.users[0].subscription_id)}>
-                    Да
-                  </Button>
-                  <Button size="profileCancelPlanButton" variant="profileOkButton" onClick={() => setShowCancelPlanModal(false)}>
-                    <OkIcon/>
-                    Нет
-                  </Button>
-                </div>
-
-              </div>
-            </CancelPlanDialogContent>
-          </CancelPlanDialog>
+          <CancelPlanModal
+          cancelModalRef={cancelModalRef}
+          cancelPlan={cancelPlan}
+          changeShowCancelPlanModal={changeShowCancelPlanModal}
+          formatDate={formatDate}
+          nextPayDate={props.nextPayDate}
+          setShowCancelPlanModal={setShowCancelPlanModal}
+          showCancelPlanModal={showCancelPlanModal}
+          subscription_id={GetUserSubscriptionIdData?.users[0].subscription_id}
+          />
         </div>
       </div>
       <div
@@ -308,7 +331,7 @@ export const Info = (props: {
                                         planSm:py-[24px] "
               >
                 {planPackage.map((p) => {
-                  return (
+                  return ( 
                     <PackageCard
                       benefit={p.benefit}
                       partSum={p.partSum}
@@ -317,6 +340,8 @@ export const Info = (props: {
                       symbol={p.symbol}
                       wordsCount={p.wordsCount}
                       key={p.id}
+                      paymentFetchObj={p.paymentFetchObj}
+                      userId={session.data?.user.id!}
                     />
                   )
                 })}
