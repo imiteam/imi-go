@@ -1,5 +1,5 @@
 'use client'
-import {memo} from 'react'
+import {memo, useState} from 'react'
 import {PlansMockData} from '../index'
 import {GoToPlanButton} from './GoToPlanButton'
 import {MultiplyPlanButton} from './MultiplyPlanButton'
@@ -14,7 +14,16 @@ export type MetaDataType = {
   tokens : number
   yearly : boolean
 }
-export const PlanCard = memo(function PlanCard({plan,planName}: {plan: PlansMockData,planName: string | undefined}) {
+export const PlanCard = memo(function PlanCard({plan,planName,togglerNum}: {
+  plan: PlansMockData,
+  planName: string | undefined
+  togglerNum: Number
+}) {
+  const [sliderStep, setSliderStep] = useState<number>(1)
+  const sliderStepHandler = (step: number) => {
+    setSliderStep(step)
+  }
+
   const session = useSession()
   return (
     <div
@@ -25,7 +34,7 @@ export const PlanCard = memo(function PlanCard({plan,planName}: {plan: PlansMock
                     lg:pt-[24px] xl:mx-[20px] xl:p-[32px]
                     xl:pt-[24px]`}
     >
-      <PlanCardHeader presentation={plan.presentation} title={plan.title} sale={plan.sale} />
+      <PlanCardHeader presentation={plan.presentation} title={plan.title} sale={plan.sale[togglerNum.toString()]} />
       {plan.planButton.type === 'simple' ? (
         <SinglePlanButton title={plan.planButton.title as string} />
       ) : (
@@ -33,12 +42,19 @@ export const PlanCard = memo(function PlanCard({plan,planName}: {plan: PlansMock
       )}
 
       <PlanInfo
-        sum={plan.sum}
+        sum={plan.sum[togglerNum.toString()]}
         wordsCount={plan.wordsCount}
-        benefit={plan.benefit}
+        benefit={plan.benefit[togglerNum.toString()]}
         planType={plan.planButton.type}
+        sliderStepHandler={sliderStepHandler}
       />
-      <GoToPlanButton planName={plan.name} isActive={plan.name === planName} planPayDataType={plan.paymentFetchObj} userId={session.data?.user.id!}/>
+      <GoToPlanButton 
+      planName={plan.name} 
+      isActive={plan.name === planName} 
+      planPayDataType={plan.paymentFetchObj} 
+      userId={session.data?.user.id!} 
+      togglerNum={togglerNum} 
+      sliderStep={sliderStep}/>
       <div
         id="planFeature"
         className="flex h-[250px] w-full flex-col

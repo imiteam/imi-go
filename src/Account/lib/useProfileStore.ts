@@ -13,6 +13,10 @@ interface PaymentPackegeModalUrl {
   paymentPackegeUrl: string
   SetPaymentPackegeUrl: (url: string) => void
 }
+interface ShowWordsCountByCurrentModel {
+  selectedMultiplyPlanButtonId: number
+  setSelectedMultiplyPlanButtonId: (value: number) => void
+}
 // interface SelectedPlanCategories {
 //   selectedPlanCategoriesId: number
 //   setSelectedPlanCategoriesId: (id: number) => void
@@ -26,14 +30,16 @@ interface PaymentPackegeModalUrl {
 //   SetMultiplyPlanButtonId: (id: number) => void
 // }
 
-export const useProfileStore = create<ProfileNavButton & PaymentModalUrl & PaymentPackegeModalUrl>()((set) => ({
+export const useProfileStore = create<ProfileNavButton & PaymentModalUrl & PaymentPackegeModalUrl & ShowWordsCountByCurrentModel>()((set) => ({
 //   & SelectedPlanCategories & PlanPayToggleButton & MultiplyPlanButton
   buttonId: 1,
   SetButtonId: (id) => set({buttonId: id}),
   paymentUrl : "",
   SetPaymentUrl : (url : string) => set(() => ({paymentUrl :url})),
   paymentPackegeUrl : "",
-  SetPaymentPackegeUrl : (url : string) => set(() => ({paymentUrl :url}))
+  SetPaymentPackegeUrl : (url : string) => set(() => ({paymentUrl :url})),
+  selectedMultiplyPlanButtonId: 1,
+  setSelectedMultiplyPlanButtonId: (value : number) => set(() => ({selectedMultiplyPlanButtonId : value}))
   //   selectedPlanCategoriesId: 1,
   //   setSelectedPlanCategoriesId: (id) => set(() => ({selectedPlanCategoriesId: id})),
   //   selectedToggleButtonId: 1,

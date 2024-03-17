@@ -1,16 +1,20 @@
 'use client'
 
-import {memo, useState} from 'react'
+import {memo, useCallback, useState} from 'react'
 import {ToggleButton} from './ToggleButton'
 
-export const PayToggle = memo(function PayToggle() {
+export const PayToggle = memo(function PayToggle(props: {
+  callBack: (togglerNum : number) => void
+}) {
 
   const [selectedToggle, setSelectedToggle] = useState<number>(1);
 
-
-  const handleChangeToggle = () => {
+  const handleChangeToggle = useCallback(() => {
+    
     setSelectedToggle(selectedToggle === 1 ? 2 : 1)
-  }
+    props.callBack(selectedToggle === 1 ? 2 : 1)
+  },[selectedToggle])
+
   // const selectedToggleButtonId = 1
   const toggleButtons = [{id: 1}, {id: 2}]
   return (
