@@ -1,6 +1,6 @@
 'use client'
 import {GetPlanCategoriesQuery} from 'generated'
-import {memo, useEffect, useRef} from 'react'
+import {memo, useEffect, useRef, useState} from 'react'
 import {PayToggle} from './PayToggle'
 import {PlanCard} from './PlanCard'
 import {PlanCategories} from './PlanCard/PlanCategories'
@@ -8,14 +8,21 @@ import { useProfileStore } from 'Account/lib/useProfileStore'
 import { Dialog, DialogContent } from 'common/UIkit/additionalPlansModal'
 import { useOnClickOutside } from 'usehooks-ts'
 import { useClickAway } from 'react-use'
+import { Key } from 'lucide-react'
 
 export type PlansMockData = {
   title: string
   name: string
   presentation: string
-  sale: number
-  benefit: number
-  sum: number
+  sale: {
+    [Key : string] : number,
+  },
+  benefit: {
+    [Key : string] : number,
+  },
+  sum: {
+    [Key : string] : number,
+  },
   wordsCount: number | string
   planButton: {
     type: string
@@ -28,29 +35,46 @@ export type PlansMockData = {
   }
   planFeautures: Array<{title: string; includes: boolean}>
   paymentFetchObj : {
-    amount: number,
+    amount: {
+      [Key : string] : number,
+    },
     description: string,
     metadata: {
       plan: string,
       tokens: number,
-      yearly: boolean,
+      yearly: {
+        [Key : string] : boolean,
+      },
     },
     is_subscription: boolean,
  } 
 }
 
 export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {planCategories: GetPlanCategoriesQuery,planName: string | undefined}) {
+  
+  const [togglerNum,setTogglerNum] = useState<Number>(1)
 
-
-
+  const changePaymentPeriodToggler = (togglerNum : number) => {
+    setTogglerNum(togglerNum)
+  }
+  // объекты с инфой о каточках с тарифами
   const data: Array<PlansMockData> = [
     {
       title: 'Бесплатный',
       name: "Free",
       presentation: 'Всем желающим использовать нейросети',
-      sale: 0,
-      benefit: 0,
-      sum: 0,
+      sale: {
+        "1" : 0,
+        "2" : 0
+      },
+      benefit:  {
+        "1" : 0,
+        "2" : 0
+      },
+      sum: {
+        "1" : 0,
+        "2" : 0
+      },
       wordsCount: 10000,
       planButton: {
         type: 'simple',
@@ -83,12 +107,18 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
         },
       ],
       paymentFetchObj : {
-        amount : 0,
+        amount : {
+          "1" : 0,
+          "2" : 0
+        },
         description : "Бесплатный тариф",
         metadata : {
           plan : "Free",
           tokens : 10000,
-          yearly : false
+          yearly : {
+            "1" : false,
+            "2" : true
+          },
         },
         is_subscription : true
       }
@@ -97,9 +127,18 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
       title: 'Базовый',
       name: "Base",
       presentation: 'Раскройте свой творческий потенциал',
-      sale: 20,
-      benefit: 3250,
-      sum: 9999,
+      sale: {
+        "1" : 0,
+        "2" : 20
+      },
+      benefit: {
+        "1" : 0,
+        "2" : 3250
+      },
+      sum: {
+        "1" : 3250,
+        "2" : 1990
+      },
       wordsCount: 'безлимитно',
       planButton: {
         type: 'simple',
@@ -132,12 +171,18 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
         },
       ],
       paymentFetchObj : {
-        amount : 9999,
+        amount :{
+          "1" : 3250,
+          "2" : 1990
+        },
         description : "Базовый тариф",
         metadata : {
           plan : "Base",
           tokens : 1000000,
-          yearly : false
+          yearly : {
+            "1" : false,
+            "2" : true
+          },
         },
         is_subscription : true
       }
@@ -146,9 +191,18 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
       title: 'PRO',
       name: "Pro",
       presentation: 'Используйте свой потенциал на максимум',
-      sale: 33,
-      benefit: 17250,
-      sum: 13990,
+      sale: {
+        "1" : 0,
+        "2" : 33
+      },
+      benefit: {
+        "1" : 0,
+        "2" : 17250
+      },
+      sum: {
+        "1" : 17250,
+        "2" : 13990
+      },
       wordsCount: 4000000,
       planButton: {
         type: 'multiply',
@@ -184,17 +238,25 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
         },
       ],
       paymentFetchObj : {
-        amount : 13990,
+        amount :  {
+          "1" : 17250,
+          "2" : 13990
+        },
         description : "PRO тариф",
         metadata : {
           plan : "Pro",
-          tokens : 5000000,
-          yearly : false
+          tokens : 750000,
+          yearly : {
+            "1" : false,
+            "2" : true
+          },
         },
         is_subscription : true
       }
     },
   ] 
+
+  //Работа с модалкой для отображения окна оплаты тарифа
   const {SetPaymentUrl,paymentUrl} = useProfileStore()
   const iframeeRef = useRef<HTMLIFrameElement | null>(null);
  
@@ -241,7 +303,7 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
           </span>
           <PlanCategories planCategories={planCategories.plan_categories} />
         </div>
-        <PayToggle />
+        <PayToggle callBack={changePaymentPeriodToggler}/>
       </div>
       <div
         id="plansContainer"
@@ -250,7 +312,7 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
                         planSm:vsm:pt-0"
       >
         {data.map((p, index) => {
-          return <PlanCard plan={p} key={index} planName={planName}/>
+          return <PlanCard plan={p} key={index} planName={planName} togglerNum={togglerNum}/>
         })}
       </div>
     </div>
