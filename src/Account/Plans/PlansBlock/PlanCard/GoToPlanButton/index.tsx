@@ -52,11 +52,11 @@ export const GoToPlanButton = memo(function GoToPlanButton({isActive, planPayDat
       variant={isActive ? 'activePlan' : 'goToPlan'} 
       size={isActive ? 'activePlan' : 'goToPlan'} 
       disabled={isActive || !userId}
-      onClick={() => getPaymentUrl(planPayDataType.amount[togglerNum.toString()], 
+      onClick={() => getPaymentUrl(togglerNum === 1 ? planPayDataType.amount[togglerNum.toString()] : planPayDataType.amount[togglerNum.toString()] * 12, 
                                   planPayDataType.description,
                                   userId,
                                   { plan: planPayDataType.metadata.plan, 
-                                    tokens: planPayDataType.metadata.tokens, 
+                                    tokens: togglerNum === 1 ? planPayDataType.metadata.tokens : planPayDataType.metadata.tokens * 12, 
                                     yearly: planPayDataType.metadata.yearly[togglerNum.toString()]
                                   }, 
                                     true)
