@@ -10,7 +10,7 @@ export type PlanPayDataType = {
   metadata: {
     plan: string,
     tokens: number,
-    yearly: boolean,
+    yearly: boolean, 
   },
   is_subscription: boolean,
 } 

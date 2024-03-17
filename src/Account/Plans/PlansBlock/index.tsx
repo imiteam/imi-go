@@ -41,7 +41,7 @@ export type PlansMockData = {
 
 export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {planCategories: GetPlanCategoriesQuery,planName: string | undefined}) {
 
-  const {paymentUrl} = useProfileStore()
+
 
   const data: Array<PlansMockData> = [
     {
@@ -195,8 +195,9 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
       }
     },
   ] 
-  const {SetPaymentUrl} = useProfileStore()
+  const {SetPaymentUrl,paymentUrl} = useProfileStore()
   const iframeeRef = useRef<HTMLIFrameElement | null>(null);
+ 
   useClickAway(iframeeRef, (e) => {
       if(iframeeRef.current){
         SetPaymentUrl("")
@@ -222,6 +223,8 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
             </DialogContent>
           </Dialog>
       )}
+      
+      
       <div
         className="flex w-full items-center justify-between md:mb-[16px] md:h-[79px] md:flex-col
                             md:vsm:h-[86px] lg:mb-[24px]

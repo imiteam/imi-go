@@ -4,12 +4,21 @@ import {memo} from 'react'
 import {BuyPackageButton} from './BuyPackageButton'
 
 export const PackageCard = memo(function PackageCard(props: {
+  userId: string
   wordsCount: number
   sum: number
   benefit: number
   symbol: number
   pic: number
   partSum: number
+  paymentFetchObj : {
+    amount : number,
+    description : string,
+    metadata : {
+      plan : string,
+      tokens : number,
+    }
+  }
 }) {
   return (
     <div
@@ -40,7 +49,7 @@ export const PackageCard = memo(function PackageCard(props: {
         {props.pic.toLocaleString() + '  '}
         <span className="text-[#475467] dark:text-[#98A2B3]">изображений</span>
       </span>
-      <BuyPackageButton />
+      <BuyPackageButton packagePayDataType={props.paymentFetchObj} userId={props.userId}/>
       <span
         className="font-TTNormsMedium text-[16px] leading-[19px] text-[#101828] dark:text-[#F5F5F6]
             planSm:text-[14px] planSm:leading-[14px]"
