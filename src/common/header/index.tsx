@@ -52,13 +52,13 @@ export default function Header() {
           <div className="flex items-center md:w-[302px] md:vsm:w-[200px]">
             <Logo />
             <MobileMenuIcon handleClickMenu={handleClickMenu} />
-            <Link href={"/templates"}>
+            {/* <Link href={"/templates"}> */}
               <HeaderNavButton
                 activeButtonName={activeButton}
                 buttonName="templates"
                 title="Шаблоны"
               />
-            </Link>
+            {/* </Link> */}
             {session?.user && (
               <Link href={`/chat?userId=${session?.user.id}`}>
                 <HeaderNavButton
