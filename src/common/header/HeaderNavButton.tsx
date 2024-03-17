@@ -31,11 +31,11 @@ export const HeaderNavButton = memo(function HeaderNavButton(
   };
   
   const className : string = buttonNameToClassName[props.buttonName]
-  let cursor = props.title === "Обучение" ? "not-allowed" : "pointer";
+  let cursor = props.title === "Обучение" || props.title === "Шаблоны" ? "not-allowed" : "pointer";
 
   let isActive = props.buttonName === props.activeButtonName;
 
-  return props.title === "Обучение" ? (
+  return props.title === "Обучение" || props.title === "Шаблоны" ? (
     <TooltipProvider delayDuration={150}>
       <Tooltip>
         <TooltipTrigger asChild>

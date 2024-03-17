@@ -16,7 +16,7 @@ export type PlanPayDataType = {
         [Key : string] : boolean,
       },
   },
-  is_subscription: boolean,
+  is_subscription: boolean, 
 } 
 export const GoToPlanButton = memo(function GoToPlanButton({isActive, planPayDataType, userId, planName,togglerNum,sliderStep}: 
   {isActive: boolean, planPayDataType: PlanPayDataType, userId: string, planName: string,togglerNum: Number, sliderStep: number}){
