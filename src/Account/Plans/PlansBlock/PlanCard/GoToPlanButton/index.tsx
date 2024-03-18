@@ -65,7 +65,7 @@ export const GoToPlanButton = memo(function GoToPlanButton({isActive, planPayDat
       {isActive ? <span>Активирован</span> : <span>Перейти на этот тариф</span>}
     </Button>
     :
-    <Button 
+    <Button  
       variant={isActive ? 'activePlan' : 'goToPlan'} 
       size={isActive ? 'activePlan' : 'goToPlan'} 
       disabled={isActive || !userId}

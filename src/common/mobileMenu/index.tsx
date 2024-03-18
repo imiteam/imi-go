@@ -80,7 +80,7 @@ export default function MobileMenu() {
   }, [currentPath]);
 
   const progress = useMemo(
-    () => (userWalletData?.wallets[0]?.tokens! * 3) / 4,
+    () => ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4,
     [userWalletData?.wallets],
   );
 

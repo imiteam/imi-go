@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { UserWalletSubscription } from 'generated';
 
 export default function ProfileDropDown(props: {userWalletData: UserWalletSubscription | undefined; planName: any}) {
-  const progress = useMemo(() => (props.userWalletData?.wallets[0]?.tokens! * 3) / 4, [props.userWalletData?.wallets])
+  const progress = useMemo(() => ((props.userWalletData?.wallets[0]?.tokens! + props.userWalletData?.wallets[0].additional_tokens!) * 3) / 4, [props.userWalletData?.wallets])
   return (
     <Select disabled>
       <div className="flex flex-col">

@@ -4,12 +4,16 @@ import { useProfileStore } from '../../lib/useProfileStore';
 const usePaymentPackegeRequest = () => {
  const SetPaymentPackegeUrl = useProfileStore((state) => state.SetPaymentPackegeUrl);
 
- const requestPaymentPackegeUrl = useCallback(async (amount : number, description : string, user_id : string, metadata : {
+ const requestPaymentPackegeUrl = useCallback(async (  isSubscriber: boolean | null,amount : number, description : string, user_id : string, metadata : {
     plan : string
     tokens : number
+    yearly: boolean
   }) => {
+    if( !isSubscriber){
+      return
+    }
     try {
-      const response = await fetch('https://api.imigo.ai/', {
+      const response = await fetch('https://api.imigo.ai/orders/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -19,6 +23,7 @@ const usePaymentPackegeRequest = () => {
           description,
           user_id,
           metadata,
+          is_subscription: false
         }),
       });
 

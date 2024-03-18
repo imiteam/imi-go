@@ -7,11 +7,9 @@ import {ProfileSimpleButton} from './ProfileSimpleButton'
 import { PlanModalIcon } from './icon_components/PlanModalIcon'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { useQuery, useSubscription } from '@apollo/client'
-import { GetPlanUserDocument, GetUserSubscriptionIdDocument, GetUserSubscriptionIdQueryVariables, UserWalletDocument, UserWalletSubscription, UserWalletSubscriptionVariables } from 'generated'
+import { GetUserInfoDocument, GetUserSubscriptionIdDocument, UserWalletDocument, UserWalletSubscription, UserWalletSubscriptionVariables } from 'generated'
 import { useSession } from 'next-auth/react'
-import { CancelPlanDialog, CancelPlanDialogContent, CancelPlanDialogTrigger } from 'common/UIkit/cancelPlanModal'
-import { Button } from 'common/UIkit/button'
-import { OkIcon } from 'Account/Settings/Blocks/buttons/icon_components/OkIcon'
+
 import { useClickAway } from 'react-use'
 import { Dialog, DialogContent, DialogTrigger } from 'common/UIkit/additionalPlansModal'
 import { useProfileStore } from 'Account/lib/useProfileStore'
@@ -41,7 +39,7 @@ export const Info = (props: {
       userId: session.data?.user.id,
     },
   });
-  //работа с модалкой
+  //работа с модалкой отмены подписки
   const [showCancelPlanModal, setShowCancelPlanModal] = useState<boolean>(false)
 
   const changeShowCancelPlanModal = (isShow : boolean) => {
@@ -73,11 +71,16 @@ export const Info = (props: {
     }).then(() => setShowCancelPlanModal(false)).then(() => window.location.reload());
  }, [GetUserSubscriptionIdData?.users[0].subscription_id]);
 
-    //работа с модалкой
+    //работа с модалкой отмены подписки
+    
+    const { data: GetUserInfoData  } = useQuery(GetUserInfoDocument, {
+    variables: { userId: session.data?.user.id },
+  });
+
   const planPackage = [
     {
       id: 1, 
-      wordsCount: 10000, 
+      wordsCount: 750, 
       sum: 199, 
       benefit: 400, 
       symbol: 10000, 
@@ -85,71 +88,75 @@ export const Info = (props: {
       partSum: 19,
       paymentFetchObj : {
         amount : 199,
-        description : "Пакет №1",
+        description : "Дополнительный пакет",
         metadata : {
-          plan : "1",
-          tokens : 100,
+          plan : "",
+          tokens : 1000,
+          yearly: false
         }
       }
     },
     {
       id: 2,
-      wordsCount: 30000,
-      sum: 199,
+      wordsCount: 7500,
+      sum: 299,
       benefit: 650,
       symbol: 10000,
       pic: 85,
       partSum: 19,
       paymentFetchObj : {
         amount : 299,
-        description : "Пакет №2",
+        description : "Дополнительный пакет",
         metadata : {
-          plan : "2",
-          tokens : 1000,
+          plan : "",
+          tokens : 10000,
+          yearly: false
         }
       }
     },
     {
       id: 3,
-      wordsCount: 60000,
-      sum: 199,
+      wordsCount: 75000,
+      sum: 399,
       benefit: 1300,
       symbol: 10000,
       pic: 170,
       partSum: 19,
       paymentFetchObj : {
-        amount : 199,
-        description : "Пакет №3",
+        amount : 399,
+        description : "Дополнительный пакет",
         metadata : {
-          plan : "3",
-          tokens : 10000,
+          plan : "",
+          tokens : 100000,
+          yearly: false
         }
       }
     },
     {
       id: 4,
-      wordsCount: 120000,
-      sum: 199,
+      wordsCount: 150000,
+      sum: 499,
       benefit: 3000,
       symbol: 10000,
       pic: 350,
       partSum: 19,
       paymentFetchObj : {
-        amount : 199,
-        description : "Пакет №4",
+        amount : 499,
+        description : "Дополнительный пакет",
         metadata : {
-          plan : "4",
-          tokens : 100000,
+          plan : "",
+          tokens : 200000,
+          yearly: false
         }
       }
     },
   ]
   const processWordsCount = useMemo(
     () =>  {
-      if(!userWalletData?.wallets[0]?.tokens!){
+      if(!userWalletData?.wallets[0]?.tokens! ){
         return NaN
       } else {
-        return (userWalletData?.wallets[0]?.tokens! * 3) / 4
+        return ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0].additional_tokens!) * 3) / 4
       
       }
     },
@@ -342,6 +349,7 @@ export const Info = (props: {
                       key={p.id}
                       paymentFetchObj={p.paymentFetchObj}
                       userId={session.data?.user.id!}
+                      isSubscriber={GetUserInfoData ? GetUserInfoData.users[0].is_subscriber : null}
                     />
                   )
                 })}
