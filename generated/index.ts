@@ -13370,7 +13370,7 @@ export type GetUserInfoQueryVariables = Exact<{
 }>;
 
 
-export type GetUserInfoQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', ai_text_model?: string | null, plan_id?: any | null, is_client?: boolean | null }> };
+export type GetUserInfoQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', ai_text_model?: string | null, plan_id?: any | null, is_client?: boolean | null, is_subscriber?: boolean | null }> };
 
 export type GetUserSubscriptionIdQueryVariables = Exact<{
   userId: Scalars['uuid']['input'];
@@ -13579,6 +13579,7 @@ export const GetUserInfoDocument = gql`
     ai_text_model
     plan_id
     is_client
+    is_subscriber
   }
 }
     `;

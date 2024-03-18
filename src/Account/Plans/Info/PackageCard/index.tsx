@@ -11,12 +11,14 @@ export const PackageCard = memo(function PackageCard(props: {
   symbol: number
   pic: number
   partSum: number
+  isSubscriber: boolean | null
   paymentFetchObj : {
     amount : number,
     description : string,
     metadata : {
       plan : string,
       tokens : number,
+      yearly: boolean
     }
   }
 }) {
@@ -49,7 +51,7 @@ export const PackageCard = memo(function PackageCard(props: {
         {props.pic.toLocaleString() + '  '}
         <span className="text-[#475467] dark:text-[#98A2B3]">изображений</span>
       </span>
-      <BuyPackageButton packagePayDataType={props.paymentFetchObj} userId={props.userId}/>
+      <BuyPackageButton packagePayDataType={props.paymentFetchObj} userId={props.userId} isSubscriber={props.isSubscriber}/>
       <span
         className="font-TTNormsMedium text-[16px] leading-[19px] text-[#101828] dark:text-[#F5F5F6]
             planSm:text-[14px] planSm:leading-[14px]"
