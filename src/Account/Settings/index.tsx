@@ -17,12 +17,6 @@ export const SettingsPage = function SettingsPage() {
             <Interface />
             {/* раскомментить когда будете вводить смену пароля */}
             {/* <Authorization /> */}
-            <div
-              className="h-[271px] w-full rounded-[20px] bg-[#FFFFFF] dark:bg-[#21242C] sm:hidden
-                                  md:px-[20px] md:py-[16px]
-                                  lg:px-[24px] lg:py-[20px] xl:px-[32px]
-                                  xl:py-[24px]"
-            ></div>
           </div>
           <Info
             firstName={session?.user?.name}

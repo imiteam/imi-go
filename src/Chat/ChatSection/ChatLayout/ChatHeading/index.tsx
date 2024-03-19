@@ -6,9 +6,9 @@ import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '../../..
 import {GetCurrentPromtQuery, GetUserInfoQuery} from 'generated'
 import Image from 'next/image'
 import {usePathname, useRouter} from 'next/navigation'
-import {useCallback, useState} from 'react'
+import {useCallback, useRef, useState} from 'react'
 import {SubmitHandler, useForm} from 'react-hook-form'
-import {useWindowSize} from 'react-use'
+import {useClickAway, useWindowSize} from 'react-use'
 import {useChatStore} from '../../../lib/useChatStore'
 import { EditIcon } from './icon_components/EditIcon'
 import { OpenChatSettsIcon } from './icon_components/OpenChatSettsIcon'
@@ -50,6 +50,16 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
     },
     [pathname],
   )
+  
+  // сохранение title при клике вне инпута
+  const chatTitileRef = useRef<HTMLFormElement | null>(null);
+  useClickAway(chatTitileRef, () => {
+    if (!isEditDisabled) {
+      handleSubmit(onSubmit)();
+    }
+  });
+  // сохранение title при клике вне инпута
+
 
   const handleChangeModel = useCallback(
     async (model: string) => {
@@ -84,9 +94,9 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
         />
 
         <ChatMenuButton callBack={setSheetOpen}/>
-        <form className="contents " onSubmit={handleSubmit(onSubmit)}>
+        <form className="contents " onSubmit={handleSubmit(onSubmit)} ref={chatTitileRef}> 
           <input
-            className={cn(
+            className={cn( 
               'w-full rounded-[12px] text-header-bg-lite focus:ring-[#0B3BEC] dark:text-[#fff] sm:ml-[8px] md:font-TTNormsBold md:text-[18px] md:leading-[28px] lg:font-TTNormsBold lg:text-[20px] lg:leading-[30px] xl:font-NeueMachinaBold xl:text-[24px] xl:leading-[32px]',
               {'pl-[8px]  focus:ring-2': !isEditDisabled},
             )}
@@ -222,7 +232,7 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
           </div>
         </div>
         <div className="flex items-center ">
-          <form className="contents" onSubmit={handleSubmit(onSubmit)}>
+          <form className="contents" onSubmit={handleSubmit(onSubmit)} ref={chatTitileRef}>
             <input
               className={cn(
                 'w-full rounded-[12px] text-header-bg-lite dark:text-[#fff] vsm:w-auto sm:ml-[8px] md:font-TTNormsBold md:text-[18px] md:leading-[28px] lg:font-TTNormsBold lg:text-[20px] lg:leading-[30px] xl:font-NeueMachinaBold xl:text-[24px] xl:leading-[32px]',
