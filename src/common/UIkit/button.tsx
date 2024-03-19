@@ -21,7 +21,7 @@ const buttonVariants = cva(
         defaultTempArrowLeft:
           "border-none rounded-[10px] hover:bg-white dark:hover:bg-black absolute top-[0px] left-[0px] z-20 bg-bg-lite dark:bg-bg-dark shadow-arrow-r-20-lite dark:shadow-arrow-r-20-dark ",
 
-        defaultSendInput: "ml-[8px] md:m-[0px]",
+        defaultSendInput: "ml-[8px] md:m-[0px] rounded-[12px]",
         searchTempBtn:
           " border border-items-border-lite dark:border-items-border-dark xl:rounded-[16px] lg:rounded-[12px] md:rounded-[12px] flex items-center justify-center text-template-card-item-text-lite dark:text-template-card-item-text-dark hover:text-template-item-text-active-lite xl:font-TTNormsRegular lg:font-InterMedium md:font-TTNormsMedium xl:text-[16px] lg:text-[12px] md:text-[12px] xl:leading-[19px] lg:leading-[14px] md:leading-[14px] mr-[8px] md:mr-[8px] md:sm:mr-0",
         roleSideBarBtn:
