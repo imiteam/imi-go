@@ -9,10 +9,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        defaultNavBtn:
+        defaultNavBtn: 
           "rounded-[12px] text-text-color-white lg:font-TTNormsMedium md:font-TTNormsRegular pr-[4px] lg:py-[6px] xl:pl-[16px] lg:pl-[8px] md:pl-[0px] flex justify-start xl:text-[16px] lg:text-[14px] md:text-[10px] md:sm:vsm:hidden",
         defaultCategoriesBtn:
-          "border-none xl:font-TTNormsMedium lg:font-InterMedium md:font-interMedium text-black-text xl:px-[24px] xl:py-[8px] lg:px-[16px] lg:py-[8px]  md:sm:px-[16px] md:sm:py-[8px] vsm:flex vsm:flex-col md:sm:vsm:pb-[0px]  md:sm:vsm:px-[0px]",
+          "border-none xl:font-TTNormsMedium lg:font-InterMedium md:font-interMedium text-black-text xl:px-[24px] xl:py-[8px] lg:px-[16px] lg:py-[8px]  md:sm:px-[16px] md:sm:py-[8px] vsm:flex vsm:flex-col md:sm:vsm:pb-[0px]  md:sm:vsm:px-[0px] rounded-[13px]",
         defaultTempBtn:
           "border border-items-border-lite dark:border-items-border-dark text-template-item-text-default-lite dark:text-template-item-text-dark rounded-[12px] xl:font-TTNormsRegular lg:font-InterRegular xl:text-[14px] lg:text-[12px] font-[400] w-max px-[12px] py-[6px] hover:bg-[#fff] dark:hover:bg-[black] mr-[6px]",
         // defaultTempBtnGrowed : "border border-[#D0D5DD] rounded-[12px] font-TTNormsMedium text-[14px] text-[#2D384B] font-[400] w-max px-[9px] py-[6px] hover:bg-[#fff] flex-grow mr-[4px]",
@@ -31,7 +31,7 @@ const buttonVariants = cva(
         defaultToggleBtn:
           " rounded-[9px] font-TTNormsMedium  text-[12px] text-[#667085] dark:text-[#94969C] leading-[14px] xl:w-[70px] xl:h-[36px] lg:w-[66px] lg:h-[32px] md:w-[61px] md:h-[28px] ",
         defaultProfileNavBtn:
-          "border-none font-TTNormsMedium text-[#667085] dark:text-[#98A2B3] text-[12px] lg:whitespace-nowrap py-[8px] px-[12px] md:leading-[14px] sm:text-[10px] md:sm:leading-[11px]",
+          "border-none font-TTNormsMedium text-[#667085] dark:text-[#98A2B3] text-[12px] lg:whitespace-nowrap py-[8px] px-[12px] md:leading-[14px] sm:text-[10px] md:sm:leading-[11px] rounded-[13px]",
         defaultMultiplyPlanButton:
           "border-none px-[12px] py-[6px] md:px-[10px] md:py-[6px]",
         defaultChatSettsSubpageButton:
@@ -152,7 +152,7 @@ const buttonVariants = cva(
         activeInsructionsToggleButton:
           "rounded-full bg-[#FFFFFF] dark:bg-[#000000] ",
         closeMobileMenuBtn:
-          "md:sm:rounded-[10px] flex justify-end items-start border-none",
+          "md:sm:rounded-[10px] flex justify-end items-start",
 
         // activeTempBtnGrowed : "rounded-[12px] border-none bg-[#FFFFFF] font-TTNormsMedium text-[14px] text-active-btn-white font-[400] w-max px-[12px] py-[6px] flex-grow mr-[4px]",
       },

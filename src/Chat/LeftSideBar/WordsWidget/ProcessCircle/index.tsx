@@ -19,11 +19,11 @@ export const ProgressCircleBar = memo(function ProgressCircleBar(props: {percent
           <stop offset="100%" stopColor="#3793FF" />
         </linearGradient>
       </defs>
-      <circle cx={100} cy={100} strokeWidth={10} r={radius} fill="none" className="stroke-[#fff] dark:stroke-[black]" />
+      <circle cx={100} cy={100} strokeWidth={20} r={radius} fill="none" className="stroke-[#fff] dark:stroke-[black]" />
       <circle
         cx={100}
         cy={100}
-        strokeWidth={10}
+        strokeWidth={20}
         r={radius}
         fill="none"
         className=""
@@ -42,7 +42,7 @@ export const ProgressCircleBar = memo(function ProgressCircleBar(props: {percent
         className="font-TTNormsMedium text-[3rem]"
         fill={theme === 'light' ? '#101828' : theme === 'dark' ? '#F5F5F6' : 'ss'}
       >
-        {percentage.toFixed(1)}%
+        {Math.floor(percentage)}%
       </text>
     </svg>
   )

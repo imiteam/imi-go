@@ -9,7 +9,7 @@ export const Question = ({question}: {question: {question: string; answer: strin
   }
 
   return (
-    <div className="mb-[32px] flex h-auto w-full flex-col justify-between border-b-[1px] border-b-[white] dark:border-b-[#000000]">
+    <div className="mb-[32px] flex h-auto w-full flex-col justify-between border-b-[1px] border-b-[white] dark:border-b-[#000000]" onClick={() => showAnswer()}>
       <div className={`flex h-auto min-h-[60px] w-full items-center justify-between `}>
         <span
           className="h-full font-TTNormsMedium text-[#101828] dark:text-[#F5F5F6] md:text-[16px] md:leading-[19px]

@@ -59,14 +59,14 @@ export default function MyMessage(props: MyMessagePropsType) {
             ) : (
               <span
                 className=" mr-[12px] flex w-full items-center font-TTNormsRegular text-heading-text-lite
-                                dark:text-heading-text-dark md:text-[12px] md:leading-[18px] lg:text-[12px] lg:leading-[18px]
-                                xl:text-[14px] xl:leading-[20px]"
+                                dark:text-heading-text-dark md:text-[12px] md:leading-[18px] lg:text-[12px] 
+                                xl:text-[14px] leading-[18px] pt-[7px]"
               >
                 <motion.div
                   initial={{opacity: 0}}
                   animate={{opacity: 1}}
                   exit={{opacity: 0}}
-                  className="w-full leading-[32px]"
+                  className="w-full"
                 >
                   {editMessageContent}
                 </motion.div>
