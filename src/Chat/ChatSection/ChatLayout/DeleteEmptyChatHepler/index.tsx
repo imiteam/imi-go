@@ -29,7 +29,6 @@ export const DeleteEmptyChatHelper = memo(function DeleteEmptyChatHelper(props: 
       const target = event.target as HTMLElement // Приведение типа target к HTMLElement
       const closestAnchor = target.closest('a') // Ищем ближайший элемент a
       if (closestAnchor instanceof HTMLAnchorElement && props.messages.length <= 1) {
-        console.log('Клик по ссылке: ', closestAnchor.href)
         handleDeleteChat(props.chatId)
       }
     }
