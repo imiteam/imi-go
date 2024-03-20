@@ -44,7 +44,7 @@ export default {
        return config
     },
     images: {
-       domains: ['localhost', 'img5a.flixcart.com', 'lh3.googleusercontent.com', 'imi-front.imgix.net'],
+       domains: ['localhost', 'img5a.flixcart.com', 'lh3.googleusercontent.com', 'imi-front.imgix.net', 'avatars.yandex.net'],
        formats: ['image/avif', 'image/webp'],
     },
     poweredByHeader: false,

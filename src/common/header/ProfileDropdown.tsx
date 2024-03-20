@@ -59,7 +59,7 @@ export default function ProfileDropDown({
     () => ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4,
     [userWalletData?.wallets],
   );
-
+  console.log(icon)
   return (
     <DropdownSelect>
       <Link href="/" className="flex items-center justify-center">
