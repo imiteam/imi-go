@@ -65,8 +65,10 @@ export const ChatLayout = memo(function ChatLayout(props: {
   const onReload = () => {
     // Get last assistant message and delete from database
     const lastMessage = messages[messages.length - 1]
+    console.log("весь массив MESSAGES", messages)
     console.log(lastMessage.id, "айди последней смс",lastMessage.content)
     if (lastMessage?.role === 'assistant') {
+      console.log("ассист")
       deleteMessage({messageId: lastMessage.id})
         .then(() => {
           reload()
