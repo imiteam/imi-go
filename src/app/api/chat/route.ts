@@ -26,7 +26,6 @@ export async function POST(req: any) {
   // const messages: Array<ChatCompletionMessageParam> = [
   //   {role: 'user', content: 'write top vegetables with calories in table. use markdown'},
   // ]
-
   // TODO: Get model from chat
   let finalModel : string;
   if (!is_client) {

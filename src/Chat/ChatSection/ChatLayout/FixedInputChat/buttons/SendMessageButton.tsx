@@ -18,50 +18,27 @@ export const SendMessageButton = memo(function SendMessageButton(props: {callBac
     }
   }, [])
   return (
-    <Button variant={'defaultSendInput'} size="defaultSendInput" onClick={() => props.callBack()}>
-      {/* <Image
-        src={sendInputIcon}
-        alt="sendButton"
-        width={screenWidth < 979 && screenWidth > 679 ? 40 : screenWidth < 679 ? 36 : 44}
-        style={{height: screenWidth < 979 && screenWidth > 679 ? '40px' : screenWidth < 679 ? '36px' : '44px'}}
-      /> */}
-            <svg 
-      width="44" 
-      height="45" 
-      viewBox="0 0 44 45" 
-      fill="none" 
-      xmlns="http://www.w3.org/2000/svg"
-      style={{
-        height:
-          screenWidth < 979 && screenWidth > 679
-            ? "40px"
-            : screenWidth < 679
-              ? "36px"
-              : "44px",
-      }}
-      >
-        <g filter="url(#filter0_i_12786_45114)">
-        <path d="M0 12.5C0 5.87258 5.37258 0.5 12 0.5H32C38.6274 0.5 44 5.87258 44 12.5V32.5C44 39.1274 38.6274 44.5 32 44.5H12C5.37258 44.5 0 39.1274 0 32.5V12.5Z" fill="#0B3BEC"/>
-        <g clip-path="url(#clip0_12786_45114)">
-        <path d="M15.7319 22.814L30.7315 22.814M17.3317 14.5151L29.589 20.6438C31.3773 21.5379 31.3773 24.09 29.589 24.9841L17.3317 31.1128C15.3982 32.0795 13.2612 30.226 13.9448 28.1753L15.4761 23.5812C15.6422 23.0832 15.6421 22.5447 15.4761 22.0467L13.9448 17.4526C13.2612 15.4019 15.3982 13.5484 17.3317 14.5151Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-        </g>
-        <defs>
-        <filter id="filter0_i_12786_45114" x="0" y="0.5" width="59" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-        <feOffset dx="15"/>
-        <feGaussianBlur stdDeviation="10"/>
-        {/* k2 - | k3 + */}
-        <feComposite in2="hardAlpha" operator="arithmetic" k2="0" k3="0"/> 
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.94 0 0 0 0 1 0 0 0 0.71 0"/>
-        <feBlend mode="normal" in2="shape" result="effect1_innerShadow_12786_45114"/>
-        </filter>
-        <clipPath id="clip0_12786_45114">
-        <rect width="20" height="20" fill="white" transform="translate(12 12.5)"/>
-        </clipPath>
-        </defs>
+    <Button 
+    variant={'defaultSendInput'} 
+    size="defaultSendInput" 
+    style={{
+      height:
+        screenWidth < 979 && screenWidth > 679
+          ? "42px"
+          : screenWidth < 679
+            ? "36px"
+            : "44px",
+      width :  
+        screenWidth < 979 && screenWidth > 679
+      ? 40
+      : screenWidth < 679
+        ? 36
+        : 44
+    }}
+    className="gradientButton"
+    onClick={() => props.callBack()}>
+      <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.7317 9.81304L17.7312 9.81304M4.33141 1.51416L16.5887 7.64281C18.377 8.53697 18.377 11.089 16.5887 11.9831L4.33141 18.1118C2.398 19.0785 0.260956 17.2251 0.944521 15.1744L2.47589 10.5802C2.64191 10.0822 2.64191 9.54375 2.47589 9.04571L0.94452 4.45159C0.260956 2.4009 2.398 0.547451 4.33141 1.51416Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </Button>
   )

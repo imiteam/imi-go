@@ -84,7 +84,7 @@ export default function AiMessage({isLastMessage, isLoading, stop, reload, messa
           </div>
           <span
             className=" mr-[12px] w-full font-TTNormsRegular text-heading-text-lite dark:text-heading-text-dark md:text-[12px]
-                          leading-[18px] pt-[7px] md:pt-1 lg:text-[12px] xl:text-[14px]"
+                          leading-[20px] pt-[7px] md:pt-1 lg:text-[12px] xl:text-[14px]"
           >
             <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
               <MemoizedReactMarkdown
