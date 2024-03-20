@@ -6,10 +6,11 @@ import HistoryTable from './HistoryTable'
 
 
 export default function Histories(props: {historyData: GetUserHistoryQuery["payment_history"]}) {
+  let reversedHistory = props.historyData.reverse()
   return (
     <Fragment>
-      <HistoryTable historyData={props.historyData} />
-      <HistoryCard historyData={props.historyData} />
+      <HistoryTable historyData={reversedHistory} />
+      <HistoryCard historyData={reversedHistory} />
     </Fragment>
   )
 }
