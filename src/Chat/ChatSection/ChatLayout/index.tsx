@@ -130,7 +130,7 @@ export const ChatLayout = memo(function ChatLayout(props: {
     >
       <div className="flex size-full flex-col">
         <ChatHeading title={props.title} userInfo={props.userInfo} userId={props.userId} systemPromt={props.systemPromt}/>
-        <div className="flex w-full grow px-[24px] py-[2px] md:pl-[16px] md:pr-[8px] md:sm:pl-[12px] md:sm:pr-[4px] lg:pr-[7px] xl:pr-[8px] ">
+        <div className="flex w-full grow px-[24px] py-[2px] md:pl-[16px] md:pr-[8px] md:sm:pl-[7px] md:sm:pr-[4px] lg:pr-[7px] lg:pl-[17px] xl:pr-[8px] ">
           <DynamicChat
             stop={() => stop()}
             reload={() => onReload()}

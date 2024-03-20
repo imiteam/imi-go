@@ -14,6 +14,7 @@ import { PlayMessageIcon } from './icon_components/PlayMessageIcon'
 import { RefreshMessageIcon } from './icon_components/RefreshMessageIcon'
 import { CopyMessageIcon } from './icon_components/CopyMessageIcon'
 import { SettingsMessageIcon } from './icon_components/SettingsMessageIcon'
+import { AIMessageAvatarIcon } from './icon_components/AIMessageAvatarIcon'
 // import { TooltipMenu, TooltipMenuContent, TooltipMenuProvider, TooltipMenuTrigger } from "components/ui/tooltipMenu"
 
 type AiMessagePropsType = {
@@ -73,15 +74,7 @@ export default function AiMessage({isLastMessage, isLoading, stop, reload, messa
     >
       <div className="mb-1 flex">
         <div className="flex size-full items-start">
-          <div className="mr-[12px] flex h-full w-[30px] items-start">
-            <Image
-              src={avatarIMI}
-              width={30}
-              height={30}
-              alt="avatarIMI"
-              className="relative md:rounded-[10px] md:vsm:rounded-[8px] lg:top-[2px] lg:rounded-[10px] xl:top-[3px]"
-            />
-          </div>
+          <AIMessageAvatarIcon/>
           <span
             className=" mr-[12px] w-full font-TTNormsRegular text-heading-text-lite dark:text-heading-text-dark md:text-[12px]
                           leading-[20px] pt-[7px] md:pt-1 lg:text-[12px] xl:text-[14px]"
