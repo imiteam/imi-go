@@ -1,5 +1,4 @@
 import {ChangeAiTextModel, updateChatAction} from '../../../graphql/action'
-import Logo_IMI from '../../../../../public/assets/Logo_IMI.png'
 import cn from 'classnames'
 import {Button} from '../../../../common/UIkit//button'
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '../../../../common/UIkit/tooltip'
@@ -18,6 +17,7 @@ import { ChatSettsButton } from './buttons/ChatSettsButton'
 import { ChatFullWidthButton } from './buttons/ChatFullWidthButton'
 import { FavoriteChatButton } from './buttons/FavoriteChatButton'
 import { DownloadChatButton } from './buttons/DownloadChatButton'
+import { IMIavatarIcon } from './icon_components/IMIavatarIcon'
 
 type FormValues = {title: string}
 
@@ -36,7 +36,7 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
     defaultValues: {
       title: props.title,
     },
-    mode: 'onChange',
+    mode: 'onChange', 
   })
 
   const onSubmit: SubmitHandler<FormValues> = useCallback(
@@ -85,14 +85,17 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
         lg:h-[60px] lg:rounded-t-[16px] lg:px-[16px] lg:py-[12px] xl:h-[84px] xl:px-[24px]"
     >
       <div className="flex items-center ">
+        {props.systemPromt === "absent" ?
+        <IMIavatarIcon/>
+        :
         <Image
-          src={props.systemPromt === "absent" ? Logo_IMI : 'https://imi-front.imgix.net/uploads/' + props.systemPromt.roles[0].directus_img?.filename_disk} 
-          alt="roleIcon"
-          width={57}
-          height={45}
-          className="md:hidden lg:hidden xl:mr-[16px] xl:block"
-        />
-
+            src={'https://imi-front.imgix.net/uploads/' + props.systemPromt.roles[0].directus_img?.filename_disk} 
+            alt="roleIcon"
+            width={57}
+            height={45}
+            className="md:hidden lg:hidden xl:mr-[16px] xl:block"
+          />
+        }
         <ChatMenuButton callBack={setSheetOpen}/>
         <form className="contents " onSubmit={handleSubmit(onSubmit)} ref={chatTitileRef}> 
           <input
