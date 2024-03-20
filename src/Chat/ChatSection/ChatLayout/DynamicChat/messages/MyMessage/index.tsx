@@ -60,7 +60,7 @@ export default function MyMessage(props: MyMessagePropsType) {
               <span
                 className=" mr-[12px] flex w-full items-center font-TTNormsRegular text-heading-text-lite
                                 dark:text-heading-text-dark md:text-[12px] md:leading-[18px] lg:text-[12px] 
-                                xl:text-[14px] leading-[18px] pt-[7px]"
+                                xl:text-[14px] leading-[20px] pt-[7px]"
               >
                 <motion.div
                   initial={{opacity: 0}}
