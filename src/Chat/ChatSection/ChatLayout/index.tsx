@@ -3,7 +3,7 @@
 import {DynamicChat} from './DynamicChat'
 import {FixedInputChat} from 'Chat/ChatSection/ChatLayout/FixedInputChat'
 import {useChat} from 'ai/react'
-import {createNewUserMessage, deleteMessage} from '../../graphql/action'
+import {createNewUserMessage, deleteMessage, getAllChatMessages} from '../../graphql/action'
 import ChatHeading from './ChatHeading'
 import {usePathname, useRouter} from 'next/navigation'
 import {FormEvent, memo, useEffect} from 'react'
@@ -62,20 +62,21 @@ export const ChatLayout = memo(function ChatLayout(props: {
     }
   }, [props.homePageMessage])
 
-  const onReload = () => {
+  const onReload = async() => {
     // Get last assistant message and delete from database
-    const lastMessage = messages[messages.length - 1]
-    console.log("весь массив MESSAGES", messages)
-    console.log(lastMessage.id, "айди последней смс",lastMessage.content)
+    const allMessages = await getAllChatMessages({
+      chatId: props.id,
+      userId: props.userId,
+    })
+    const lastMessage = allMessages.messages[allMessages.messages.length -1]
     if (lastMessage?.role === 'assistant') {
-      console.log("ассист")
       deleteMessage({messageId: lastMessage.id})
         .then(() => {
           reload()
         })
         .catch((reason: any) => {
           if (String(reason).includes('invalid input syntax for type uuid')) {
-            reload()
+            // reload() пока не понятно зачем при ошибке делать релоад
           }
         })
     }
