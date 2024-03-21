@@ -3,7 +3,7 @@
 import {DynamicChat} from './DynamicChat'
 import {FixedInputChat} from 'Chat/ChatSection/ChatLayout/FixedInputChat'
 import {useChat} from 'ai/react'
-import {createNewUserMessage, deleteMessage, getAllChatMessages} from '../../graphql/action'
+import {createNewUserMessage, deleteMessage, getAllChatMessages, updateChatAction} from '../../graphql/action'
 import ChatHeading from './ChatHeading'
 import {usePathname, useRouter} from 'next/navigation'
 import {FormEvent, memo, useEffect} from 'react'
@@ -91,6 +91,9 @@ export const ChatLayout = memo(function ChatLayout(props: {
       content: props.homePageMessage ? props.homePageMessage : input,
     }).then((message_id: any) => {
       if (message_id) {
+        if(messages.length < 2){
+          updateChatAction({chatId: props.id, title: props.title, description: input})
+        }
         handleSubmit(e)
       }
     })
@@ -124,7 +127,7 @@ export const ChatLayout = memo(function ChatLayout(props: {
   //     createNewUserMessage({
   //       chatId: props.id,
   //       content: props.initiateChat,
-  //     })
+  //     }) 
   //   }
   // }, [props.id, props.initiateChat])
 

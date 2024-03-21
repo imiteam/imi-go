@@ -13430,6 +13430,7 @@ export type UpdateChatMutationVariables = Exact<{
   chatId: Scalars['uuid']['input'];
   title?: InputMaybe<Scalars['String']['input']>;
   model?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
 }>;
 
 
@@ -13646,8 +13647,11 @@ export const ChangeAiTextModelDocument = gql`
 }
     `;
 export const UpdateChatDocument = gql`
-    mutation UpdateChat($chatId: uuid!, $title: String, $model: String) {
-  update_chats(where: {id: {_eq: $chatId}}, _set: {title: $title, model: $model}) {
+    mutation UpdateChat($chatId: uuid!, $title: String, $model: String, $description: String) {
+  update_chats(
+    where: {id: {_eq: $chatId}}
+    _set: {title: $title, model: $model, description: $description}
+  ) {
     returning {
       id
     }

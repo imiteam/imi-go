@@ -86,10 +86,10 @@ export async function ChangeAiTextModel(props: {userId: string; model: string}) 
   return mutatuion.data?.update_users?.returning
 }
 
-export async function updateChatAction(props: {chatId: string; title?: string; model?: string}) {
+export async function updateChatAction(props: {chatId: string; title?: string; model?: string, description?: string}) {
   const mutatuion = await getClient().mutate<UpdateChatMutation, UpdateChatMutationVariables>({
     mutation: UpdateChatDocument,
-    variables: {chatId: props.chatId, title: props.title, model: props.model},
+    variables: {chatId: props.chatId, title: props.title, model: props.model,description: props.description},
   })
 
   return mutatuion.data?.update_chats?.returning
