@@ -3,9 +3,13 @@ import { HistoryCategorySelect, HistoryCategorySelectContent, HistoryCategorySel
 import {Button} from '../../common/UIkit/button'
 import HistoryNavButton from './HistoryCategoryNavButtons'
 import { SwitchHistoryCategoryIcon } from './SwitchHistoryCategoryIcon'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from 'common/UIkit/tooltip'
+import { useCallback } from 'react'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 export default function HistoryCategories() {
+  const session = useSession()
+  const router = useRouter()
   const historyCategories = [
     {
       id: 1,
@@ -23,6 +27,13 @@ export default function HistoryCategories() {
       icon: 'magic',
     },
   ]
+
+  const createNewChat = useCallback(() => {
+    router.push(
+      `/chat?userId=${session.data?.user?.id}`,
+    );
+  }, [session.data?.user.id]) 
+  
   return (
     <div
       className="flex h-[68px] w-full items-center
@@ -76,22 +87,10 @@ export default function HistoryCategories() {
           </HistoryCategorySelectContent>
         </HistoryCategorySelect>
       </div>
-        <TooltipProvider delayDuration={150}>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button size="hostoryNewDoc" variant="hostoryNewDoc" className='cursor-not-allowed'>
-              <SwitchHistoryCategoryIcon icon="newDoc" />
-              <span>Новый документ</span>
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent className="rounded-[8px] bg-[black] dark:bg-[#ffffff]">
-            <span className="font-TTNormsRegular text-[14px] leading-[20px] text-[#FFFFFF] dark:text-[#000000]">
-              В разработке
-            </span>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
-      
+        <Button size="hostoryNewDoc" variant="hostoryNewDoc" onClick={() => createNewChat()}>
+          <SwitchHistoryCategoryIcon icon="newDoc" />
+          <span>Новый документ</span>
+        </Button>
     </div>
   )
 }
