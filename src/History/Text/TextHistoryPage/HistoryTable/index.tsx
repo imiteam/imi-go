@@ -160,7 +160,7 @@ export default function HistoryTable({textHistory}: {textHistory: GetMyChatsQuer
         <TableBody>
           {currentItems.length &&
             currentItems.map((d,index) => {
-              if(pageNumbers.length === 1 && (index === 7 || index === 15 || index === 23 || index === 31 || index === 39 || index === 47 || index === 55 || index === 63)) {
+              if(pageNumbers.length === 1 && (index === currentItems.length-1)) {
                 return (
                   <TableRow
                     className="border-b border-b-[#DAE3E9] dark:border-b-[#17181C]  md:h-[62px] lg:h-[62px] xl:h-[72px]"
