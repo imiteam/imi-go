@@ -938,3 +938,8 @@ table thead tr:hover {
 .gradientButton {
   background-image: linear-gradient(to right, rgba(0, 240, 255, 0.71), #0B3BEC);
 }
+
+.CrossbrowserLayout {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
