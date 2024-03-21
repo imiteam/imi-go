@@ -28,6 +28,7 @@ import { SettingsButton } from "./buttons/SettingsButton";
 // все запросы из generated описаны в src=>common=>header=>graphql=>client
 import {
   GetPlanUserDocument,
+  GetUserInfoDocument,
   UserWalletDocument,
   UserWalletSubscription,
   UserWalletSubscriptionVariables,
@@ -58,6 +59,9 @@ export default function MobileMenu() {
   const { data } = useQuery(GetPlanUserDocument, {
     variables: { id: session?.user.id },
   });
+  const { data: GetUserInfoData  } = useQuery(GetUserInfoDocument, {
+    variables: { userId: session?.user.id },
+  });
 
   const planName = useCallback(
     (data: any | undefined) => {
@@ -67,8 +71,15 @@ export default function MobileMenu() {
             return "Бесплатный";
           case "6a7c060b-1d7c-414a-88a5-f43edc9b6aee":
             return "Базовый"
+          case "07428e4f-6d8f-41ee-95fb-1a11180f5877" :
+            return "PRO"
           default:
-            return "нету плана";
+            return <div className="flex justify-center items-center">
+            <div
+              className="animate-spin rounded-full h-4.5 w-4.5 border-b-2 border-gray-900"
+              style={{ width: "15px", height: "15px" }}
+            ></div>
+          </div>;
         }
       }
     },
@@ -80,8 +91,14 @@ export default function MobileMenu() {
   }, [currentPath]);
 
   const progress = useMemo(
-    () => ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4,
-    [userWalletData?.wallets],
+    () => {
+      if(GetUserInfoData?.users[0].ai_text_model !== "gpt-4"){
+        return ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4
+      } else {
+        return (((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4) / 8
+      }
+    },
+    [userWalletData?.wallets, GetUserInfoData],
   );
 
   return (

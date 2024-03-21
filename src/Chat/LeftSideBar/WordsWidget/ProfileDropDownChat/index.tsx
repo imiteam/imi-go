@@ -3,8 +3,17 @@ import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '../../..
 import { useMemo } from 'react';
 import { UserWalletSubscription } from 'generated';
 
-export default function ProfileDropDown(props: {userWalletData: UserWalletSubscription | undefined; planName: any}) {
-  const progress = useMemo(() => ((props.userWalletData?.wallets[0]?.tokens! + props.userWalletData?.wallets[0].additional_tokens!) * 3) / 4, [props.userWalletData?.wallets])
+export default function ProfileDropDown(props: {userWalletData: UserWalletSubscription | undefined; planName: any, ai_text_model : string | undefined}) {
+  const progress = useMemo(
+    () => {
+      if(props.ai_text_model !== "gpt-4"){
+        return ((props.userWalletData?.wallets[0]?.tokens! + props.userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4
+      } else {
+        return (((props.userWalletData?.wallets[0]?.tokens! + props.userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4) / 8
+      }
+    },
+    [props.userWalletData?.wallets, props.ai_text_model],
+  );
   return (
     <Select disabled>
       <div className="flex flex-col">
