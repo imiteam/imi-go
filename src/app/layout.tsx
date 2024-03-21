@@ -32,7 +32,7 @@ export default function RootLayout({
             disableTransitionOnChange
             themes={["light", "dark"]}
           >
-            <body id="appelement" className="flex min-h-screen w-full flex-col">
+            <body id="appelement" className="flex min-h-screen w-full flex-col CrossbrowserLayout">
               <MobileMenu />
               <Header />
               {children}
