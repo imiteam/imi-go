@@ -5,6 +5,7 @@ import ProfileDropDownChat from './ProfileDropDownChat/index'
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '../../../common/UIkit/tooltip'
 import {
   GetPlanUserDocument,
+  GetUserInfoDocument,
   UserWalletDocument,
   UserWalletSubscription,
   UserWalletSubscriptionVariables,
@@ -25,6 +26,11 @@ export const WordsWidget = memo(function WordsWidget(props: {className?: string;
   const {data} = useQuery(GetPlanUserDocument, {
     variables: {id: props.userId},
   })
+
+  const { data: GetUserInfoData  } = useQuery(GetUserInfoDocument, {
+    variables: { userId: props.userId },
+  });
+
   const planName = useCallback(
     (data: any | undefined) => {
       if (data) {
@@ -33,8 +39,15 @@ export const WordsWidget = memo(function WordsWidget(props: {className?: string;
             return "Бесплатный";
           case "6a7c060b-1d7c-414a-88a5-f43edc9b6aee":
             return "Базовый"
+          case "07428e4f-6d8f-41ee-95fb-1a11180f5877" :
+            return "PRO"
           default:
-            return "нету плана";
+            return <div className="flex justify-center items-center">
+            <div
+              className="animate-spin rounded-full h-4.5 w-4.5 border-b-2 border-gray-900"
+              style={{ width: "15px", height: "15px" }}
+            ></div>
+          </div>;
         }
       }
     },
@@ -44,10 +57,12 @@ export const WordsWidget = memo(function WordsWidget(props: {className?: string;
    let maxTokens;
    if(data?.users_by_pk?.plan_id === "8d035581-2209-4212-a4f2-6938bd0bf32a"){
     maxTokens = 10000
+   } else if(data?.users_by_pk?.plan_id === "6a7c060b-1d7c-414a-88a5-f43edc9b6aee"){
+    maxTokens = 100000
    } else {
-    maxTokens = 100000000
-   } 
-   return (userWalletData?.wallets[0]?.tokens! / maxTokens) * 100
+    maxTokens = 10000000
+   }
+   return ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0].additional_tokens!) / maxTokens) * 100
   }, [userWalletData?.wallets,data])
   return (
     <div
@@ -62,7 +77,7 @@ export const WordsWidget = memo(function WordsWidget(props: {className?: string;
       {userWalletData && (
         <div className="relative right-[4px] flex h-[38px] w-[92%]">
           <ProgressCircleBar percentage={progress} />
-          <ProfileDropDownChat userWalletData={userWalletData} planName={planName(data)} />
+          <ProfileDropDownChat userWalletData={userWalletData} planName={planName(data)} ai_text_model={GetUserInfoData?.users[0].ai_text_model}/>
         </div>
       )}
       <div className="my-[16px] flex w-[92%] cursor-not-allowed items-center">

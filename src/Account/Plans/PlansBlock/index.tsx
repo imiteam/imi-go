@@ -196,7 +196,7 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
         "2" : 33
       },
       benefit: {
-        "1" : 0,
+        "1" : 0, 
         "2" : 17250
       },
       sum: {

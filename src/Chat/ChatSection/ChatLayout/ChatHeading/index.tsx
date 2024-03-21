@@ -24,6 +24,7 @@ type FormValues = {title: string}
 export default function ChatHeading(props: {title: string; userInfo: GetUserInfoQuery; userId: string,systemPromt: GetCurrentPromtQuery | 'absent'}) {
   const {setHideAside, setSheetOpen, setShowChatSettings} = useChatStore()
   const [isEditDisabled, setIsEditDisabled] = useState(true)
+  const [changingModel, setChangingModel] = useState<boolean>(false)
   const pathname = usePathname()
   const router = useRouter()
   const {width} = useWindowSize()
@@ -64,11 +65,11 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
   const handleChangeModel = useCallback(
     async (model: string) => {
       try {
-        // && props.userInfo.users[0].plan_id === "айдишка "про" плана" в if снизу
-        if (props.userInfo.users[0].is_client) {
+        if (props.userInfo.users[0].is_client && props.userInfo.users[0].plan_id === "07428e4f-6d8f-41ee-95fb-1a11180f5877") {
+          setChangingModel(true)
           await updateChatAction({chatId: pathname.slice(6), title: props.title, model: model})
           await ChangeAiTextModel({userId: props.userId, model: model})
-          router.refresh()
+          window.location.reload()
         }
         return
       } catch (error) {
@@ -111,31 +112,52 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
           <EditIcon callBack={() => setIsEditDisabled(false)} />
         </form>
       </div>
-      <div className="flex items-center">
-        <div className="flex items-center justify-between rounded-[12px] bg-bg-lite p-[4px] dark:bg-bg-dark md:mr-[16px] md:h-[32px] md:w-[121px] md:p-[2px] lg:mr-[12px] lg:h-[40px] lg:w-[134px] xl:mr-[16px] xl:h-[44px] xl:w-[150px]">
-          {/*  TODO: Use Enums */}
+      <div className="flex items-center"> 
+        <TooltipProvider delayDuration={150}>
+        <Tooltip>
+          <TooltipTrigger asChild>
+              <div className="flex items-center justify-between rounded-[12px] bg-bg-lite p-[4px] dark:bg-bg-dark md:mr-[16px] md:h-[32px] md:w-[121px] md:p-[2px] lg:mr-[12px] lg:h-[40px] lg:w-[134px] xl:mr-[16px] xl:h-[44px] xl:w-[150px]">
+              {/*  TODO: Use Enums */}
 
-          <Button variant="defaultToggleBtn" onClick={() => handleChangeModel('gpt-3.5')}>
-            <span className="z-10">GPT 3.5</span>
-          </Button>
-          <div
-            className={cn(
-              'absolute rounded-[9px] bg-[#fff] font-TTNormsMedium text-[12px] leading-[14px] text-[#2D384B] transition-transform dark:bg-[#21242C] dark:text-[#CECFD2] md:h-[28px] md:w-[61px] md:rounded-[10px] lg:h-[32px] lg:w-[66px] lg:px-[8px] lg:py-[7px] xl:h-[36px] xl:w-[70px] xl:px-[12px] xl:py-[8px]',
-              {
-                'translate-x-0':
-                  !props.userInfo.users[0].is_client || props.userInfo.users[0].ai_text_model === 'gpt-3.5',
-              },
-              {
-                'md:translate-x-[56px] lg:translate-x-[60px] xl:translate-x-[72px]':
-                  props.userInfo.users[0].ai_text_model === 'gpt-4' && props.userInfo.users[0].is_client,
-              }
-              
-            )}
-          />
-          <Button variant="defaultToggleBtn" onClick={() => handleChangeModel('gpt-4')}>
-            <span className="z-10">GPT 4</span>
-          </Button>
-        </div>
+              <Button variant="defaultToggleBtn" onClick={() => handleChangeModel('gpt-3.5')}>
+                <span className="z-10">GPT 3.5</span>
+              </Button>
+              <div
+                className={cn(
+                  'absolute rounded-[9px] bg-[#fff] font-TTNormsMedium text-[12px] leading-[14px] text-[#2D384B] transition-transform dark:bg-[#21242C] dark:text-[#CECFD2] md:h-[28px] md:w-[61px] md:rounded-[10px] lg:h-[32px] lg:w-[66px] lg:px-[8px] lg:py-[7px] xl:h-[36px] xl:w-[70px] xl:px-[12px] xl:py-[8px]',
+                  {
+                    'translate-x-0':
+                      !props.userInfo.users[0].is_client || props.userInfo.users[0].ai_text_model === 'gpt-3.5',
+                  },
+                  {
+                    'md:translate-x-[56px] lg:translate-x-[60px] xl:translate-x-[72px]':
+                      props.userInfo.users[0].ai_text_model === 'gpt-4' && props.userInfo.users[0].is_client,
+                  }
+                  
+                )}
+              >
+                {
+                  changingModel && 
+                  <div className="flex justify-center items-center ">
+                    <div
+                      className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900 md:relative md:top-0.5 md:w-4 md:h-4"
+                      style={{ width: "20px", height: "20px" }}
+                    ></div>
+                  </div>
+                }
+              </div>
+              <Button variant="defaultToggleBtn" onClick={() => handleChangeModel('gpt-4')}>
+                <span className="z-10">GPT 4</span>
+              </Button>
+            </div>
+          </TooltipTrigger>
+          <TooltipContent className="rounded-[8px] bg-[black] dark:bg-[#ffffff]">
+            <span className="font-TTNormsRegular text-[14px] leading-[20px] text-[#FFFFFF] dark:text-[#000000]">
+              Доступно для PRO тарифа
+            </span>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
         {/* 
           ниже 4 кнопки шапки чата для десктопа (более 980 пикселей)
           */}
@@ -218,7 +240,17 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
                       props.userInfo.users[0].ai_text_model === 'gpt-4' && props.userInfo.users[0].is_client,
                   }
                 )}
-              />
+              >
+                {
+                  changingModel && 
+                  <div className="flex justify-center items-center ">
+                    <div
+                      className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900 relative top-1.5"
+                      style={{ width: "15px", height: "15px" }}
+                    ></div>
+                  </div>
+                }
+              </div>
               <Button variant="defaultToggleBtn" onClick={() => handleChangeModel('gpt-4')}>
                 <span className="z-10">GPT 4</span>
               </Button>
