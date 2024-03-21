@@ -8,6 +8,7 @@ import {SwitchHistoryTextIcon} from '../common/SwitchHistoryTextIcon'
 import { GetMyChatsQuery } from 'generated'
 import { deleteChatAction } from 'Chat/graphql/action'
 import { useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
 export default function HistoryTable({textHistory}: {textHistory: GetMyChatsQuery["chats"]}) {
   const {theme} = useTheme()
@@ -26,7 +27,7 @@ export default function HistoryTable({textHistory}: {textHistory: GetMyChatsQuer
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem)
   const [ascendName, setAscendName] = useState<boolean>(true)
   const [ascendDate, setAscendDate] = useState<boolean>(true)
-
+  const session = useSession()
   const goBack = () => {
     if (currentPage === 1) {
       return
@@ -136,6 +137,10 @@ export default function HistoryTable({textHistory}: {textHistory: GetMyChatsQuer
     await deleteChatAction(chatId)
       .then(() => router.refresh())
   }, [])
+
+  const handleOpenChat = useCallback((chatId: string) => {
+    router.push(`/chat/${chatId}?userId=${session.data?.user?.id}`)
+  },[session.data?.user?.id])
 
   useEffect(() => {
     setData(textHistory)
@@ -330,7 +335,7 @@ export default function HistoryTable({textHistory}: {textHistory: GetMyChatsQuer
                     <TableCell className="planSm:w-10px w-[137px] pr-6">
                       <div className="flex h-full items-center">
                         <SwitchHistoryTextIcon icon="copy" />
-                        <SwitchHistoryTextIcon icon="edit" />
+                        <SwitchHistoryTextIcon icon="edit" openChat={handleOpenChat} id={d.id}/>
                         <SwitchHistoryTextIcon icon="delete" callBack={handleDeleteChat} id={d.id}/>
                       </div>
                     </TableCell>
@@ -428,8 +433,8 @@ export default function HistoryTable({textHistory}: {textHistory: GetMyChatsQuer
                     )} */}
                   </div>
                   <div className="flex h-full items-center">
-                    {/* <SwitchHistoryTextIcon icon="copy" />
-                    <SwitchHistoryTextIcon icon="edit" /> */}
+                    {/* <SwitchHistoryTextIcon icon="copy" /> */}
+                    <SwitchHistoryTextIcon icon="edit" openChat={handleOpenChat} id={d.id}/>
                     <SwitchHistoryTextIcon icon="delete" callBack={handleDeleteChat} id={d.id}/>
                   </div>
                 </div>
