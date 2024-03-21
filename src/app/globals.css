@@ -812,7 +812,12 @@ table tbody tr:first-child td:last-child {
 table tbody tr:last-child td:first-child {
   border-bottom-left-radius: 20px;
 }
-
+.lastTableRowStyleRight {
+  border-bottom-right-radius: 20px !important;
+}
+.lastTableRowStyleLeft {
+  border-bottom-left-radius: 20px !important;
+}
 table tbody tr:last-child td:last-child {
   border-bottom-right-radius: 20px;
 }
