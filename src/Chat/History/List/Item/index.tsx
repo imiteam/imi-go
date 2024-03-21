@@ -25,7 +25,7 @@ export const Item = memo(function Item(props: {
   const userId = session.data?.user.id
   const truncateText = useCallback(
     (text: string) => {
-      let maxLength = 22
+      let maxLength = 29
       if (width < 1280) {
         maxLength = 20
       }

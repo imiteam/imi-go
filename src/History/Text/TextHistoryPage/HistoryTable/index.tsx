@@ -142,6 +142,27 @@ export default function HistoryTable({textHistory}: {textHistory: GetMyChatsQuer
     router.push(`/chat/${chatId}?userId=${session.data?.user?.id}`)
   },[session.data?.user?.id])
 
+  const supportPromt = (promt: string) => {
+    switch(promt){
+      case "business" :
+        return "С бизнес-ангелом"
+      case "fitness" :
+        return "С фитнес тренером"
+      case "consultant" :
+        return "С консультантом"  
+      case "investor" :
+        return "С инвестором"
+      case "marketolog" :
+        return "С маркетологом"
+      case "seo" :
+        return "С SEO-специалистом"
+      case "whriter" :
+        return "С писателем"
+      default :
+      return ""
+    }
+  }
+
   useEffect(() => {
     setData(textHistory)
   }, [textHistory])
@@ -218,7 +239,7 @@ export default function HistoryTable({textHistory}: {textHistory: GetMyChatsQuer
                               IMI чат
                             </span>
                             <span className=" font-TTNormsRegular leading-[18px] text-[#667085] dark:text-[#98A2B3] md:text-[12px] lg:text-[12px]">
-                              {d.description}
+                              {supportPromt(d.system_promt!)}
                             </span>
                           </div>
                           </div>
@@ -306,7 +327,7 @@ export default function HistoryTable({textHistory}: {textHistory: GetMyChatsQuer
                               IMI чат
                             </span>
                             <span className=" font-TTNormsRegular leading-[18px] text-[#667085] dark:text-[#98A2B3] md:text-[12px] lg:text-[12px]">
-                              {d.description}
+                            {supportPromt(d.system_promt!)}
                             </span>
                           </div>
                           </div>
