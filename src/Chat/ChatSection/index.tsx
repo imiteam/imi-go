@@ -57,7 +57,7 @@ export const ChatSection = async function ChatSection(props: {
         //   initialMessage = "Я test мен с опытом Я test мен с опытом Я test мен с опытом"
         //   break
         // }
-        return [{id : "13ca03ea-9d6c-4664-b458-8db864e3b508", content : currentPromt.roles[0].promt, role : "tool", ui : currentPromt.roles[0].directus_img?.filename_disk},...res.messages]
+        return [{id : "13ca03ea-9d6c-4664-b458-8db864e3b508", content : currentPromt.roles[0].initial_message, role : "tool", ui : currentPromt.roles[0].directus_img?.filename_disk},...res.messages]
       }
     })
 
