@@ -7,6 +7,7 @@ export const GetCurrentPromt = gql`
       title
       id
       name
+      initial_message
       directus_img {
         filename_disk
       }

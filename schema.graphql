@@ -9192,8 +9192,10 @@ type payment_history {
   ): jsonb!
   date: timestamptz!
   four_last: String
+  hplan: String
   id: uuid!
   invoice_id: String
+  period: String
   plan: String
   status: Int!
   transaction_id: Int!
@@ -9250,8 +9252,10 @@ input payment_history_bool_exp {
   data: jsonb_comparison_exp
   date: timestamptz_comparison_exp
   four_last: String_comparison_exp
+  hplan: String_comparison_exp
   id: uuid_comparison_exp
   invoice_id: String_comparison_exp
+  period: String_comparison_exp
   plan: String_comparison_exp
   status: Int_comparison_exp
   transaction_id: Int_comparison_exp
@@ -9309,8 +9313,10 @@ input payment_history_insert_input {
   data: jsonb
   date: timestamptz
   four_last: String
+  hplan: String
   id: uuid
   invoice_id: String
+  period: String
   plan: String
   status: Int
   transaction_id: Int
@@ -9324,8 +9330,10 @@ type payment_history_max_fields {
   card_exp_date: String
   date: timestamptz
   four_last: String
+  hplan: String
   id: uuid
   invoice_id: String
+  period: String
   plan: String
   status: Int
   transaction_id: Int
@@ -9339,8 +9347,10 @@ type payment_history_min_fields {
   card_exp_date: String
   date: timestamptz
   four_last: String
+  hplan: String
   id: uuid
   invoice_id: String
+  period: String
   plan: String
   status: Int
   transaction_id: Int
@@ -9375,8 +9385,10 @@ input payment_history_order_by {
   data: order_by
   date: order_by
   four_last: order_by
+  hplan: order_by
   id: order_by
   invoice_id: order_by
+  period: order_by
   plan: order_by
   status: order_by
   transaction_id: order_by
@@ -9416,10 +9428,16 @@ enum payment_history_select_column {
   four_last
 
   """column name"""
+  hplan
+
+  """column name"""
   id
 
   """column name"""
   invoice_id
+
+  """column name"""
+  period
 
   """column name"""
   plan
@@ -9444,8 +9462,10 @@ input payment_history_set_input {
   data: jsonb
   date: timestamptz
   four_last: String
+  hplan: String
   id: uuid
   invoice_id: String
+  period: String
   plan: String
   status: Int
   transaction_id: Int
@@ -9492,8 +9512,10 @@ input payment_history_stream_cursor_value_input {
   data: jsonb
   date: timestamptz
   four_last: String
+  hplan: String
   id: uuid
   invoice_id: String
+  period: String
   plan: String
   status: Int
   transaction_id: Int
@@ -9530,10 +9552,16 @@ enum payment_history_update_column {
   four_last
 
   """column name"""
+  hplan
+
+  """column name"""
   id
 
   """column name"""
   invoice_id
+
+  """column name"""
+  period
 
   """column name"""
   plan
