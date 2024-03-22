@@ -6,7 +6,7 @@ import {useChat} from 'ai/react'
 import {createNewUserMessage, deleteMessage, getAllChatMessages, updateChatAction} from '../../graphql/action'
 import ChatHeading from './ChatHeading'
 import {usePathname, useRouter} from 'next/navigation'
-import {FormEvent, memo, useEffect} from 'react'
+import {FormEvent, memo, useEffect, useRef} from 'react'
 import {useWindowSize} from 'react-use'
 import {useToast} from '../../../common/UIkit/Toast/useToast'
 import {useChatStore} from '../../lib/useChatStore'
@@ -130,11 +130,17 @@ export const ChatLayout = memo(function ChatLayout(props: {
   //     }) 
   //   }
   // }, [props.id, props.initiateChat])
+
+  // БАГ С ФРИЗОМ БАГ С ФРИЗОМ БАГ С ФРИЗОМ БАГ С ФРИЗОМ БАГ С ФРИЗОМ БАГ С ФРИЗОМ
+  const thisComponentRef = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
-    document.body.click();
-  });
+    if (thisComponentRef.current) {
+      thisComponentRef.current.click();
+    }
+}, [thisComponentRef.current]);
   return (
     <div
+      ref={thisComponentRef}
       className={`z-[20] mb-[12px] flex h-[99%] w-full grow flex-col items-center justify-between bg-[#fff] dark:bg-[#21242C] sm:h-[99.5%] md:rounded-[16px] lg:rounded-[16px] ${margingX}`}
     >
       <div className="flex size-full flex-col">
