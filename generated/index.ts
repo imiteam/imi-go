@@ -8123,8 +8123,10 @@ export type Payment_History = {
   data: Scalars['jsonb']['output'];
   date: Scalars['timestamptz']['output'];
   four_last?: Maybe<Scalars['String']['output']>;
+  hplan?: Maybe<Scalars['String']['output']>;
   id: Scalars['uuid']['output'];
   invoice_id?: Maybe<Scalars['String']['output']>;
+  period?: Maybe<Scalars['String']['output']>;
   plan?: Maybe<Scalars['String']['output']>;
   status: Scalars['Int']['output'];
   transaction_id: Scalars['Int']['output'];
@@ -8191,8 +8193,10 @@ export type Payment_History_Bool_Exp = {
   data?: InputMaybe<Jsonb_Comparison_Exp>;
   date?: InputMaybe<Timestamptz_Comparison_Exp>;
   four_last?: InputMaybe<String_Comparison_Exp>;
+  hplan?: InputMaybe<String_Comparison_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
   invoice_id?: InputMaybe<String_Comparison_Exp>;
+  period?: InputMaybe<String_Comparison_Exp>;
   plan?: InputMaybe<String_Comparison_Exp>;
   status?: InputMaybe<Int_Comparison_Exp>;
   transaction_id?: InputMaybe<Int_Comparison_Exp>;
@@ -8238,8 +8242,10 @@ export type Payment_History_Insert_Input = {
   data?: InputMaybe<Scalars['jsonb']['input']>;
   date?: InputMaybe<Scalars['timestamptz']['input']>;
   four_last?: InputMaybe<Scalars['String']['input']>;
+  hplan?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   invoice_id?: InputMaybe<Scalars['String']['input']>;
+  period?: InputMaybe<Scalars['String']['input']>;
   plan?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Scalars['Int']['input']>;
   transaction_id?: InputMaybe<Scalars['Int']['input']>;
@@ -8254,8 +8260,10 @@ export type Payment_History_Max_Fields = {
   card_exp_date?: Maybe<Scalars['String']['output']>;
   date?: Maybe<Scalars['timestamptz']['output']>;
   four_last?: Maybe<Scalars['String']['output']>;
+  hplan?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   invoice_id?: Maybe<Scalars['String']['output']>;
+  period?: Maybe<Scalars['String']['output']>;
   plan?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['Int']['output']>;
   transaction_id?: Maybe<Scalars['Int']['output']>;
@@ -8270,8 +8278,10 @@ export type Payment_History_Min_Fields = {
   card_exp_date?: Maybe<Scalars['String']['output']>;
   date?: Maybe<Scalars['timestamptz']['output']>;
   four_last?: Maybe<Scalars['String']['output']>;
+  hplan?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   invoice_id?: Maybe<Scalars['String']['output']>;
+  period?: Maybe<Scalars['String']['output']>;
   plan?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['Int']['output']>;
   transaction_id?: Maybe<Scalars['Int']['output']>;
@@ -8302,8 +8312,10 @@ export type Payment_History_Order_By = {
   data?: InputMaybe<Order_By>;
   date?: InputMaybe<Order_By>;
   four_last?: InputMaybe<Order_By>;
+  hplan?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   invoice_id?: InputMaybe<Order_By>;
+  period?: InputMaybe<Order_By>;
   plan?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
   transaction_id?: InputMaybe<Order_By>;
@@ -8335,9 +8347,13 @@ export enum Payment_History_Select_Column {
   /** column name */
   FourLast = 'four_last',
   /** column name */
+  Hplan = 'hplan',
+  /** column name */
   Id = 'id',
   /** column name */
   InvoiceId = 'invoice_id',
+  /** column name */
+  Period = 'period',
   /** column name */
   Plan = 'plan',
   /** column name */
@@ -8356,8 +8372,10 @@ export type Payment_History_Set_Input = {
   data?: InputMaybe<Scalars['jsonb']['input']>;
   date?: InputMaybe<Scalars['timestamptz']['input']>;
   four_last?: InputMaybe<Scalars['String']['input']>;
+  hplan?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   invoice_id?: InputMaybe<Scalars['String']['input']>;
+  period?: InputMaybe<Scalars['String']['input']>;
   plan?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Scalars['Int']['input']>;
   transaction_id?: InputMaybe<Scalars['Int']['input']>;
@@ -8404,8 +8422,10 @@ export type Payment_History_Stream_Cursor_Value_Input = {
   data?: InputMaybe<Scalars['jsonb']['input']>;
   date?: InputMaybe<Scalars['timestamptz']['input']>;
   four_last?: InputMaybe<Scalars['String']['input']>;
+  hplan?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   invoice_id?: InputMaybe<Scalars['String']['input']>;
+  period?: InputMaybe<Scalars['String']['input']>;
   plan?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Scalars['Int']['input']>;
   transaction_id?: InputMaybe<Scalars['Int']['input']>;
@@ -8435,9 +8455,13 @@ export enum Payment_History_Update_Column {
   /** column name */
   FourLast = 'four_last',
   /** column name */
+  Hplan = 'hplan',
+  /** column name */
   Id = 'id',
   /** column name */
   InvoiceId = 'invoice_id',
+  /** column name */
+  Period = 'period',
   /** column name */
   Plan = 'plan',
   /** column name */
@@ -13481,7 +13505,7 @@ export type GetCurrentPromtQueryVariables = Exact<{
 }>;
 
 
-export type GetCurrentPromtQuery = { __typename?: 'query_root', roles: Array<{ __typename?: 'roles', promt?: string | null, title: string, id: any, name?: string | null, directus_img?: { __typename?: 'directus_files', filename_disk?: string | null } | null }> };
+export type GetCurrentPromtQuery = { __typename?: 'query_root', roles: Array<{ __typename?: 'roles', promt?: string | null, title: string, id: any, name?: string | null, initial_message?: string | null, directus_img?: { __typename?: 'directus_files', filename_disk?: string | null } | null }> };
 
 export type GetMyChatsQueryVariables = Exact<{
   userId: Scalars['uuid']['input'];
@@ -13725,6 +13749,7 @@ export const GetCurrentPromtDocument = gql`
     title
     id
     name
+    initial_message
     directus_img {
       filename_disk
     }
