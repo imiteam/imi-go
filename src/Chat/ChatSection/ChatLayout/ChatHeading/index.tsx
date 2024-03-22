@@ -65,7 +65,7 @@ export default function ChatHeading(props: {title: string; userInfo: GetUserInfo
   const handleChangeModel = useCallback(
     async (model: string) => {
       try {
-        if (props.userInfo.users[0].is_client && props.userInfo.users[0].plan_id === "07428e4f-6d8f-41ee-95fb-1a11180f5877") {
+        if (props.userInfo.users[0].is_client && (props.userInfo.users[0].plan_id === "07428e4f-6d8f-41ee-95fb-1a11180f5877" || props.userInfo.users[0].plan_id ===  "ee502783-d116-4573-847e-2a8f0fc0f3ef" || props.userInfo.users[0].plan_id ===  "7465baa4-0af8-4a66-a6f2-ef3eb7745f46" || props.userInfo.users[0].plan_id ===  "54b3a722-016b-434b-8fad-6bef28dd3db6" || props.userInfo.users[0].plan_id === "878c5978-89c4-47d6-ae58-0e8fe7231be0")) {
           setChangingModel(true)
           await updateChatAction({chatId: pathname.slice(6), title: props.title, model: model})
           await ChangeAiTextModel({userId: props.userId, model: model})

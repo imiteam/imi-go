@@ -47,14 +47,14 @@ export const FixedInputChat = memo(function FixedInputChat(props: {
           props.handleSubmit(e)
         }
       }}
-      className="flex w-full justify-center"
+      className="flex w-full justify-center vsm:px-[4px]"
       ref={formRef}
     >
       <div
         className="flex w-full max-w-[880px] items-center
                       justify-between border border-[#101828] bg-header-bg-lite
-                        dark:bg-header-bg-dark md:h-[58px] md:rounded-[16px] md:px-[8px] md:pr-[4px] lg:h-[55px] lg:rounded-[16px]
-                        lg:px-[8px] lg:pr-[4px] xl:h-[65px] xl:p-[12px]"
+                        dark:bg-header-bg-dark md:h-[58px] md:rounded-[16px] md:px-[8px] lg:h-[55px] lg:rounded-[16px]
+                        lg:px-[8px] xl:h-[65px] xl:p-[12px]"
       >
         <div className="flex w-full items-center">
           <ImproveIcon/>
