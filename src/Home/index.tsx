@@ -10,7 +10,6 @@ import { ChatBots } from "./ChatBots";
 import { TemplateCategories } from "./TemplateCategories";
 import { FixedInput } from "./FixedInput";
 
-
 export const Home = async function Home() {
   const tags = await getAllTemplateTags();
 

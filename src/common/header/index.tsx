@@ -15,6 +15,7 @@ import { SettingsIcon } from "./icon_components/SettingsIcon";
 import { NotifyIcon } from "./icon_components/NotifyIcon";
 
 export default function Header() {
+  
   const pathName = usePathname();
 
   const { data: session } = useSession();

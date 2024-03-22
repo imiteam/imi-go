@@ -9,7 +9,7 @@ export const AiCategories = memo(function AiCategories(props: {
   aiCategories: GetAiCategoriesQuery;
 }) {
   return (
-    <div
+    <div 
       className="flex h-[44px] w-full flex-nowrap items-center md:mb-[0px] md:mt-[24px] md:h-auto md:flex-col md:px-[20px] 
                     md:vsm:mb-[0px] md:vsm:mt-[16px] md:vsm:px-[16px] lg:mx-[32px] lg:mt-[24px] lg:justify-between xl:mt-[32px]"
     >
