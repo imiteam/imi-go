@@ -131,11 +131,7 @@ export const ChatLayout = memo(function ChatLayout(props: {
   //   }
   // }, [props.id, props.initiateChat])
   useEffect(() => {
-    //временное решение бага с фризом страницы при перезагрузке
-    const element = document.querySelector('#appelement') as HTMLElement;;
-    if (element) {
-      element.click();
-    }
+    document.body.click();
   });
   return (
     <div
