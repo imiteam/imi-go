@@ -21,7 +21,7 @@ export default function RootLayout({
 
   let cookieStore = cookies();
   let userCookie = cookieStore.get("next-auth.session-token");
-
+  
   return (
     <ApolloWrapper additionalData={userCookie?.value}>
       <SessionWrapper>
@@ -32,7 +32,7 @@ export default function RootLayout({
             disableTransitionOnChange
             themes={["light", "dark"]}
           >
-            <body id="appelement" className="flex min-h-screen w-full flex-col CrossbrowserLayout">
+            <body id="appelement" className="flex w-full flex-col svhExperimentalClass">
               <MobileMenu />
               <Header />
               {children}
