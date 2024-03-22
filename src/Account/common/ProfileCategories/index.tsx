@@ -31,7 +31,7 @@ export const ProfileCategories = async () => {
                             lg:px-[4px]"
       >
         {profile_categories.map((category) => {
-          if (category.name === 'team' || category.name === 'partners') {
+          if (category.name === 'team' || category.name === 'partners' || category.name === "plans") {
             return (
               <div
                 className="md:flex md:h-[40px] md:w-1/6 md:items-center md:sm:h-[32px] lg:h-[36px] lg:w-auto"

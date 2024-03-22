@@ -16,7 +16,7 @@ export const ProfileNavButton = ({id, title, name}: {id: number; title: string; 
     }
   }, [currentPath, id, name])
 
-  let cursor = name === 'team' || name === 'partners' ? 'not-allowed' : 'pointer'
+  let cursor = name === 'team' || name === 'partners' || name === 'plans' ? 'not-allowed' : 'pointer'
   return name === 'team' || name === 'partners' ? (
     <TooltipProvider delayDuration={150}>
       <Tooltip>
