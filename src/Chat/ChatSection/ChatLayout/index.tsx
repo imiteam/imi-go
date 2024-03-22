@@ -130,14 +130,12 @@ export const ChatLayout = memo(function ChatLayout(props: {
   //     }) 
   //   }
   // }, [props.id, props.initiateChat])
+  if(document.body){
+    document.body.click();
+    console.log("click")
+  }
+  
 
-  useEffect(() => {
-    //временное решение бага с фризом страницы при перезагрузке
-    const element = document.querySelector('#appelement') as HTMLElement;;
-    if (element) {
-      element.click();
-    }
-  }, []);
   return (
     <div
       className={`z-[20] mb-[12px] flex h-[99%] w-full grow flex-col items-center justify-between bg-[#fff] dark:bg-[#21242C] sm:h-[99.5%] md:rounded-[16px] lg:rounded-[16px] ${margingX}`}
