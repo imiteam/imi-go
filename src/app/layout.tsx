@@ -32,7 +32,7 @@ export default function RootLayout({
             disableTransitionOnChange
             themes={["light", "dark"]}
           >
-            <body id="appelement" className="flex w-full flex-col svhExperimentalClass">
+            <body id="appelement" className="flex min-h-screen w-full flex-col">
               <MobileMenu />
               <Header />
               {children}
