@@ -13368,7 +13368,7 @@ export type GetUserHistoryQueryVariables = Exact<{
 }>;
 
 
-export type GetUserHistoryQuery = { __typename?: 'query_root', payment_history: Array<{ __typename?: 'payment_history', transaction_id: number, date: any, plan?: string | null, card?: string | null, four_last?: string | null, card_exp_date?: string | null, amount?: number | null, status: number }> };
+export type GetUserHistoryQuery = { __typename?: 'query_root', payment_history: Array<{ __typename?: 'payment_history', transaction_id: number, date: any, plan?: string | null, card?: string | null, four_last?: string | null, card_exp_date?: string | null, amount?: number | null, status: number, period?: string | null }> };
 
 export type GetPlanCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -13394,7 +13394,7 @@ export type GetUserInfoQueryVariables = Exact<{
 }>;
 
 
-export type GetUserInfoQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', ai_text_model?: string | null, plan_id?: any | null, is_client?: boolean | null, is_subscriber?: boolean | null }> };
+export type GetUserInfoQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', ai_text_model?: string | null, plan_id?: any | null, is_client?: boolean | null, is_subscriber?: boolean | null, is_year_sub?: boolean | null }> };
 
 export type GetUserSubscriptionIdQueryVariables = Exact<{
   userId: Scalars['uuid']['input'];
@@ -13568,6 +13568,7 @@ export const GetUserHistoryDocument = gql`
     card_exp_date
     amount
     status
+    period
   }
 }
     `;
@@ -13605,6 +13606,7 @@ export const GetUserInfoDocument = gql`
     plan_id
     is_client
     is_subscriber
+    is_year_sub
   }
 }
     `;

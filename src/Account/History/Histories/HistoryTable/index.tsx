@@ -109,7 +109,7 @@ export default function HistoryTable(props: {historyData: GetUserHistoryQuery["p
                                                         lg:text-[12px]
                                                         xl:text-[12px]"
                   >
-                    период
+                    {d.period}
                   </span>
                 </div>
               </TableCell>

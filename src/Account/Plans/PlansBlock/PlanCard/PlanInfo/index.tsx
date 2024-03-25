@@ -1,25 +1,27 @@
 'use client'
-import {useEffect, useState} from 'react'
+import {memo, useEffect, useState} from 'react'
 import {PlanCardSlider} from './PlanCardSlider'
 import { useProfileStore } from 'Account/lib/useProfileStore'
 
-export const PlanInfo = (props: {
-  wordsCount: number | string
-  sum: number
-  benefit: number
+export const PlanInfo = memo(function PlanInfo(props: {
+  wordsCount: number | string | number[]
+  sum: number | number[]
+  benefit: number | number[]
   planType: string
   sliderStepHandler : (step: number) => void
-}) => {
-  const [changedWordsCount, setChangedWordsCount] = useState<number>(1000000)
-  const [sliderValue, setSliderValue] = useState<number>(2)
+  sliderValue : number,
+  setSliderValue : (value : number) => void
+}) {
+  // const [changedWordsCount, setChangedWordsCount] = useState<number>(props.wordsCount as number)
+  
   const handleSliderChange = (value: number[]) => {
-    props.sliderStepHandler(value[0]! + 1)
-    setSliderValue(value[0]! + 1)
+    props.sliderStepHandler(value[0]!)
+    props.setSliderValue(value[0]!)
   }
   const {selectedMultiplyPlanButtonId} = useProfileStore()
-  useEffect(() => {
-    setChangedWordsCount(1000000 * sliderValue)
-  }, [sliderValue])
+  // useEffect(() => {
+  //   setChangedWordsCount(props.wordsCount as number * props.sliderValue)
+  // }, [props.sliderValue, props.wordsCount])
   return (
     <div className="flex w-full flex-col lg:h-[125px] xl:h-auto">
       {props.planType === 'simple' ? (
@@ -51,7 +53,7 @@ export const PlanInfo = (props: {
                                 lg:pt-[14px]
                                 xl:pt-[18px]"
         >
-          <PlanCardSlider defaultValue={[2]} max={5} step={1} onValueChange={handleSliderChange} />
+          <PlanCardSlider defaultValue={[0]} max={4} step={1} onValueChange={handleSliderChange} />
           <div
             className="mb-[20px] flex h-[14px] w-full justify-between
                                     planSm:mb-0 planSm:h-[24px]
@@ -75,7 +77,7 @@ export const PlanInfo = (props: {
                                         lg:text-[12px]
                                         xl:text-[14px]"
               >
-                {selectedMultiplyPlanButtonId === 1 ? changedWordsCount.toLocaleString() : (changedWordsCount/8).toLocaleString()} слов / месяц 
+                {selectedMultiplyPlanButtonId === 1 ? props.wordsCount : (props.wordsCount as number/10).toLocaleString()} слов / месяц 
               </span>
             )
             :
@@ -85,7 +87,7 @@ export const PlanInfo = (props: {
                                         lg:text-[12px]
                                         xl:text-[14px]"
               >
-                {changedWordsCount.toLocaleString()} слов / месяц
+                {props.wordsCount.toLocaleString()} слов / месяц
               </span>
             )
           }
@@ -122,7 +124,7 @@ export const PlanInfo = (props: {
                                 lg:text-[24px]
                                 xl:text-[30px]"
           >
-            {' ' + `${(props.sum * sliderValue).toLocaleString()}` + ' '}
+            {' ' + `${(props.sum as number) ? (props.sum as number).toLocaleString() : "load"}` + ' '}
             <span
               className="h-full font-NeueMachinaBold leading-[38px] text-[#101828] dark:text-[#F5F5F6]  md:text-[20px]
                                     lg:text-[24px]
@@ -163,7 +165,7 @@ export const PlanInfo = (props: {
           )
         }
 
-        {props.benefit > 0  && props.planType === 'simple' ? (
+        {props.benefit as number > 0  && props.planType === 'simple' ? (
           <span
             className="h-full font-NeueMachinaMedium text-[15px] text-[#667085] line-through dark:text-[#85888E] md:ml-[6px]
                                     md:leading-[11px] md:planSm:leading-[40px] 
@@ -173,14 +175,14 @@ export const PlanInfo = (props: {
           </span>
         ) 
         : 
-        props.benefit > 0  && props.planType === 'multiply' ?
+        props.benefit as number > 0  && props.planType === 'multiply' ?
         (
           <span
             className="h-full font-NeueMachinaMedium text-[15px] text-[#667085] line-through dark:text-[#85888E] md:ml-[6px]
                                     md:leading-[11px] md:planSm:leading-[40px] 
                                     lg:leading-[42px]"
           >
-            {`${(props.benefit * sliderValue).toLocaleString()}`}
+            {`${(props.benefit as number) ? (props.benefit as number).toLocaleString() : "load"}`}
           </span>
         )
         :
@@ -191,3 +193,4 @@ export const PlanInfo = (props: {
     </div>
   )
 }
+)

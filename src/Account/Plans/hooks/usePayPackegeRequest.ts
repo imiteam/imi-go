@@ -4,12 +4,12 @@ import { useProfileStore } from '../../lib/useProfileStore';
 const usePaymentPackegeRequest = () => {
  const SetPaymentPackegeUrl = useProfileStore((state) => state.SetPaymentPackegeUrl);
 
- const requestPaymentPackegeUrl = useCallback(async (  isSubscriber: boolean | null,amount : number, description : string, user_id : string, metadata : {
+ const requestPaymentPackegeUrl = useCallback(async (  isClient: boolean | null | undefined,amount : number, description : string, user_id : string, metadata : {
     plan : string
     tokens : number
     yearly: boolean
   }) => {
-    if( !isSubscriber){
+    if( !isClient){
       return
     }
     try {

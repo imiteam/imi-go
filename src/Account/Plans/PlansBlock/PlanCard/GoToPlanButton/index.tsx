@@ -6,12 +6,12 @@ import usePaymentRequest from 'Account/Plans/hooks/usePaymentRequest'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from 'common/UIkit/tooltip'
 export type PlanPayDataType = {
   amount:{
-    [Key : string] : number,
+    [Key : string] : number | number[],
   },
   description: string,
   metadata: {
-    plan: string,
-    tokens: number,
+    plan: string | string[],
+    tokens: number | number[],
     yearly: {
         [Key : string] : boolean,
       },
@@ -19,7 +19,7 @@ export type PlanPayDataType = {
   is_subscription: boolean, 
 } 
 export const GoToPlanButton = memo(function GoToPlanButton({isActive, planPayDataType, userId, planName,togglerNum,sliderStep}: 
-  {isActive: boolean, planPayDataType: PlanPayDataType, userId: string, planName: string,togglerNum: Number, sliderStep: number}){
+  {isActive: boolean, planPayDataType: PlanPayDataType, userId: string, planName: string | string[],togglerNum: Number, sliderStep: number}){
   
   const getPaymentUrl = usePaymentRequest();
 
@@ -52,11 +52,11 @@ export const GoToPlanButton = memo(function GoToPlanButton({isActive, planPayDat
       variant={isActive ? 'activePlan' : 'goToPlan'} 
       size={isActive ? 'activePlan' : 'goToPlan'} 
       disabled={isActive || !userId}
-      onClick={() => getPaymentUrl(togglerNum === 1 ? planPayDataType.amount[togglerNum.toString()] : planPayDataType.amount[togglerNum.toString()] * 12, 
+      onClick={() => getPaymentUrl(togglerNum === 1 ? planPayDataType.amount[togglerNum.toString()] as number : planPayDataType.amount[togglerNum.toString()] as number * 12, 
                                   planPayDataType.description,
                                   userId,
-                                  { plan: planPayDataType.metadata.plan, 
-                                    tokens: togglerNum === 1 ? planPayDataType.metadata.tokens : planPayDataType.metadata.tokens * 12, 
+                                  { plan: planPayDataType.metadata.plan as string, 
+                                    tokens: togglerNum === 1 ? planPayDataType.metadata.tokens : planPayDataType.metadata.tokens as number * 12, 
                                     yearly: planPayDataType.metadata.yearly[togglerNum.toString()]
                                   }, 
                                     true)
@@ -69,11 +69,11 @@ export const GoToPlanButton = memo(function GoToPlanButton({isActive, planPayDat
       variant={isActive ? 'activePlan' : 'goToPlan'} 
       size={isActive ? 'activePlan' : 'goToPlan'} 
       disabled={isActive || !userId}
-      onClick={() => getPaymentUrl(togglerNum === 1 ? planPayDataType.amount[togglerNum.toString()] * sliderStep : (planPayDataType.amount[togglerNum.toString()] * sliderStep) * 12, 
+      onClick={() => getPaymentUrl(togglerNum === 1 ? (planPayDataType.amount as any)[togglerNum.toString()][sliderStep] : ((planPayDataType.amount as any)[togglerNum.toString()][sliderStep]) * 12, 
                                   planPayDataType.description,
                                   userId,
-                                  { plan: planPayDataType.metadata.plan, 
-                                    tokens: togglerNum === 1 ? planPayDataType.metadata.tokens * sliderStep : (planPayDataType.metadata.tokens * sliderStep) * 12, 
+                                  { plan: planPayDataType.metadata.plan[sliderStep], 
+                                    tokens: togglerNum === 1 ? (planPayDataType.metadata.tokens as any)[sliderStep] : (planPayDataType.metadata.tokens as any)[sliderStep] * 12, 
                                     yearly: planPayDataType.metadata.yearly[togglerNum.toString()]
                                   }, 
                                     true)
