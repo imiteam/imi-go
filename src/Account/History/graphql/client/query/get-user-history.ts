@@ -11,6 +11,7 @@ query GetUserHistory($userId: uuid!) {
     card_exp_date
     amount
     status
+    period
   }
 }
 `

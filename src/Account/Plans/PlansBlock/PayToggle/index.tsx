@@ -48,7 +48,7 @@ export const PayToggle = memo(function PayToggle(props: {
         className="font-TTNormsBold leading-[9px] text-[#101828] dark:text-[#F5F5F6] md:text-[11px]
                             lg:text-[12px]"
       >
-        СЭКОНОМЬТЕ ДО 33%
+        СЭКОНОМЬТЕ ДО 59%
       </span>
     </div>
   )

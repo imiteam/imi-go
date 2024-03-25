@@ -4,9 +4,10 @@ import {memo} from 'react'
 
 export const PlanCardHeader = memo(function PlanCardHeader(props: {
   title: string
-  sale?: number
+  sale?: number | number[]
   presentation: string
 }) {
+
   return (
     <div
       className="flex w-full flex-col md:mb-[8px] md:h-[65px] md:justify-start

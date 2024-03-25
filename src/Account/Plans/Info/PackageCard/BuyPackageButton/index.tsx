@@ -15,14 +15,14 @@ export const BuyPackageButton = (props : {
     }
   },
   userId: string
-  isSubscriber: boolean | null
+  isClient: boolean | null | undefined
 }) => {
   const getPaymentPackegeUrl = usePaymentPackegeRequest();
   return (
     <Button 
     size="buyPackage" 
     variant="buyPackage"
-    onClick={() => getPaymentPackegeUrl(props.isSubscriber,props.packagePayDataType.amount, 
+    onClick={() => getPaymentPackegeUrl(props.isClient,props.packagePayDataType.amount, 
       props.packagePayDataType.description,
       props.userId,
       { plan: props.packagePayDataType.metadata.plan, 

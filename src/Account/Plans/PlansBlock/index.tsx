@@ -12,18 +12,18 @@ import { Key } from 'lucide-react'
 
 export type PlansMockData = {
   title: string
-  name: string
+  name: string | string[]
   presentation: string
   sale: {
-    [Key : string] : number,
+    [Key : string] : number | number[],
   },
   benefit: {
-    [Key : string] : number,
+    [Key : string] : number | number[],
   },
   sum: {
-    [Key : string] : number,
+    [Key : string] : number | number[],
   },
-  wordsCount: number | string
+  wordsCount: number | string | number[],
   planButton: {
     type: string
     title:
@@ -36,12 +36,12 @@ export type PlansMockData = {
   planFeautures: Array<{title: string; includes: boolean}>
   paymentFetchObj : {
     amount: {
-      [Key : string] : number,
+      [Key : string] : number | number[],
     },
     description: string,
     metadata: {
-      plan: string,
-      tokens: number,
+      plan: string | string[],
+      tokens: number | number[],
       yearly: {
         [Key : string] : boolean,
       },
@@ -51,7 +51,7 @@ export type PlansMockData = {
 }
 
 export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {planCategories: GetPlanCategoriesQuery,planName: string | undefined}) {
-  
+  // тогоер ежемесячного/ежегодного платежа
   const [togglerNum,setTogglerNum] = useState<Number>(1)
 
   const changePaymentPeriodToggler = (togglerNum : number) => {
@@ -90,7 +90,7 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
           includes: true,
         },
         {
-          title: '100+ текстовых шаблонов',
+          title: '70+ текстовых шаблонов',
           includes: true,
         },
         {
@@ -128,18 +128,18 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
       name: "Base",
       presentation: 'Раскройте свой творческий потенциал',
       sale: {
-        "1" : 0,
-        "2" : 20
+        "1" : 38,
+        "2" : 54
       },
       benefit: {
-        "1" : 0,
+        "1" : 3250,
         "2" : 3250
       },
       sum: {
-        "1" : 3250,
-        "2" : 1990
+        "1" : 1990,
+        "2" : 1490
       },
-      wordsCount: 'безлимитно',
+      wordsCount: 300000,
       planButton: {
         type: 'simple',
         title: 'GPT 3.5 TURBO',
@@ -154,7 +154,7 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
           includes: true,
         },
         {
-          title: '100+ текстовых шаблонов',
+          title: '70+ текстовых шаблонов',
           includes: true,
         },
         {
@@ -172,13 +172,13 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
       ],
       paymentFetchObj : {
         amount :{
-          "1" : 3250,
-          "2" : 1990
+          "1" : 1990,
+          "2" : 1490
         },
         description : "Базовый тариф",
         metadata : {
           plan : "Base",
-          tokens : 1000000,
+          tokens : 400000,
           yearly : {
             "1" : false,
             "2" : true
@@ -189,21 +189,21 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
     },
     {
       title: 'PRO',
-      name: "Pro",
+      name: ["Pro","Pro2","Pro3","Pro4","Pro5"],
       presentation: 'Используйте свой потенциал на максимум',
       sale: {
-        "1" : 0,
-        "2" : 33
+        "1" : [43,43,47,51,51],
+        "2" : [50,50,52,54,59]
       },
       benefit: {
-        "1" : 0, 
-        "2" : 17250
+        "1" : [4400,9000,18000,36000,72000], 
+        "2" : [4400,9000,18000,36000,72000]
       },
       sum: {
-        "1" : 17250,
-        "2" : 13990
+        "1" : [2490,4990,9490,17490,34990],
+        "2" : [1990,4490,8490,16490,29900]
       },
-      wordsCount: 4000000,
+      wordsCount: [400000,1000000,2000000,4400000,9000000],
       planButton: {
         type: 'multiply',
         title: [
@@ -221,7 +221,7 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
           includes: true,
         },
         {
-          title: '100+ текстовых шаблонов',
+          title: '70+ текстовых шаблонов',
           includes: true,
         },
         {
@@ -236,16 +236,20 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
           title: 'Загрузка PDF-файлов в чат с ИИ',
           includes: true,
         },
+        {
+          title: 'Поддержка онлайн 24/7',
+          includes: true,
+        },
       ],
       paymentFetchObj : {
         amount :  {
-          "1" : 17250,
-          "2" : 13990
+          "1" : [2490,4990,9490,17490,34990],
+          "2" : [1990,4490,8490,16490,29900]
         },
         description : "PRO тариф",
         metadata : {
-          plan : "Pro",
-          tokens : 750000,
+          plan : ["Pro","Pro2","Pro3","Pro4","Pro5"],
+          tokens : [533333,1333333,2666667,5866667,12000000],
           yearly : {
             "1" : false,
             "2" : true
@@ -259,7 +263,7 @@ export const PlansBlock = memo(function PlansBlock({planCategories, planName}: {
   //Работа с модалкой для отображения окна оплаты тарифа
   const {SetPaymentUrl,paymentUrl} = useProfileStore()
   const iframeeRef = useRef<HTMLIFrameElement | null>(null);
- 
+
   useClickAway(iframeeRef, (e) => {
       if(iframeeRef.current){
         SetPaymentUrl("")

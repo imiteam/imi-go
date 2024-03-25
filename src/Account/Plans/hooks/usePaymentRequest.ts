@@ -6,7 +6,7 @@ const usePaymentRequest = () => {
 
  const requestPaymentUrl = useCallback(async (amount : number, description : string, user_id : string, metadata : {
     plan : string
-    tokens : number
+    tokens : number | number[]
     yearly : boolean
   }, is_subscription : boolean) => {
     try {

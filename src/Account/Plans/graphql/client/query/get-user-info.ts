@@ -7,6 +7,7 @@ export const GetUserInfo = gql`
       plan_id
       is_client
       is_subscriber
+      is_year_sub
     }
   }
 `

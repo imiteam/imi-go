@@ -1,6 +1,6 @@
 // @ts-ignore
 import { getServerSession } from 'next-auth'
-import {getPlanCategories, getPlanInfo, getPlanUser} from './graphql/action'
+import {getPlanCategories, getPlanInfo, getPlanUser, getUserInfo} from './graphql/action'
 import {Info} from './Info'
 import {PlansBlock} from './PlansBlock'
 import {QuestionBlock} from './QuestionBlock'
@@ -12,6 +12,7 @@ export const PlansPage = async () => {
   const {users_by_pk} = await getPlanUser({userId: session?.user.id!})
   const plan_categories = await getPlanCategories()
   const {plans_by_pk} = await getPlanInfo({planId: users_by_pk?.plan_id})
+  const userInfo = await getUserInfo({userId: session?.user.id!})
   const questions = [
     {
       question: 'Какие варианты тарифов вы предлагаете?',
@@ -43,6 +44,9 @@ export const PlansPage = async () => {
         wordsCount={plans_by_pk?.tokens}
         nextPaySum={plans_by_pk?.price}
         nextPayDate={users_by_pk?.date_end_plan}
+        isYearSub={userInfo.users[0].is_year_sub}
+        isSubscriber={userInfo.users[0].is_subscriber}
+        isClient={userInfo.users[0].is_client}
       />
       <PlansBlock planCategories={plan_categories} planName={plans_by_pk?.name}/>
       <RequestBlock />

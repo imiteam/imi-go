@@ -8,10 +8,10 @@ export const PackageCard = memo(function PackageCard(props: {
   wordsCount: number
   sum: number
   benefit: number
-  symbol: number
-  pic: number
+  symbol?: number
+  pic?: number
   partSum: number
-  isSubscriber: boolean | null
+  isClient: boolean | null | undefined
   paymentFetchObj : {
     amount : number,
     description : string,
@@ -24,7 +24,7 @@ export const PackageCard = memo(function PackageCard(props: {
 }) {
   return (
     <div
-      className="flex h-[265px] w-[251px] flex-col rounded-[16px] border border-[#D0D5DD] p-[20px] pb-[24px] dark:border-[#333741]
+      className="flex h-[265px] w-[251px] flex-col justify-between rounded-[16px] border border-[#D0D5DD] p-[20px] pb-[24px] dark:border-[#333741]
         planSm:h-[258px] planSm:w-[229px]
         planSm:vsm:w-full"
     >
@@ -43,15 +43,15 @@ export const PackageCard = memo(function PackageCard(props: {
           {props.benefit.toLocaleString()} &#x20BD;
         </span>
       </span>
-      <span className="whitespace-pre-wrap font-TTNormsRegular text-[14px] leading-[20px] text-[#0B3BEC] dark:text-[#155EEF]">
+      {/* <span className="whitespace-pre-wrap font-TTNormsRegular text-[14px] leading-[20px] text-[#0B3BEC] dark:text-[#155EEF]">
         {props.symbol.toLocaleString() + '  '}
         <span className="text-[#475467] dark:text-[#98A2B3]">символов</span>
       </span>
       <span className="whitespace-pre-wrap font-TTNormsRegular text-[14px] leading-[20px] text-[#0B3BEC] dark:text-[#155EEF]">
         {props.pic.toLocaleString() + '  '}
         <span className="text-[#475467] dark:text-[#98A2B3]">изображений</span>
-      </span>
-      <BuyPackageButton packagePayDataType={props.paymentFetchObj} userId={props.userId} isSubscriber={props.isSubscriber}/>
+      </span> */}
+      <BuyPackageButton packagePayDataType={props.paymentFetchObj} userId={props.userId} isClient={props.isClient}/>
       <span
         className="font-TTNormsMedium text-[16px] leading-[19px] text-[#101828] dark:text-[#F5F5F6]
             planSm:text-[14px] planSm:leading-[14px]"

@@ -16,10 +16,13 @@ import { useProfileStore } from 'Account/lib/useProfileStore'
 import { CancelPlanModal } from './CancelPlanModal'
 
 export const Info = (props: {
+  isClient: boolean | null | undefined
   plan: string | undefined
   wordsCount: number | undefined
   nextPaySum: number | undefined
   nextPayDate: string | undefined
+  isYearSub : boolean | null | undefined
+  isSubscriber : boolean | null | undefined
 }) => {
   function formatDate(inputDate: string): string {
     const date = new Date(inputDate)
@@ -30,6 +33,15 @@ export const Info = (props: {
     }
     return date.toLocaleDateString('ru-RU', options)
   }
+
+  const nextPaymentSum = useCallback(() => {
+    if(props.isYearSub) {
+     return props.nextPaySum! * 12
+    } else {
+      return props.nextPaySum
+    }
+  }, [props.isYearSub,props.nextPaySum])
+
   const session = useSession()
   const { data: userWalletData } = useSubscription<
     UserWalletSubscription,
@@ -72,80 +84,75 @@ export const Info = (props: {
  }, [GetUserSubscriptionIdData?.users[0].subscription_id]);
 
     //работа с модалкой отмены подписки
-    
-    const { data: GetUserInfoData  } = useQuery(GetUserInfoDocument, {
-    variables: { userId: session.data?.user.id },
-  });
-
   const planPackage = [
     {
       id: 1, 
-      wordsCount: 750, 
-      sum: 199, 
-      benefit: 400, 
-      symbol: 10000, 
-      pic: 30, 
-      partSum: 19,
+      wordsCount: 100000, 
+      sum: 490, 
+      benefit: 800, 
+      // symbol: 100000, 
+      // pic: 30, 
+      partSum: 4.9,
       paymentFetchObj : {
-        amount : 199,
+        amount : 490,
         description : "Дополнительный пакет",
         metadata : {
           plan : "",
-          tokens : 1000,
+          tokens : 133333,
           yearly: false
         }
       }
     },
     {
       id: 2,
-      wordsCount: 7500,
-      sum: 299,
-      benefit: 650,
-      symbol: 10000,
-      pic: 85,
-      partSum: 19,
+      wordsCount: 200000,
+      sum: 790,
+      benefit: 1600,
+      // symbol: 200000,
+      // pic: 85,
+      partSum: 3.9,
       paymentFetchObj : {
-        amount : 299,
+        amount : 790,
         description : "Дополнительный пакет",
         metadata : {
           plan : "",
-          tokens : 10000,
+          tokens : 266666,
           yearly: false
         }
       }
     },
     {
       id: 3,
-      wordsCount: 75000,
-      sum: 399,
-      benefit: 1300,
-      symbol: 10000,
-      pic: 170,
-      partSum: 19,
+      wordsCount: 300000,
+      sum: 1190,
+      benefit: 2400,
+      // symbol: 300000,
+      // pic: 170,
+      partSum: 3.9,
       paymentFetchObj : {
-        amount : 399,
+        amount : 1190,
         description : "Дополнительный пакет",
         metadata : {
           plan : "",
-          tokens : 100000,
+          tokens : 400000,
           yearly: false
         }
       }
     },
     {
       id: 4,
-      wordsCount: 150000,
-      sum: 499,
+      wordsCount: 500000,
+      sum: 1890,
       benefit: 3000,
-      symbol: 10000,
-      pic: 350,
-      partSum: 19,
+      // symbol: 500000,
+      // pic: 350,
+      partSum: 3.9,
       paymentFetchObj : {
-        amount : 499,
+        amount : 1890,
         description : "Дополнительный пакет",
         metadata : {
           plan : "",
-          tokens : 200000,
+          tokens : 666666,
           yearly: false
         }
       }
@@ -167,7 +174,7 @@ export const Info = (props: {
     () =>  {
       if(props.plan === "Free"){
         return "Бесплатный"
-      } else if (props.plan === "Pro") {
+      } else if (props.plan === "Pro" || props.plan === "Pro2" || props.plan === "Pro3" || props.plan === "Pro4" || props.plan === "Pro5") {
         return "Продвинутый"
       } else {
         return "Базовый"
@@ -258,12 +265,24 @@ export const Info = (props: {
                                 vsm:justify-end md:flex-col
                                 md:items-start md:vsm:items-center"
         >
+          {
+          props.isSubscriber ?
           <span
             className="mr-[8px] whitespace-nowrap font-TTNormsRegular text-[12px] leading-[18px] text-[#101828] dark:text-[#F5F5F6]
                                     vsm:mr-0"
           >
-            Следующий платеж {props.nextPaySum} &#x20BD; - {props.nextPayDate ? formatDate(props.nextPayDate) : null}
+            Следующий платеж {nextPaymentSum()} &#x20BD; - {props.nextPayDate ? formatDate(props.nextPayDate) : null}
           </span>
+          :
+          <span
+          className="mr-[8px] whitespace-nowrap font-TTNormsRegular text-[12px] leading-[18px] text-[#101828] dark:text-[#F5F5F6]
+                                  vsm:mr-0"
+          >
+            Тариф действует до {props.nextPayDate ? formatDate(props.nextPayDate) : null}
+          </span>
+          }
+          {
+          props.isSubscriber &&  
           <CancelPlanModal
           cancelModalRef={cancelModalRef}
           cancelPlan={cancelPlan}
@@ -274,6 +293,7 @@ export const Info = (props: {
           showCancelPlanModal={showCancelPlanModal}
           subscription_id={GetUserSubscriptionIdData?.users[0].subscription_id}
           />
+          }
         </div>
       </div>
       <div
@@ -342,14 +362,14 @@ export const Info = (props: {
                     <PackageCard
                       benefit={p.benefit}
                       partSum={p.partSum}
-                      pic={p.pic}
+                      // pic={p.pic}
                       sum={p.sum}
-                      symbol={p.symbol}
+                      // symbol={p.symbol}
                       wordsCount={p.wordsCount}
                       key={p.id}
                       paymentFetchObj={p.paymentFetchObj}
                       userId={session.data?.user.id!}
-                      isSubscriber={GetUserInfoData ? GetUserInfoData.users[0].is_subscriber : null}
+                      isClient={props.isClient}
                     />
                   )
                 })}

@@ -41,6 +41,14 @@ export const WordsWidget = memo(function WordsWidget(props: {className?: string;
             return "Базовый"
           case "07428e4f-6d8f-41ee-95fb-1a11180f5877" :
             return "PRO"
+          case "ee502783-d116-4573-847e-2a8f0fc0f3ef" :
+            return "PRO"
+          case "7465baa4-0af8-4a66-a6f2-ef3eb7745f46" :
+            return "PRO"
+          case "54b3a722-016b-434b-8fad-6bef28dd3db6" :
+            return "PRO"
+          case "878c5978-89c4-47d6-ae58-0e8fe7231be0" :
+            return "PRO"
           default:
             return <div className="flex justify-center items-center">
             <div
