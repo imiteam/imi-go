@@ -9,7 +9,7 @@ export default function ProfileDropDown(props: {userWalletData: UserWalletSubscr
       if(props.ai_text_model !== "gpt-4"){
         return ((props.userWalletData?.wallets[0]?.tokens! + props.userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4
       } else {
-        return (((props.userWalletData?.wallets[0]?.tokens! + props.userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4) / 8
+        return (((props.userWalletData?.wallets[0]?.tokens! + props.userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4) / 10
       }
     },
     [props.userWalletData?.wallets, props.ai_text_model],

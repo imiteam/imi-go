@@ -4,6 +4,9 @@ import {ProgressCircleBar} from './ProcessCircle'
 import ProfileDropDownChat from './ProfileDropDownChat/index'
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '../../../common/UIkit/tooltip'
 import {
+  GetMaxTokensCountByPlanDocument,
+  GetMaxTokensCountByPlanQuery,
+  GetMaxTokensCountByPlanQueryVariables,
   GetPlanUserDocument,
   GetUserInfoDocument,
   UserWalletDocument,
@@ -13,6 +16,8 @@ import {
 import {memo, useCallback, useMemo} from 'react'
 import Image from "next/image"
 import betterYourPlan from "../../../../public/assets/betterYourPlan.png"
+
+
 export const WordsWidget = memo(function WordsWidget(props: {className?: string; id: string; userId: string}) {
   const {data: userWalletData} = useSubscription<UserWalletSubscription, UserWalletSubscriptionVariables>(
     UserWalletDocument,
@@ -30,7 +35,11 @@ export const WordsWidget = memo(function WordsWidget(props: {className?: string;
   const { data: GetUserInfoData  } = useQuery(GetUserInfoDocument, {
     variables: { userId: props.userId },
   });
-
+  
+  const { data : GetMaxTokens } = useQuery<GetMaxTokensCountByPlanQuery,GetMaxTokensCountByPlanQueryVariables>(GetMaxTokensCountByPlanDocument, {
+        variables: { planId: data?.users_by_pk?.plan_id },
+      });
+  
   const planName = useCallback(
     (data: any | undefined) => {
       if (data) {
@@ -62,16 +71,16 @@ export const WordsWidget = memo(function WordsWidget(props: {className?: string;
     [data],
   )
   const progress = useMemo(() => {
-   let maxTokens;
-   if(data?.users_by_pk?.plan_id === "8d035581-2209-4212-a4f2-6938bd0bf32a"){
-    maxTokens = 10000
-   } else if(data?.users_by_pk?.plan_id === "6a7c060b-1d7c-414a-88a5-f43edc9b6aee"){
-    maxTokens = 100000
-   } else {
-    maxTokens = 10000000
-   }
-   return ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0].additional_tokens!) / maxTokens) * 100
-  }, [userWalletData?.wallets,data])
+   let maxTokens = GetMaxTokens?.plans[0].tokens;
+  //  if(data?.users_by_pk?.plan_id === "8d035581-2209-4212-a4f2-6938bd0bf32a"){
+  //   maxTokens = 10000
+  //  } else if(data?.users_by_pk?.plan_id === "6a7c060b-1d7c-414a-88a5-f43edc9b6aee"){
+  //   maxTokens = 400000
+  //  } else if(data?.users_by_pk?.plan_id === "6a7c060b-1d7c-414a-88a5-f43edc9b6aee") {
+  //   maxTokens = 10000000
+  //  }
+   return ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0].additional_tokens!) / maxTokens!) * 100
+  }, [userWalletData?.wallets,data,GetMaxTokens])
   return (
     <div
       className="

@@ -7,7 +7,7 @@ import {ProfileSimpleButton} from './ProfileSimpleButton'
 import { PlanModalIcon } from './icon_components/PlanModalIcon'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { useQuery, useSubscription } from '@apollo/client'
-import { GetUserInfoDocument, GetUserSubscriptionIdDocument, UserWalletDocument, UserWalletSubscription, UserWalletSubscriptionVariables } from 'generated'
+import { GetUserInfoDocument, GetUserInfoQueryVariables, GetUserSubscriptionIdDocument, UserWalletDocument, UserWalletSubscription, UserWalletSubscriptionVariables } from 'generated'
 import { useSession } from 'next-auth/react'
 
 import { useClickAway } from 'react-use'
@@ -23,6 +23,7 @@ export const Info = (props: {
   nextPayDate: string | undefined
   isYearSub : boolean | null | undefined
   isSubscriber : boolean | null | undefined
+  ai_text_model : string | null | undefined
 }) => {
   function formatDate(inputDate: string): string {
     const date = new Date(inputDate)
@@ -43,6 +44,7 @@ export const Info = (props: {
   }, [props.isYearSub,props.nextPaySum])
 
   const session = useSession()
+  // Подписались на токены
   const { data: userWalletData } = useSubscription<
     UserWalletSubscription,
     UserWalletSubscriptionVariables
@@ -51,6 +53,7 @@ export const Info = (props: {
       userId: session.data?.user.id,
     },
   });
+
   //работа с модалкой отмены подписки
   const [showCancelPlanModal, setShowCancelPlanModal] = useState<boolean>(false)
 
@@ -163,11 +166,14 @@ export const Info = (props: {
       if(!userWalletData?.wallets[0]?.tokens! ){
         return NaN
       } else {
-        return ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0].additional_tokens!) * 3) / 4
-      
+        if(props.ai_text_model === "gpt-4"){
+          return (((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0].additional_tokens!) * 3) / 4) / 10
+        } else {
+          return ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0].additional_tokens!) * 3) / 4
+        }
       }
     },
-    [userWalletData?.wallets[0]?.tokens!],
+    [userWalletData?.wallets[0]?.tokens!,props.ai_text_model],
   );
   
   const currentPlan = useMemo(
