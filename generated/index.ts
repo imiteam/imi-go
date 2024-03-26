@@ -13507,6 +13507,13 @@ export type GetCurrentPromtQueryVariables = Exact<{
 
 export type GetCurrentPromtQuery = { __typename?: 'query_root', roles: Array<{ __typename?: 'roles', promt?: string | null, title: string, id: any, name?: string | null, initial_message?: string | null, directus_img?: { __typename?: 'directus_files', filename_disk?: string | null } | null }> };
 
+export type GetMaxTokensCountByPlanQueryVariables = Exact<{
+  planId: Scalars['uuid']['input'];
+}>;
+
+
+export type GetMaxTokensCountByPlanQuery = { __typename?: 'query_root', plans: Array<{ __typename?: 'plans', tokens: number }> };
+
 export type GetMyChatsQueryVariables = Exact<{
   userId: Scalars['uuid']['input'];
   value: Scalars['String']['input'];
@@ -13758,6 +13765,13 @@ export const GetCurrentPromtDocument = gql`
   }
 }
     `;
+export const GetMaxTokensCountByPlanDocument = gql`
+    query GetMaxTokensCountByPlan($planId: uuid!) {
+  plans(where: {id: {_eq: $planId}}) {
+    tokens
+  }
+}
+    `;
 export const GetMyChatsDocument = gql`
     query GetMyChats($userId: uuid!, $value: String!) {
   chats(
@@ -13924,6 +13938,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetCurrentPromt(variables?: GetCurrentPromtQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCurrentPromtQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetCurrentPromtQuery>(GetCurrentPromtDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetCurrentPromt', 'query', variables);
+    },
+    GetMaxTokensCountByPlan(variables: GetMaxTokensCountByPlanQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetMaxTokensCountByPlanQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetMaxTokensCountByPlanQuery>(GetMaxTokensCountByPlanDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetMaxTokensCountByPlan', 'query', variables);
     },
     GetMyChats(variables: GetMyChatsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetMyChatsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetMyChatsQuery>(GetMyChatsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetMyChats', 'query', variables);

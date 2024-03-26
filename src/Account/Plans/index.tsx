@@ -47,6 +47,7 @@ export const PlansPage = async () => {
         isYearSub={userInfo.users[0].is_year_sub}
         isSubscriber={userInfo.users[0].is_subscriber}
         isClient={userInfo.users[0].is_client}
+        ai_text_model={userInfo.users[0].ai_text_model}
       />
       <PlansBlock planCategories={plan_categories} planName={plans_by_pk?.name}/>
       <RequestBlock />

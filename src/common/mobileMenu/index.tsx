@@ -103,7 +103,7 @@ export default function MobileMenu() {
       if(GetUserInfoData?.users[0].ai_text_model !== "gpt-4"){
         return ((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4
       } else {
-        return (((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4) / 8
+        return (((userWalletData?.wallets[0]?.tokens! + userWalletData?.wallets[0]?.additional_tokens!) * 3) / 4) / 10
       }
     },
     [userWalletData?.wallets, GetUserInfoData],
