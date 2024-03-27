@@ -13556,6 +13556,13 @@ export type GetTemplateTagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetTemplateTagsQuery = { __typename?: 'query_root', template_tags: Array<{ __typename?: 'template_tags', id: number, name?: string | null, title?: string | null }> };
 
+export type GetTemplateByIdQueryVariables = Exact<{
+  templateId?: InputMaybe<Scalars['uuid']['input']>;
+}>;
+
+
+export type GetTemplateByIdQuery = { __typename?: 'query_root', templates: Array<{ __typename?: 'templates', icon?: any | null, id: any, name?: string | null, title?: string | null }> };
+
 export type UserWalletSubscriptionVariables = Exact<{
   userId: Scalars['uuid']['input'];
 }>;
@@ -13865,6 +13872,16 @@ export const GetTemplateTagsDocument = gql`
   }
 }
     `;
+export const GetTemplateByIdDocument = gql`
+    query GetTemplateById($templateId: uuid) {
+  templates(where: {id: {_eq: $templateId}}) {
+    icon
+    id
+    name
+    title
+  }
+}
+    `;
 export const UserWalletDocument = gql`
     subscription UserWallet($userId: uuid!) {
   wallets(where: {user_id: {_eq: $userId}}) {
@@ -13962,6 +13979,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetTemplateTags(variables?: GetTemplateTagsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTemplateTagsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetTemplateTagsQuery>(GetTemplateTagsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetTemplateTags', 'query', variables);
+    },
+    GetTemplateById(variables?: GetTemplateByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTemplateByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetTemplateByIdQuery>(GetTemplateByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetTemplateById', 'query', variables);
     },
     UserWallet(variables: UserWalletSubscriptionVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<UserWalletSubscription> {
       return withWrapper((wrappedRequestHeaders) => client.request<UserWalletSubscription>(UserWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'UserWallet', 'subscription', variables);
