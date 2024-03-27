@@ -7,7 +7,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
-// export const runtime = 'edge'
+export const runtime = 'edge'
 
 export async function POST(req: any) {
   const json = await req.json()
