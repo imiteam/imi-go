@@ -1,0 +1,1 @@
+export { TemplatesLayout as default } from "../../Templates/layout";
