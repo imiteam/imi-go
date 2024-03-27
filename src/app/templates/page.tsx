@@ -1,0 +1,1 @@
+export {TemplatesList as default} from "../../Templates/TemplatesList"
